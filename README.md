@@ -37,18 +37,6 @@ Where:
 └── revisions/                      # Post-submission revision materials
 ```
 
-## Recent Additions (Post-Submission)
-
-### Igamberdiev Connection (2025-11-16)
-Added historical context connecting to:
-- **Vernadsky (1945):** Biological space-time geometry
-- **Igamberdiev (1985):** Biological time as logarithmic function of physical time
-- **Igamberdiev (1993):** Quantum non-demolition measurements in biosystems
-
-**Key insight:** Our coherence time formula is the quantitative realization of Igamberdiev's phenomenological "biological time" framework. The exponential scaling with M corresponds to logarithmic biological time: t_bio ~ ln(τ_coh) ∝ M.
-
-This completes a 40-year theoretical arc from Vernadsky's intuition → Igamberdiev's formalization → quantitative mechanistic formula.
-
 ## Compilation
 
 ```bash

@@ -37,7 +37,7 @@ Neuroscience has established that cognitive processing depends on coherent oscil
 \[
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha(1-r)(M-1)}
 \]
-where circular variance $(1-r)$ governs phase dispersion and $\alpha$ captures network topology. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; tighter coherence (higher $r$) speeds synchronization but restricts dynamics to low-dimensional attractors. Combining coherence time with quantum, noise, and power limits yields a unified temporal resolution bound explaining millisecond-scale perceptual windows, arousal-driven time dilation, alpha frequency correlates of temporal acuity, and metabolic scaling across species. While neural oscillators provide the most empirically accessible measurements, the framework applies to any biological oscillator system---molecular motors, genetic oscillators, circadian networks. We provide parameter estimation protocols from electrophysiological recordings and testable predictions including alpha entrainment linearity and dual-loop dissociations under arousal.
+where circular variance $(1-r)$ governs phase dispersion and $\alpha$ reflects the effective coordination regime. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; tighter coherence (higher $r$) speeds synchronization but restricts dynamics to low-dimensional attractors. Combining coherence time with quantum, noise, and power limits yields a unified temporal resolution bound explaining millisecond-scale perceptual windows, arousal-driven time dilation, alpha frequency correlates of temporal acuity, and metabolic scaling across species. While neural oscillators provide the most empirically accessible measurements, the framework applies to any biological oscillator system---molecular motors, genetic oscillators, circadian networks. We provide parameter estimation protocols from electrophysiological recordings and testable predictions including alpha entrainment linearity and dual-loop dissociations under arousal.
 \end{abstract}
 
 \textbf{Keywords:} neural oscillations, coherence time, dimensional coordination, temporal resolution, working memory, coupled oscillators
@@ -589,7 +589,7 @@ Sparse & 0.01 & 0.05 & No scaling \\
 
 This result strengthens the biological relevance of the framework: neural networks are hierarchically modular, not all-to-all or sparse random. Biology operates precisely in the regime where coordination time becomes a limiting factor.
 
-The moderate $r^2$ for modular topology is expected: first-passage times are heavy-tailed, and $n = 10$ trials per $M$ yields high variance in median estimates.
+We fit least-squares to $\log(\mathrm{median}\,\tau_{\mathrm{coh}})$ across $M$; a sweep point is ``valid'' if $\geq 50\%$ of trials reach the alignment criterion within the simulation horizon (50s). The moderate $r^2$ for modular topology is expected: first-passage times are heavy-tailed, and $n = 10$ trials per $M$ yields high variance in median estimates.
 
 \textbf{Code availability:} Validation code available at \url{https://github.com/todd866/coherence-time-biosystems}.
 
