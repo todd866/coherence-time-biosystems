@@ -8,7 +8,7 @@ Submitted to BioSystems (2025-11-15). Awaiting reviews (expected ~Feb 2026).
 
 ## Post-Submission Development
 
-These materials are being prepared in anticipation of reviewer requests and for future extensions:
+These materials are being prepared in anticipation of reviewer requests and for future extensions. **Note:** These post-submission materials are not part of the peer-reviewed record unless explicitly incorporated into a formal revision.
 
 ### Simulation Validation
 - `simulations/kuramoto_coherence_time_v2.py` - Paper-grade validation suite
