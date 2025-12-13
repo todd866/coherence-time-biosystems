@@ -126,7 +126,7 @@ For neural LFP signals, $N_0$ is estimated from background noise variance and sa
 \]
 
 \paragraph{Coherence time ($\tau_{\mathrm{coh}}$).}
-We model commits as threshold crossings of the order parameter across $M$ semi-independent modules.
+We model commits as threshold crossings of the order parameter across $M$ semi-independent modules. (By ``commit'' we mean an irreversible registration of distributed state into a low-dimensional outcome that constrains subsequent dynamics---not necessarily a single spike or discrete behavioral choice.)
 Let $r$ be the mean resultant length (Kuramoto order parameter), and $\kappa(r)$ the von Mises concentration with $r=I_1(\kappa)/I_0(\kappa)$~\cite{mardia2000}.
 For small phase window $\varepsilon$ per module, the per-module alignment probability is
 \[
@@ -362,7 +362,7 @@ with coherence time
 \[
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha(1-r)(M-1)}
 \]
-unifies quantum, noise, and coordination limits to explain temporal resolution in physical measurement systems. Here $M$ is coordination depth (number of semi-independent modules requiring alignment), $(1-r)$ is circular variance (phase dispersion), and $\alpha$ captures network topology.
+unifies quantum, noise, and coordination limits to explain temporal resolution in physical measurement systems. Here $M$ is coordination depth (number of semi-independent modules requiring alignment), $(1-r)$ is circular variance (phase dispersion), and $\alpha$ reflects the effective coordination regime (topology $\times$ coupling), not topology alone.
 
 Key findings:
 \begin{enumerate}
