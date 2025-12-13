@@ -589,7 +589,7 @@ Sparse & 0.01 & 0.05 & No scaling \\
 
 This result strengthens the biological relevance of the framework: neural networks are hierarchically modular, not all-to-all or sparse random. Biology operates precisely in the regime where coordination time becomes a limiting factor.
 
-We fit least-squares to $\log(\mathrm{median}\,\tau_{\mathrm{coh}})$ across $M$; a sweep point is ``valid'' if $\geq 50\%$ of trials reach the alignment criterion within the simulation horizon (50s). The moderate $r^2$ for modular topology is expected: first-passage times are heavy-tailed, and $n = 10$ trials per $M$ yields high variance in median estimates.
+We fit least-squares to $\log(\mathrm{median}\,\tau_{\mathrm{coh}})$ across $M$; a sweep point is ``valid'' if $\geq 50\%$ of trials reach the alignment criterion within the simulation horizon (50s). The moderate $r^2$ for modular topology is expected: first-passage times are heavy-tailed, and $n = 10$ trials per $M$ yields high variance in median estimates. Preliminary runs with tighter tolerance ($\varepsilon = \pi/3$) show similar positive $M$-scaling ($\hat{\alpha} \approx 0.16$), suggesting robustness; precise $\varepsilon$-dependence validation requires larger samples.
 
 \textbf{Code availability:} Validation code available at \url{https://github.com/todd866/coherence-time-biosystems}.
 
