@@ -86,9 +86,3 @@ Output: `coherence_time.pdf` (26 pages)
 - **Intelligence paper** (`3_intelligence/`): High-D substrates, measurement-theoretic tracking bound
 - **Abiogenesis paper** (`2_abiogenesis_chemistry/`): Code formation, dimensional mismatch
 - **Coherence conditions** (`1_coherence_conditions/`): Coherence requirements for biological computation
-
-## Contact
-
-Ian Todd
-Sydney Medical School, University of Sydney
-itod2305@uni.sydney.edu.au
