@@ -1,0 +1,94 @@
+Coherence Time Paper - Development Log
+==============================================================================
+
+SUBMITTED VERSION (2025-11-15)
+==============================================================================
+File: coherence_time_SUBMITTED.tex
+Status: Submitted for peer review
+Length: ~45KB LaTeX source
+
+Core claims:
+- Coherence time τ_coh = (1/Δω)(2π/ε)^[α(1-r)(M-1)] limits processing speed
+- Exponential scaling with coordination depth M
+- Speed-flexibility trade-off: high r → fast commits but low flexibility
+- Applications: visual binding (30-50ms), tachypsychia, metabolic scaling
+
+==============================================================================
+POST-SUBMISSION IMPROVEMENTS (2025-11-16)
+==============================================================================
+
+DIRECTORY STRUCTURE CREATED:
+- commentary/ - development notes, changelog
+- figures/ - plots and diagrams
+- simulations/ - Kuramoto simulations, parameter sweeps
+- data/ - empirical data for validation
+
+PRIORITY ADDITIONS:
+
+1. IGAMBERDIEV CONNECTION (1985, 1993)
+   - Igamberdiev 1985 "Time in Biological Systems" identified biological time
+     as distinct from physical time, logarithmic scaling, non-holonomic constraints
+   - Coherence time formula IS the quantitative realization of Vernadsky/Igamberdiev's
+     "biological space-time geometry"
+   - 40-year completion: Igamberdiev (phenomenological) → Todd (mechanistic)
+   - Connection to quantum measurement framework (reduction of state function)
+
+2. SIMULATIONS NEEDED:
+   - Kuramoto network simulations validating coherence time formula
+   - Parameter sweeps: M (5-20), r (0.2-0.9), ε (π/4 to 2π)
+   - Topology effects: all-to-all vs sparse random → validate α parameter
+   - Noise effects: phase diffusion rate Δω validation
+   - Module independence assumption testing
+
+3. EMPIRICAL VALIDATION:
+   - Reanalysis of existing neural datasets with coherence time predictions
+   - Alpha entrainment → temporal window shift (testable prediction)
+   - Arousal → dual dissociation perceptual vs motor
+
+CHANGES MADE (2025-11-16 21:50):
+==============================================================================
+
+✅ IGAMBERDIEV CONNECTION ADDED
+
+**New subsection added:** "Historical context: Biological time and Igamberdiev's framework"
+Location: After line 79 (between Structure and Theory sections)
+
+**Content added:**
+1. Vernadsky's biological space-time geometry (1945)
+2. Igamberdiev's biological time framework (1985):
+   - Process-dependent temporal resolution
+   - Logarithmic scaling with system complexity
+   - Non-holonomic constraints determining temporal development
+   - Quantum measurement analogy
+3. Mathematical connection:
+   - τ_coh ∝ exp[α(1-r)(M-1)ln(2π/ε)] → t_bio ~ ln(τ_coh) ∝ M
+   - Exponential slowdown with coordination depth = logarithmic biological time
+4. Non-holonomic constraints = coordination depth M
+5. Quantum measurement = order parameter threshold crossing
+6. Igamberdiev 1993 quantum non-demolition → collision-free dynamics
+7. Framework completion: 40-year arc from Vernadsky → Igamberdiev → quantitative formula
+
+**Bibliography additions:**
+- Vernadsky (1945) - The biosphere and the noosphere
+- Igamberdiev (1985) - Time in biological systems [Russian]
+- Igamberdiev (1993) - Quantum mechanical properties of biosystems
+
+**Compilation status:**
+- Paper compiles successfully: 26 pages, 324KB PDF
+- No LaTeX errors
+- References properly integrated
+
+**Theoretical significance:**
+This addition provides crucial historical context showing that:
+- Coherence time formula is NOT ad hoc
+- Independent line of theoretical development (Vernadsky → Igamberdiev) converged on same physics
+- Our contribution: mechanistic derivation from coupled oscillators
+- Igamberdiev's phenomenology now has quantitative foundation
+
+NEXT STEPS:
+- Create simulation framework for Kuramoto networks
+- Generate parameter validation plots
+- Validate α parameter for different network topologies
+- Empirical data analysis with coherence time predictions
+
+==============================================================================

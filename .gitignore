@@ -1,0 +1,26 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+texput.log
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
