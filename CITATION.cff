@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+  - family-names: "Todd"
+    given-names: "Ian"
+title: "Coherence Time in Neural Oscillator Assemblies"
+version: 1.0.0
+date-released: 2025-11-15
+url: "https://github.com/todd866/coherence-time-biosystems"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Todd"
+      given-names: "Ian"
+  title: "Coherence Time in Neural Oscillator Assemblies"
+  journal: "BioSystems"
+  year: 2025
+  status: "under-review"

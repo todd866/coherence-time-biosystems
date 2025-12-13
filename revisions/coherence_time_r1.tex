@@ -562,7 +562,7 @@ To empirically validate Eq.~\ref{eq:coh-time}, we implemented the following simu
 \[
 d\theta_i = \left[\omega_i + \frac{K}{N}\sum_{j=1}^N A_{ij}\sin(\theta_j - \theta_i)\right]dt + \sigma\,dW_i
 \]
-where $A_{ij}$ encodes modular topology (strong intra-module coupling, weak inter-module coupling), natural frequencies $\omega_i \sim \mathcal{N}(0, \Delta\omega)$, and $\sigma = 0.2$ rad/s$^{1/2}$ provides phase noise. Coordination depth $M$ equals number of modules, varied from 3 to 12.
+where $A_{ij}$ encodes modular topology (strong intra-module coupling, weak inter-module coupling), natural frequencies $\omega_i \sim \mathcal{N}(0, \Delta\omega)$, and $\sigma = 0.2$ rad/s$^{1/2}$ provides phase noise. Coordination depth $M$ equals number of modules, varied from 3 to 12. ($\Delta\omega$ is taken as the natural frequency spread; estimating from phase increments yields similar fits.)
 
 \textbf{Measurement:} Coherence time $\tau_{\mathrm{coh}}$ measured as first passage time to simultaneous phase alignment across all modules (within tolerance $\varepsilon = \pi/2$ rad), sustained for dwell time $>0.05$s. For each $M$, 10 independent trials with different random seeds.
 
@@ -584,7 +584,7 @@ Sparse & 0.01 & 0.05 & No scaling \\
 \begin{itemize}
 \item \textbf{Modular networks:} Semi-independent modules with weak inter-module coupling---precisely the regime where the theory's assumptions hold. Each module explores phase independently; global alignment requires genuine coincidence across $M$ constraints.
 \item \textbf{All-to-all networks:} Global synchronization dominates. High coherence ($r \to 1$) collapses the $(1-r)(M-1)$ exponent, effectively reducing coordination depth to $M_{\mathrm{eff}} \approx 1$. The system pays no combinatorial coordination cost.
-\item \textbf{Sparse networks:} Network fragments; modules do not behave as semi-independent phase explorers. The first-passage alignment event the theory models does not occur cleanly.
+\item \textbf{Sparse networks:} Network fragments; modules do not behave as semi-independent phase explorers. The first-passage alignment event the theory models does not occur cleanly. Sparse results ($\hat{\alpha} \approx 0$) should be interpreted as ``outside model scope,'' not as evidence against the scaling law for biological networks.
 \end{itemize}
 
 This result strengthens the biological relevance of the framework: neural networks are hierarchically modular, not all-to-all or sparse random. Biology operates precisely in the regime where coordination time becomes a limiting factor.
