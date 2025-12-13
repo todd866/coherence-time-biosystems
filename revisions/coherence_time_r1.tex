@@ -208,7 +208,7 @@ Average over task epochs: $\langle r \rangle$. \textbf{Caveat}: Hilbert transfor
 Human visual perception exhibits temporal integration windows of 30--50 ms (flicker fusion at 20--30 Hz). We apply Eq.~\ref{eq:main-bound} with neural parameters.
 
 \paragraph{Visual binding window (recomputed).}
-Take $M=8$ occipital modules (V1, V4, posterior parietal sub-regions), $r=0.7$ (attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad ($\pm 90^\circ$ across modules), and phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s (alpha--beta spread/phase diffusion). Using Eq.~\ref{eq:coh-time} with $\alpha=0.9$ (cortical all-to-all approximation):
+Take $M=8$ occipital modules (V1, V4, posterior parietal sub-regions), $r=0.7$ (attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad ($\pm 90^\circ$ across modules), and phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s (alpha--beta spread/phase diffusion). Using Eq.~\ref{eq:coh-time} with $\alpha=0.9$ (strongly coupled cortical regime):
 \[
 \tau_{\mathrm{coh}} \approx \frac{1}{125.66}\left(\frac{2\pi}{\pi}\right)^{0.9(1-0.7)(7)}
 = \frac{1}{125.66}\,2^{1.89}\approx \frac{3.7}{125.66}\approx 30~\mathrm{ms}.
