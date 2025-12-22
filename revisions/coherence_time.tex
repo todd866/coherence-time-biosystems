@@ -38,7 +38,7 @@ Neuroscience has established that cognitive processing depends on coherent oscil
 \[
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha(1-r)(M-1)}
 \]
-where circular variance $(1-r)$ governs phase dispersion and $\alpha$ depends on network topology. Numerical validation in modular networks yields $\hat{\alpha} \approx 0.35$ ($R^2 = 0.71$; Figure~\ref{fig:validation}); control topologies (all-to-all, sparse) yield different fitted $\alpha$ values, delimiting the formula's regime of validity to hierarchically modular architectures. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; tighter coherence (higher $r$) speeds synchronization but restricts dynamics to low-dimensional attractors. The framework explains millisecond-scale perceptual windows, arousal-driven time dilation, alpha frequency correlates of temporal acuity, and metabolic scaling across species.
+where circular variance $(1-r)$ governs phase dispersion and $\alpha$ depends on network topology. All topologies exhibit positive $M$-scaling under our operational definition; numerical validation in modular networks yields $\hat{\alpha} \approx 0.35$ ($R^2 = 0.71$; Figure~\ref{fig:validation}). Modular networks are the regime where $M$ represents intrinsic semi-independent constraints and the formula has a literal first-passage interpretation; control topologies (all-to-all, sparse) yield fitted $\alpha$ values that reflect collective dynamics rather than coordination. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; tighter coherence (higher $r$) speeds synchronization but restricts dynamics to low-dimensional attractors. The framework explains millisecond-scale perceptual windows, arousal-driven time dilation, alpha frequency correlates of temporal acuity, and metabolic scaling across species.
 \end{abstract}
 
 \textbf{Keywords:} neural oscillations, coherence time, dimensional coordination, temporal resolution, working memory, coupled oscillators
@@ -110,7 +110,7 @@ To obtain a tractable scaling law, we approximate $p_{\mathrm{align}}$ as a powe
 \begin{equation}\label{eq:palign-scaling}
 p_{\mathrm{align}}(\varepsilon, r) \;\approx\; \left(\frac{\varepsilon}{2\pi}\right)^{\alpha(1-r)}
 \end{equation}
-where $\alpha$ is a topology-dependent scalar reflecting how efficiently local coupling restricts global phase exploration. Substituting into Eq.~\ref{eq:coh-mises} for $M-1$ relative phase constraints yields:
+where $\alpha$ is a topology-dependent scalar reflecting how efficiently local coupling restricts global phase exploration. Equation~\ref{eq:palign-scaling} is a closure that approximates the concentration-dependent von Mises mass in an $\varepsilon$-window by a single effective exponent; this trades explicit $\kappa(r)$ dependence for a topology-dependent scalar $\alpha$, which we estimate empirically. Substituting into Eq.~\ref{eq:coh-mises} for $M-1$ relative phase constraints yields:
 \begin{equation}\label{eq:coh-time}
 \boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha(1-r)(M-1)}}
 \end{equation}
@@ -155,11 +155,20 @@ Sparse & 0.79 & 0.26 & 0.96 \\
 
 All topologies show positive scaling in this parameter regime, but the \emph{interpretation} differs. Because $(1-\bar{r})\ln(2\pi/\varepsilon)$ is modest at high coherence ($\bar{r} \approx 0.94$), the exponential appears approximately linear over $M = 3$--$10$; extrapolation to larger $M$ predicts rapid growth. The key observation is that \textbf{modular networks maintain coherence while preserving module independence}---precisely the regime where the first-passage interpretation holds. In all-to-all networks, the module partition is arbitrary (modules are not semi-independent), so $M$ is not an intrinsic coordination depth; the fitted $\alpha$ reflects a surrogate statistic, not the first-passage interpretation. Sparse networks at these parameters are still well-connected; truly fragmented sparse networks ($p \ll 0.03$) would fail to cohere at all. Neural networks are hierarchically modular, operating in the regime where coordination time becomes the limiting factor.
 
+We note that fixing $N=100$ while increasing $M$ reduces individual module size (from $N/M = 33$ at $M=3$ to $N/M = 10$ at $M=10$). In isolated Kuramoto systems, finite-size effects typically \emph{enhance} synchronization speed for smaller populations at this noise level. The fact that $\tau_{\mathrm{coh}}$ increases with $M$ despite the easier internal synchronization of smaller modules confirms that the combinatorial difficulty of inter-module alignment dominates over local finite-size effects.
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_validation_modular_N100.pdf}
 \caption{\textbf{Numerical validation of coherence time scaling.} (A) Median coherence time $\tau_{\mathrm{coh}}$ versus coordination depth $M$ for modular Kuramoto networks ($N=100$ oscillators, 20 trials per $M$). Error bars show interquartile range. Dashed line: fitted scaling law with $\hat{\alpha} = 0.35$, $R^2 = 0.71$. (B) Hit fraction (proportion of trials reaching coherence within simulation horizon). All trials succeeded across all $M$ values, indicating the parameter regime is well within the formula's scope.}
 \label{fig:validation}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_topology_comparison.pdf}
+\caption{\textbf{Topology comparison.} Coherence time $\tau_{\mathrm{coh}}$ versus $M$ for (A) modular, (B) all-to-all, and (C) sparse networks. All topologies show positive $M$-scaling (Table~\ref{tab:topology}), but the interpretation differs: modular networks have intrinsic semi-independent modules where $M$ is coordination depth; all-to-all networks lack true module independence, so the fitted $\alpha$ reflects collective dynamics rather than coordination; sparse networks at $p=0.03$ are still well-connected. Error bars: IQR; dashed lines: fitted scaling.}
+\label{fig:topology}
 \end{figure}
 
 Code available at \url{https://github.com/todd866/coherence-time-biosystems}.
@@ -241,7 +250,7 @@ Computing all terms in Eq.~\ref{eq:main-bound}:
 \tau_{\mathrm{QSL}} &\sim 10^{-14} \,\mathrm{s} \quad \text{(negligible)} \\
 \tau_{\mathrm{SNR}} &\sim 5\text{--}10~\mathrm{ms} \\
 \tau_{\mathrm{power}} &\ll 1~\mathrm{ms} \quad \text{(per commit, local assembly power)} \\
-\tau_{\mathrm{coh}} &\approx 20\text{--}40~\mathrm{ms}
+\tau_{\mathrm{coh}} &\approx 30\text{--}50~\mathrm{ms}
 \end{align}
 
 The effective commit time is $\tau_{\mathrm{eff}} \approx 30$--$50~\mathrm{ms}$, matching human binding windows. \textbf{Coherence time dominates}. The calculation is order-of-magnitude; modest parameter variations (e.g., $r = 0.6$ vs $0.8$, $M = 6$ vs $10$) shift $\tau_{\mathrm{coh}}$ by factors of 2--5, consistent with observed inter-individual variability.
@@ -328,7 +337,7 @@ The framework applies most directly to oscillatory systems with coupled dynamics
 \item The independence assumption across modules is approximate; stronger inter-module coupling would reduce effective $M$.
 \item Topology dependence: $\alpha$ varies with network structure. We find $\hat{\alpha} \approx 0.35$ for modular networks; other architectures yield different values (Table~\ref{tab:topology}).
 \item Nonstationary $\Delta\omega$: During arousal or task transitions, phase-exploration rate may change dynamically.
-\item Heavy-tailed first-passage times: Individual coherence events show high variance (resembling an Inverse Gaussian distribution); the formula describes median behavior. This is a \emph{feature}, not a bug: the heavy tail predicts that while median ``speed of thought'' is 30--50 ms, there will be occasional long-tail latencies ($>200$ ms) even in healthy processing, corresponding to ``lapses of attention.'' Trial-by-trial reaction time variability (RTV), a robust behavioral correlate of executive function~\cite{jensen2007}, should increase with $M$ and decrease with $r$, providing an additional behavioral test.
+\item Heavy-tailed first-passage times: Individual coherence events show high variance (resembling an Inverse Gaussian distribution); the formula describes median behavior. This is a \emph{feature}, not a bug: the heavy tail predicts that while median ``speed of thought'' is 30--50 ms, there will be occasional long-tail latencies ($>200$ ms) even in healthy processing, corresponding to ``lapses of attention.'' Concretely: trial-by-trial reaction time variability (RTV), a robust behavioral correlate of executive function~\cite{jensen2007}, should increase with task coordination depth (estimated $M$) and decrease with coherence (estimated $r$), even at constant mean RT.
 \end{itemize}
 
 \section{Conclusion}
