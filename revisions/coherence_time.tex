@@ -85,13 +85,13 @@ The concept that biological systems exhibit temporal organization distinct from 
 
 Igamberdiev's framework remained largely phenomenological, lacking a quantitative mechanistic basis. Our coherence time formula (Eq.~\ref{eq:coh-time}) provides this missing link: the exponential scaling with coordination depth $M$ is precisely the mathematical realization of biological time's logarithmic relationship to physical time. When $M$ modules must achieve phase alignment, coherence time grows as $\tau_{\mathrm{coh}} \propto \exp[\alpha(1-r)(M-1)\ln(2\pi/\varepsilon)]$, making biological time $t_{\mathrm{bio}} \sim \ln(\tau_{\mathrm{coh}}) \propto M$, linear in system complexity.
 
-Our formula is compatible with (and provides a mechanistic instantiation of) Igamberdiev's biological time; it does not require a quantum substrate claim.
+This echoes Rosen's concept of anticipatory systems~\cite{rosen1985}, where the internal model's timescale must decouple from real-time dynamics to enable prediction. Our formula quantifies how that decoupling emerges from coordination requirements. The framework is compatible with (and provides a mechanistic instantiation of) Igamberdiev's biological time; it does not require a quantum substrate claim.
 
 \section{Theory and Methods}
 
 \subsection{The coherence time formula}
 
-We model biological temporal processing as a sequence of \emph{commits}---thermodynamically irreversible events that register high-dimensional internal state as low-dimensional output. A commit requires: (1) dimensional collapse from distributed state ($\Deff$ dimensions) to registered outcome (few dimensions), (2) dissipation of at least $\kB T \ln 2$ per bit (Landauer bound), and (3) creation of a persistent measurement influencing future dynamics.
+We model biological temporal processing as a sequence of \emph{commits}---thermodynamically irreversible events that register high-dimensional internal state as low-dimensional output. A commit requires: (1) dimensional collapse from distributed state ($\Deff$ dimensions) to registered outcome (few dimensions), (2) dissipation of at least $\kB T \ln 2$ per bit (Landauer bound), and (3) creation of a persistent measurement influencing future dynamics. This thermodynamic registration corresponds to what Matsuno~\cite{matsuno1989} terms an ``internal measurement''---a local irreversible record that distinguishes past from future within the system itself.
 
 By ``commit'' we mean an irreversible registration of distributed state into a low-dimensional outcome that constrains subsequent dynamics---not necessarily a single spike or discrete behavioral choice. Operationally, a commit is the minimal event that can change an externally measurable (or downstream-controller measurable) discrete state. Different tasks have different coordination depths $M$ and different dimensional collapse $\Delta\mathcal{D}$, but the same bottleneck logic applies.
 
@@ -475,6 +475,12 @@ Blondel, V.D., Guillaume, J.-L., Lambiotte, R., Lefebvre, E. (2008). Fast unfold
 
 \bibitem{jensen2007}
 Jensen, A.R. (2007). Clocking the mind: Mental chronometry and individual differences. \textit{Elsevier}.
+
+\bibitem{rosen1985}
+Rosen, R. (1985). \textit{Anticipatory Systems: Philosophical, Mathematical and Methodological Foundations}. Pergamon Press.
+
+\bibitem{matsuno1989}
+Matsuno, K. (1989). \textit{Protobiology: Physical Basis of Biology}. CRC Press.
 
 \end{thebibliography}
 
