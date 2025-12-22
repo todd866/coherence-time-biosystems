@@ -187,7 +187,30 @@ class KuramotoNetwork:
         return float(np.mean(r))
 
     def delta_omega_proxy(self) -> float:
+        """Static proxy for phase exploration rate (used if no trajectory available)."""
         return float(np.std(self.omega) + 0.5 * (self.p.sigma ** 2))
+
+    def measure_effective_domega(self, theta: np.ndarray) -> float:
+        """
+        Measure the effective phase exploration rate (Δω) dynamically.
+
+        Rather than using the static natural frequency spread (omega_std),
+        this measures the standard deviation of instantaneous frequencies
+        averaged over the simulation. This accounts for coupling suppression
+        of phase drift and noise diffusion.
+
+        Returns the mean spread of instantaneous frequencies across oscillators.
+        """
+        # Calculate instantaneous phase velocities
+        # theta is wrapped (0, 2pi), so we wrap the difference to (-pi, pi)
+        d_theta = wrap_angle(np.diff(theta, axis=0)) / self.p.dt
+
+        # Calculate the spread (std) of velocities across the population at each time step
+        # Discard first 10% as transient
+        start_idx = int(0.1 * d_theta.shape[0])
+        instantaneous_spreads = np.std(d_theta[start_idx:], axis=1)
+
+        return float(np.mean(instantaneous_spreads))
 
 
 # ----------------------------
@@ -198,7 +221,8 @@ def run_trials(base: SimParams, n_trials: int, seeds: Optional[List[int]] = None
     """Run repeated trials and return summary stats with median/IQR."""
     taus: List[float] = []
     rs: List[float] = []
-    dws: List[float] = []
+    dws_static: List[float] = []
+    dws_effective: List[float] = []
 
     if seeds is None:
         seeds = list(range(base.seed, base.seed + n_trials))
@@ -211,7 +235,9 @@ def run_trials(base: SimParams, n_trials: int, seeds: Optional[List[int]] = None
         if tau is not None:
             taus.append(float(tau))
         rs.append(net.mean_global_r(theta))
-        dws.append(net.delta_omega_proxy())
+        dws_static.append(net.delta_omega_proxy())
+        # NEW: Measure effective dynamic dispersion instead of static proxy
+        dws_effective.append(net.measure_effective_domega(theta))
 
     taus_arr = np.array(taus) if taus else np.array([])
 
@@ -225,7 +251,9 @@ def run_trials(base: SimParams, n_trials: int, seeds: Optional[List[int]] = None
         "n_trials": int(n_trials),
         "hit_fraction": float(len(taus) / n_trials),
         "r_mean": float(np.mean(rs)),
-        "domega_mean": float(np.mean(dws)),
+        "domega_static": float(np.mean(dws_static)),    # static proxy (omega_std + noise)
+        "domega_effective": float(np.mean(dws_effective)),  # dynamic measurement
+        "domega_mean": float(np.mean(dws_effective)),   # use effective for fitting (backward compat)
         "taus_raw": taus,  # keep raw values for detailed analysis
     }
 
@@ -234,7 +262,7 @@ def sweep_M(base: SimParams, M_values: List[int], n_trials: int) -> Dict[str, np
     out = {
         "M": [], "tau_median": [], "tau_q25": [], "tau_q75": [],
         "tau_mean": [], "tau_std": [], "n_hit": [], "n_trials": [],
-        "hit_fraction": [], "r_mean": [], "domega_mean": []
+        "hit_fraction": [], "r_mean": [], "domega_static": [], "domega_effective": [], "domega_mean": []
     }
     for M in M_values:
         print(f"  M={M}...", end=" ", flush=True)

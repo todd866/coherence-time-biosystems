@@ -105,11 +105,15 @@ Assuming independence across modules on the commit timescale, the mean waiting t
 \begin{equation}\label{eq:coh-mises}
 \tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\Big[p_{\rm align}(\varepsilon,\kappa(r))\Big]^{-(M-1)}.
 \end{equation}
-A practical surrogate consistent with Kuramoto synchronization theory~\cite{acebron2005,pikovsky2001} is
-\begin{equation}\label{eq:coh-time}
-\boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha\,(1-r)\,(M-1)}},\qquad \alpha\in[0.3,0.6],
+To obtain a tractable scaling law, we approximate $p_{\mathrm{align}}$ as a power function of the phase window fraction. In the uncoupled limit ($r \to 0$), the probability is purely geometric: $p_0 \approx \varepsilon/2\pi$. In the perfectly synchronized limit ($r \to 1$), alignment is guaranteed: $p \to 1$. We model the intermediate regime as a reduction in the effective search space---coupling compresses the phase distribution, effectively raising the geometric probability to a power dependent on the disorder $(1-r)$:
+\begin{equation}\label{eq:palign-scaling}
+p_{\mathrm{align}}(\varepsilon, r) \;\approx\; \left(\frac{\varepsilon}{2\pi}\right)^{\alpha(1-r)}
 \end{equation}
-where $\alpha$ reflects the effective coordination regime (empirically validated below: modular networks yield $\hat{\alpha} \approx 0.35$).
+where $\alpha$ is a topology-dependent scalar reflecting how efficiently local coupling restricts global phase exploration. Substituting into Eq.~\ref{eq:coh-mises} for $M-1$ relative phase constraints yields:
+\begin{equation}\label{eq:coh-time}
+\boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha(1-r)(M-1)}}
+\end{equation}
+This derivation clarifies that Eq.~\ref{eq:coh-time} is not an arbitrary fit, but a linear interpolation of the \emph{exponent} of the alignment probability between the incoherent (geometric) and coherent (deterministic) limits. Numerical validation (below) yields $\hat{\alpha} \approx 0.35$ for modular networks.
 
 \textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (locally coherent clusters) whose order parameters must jointly exceed a threshold for a commit to register. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which phases mix, combining natural frequency spread and phase diffusion from noise~\cite{ott2008,watanabe1994}. Circular variance $1-r$ quantifies residual phase dispersion~\cite{mardia2000}. Note: $M \le \Deff$ where $\Deff$ is the full manifold dimensionality; $M$ counts only commit-relevant modules.
 
@@ -127,7 +131,7 @@ To validate Eq.~\ref{eq:coh-time}, we simulated modular Kuramoto networks of $N 
 \[
 d\theta_i = \left[\omega_i + \frac{K}{N}\sum_{j=1}^N A_{ij}\sin(\theta_j - \theta_i)\right]dt + \sigma\,dW_i
 \]
-where $A_{ij}$ encodes modular topology (strong intra-module coupling $K_{\rm intra} = 1.0$, weak inter-module coupling $K_{\rm inter} = 0.15$), natural frequencies $\omega_i \sim \mathcal{N}(0, \omega_{\rm std})$ with $\omega_{\rm std} = 0.3$ rad/s, and $\sigma = 0.1$ rad/s$^{1/2}$ provides phase noise. Coordination depth $M$ (number of modules) varied from 3 to 10. We report $\Delta\omega = \omega_{\rm std}$ for interpretability; using the proxy $\omega_{\rm std} + \sigma^2/2$ yields similar $\hat{\alpha}$.
+where $A_{ij}$ encodes modular topology (strong intra-module coupling $K_{\rm intra} = 1.0$, weak inter-module coupling $K_{\rm inter} = 0.15$), natural frequencies $\omega_i \sim \mathcal{N}(0, \omega_{\rm std})$ with $\omega_{\rm std} = 0.3$ rad/s, and $\sigma = 0.1$ rad/s$^{1/2}$ provides phase noise. Coordination depth $M$ (number of modules) varied from 3 to 10. The phase-exploration rate $\Delta\omega$ was measured dynamically as the standard deviation of instantaneous frequencies across oscillators, accounting for coupling suppression of phase drift.
 
 Coherence time $\tau_{\mathrm{coh}}$ was measured as first passage time to simultaneous phase alignment across all modules (within tolerance $\varepsilon = 2.0$ rad), sustained for dwell time $>0.03$s. For each $M$, 20 independent trials. We report median $\tau_{\mathrm{coh}}$ with interquartile range (IQR) to account for heavy-tailed first-passage time distributions.
 
@@ -201,12 +205,13 @@ State-space volume accessible in time $\tau$ scales as $\sim \exp(\Deff)$ where 
 
 \subsection{Parameter estimation protocols}
 
-\paragraph{Coordination depth ($M$).} $M$ is the count of semi-independent modules whose order parameters must jointly exceed a threshold to register a commit.
+\paragraph{Coordination depth ($M$).} $M$ is the number of \textbf{degrees of freedom that must be simultaneously constrained} to satisfy the computation---not an arbitrary clustering choice. If a task requires coordinating visual motion (area MT) and shape (area V4), then $M = 2$ regardless of how many neurons are involved. If binding shape, motion, color, and spatial location, then $M = 4$. The coordination depth is set by the \emph{task structure}, not by the observer's clustering threshold.
+
 \textbf{Operational estimation:}
 \begin{enumerate}
 \item Cluster channels/units by band-limited coherence (e.g., via phase-locking value $>$ threshold) or Granger causality into modules. Community detection algorithms such as Louvain~\cite{blondel2008} provide principled module identification from coherence matrices.
-\item Identify the minimal set of modules whose joint activity predicts behavioral commits (e.g., via logistic regression on module order parameters).
-\item Typical values: occipital visual tasks yield $M \sim 6$--10; cross-modal binding $M \sim 10$--15; default-mode wandering $M \sim 15$--20.
+\item Identify the minimal set of modules whose joint activity predicts behavioral commits (e.g., via logistic regression on module order parameters). This identifies $M$ as the number of commit-relevant constraints.
+\item Typical values: occipital visual tasks yield $M \sim 6$--10; cross-modal binding $M \sim 10$--15; default-mode wandering $M \sim 15$--20. These differences explain why complex integration is slower than simple detection.
 \end{enumerate}
 
 \paragraph{Kuramoto coherence ($r$).} Extract instantaneous phase $\theta_j(t)$ from bandpass-filtered LFP/EEG via Hilbert transform. Compute $r(t) = |\frac{1}{N}\sum_{j=1}^N e^{i\theta_j(t)}|$. Typical values: spontaneous cortex $\sim 0.2$--0.4; attention $\sim 0.5$--0.7; circadian networks $\sim 0.7$--0.9~\cite{fries2015}.
@@ -318,7 +323,7 @@ The framework applies most directly to oscillatory systems with coupled dynamics
 \item The independence assumption across modules is approximate; stronger inter-module coupling would reduce effective $M$.
 \item Topology dependence: $\alpha$ varies with network structure. We find $\hat{\alpha} \approx 0.35$ for modular networks; other architectures yield different values (Table~1).
 \item Nonstationary $\Delta\omega$: During arousal or task transitions, phase-exploration rate may change dynamically.
-\item Heavy-tailed first-passage times: Individual coherence events show high variance; the formula describes mean/median behavior. This variance may contribute to trial-by-trial reaction time variability (RTV), a robust behavioral correlate of executive function and attention~\cite{jensen2007}. The framework predicts that RTV should increase with $M$ and decrease with $r$, providing an additional behavioral test.
+\item Heavy-tailed first-passage times: Individual coherence events show high variance (resembling an Inverse Gaussian distribution); the formula describes median behavior. This is a \emph{feature}, not a bug: the heavy tail predicts that while median ``speed of thought'' is 30--50 ms, there will be occasional long-tail latencies ($>200$ ms) even in healthy processing, corresponding to ``lapses of attention.'' Trial-by-trial reaction time variability (RTV), a robust behavioral correlate of executive function~\cite{jensen2007}, should increase with $M$ and decrease with $r$, providing an additional behavioral test.
 \end{itemize}
 
 \section{Conclusion}
