@@ -78,22 +78,6 @@ We first derive the coherence time formula from principles of phase synchronizat
 
 Previous work established sub-Landauer biological computation~\cite{todd2025biosystems} and timing inaccessibility in high-dimensional systems~\cite{todd2025demon}. Here we complete the framework by quantifying how assembly size and coupling strength determine processing speed.
 
-\subsection{Historical context: Biological time and Igamberdiev's framework}
-
-The concept that biological systems exhibit temporal organization distinct from physical time has deep roots. Vernadsky~\cite{vernadsky1945} proposed that living systems possess a non-Euclidean ``biological space-time'' geometry fundamentally different from the Newtonian absolute time of physics. Building on this foundation, Igamberdiev~\cite{igamberdiev1985} formalized the notion of \emph{biological time}---a logarithmic function of physical time that reflects the rate-dependent nature of biological processes. He demonstrated that temporal resolution in living systems is:
-\begin{itemize}
-\item \textbf{Process-dependent}: Different biological operations (molecular conformational changes, developmental morphogenesis, neural processing) occur on timescales determined by their internal dynamics, not external clocks
-\item \textbf{Logarithmically scaled}: Early ontogenetic stages exhibit faster temporal resolution than later stages, suggesting exponential slowdown with system complexity
-\item \textbf{Governed by non-holonomic constraints}: The direction of temporal development is determined by path-dependent irreversibilities in the system's state space
-\item \textbf{Analogous to quantum measurement}: Biological transformations resemble the reduction of the wavefunction in quantum mechanics---distributed states collapse to definite outcomes at characteristic timescales
-\end{itemize}
-
-Igamberdiev's framework remained largely phenomenological, lacking a quantitative mechanistic basis. Our coherence time formula (Eq.~\ref{eq:coh-time}) provides this missing link: the exponential scaling with coordination depth $M$ is precisely the mathematical realization of biological time's logarithmic relationship to physical time. When $M$ modules must achieve phase alignment, coherence time grows as $\tau_{\mathrm{coh}} \propto \exp[\alpha(1-r)(M-1)\ln(2\pi/\varepsilon)]$, making biological time $t_{\mathrm{bio}} \sim \ln(\tau_{\mathrm{coh}}) \propto M$, linear in system complexity.
-
-The non-holonomic constraints Igamberdiev identified correspond to our coordination depth $M$: the set of modules that must jointly synchronize determines which trajectories in phase space can reach the commit threshold, making temporal development path-dependent and irreversible. The quantum measurement analogy becomes concrete: wavefunction collapse maps to the order parameter $r(t)$ crossing the coherence threshold, projecting the high-dimensional oscillator state onto a low-dimensional synchronized manifold.
-
-Igamberdiev later extended this framework to quantum mechanical properties of biosystems~\cite{igamberdiev1993}, arguing that living systems perform internal ``quantum non-demolition measurements'' with low energy dissipation via slow conformational relaxation. This corresponds precisely to our collision-free dynamics in high-dimensional phase space (see~\cite{todd2025biosystems}): biological oscillator networks maintain coherent dynamics without discrete enumeration costs, collapsing dimensionality only at commit boundaries. The present work completes a 40-year theoretical arc from Vernadsky's intuition through Igamberdiev's formalization to a quantitative, testable formula grounded in coupled oscillator physics.
-
 \section{Theory and Methods}
 
 \subsection{The unified temporal resolution bound}
@@ -440,15 +424,6 @@ Todd, I. (2025). The limits of falsifiability: Dimensionality, measurement thres
 
 \bibitem{todd2025demon}
 Todd, I. (2025). Timing inaccessibility and the projection bound: Resolving Maxwell's demon for continuous biological substrates. \textit{BioSystems} (in press).
-
-\bibitem{vernadsky1945}
-Vernadsky, V.I. (1945). The biosphere and the noosphere. \textit{Am. Sci.}, 33(1), 1--12.
-
-\bibitem{igamberdiev1985}
-Igamberdiev, A.U. (1985). Time in biological systems. \textit{Zhurnal Obshchei Biologii} [Journal of General Biology], 46(4), 471--482. [In Russian]
-
-\bibitem{igamberdiev1993}
-Igamberdiev, A.U. (1993). Quantum mechanical properties of biosystems: A framework for complexity, structural stability, and transformations. \textit{BioSystems}, 31(1), 65--73.
 
 \bibitem{mandelstam1945}
 Mandelstam, L., Tamm, I. (1945). The uncertainty relation between energy and time in non-relativistic quantum mechanics. \textit{J. Phys. (USSR)}, 9, 249--254.

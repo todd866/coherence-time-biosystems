@@ -2,7 +2,6 @@
 
 **Repository:** todd866/coherence-time-biosystems
 **Paper status:** Under review at *BioSystems* (submitted 2025-11-15)
-**This repo:** Post-submission validation + revisions
 
 ## One-line thesis
 
@@ -34,22 +33,23 @@ where:
 
 ```
 4_coherence_time/
-├── coherence_time_SUBMITTED.tex   # Frozen submitted version (DO NOT EDIT)
-├── coherence_time.tex             # Development version
-├── coherence_time.pdf             # Compiled output
-├── revisions/                     # ← R1 REVISION WORK LIVES HERE
-│   ├── coherence_time.tex         # Revised manuscript (consolidated, no ESM)
-│   ├── coherence_time.pdf         # Compiled revision
-│   ├── kuramoto_coherence_time_v2.py  # Updated validation code
-│   ├── validation_results/        # JSON + figures for all topologies
-│   └── figures/                   # Publication figures
-├── simulations/                   # Original Kuramoto validation
-│   └── kuramoto_coherence_time.py
-├── figures/                       # Submitted figures
-└── build_clean.sh                 # LaTeX build script
+├── coherence_time.tex        # Submitted manuscript (frozen)
+├── coherence_time.pdf        # Submitted PDF
+├── figures/                  # Submitted figures
+├── revisions/                # ← ALL REVISION WORK HERE
+│   ├── coherence_time.tex    # R1 manuscript (consolidated, 20 pages)
+│   ├── coherence_time.pdf    # Compiled revision
+│   ├── kuramoto_coherence_time_v2.py   # Updated validation code
+│   ├── kuramoto_coherence_time_original.py  # Original simulation
+│   ├── validation_results/   # JSON + figures for all topologies
+│   ├── figures/              # Revision figures
+│   └── REVISION_PLAN.md      # Revision notes
+├── LICENSE
+├── CITATION.cff
+└── build_clean.sh
 ```
 
-## Simulation validation
+## Simulation validation (from revisions/)
 
 Kuramoto modular-network simulations (N=100, 20 trials per M) test the predicted scaling of τ_coh with coordination depth M.
 
@@ -64,11 +64,10 @@ Kuramoto modular-network simulations (N=100, 20 trials per M) test the predicted
 ## Build
 
 ```bash
-# Main folder (submitted version)
-./build_clean.sh
-# or: pdflatex coherence_time.tex && pdflatex coherence_time.tex
+# Submitted version
+pdflatex coherence_time.tex && pdflatex coherence_time.tex
 
-# Revisions folder (R1 work)
+# Revision (in revisions/)
 cd revisions && pdflatex coherence_time.tex && pdflatex coherence_time.tex
 ```
 
