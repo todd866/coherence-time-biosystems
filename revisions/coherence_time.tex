@@ -38,7 +38,7 @@ Neuroscience has established that cognitive processing depends on coherent oscil
 \[
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha(1-r)(M-1)}
 \]
-where circular variance $(1-r)$ governs phase dispersion and $\alpha$ depends on network topology. Numerical validation in modular networks yields $\hat{\alpha} \approx 0.35$ ($R^2 = 0.71$; Figure~\ref{fig:validation}); all-to-all and sparse topologies show weak or absent scaling, defining the formula's regime of validity. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; tighter coherence (higher $r$) speeds synchronization but restricts dynamics to low-dimensional attractors. The framework explains millisecond-scale perceptual windows, arousal-driven time dilation, alpha frequency correlates of temporal acuity, and metabolic scaling across species.
+where circular variance $(1-r)$ governs phase dispersion and $\alpha$ depends on network topology. Numerical validation in modular networks yields $\hat{\alpha} \approx 0.35$ ($R^2 = 0.71$; Figure~\ref{fig:validation}); control topologies (all-to-all, sparse) yield different fitted $\alpha$ values, delimiting the formula's regime of validity to hierarchically modular architectures. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; tighter coherence (higher $r$) speeds synchronization but restricts dynamics to low-dimensional attractors. The framework explains millisecond-scale perceptual windows, arousal-driven time dilation, alpha frequency correlates of temporal acuity, and metabolic scaling across species.
 \end{abstract}
 
 \textbf{Keywords:} neural oscillations, coherence time, dimensional coordination, temporal resolution, working memory, coupled oscillators
@@ -105,6 +105,7 @@ Assuming independence across modules on the commit timescale, the mean waiting t
 \begin{equation}\label{eq:coh-mises}
 \tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\Big[p_{\rm align}(\varepsilon,\kappa(r))\Big]^{-(M-1)}.
 \end{equation}
+The exponent is $(M-1)$ because one module serves as the phase reference; only the remaining $M-1$ relative phases must independently fall within tolerance.
 To obtain a tractable scaling law, we approximate $p_{\mathrm{align}}$ as a power function of the phase window fraction. In the uncoupled limit ($r \to 0$), the probability is purely geometric: $p_0 \approx \varepsilon/2\pi$. In the perfectly synchronized limit ($r \to 1$), alignment is guaranteed: $p \to 1$. We model the intermediate regime as a reduction in the effective search space---coupling compresses the phase distribution, effectively raising the geometric probability to a power dependent on the disorder $(1-r)$:
 \begin{equation}\label{eq:palign-scaling}
 p_{\mathrm{align}}(\varepsilon, r) \;\approx\; \left(\frac{\varepsilon}{2\pi}\right)^{\alpha(1-r)}
@@ -133,10 +134,14 @@ d\theta_i = \left[\omega_i + \frac{K}{N}\sum_{j=1}^N A_{ij}\sin(\theta_j - \thet
 \]
 where $A_{ij}$ encodes modular topology (strong intra-module coupling $K_{\rm intra} = 1.0$, weak inter-module coupling $K_{\rm inter} = 0.15$), natural frequencies $\omega_i \sim \mathcal{N}(0, \omega_{\rm std})$ with $\omega_{\rm std} = 0.3$ rad/s, and $\sigma = 0.1$ rad/s$^{1/2}$ provides phase noise. Coordination depth $M$ (number of modules) varied from 3 to 10. The phase-exploration rate $\Delta\omega$ was measured dynamically as the standard deviation of instantaneous frequencies across oscillators, accounting for coupling suppression of phase drift.
 
-Coherence time $\tau_{\mathrm{coh}}$ was measured as first passage time to simultaneous phase alignment across all modules (within tolerance $\varepsilon = 2.0$ rad), sustained for dwell time $>0.03$s. For each $M$, 20 independent trials. We report median $\tau_{\mathrm{coh}}$ with interquartile range (IQR) to account for heavy-tailed first-passage time distributions.
+Coherence time $\tau_{\mathrm{coh}}$ was measured as first passage time to simultaneous phase alignment across all modules (within tolerance $\varepsilon = 2.0$ rad), sustained for dwell time $>0.03$s. We additionally required each module's internal order parameter $r_m \ge r_{\mathrm{threshold}} = 0.6$, ensuring modules are internally coherent before testing inter-module alignment. For each $M$, 20 independent trials. We report median $\tau_{\mathrm{coh}}$ with interquartile range (IQR) to account for heavy-tailed first-passage time distributions.
 
-Fitting $\log(\mathrm{median}\,\tau_{\mathrm{coh}}) = \alpha(1-\bar{r})(M-1)\log(2\pi/\varepsilon) + \mathrm{const}$, where $\bar{r}$ is the mean global order parameter over the post-transient window, yields:
-\begin{center}
+Fitting $\log(\mathrm{median}\,\tau_{\mathrm{coh}}) = \alpha(1-\bar{r})(M-1)\log(2\pi/\varepsilon) + \mathrm{const}$, where $\bar{r}$ is the mean global order parameter over the post-transient window, yields Table~\ref{tab:topology}.
+
+\begin{table}[ht]
+\centering
+\caption{Fitted scaling parameters across network topologies. All topologies show positive $M$-scaling in this parameter regime, but the interpretation differs (see text).}
+\label{tab:topology}
 \begin{tabular}{lccc}
 \toprule
 Topology & $\bar{r}$ & $\hat{\alpha}$ & $R^2$ \\
@@ -146,9 +151,9 @@ All-to-all & 0.95 & 0.62 & 0.88 \\
 Sparse & 0.79 & 0.26 & 0.96 \\
 \bottomrule
 \end{tabular}
-\end{center}
+\end{table}
 
-All topologies show positive scaling in this parameter regime, but the \emph{interpretation} differs. Because $(1-\bar{r})\ln(2\pi/\varepsilon)$ is modest at high coherence ($\bar{r} \approx 0.94$), the exponential appears approximately linear over $M = 3$--$10$; extrapolation to larger $M$ predicts rapid growth. The key observation is that \textbf{modular networks maintain coherence while preserving module independence}---precisely the regime where the first-passage interpretation holds. All-to-all networks synchronize globally but lack independent modules to align; the fitted $\alpha$ reflects collective behavior, not coordination. Sparse networks at these parameters are still well-connected; truly fragmented sparse networks ($p \ll 0.03$) would fail to cohere at all. Neural networks are hierarchically modular, operating in the regime where coordination time becomes the limiting factor.
+All topologies show positive scaling in this parameter regime, but the \emph{interpretation} differs. Because $(1-\bar{r})\ln(2\pi/\varepsilon)$ is modest at high coherence ($\bar{r} \approx 0.94$), the exponential appears approximately linear over $M = 3$--$10$; extrapolation to larger $M$ predicts rapid growth. The key observation is that \textbf{modular networks maintain coherence while preserving module independence}---precisely the regime where the first-passage interpretation holds. In all-to-all networks, the module partition is arbitrary (modules are not semi-independent), so $M$ is not an intrinsic coordination depth; the fitted $\alpha$ reflects a surrogate statistic, not the first-passage interpretation. Sparse networks at these parameters are still well-connected; truly fragmented sparse networks ($p \ll 0.03$) would fail to cohere at all. Neural networks are hierarchically modular, operating in the regime where coordination time becomes the limiting factor.
 
 \begin{figure}[ht]
 \centering
@@ -225,10 +230,10 @@ State-space volume accessible in time $\tau$ scales as $\sim \exp(\Deff)$ where 
 Human visual perception exhibits temporal integration windows of 30--50 ms (flicker fusion at 20--30 Hz). We apply Eq.~\ref{eq:main-bound} with neural parameters.
 
 \paragraph{Visual binding window.}
-Take $M=8$ occipital modules (V1, V4, posterior parietal sub-regions), $r=0.7$ (attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad ($\pm 90^\circ$ across modules), and phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s (alpha--beta spread). Using Eq.~\ref{eq:coh-time} with $\alpha=0.6$:
+Take $M=10$ occipital modules (V1--V4, MT, posterior parietal sub-regions), $r=0.6$ (moderate attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad ($\pm 90^\circ$ across modules), and phase-exploration rate $\Delta\omega=2\pi\times 10$ rad/s (alpha-band spread). Using Eq.~\ref{eq:coh-time} with $\alpha=0.35$ (the validated modular-network value):
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\left(\frac{2\pi}{\pi}\right)^{0.6(1-0.7)(7)}
-= \frac{1}{125.66}\,2^{1.26}\approx \frac{2.4}{125.66}\approx 20\text{--}40~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{62.8}\left(\frac{2\pi}{\pi}\right)^{0.35(1-0.6)(9)}
+= \frac{1}{62.8}\,2^{1.26}\approx \frac{2.4}{62.8}\approx 30\text{--}50~\mathrm{ms}.
 \]
 
 Computing all terms in Eq.~\ref{eq:main-bound}:
@@ -321,7 +326,7 @@ The framework applies most directly to oscillatory systems with coupled dynamics
 \textbf{Limitations:}
 \begin{itemize}
 \item The independence assumption across modules is approximate; stronger inter-module coupling would reduce effective $M$.
-\item Topology dependence: $\alpha$ varies with network structure. We find $\hat{\alpha} \approx 0.35$ for modular networks; other architectures yield different values (Table~1).
+\item Topology dependence: $\alpha$ varies with network structure. We find $\hat{\alpha} \approx 0.35$ for modular networks; other architectures yield different values (Table~\ref{tab:topology}).
 \item Nonstationary $\Delta\omega$: During arousal or task transitions, phase-exploration rate may change dynamically.
 \item Heavy-tailed first-passage times: Individual coherence events show high variance (resembling an Inverse Gaussian distribution); the formula describes median behavior. This is a \emph{feature}, not a bug: the heavy tail predicts that while median ``speed of thought'' is 30--50 ms, there will be occasional long-tail latencies ($>200$ ms) even in healthy processing, corresponding to ``lapses of attention.'' Trial-by-trial reaction time variability (RTV), a robust behavioral correlate of executive function~\cite{jensen2007}, should increase with $M$ and decrease with $r$, providing an additional behavioral test.
 \end{itemize}

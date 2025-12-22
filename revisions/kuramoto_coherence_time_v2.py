@@ -385,22 +385,30 @@ def plot_validation_figure(results: Dict[str, np.ndarray], epsilon: float,
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser(description="Validate coherence-time scaling.")
     ap.add_argument("--outdir", type=str, default="validation_results")
-    ap.add_argument("--topology", type=str, default="modular")
-    ap.add_argument("--N", type=int, default=100)
-    ap.add_argument("--K", type=float, default=1.0)
-    ap.add_argument("--omega-std", type=float, default=0.3)
-    ap.add_argument("--sigma", type=float, default=0.1)
-    ap.add_argument("--T", type=float, default=60.0)
-    ap.add_argument("--dt", type=float, default=0.005)
-    ap.add_argument("--r-threshold", type=float, default=0.6)
-    ap.add_argument("--epsilon", type=float, default=2.0)
-    ap.add_argument("--dwell", type=float, default=0.03)
-    ap.add_argument("--trials", type=int, default=20)
-    ap.add_argument("--M-min", type=int, default=3)
-    ap.add_argument("--M-max", type=int, default=10)
-    ap.add_argument("--M-step", type=int, default=1)
-    ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--save-json", action="store_true")
+    ap.add_argument("--topology", type=str, default="modular",
+                    help="Network topology: modular, all-to-all, or sparse")
+    ap.add_argument("--N", type=int, default=100, help="Total number of oscillators")
+    ap.add_argument("--K", type=float, default=1.0, help="Global coupling gain")
+    ap.add_argument("--omega-std", type=float, default=0.3, help="Natural frequency spread (rad/s)")
+    ap.add_argument("--sigma", type=float, default=0.1, help="Phase noise strength (rad/sqrt(s))")
+    ap.add_argument("--T", type=float, default=60.0, help="Simulation duration (s)")
+    ap.add_argument("--dt", type=float, default=0.005, help="Time step (s)")
+    ap.add_argument("--r-threshold", type=float, default=0.6, help="Module coherence threshold")
+    ap.add_argument("--epsilon", type=float, default=2.0, help="Phase alignment tolerance (rad)")
+    ap.add_argument("--dwell", type=float, default=0.03, help="Required dwell time at coherence (s)")
+    ap.add_argument("--trials", type=int, default=20, help="Number of trials per M")
+    ap.add_argument("--M-min", type=int, default=3, help="Minimum number of modules")
+    ap.add_argument("--M-max", type=int, default=10, help="Maximum number of modules")
+    ap.add_argument("--M-step", type=int, default=1, help="Step size for M sweep")
+    ap.add_argument("--seed", type=int, default=0, help="Random seed")
+    ap.add_argument("--save-json", action="store_true", help="Save results to JSON")
+    # Modular topology parameters (for reproducibility)
+    ap.add_argument("--K-intra", type=float, default=1.0,
+                    help="Intra-module coupling strength (modular topology)")
+    ap.add_argument("--K-inter", type=float, default=0.15,
+                    help="Inter-module coupling strength (modular topology)")
+    ap.add_argument("--p-sparse", type=float, default=0.03,
+                    help="Connection probability (sparse topology)")
     return ap.parse_args()
 
 
@@ -412,6 +420,7 @@ def main() -> None:
         N=args.N, M=10, K=args.K, omega_std=args.omega_std, sigma=args.sigma,
         topology=args.topology, T=args.T, dt=args.dt, seed=args.seed,
         r_threshold=args.r_threshold, epsilon=args.epsilon, dwell_time=args.dwell,
+        K_intra=args.K_intra, K_inter=args.K_inter, p_sparse=args.p_sparse,
     )
 
     print(f"Running sweep: topology={args.topology}, N={args.N}, trials={args.trials}")
