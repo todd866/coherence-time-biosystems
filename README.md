@@ -71,12 +71,6 @@ pdflatex coherence_time.tex && pdflatex coherence_time.tex
 cd revisions && pdflatex coherence_time.tex && pdflatex coherence_time.tex
 ```
 
-## Related papers
-
-- **Intelligence paper** (`3_intelligence/`): High-D substrates, observable dimensionality bound
-- **Coupling identification** (`36_coupling_identification/`): Sync vs measurement timescales
-- **Falsifiability** (`1_falsifiability/`): Sub-Landauer domain, measurement thresholds
-
 ## Citation
 
 ```bibtex
