@@ -113,7 +113,7 @@ For neural LFP signals, $N_0$ is estimated from background noise variance and sa
 We model commits as threshold crossings requiring $M$ semi-independent modules to achieve simultaneous phase alignment within tolerance $\varepsilon$.
 Let $r$ be the mean resultant length (Kuramoto order parameter), and $\kappa(r)$ the von Mises concentration with $r=I_1(\kappa)/I_0(\kappa)$~\cite{mardia2000}.
 
-The alignment probability has a precise geometric form. For $M$ independent phases, the probability that all lie within $\varepsilon$ of each other is (see companion paper for rigorous derivation):
+The alignment probability has a precise geometric form. For $M$ independent phases, the probability that all lie within $\varepsilon$ of each other is:
 \begin{equation}\label{eq:coh-mises}
 P(A_\varepsilon) = p_1(\varepsilon, \kappa)^{M-1}
 \end{equation}
@@ -132,7 +132,7 @@ For coupled modules (weak inter-module coupling), the effective exponent is redu
 \begin{equation}\label{eq:coh-time}
 \boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}},\qquad \alpha\in(0,1],
 \end{equation}
-where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints. Perturbative analysis (companion paper) shows $\alpha = 1 - \beta(\mathrm{topology}, \kappa_{\mathrm{int}})$ where $\beta \geq 0$ depends on inter-module coupling strength and network topology.
+where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints. Perturbative analysis shows $\alpha = 1 - \beta(\mathrm{topology}, \kappa_{\mathrm{int}})$ where $\beta \geq 0$ depends on inter-module coupling strength and network topology (a detailed geometric derivation is available~\cite{todd2025ig}).
 
 \textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (locally coherent clusters) whose order parameters must jointly exceed a threshold for a commit to register. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which phases mix, combining natural frequency spread and phase diffusion from noise~\cite{ott2008,watanabe1994}. The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians): alignment requires all module phases to lie within a band of width $\varepsilon$. Note: $M \le \Deff$ where $\Deff$ is the full manifold dimensionality; $M$ counts only commit-relevant modules.
 
@@ -383,7 +383,7 @@ with coherence time
 \[
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}
 \]
-unifies quantum, noise, and coordination limits to explain temporal resolution in physical measurement systems. Here $M$ is coordination depth (number of semi-independent modules requiring alignment), $p_1(\varepsilon, \kappa)$ is the single-variable alignment probability (determined by von Mises concentration $\kappa$, which increases with Kuramoto coherence $r$), and $\alpha \in (0,1]$ captures effective independence (reduced by inter-module coupling). The exponent $(M-1)$---not $M$---arises from quotient geometry: one phase serves as reference~\cite{todd2025ig}.
+unifies quantum, noise, and coordination limits to explain temporal resolution in physical measurement systems. Here $M$ is coordination depth (number of semi-independent modules requiring alignment), $p_1(\varepsilon, \kappa)$ is the single-variable alignment probability (determined by von Mises concentration $\kappa$, which increases with Kuramoto coherence $r$), and $\alpha \in (0,1]$ captures effective independence (reduced by inter-module coupling). The exponent $(M-1)$---not $M$---arises from quotient geometry: one phase serves as reference (see~\cite{todd2025ig} for the full geometric derivation).
 
 Key findings:
 \begin{enumerate}
