@@ -1,92 +1,65 @@
-# Coherence Time in Neural Oscillator Assemblies
+# Coherence Time in Neural Oscillator Assemblies Sets the Speed of Thought
 
-**Repository:** todd866/coherence-time-biosystems
-**Paper status:** Under review at *BioSystems* (submitted 2025-11-15)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Companion Paper
+**Status:** Under review at *BioSystems*
 
-**[Alignment Probabilities on Product Statistical Manifolds](https://github.com/todd866/alignment-geometry)** (Information Geometry, in preparation)
+## Overview
 
-The companion paper provides the rigorous mathematical foundation:
-- Proves the $(M-1)$ exponent from quotient geometry
-- Derives $\alpha$ from weak-coupling perturbation theory
-- Establishes coordinate-invariant framework
-
-## One-line thesis
-
-Distributed biological computation is bottlenecked by **coherence time**: the waiting time for multiple semi-independent oscillator modules to align within a tolerance window.
-
-## Core result
+Distributed biological computation is bottlenecked by **coherence time**: the waiting time for multiple semi-independent oscillator modules to simultaneously align within a tolerance window.
 
 We derive the scaling law:
 
-```
-τ_coh ≈ (1/Δω) · p₁(ε, κ(r))^{-α(M-1)}
-```
+$$\tau_{\text{coh}} \approx \frac{1}{\Delta\omega} \cdot p_1(\varepsilon, \kappa)^{-\alpha(M-1)}$$
 
 where:
-- **M** = coordination depth (number of semi-independent modules requiring alignment)
-- **p₁** = single-variable window probability (from von Mises concentration κ)
-- **r** = Kuramoto coherence (determines κ via r = I₁(κ)/I₀(κ))
-- **ε** = phase alignment tolerance (full window width, radians)
-- **Δω** = phase exploration rate (frequency spread + diffusion)
-- **α** = effective independence (1 for independent modules, <1 for coupled)
+- **M** = coordination depth (modules requiring alignment)
+- **p₁** = single-variable alignment probability
+- **α** = effective independence (topology-dependent)
+- **Δω** = phase exploration rate
 
-## What the paper explains (order-of-magnitude)
+The exponent is **(M−1)**, not M, because alignment is rotationally invariant—one phase serves as reference.
 
-- Perceptual binding windows (~30–50 ms)
-- Arousal-driven time dilation with stable reaction time (tachypsychia)
-- Alpha frequency correlates of temporal acuity
-- Metabolic scaling of temporal resolution across species
+## Key Predictions
 
-## Repository structure
+| Phenomenon | Predicted | Observed |
+|------------|-----------|----------|
+| Visual binding | 30–70 ms | 30–50 ms |
+| Cross-modal integration | 100–150 ms | 100–200 ms |
+| Flicker fusion range | 1000× across taxa | ~1000× |
+
+## Repository Structure
 
 ```
-4_coherence_time/
-├── coherence_time.tex        # Submitted manuscript (frozen - do not modify)
-├── coherence_time.pdf        # Submitted PDF
-├── figures/                  # Submitted figures
-├── revisions/                # ← ALL REVISION WORK HERE
-│   ├── coherence_time_r1.tex # R1 revision (27 pages, improved formula)
-│   ├── coherence_time_r1.pdf # Compiled R1
-│   ├── REVISION_PLAN.md      # Original revision notes
-│   ├── REVISION_PLAN_R1.md   # Detailed R1 plan addressing reviewer feedback
-│   ├── kuramoto_coherence_time_v2.py   # Updated validation code
-│   ├── validation_results/   # JSON + figures for all topologies
-│   └── figures/              # Revision figures
-├── ig/                       # Companion IG paper (separate repo)
-│   └── → github.com/todd866/alignment-geometry
-├── LICENSE
-├── CITATION.cff
-└── build_clean.sh
+├── coherence_time.tex       # Submitted manuscript
+├── coherence_time.pdf       # Compiled PDF
+├── figures/                 # Manuscript figures
+├── revisions/               # Post-submission work
+│   ├── coherence_time_r1.*  # R1 revision (improved formula)
+│   ├── REVISION_PLAN*.md    # Revision notes
+│   └── simulations/         # Validation code
+└── README.md
 ```
 
-## Simulation validation (from revisions/)
+## Mathematical Foundation
 
-Kuramoto modular-network simulations (N=100, 20 trials per M) test the predicted scaling of τ_coh with coordination depth M.
+The **(M−1)** exponent and the geometric derivation are detailed in a companion paper:
 
-| Topology   | r̄    | α̂    | R²   | Interpretation |
-|------------|------|------|------|----------------|
-| Modular    | 0.94 | 0.35 | 0.71 | Exponential scaling (formula's target regime) |
-| All-to-all | 0.95 | 0.62 | 0.88 | Strong scaling but lacks independent modules |
-| Sparse     | 0.79 | 0.26 | 0.96 | Scaling present; lower coherence |
+> Todd, I. (2025). *Alignment Probabilities on Product Statistical Manifolds: Fisher Information and Coordination Depth.* Information Geometry (in preparation).
+> GitHub: [todd866/alignment-geometry](https://github.com/todd866/alignment-geometry)
 
-**Key takeaway:** The formula applies to hierarchically modular networks where modules are internally coherent but not globally phase-locked—precisely the architecture of biological neural networks.
+The companion provides the rigorous quotient-geometry proof; this paper focuses on neural applications and empirical validation.
 
-## Build
+## Building
 
 ```bash
-# Submitted version
-pdflatex coherence_time.tex && pdflatex coherence_time.tex
-
-# Revision (in revisions/)
-cd revisions && pdflatex coherence_time.tex && pdflatex coherence_time.tex
+pdflatex coherence_time.tex
 ```
 
 ## Citation
 
 ```bibtex
-@article{todd2025coherencetime,
+@article{todd2025coherence,
   title={Coherence Time in Neural Oscillator Assemblies Sets the Speed of Thought},
   author={Todd, Ian},
   journal={BioSystems},
@@ -95,6 +68,12 @@ cd revisions && pdflatex coherence_time.tex && pdflatex coherence_time.tex
 }
 ```
 
+## Author
+
+Ian Todd
+Sydney Medical School, University of Sydney
+ORCID: [0009-0002-6994-0917](https://orcid.org/0009-0002-6994-0917)
+
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+MIT License
