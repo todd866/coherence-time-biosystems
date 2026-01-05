@@ -136,11 +136,11 @@ where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully in
 
 \textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (locally coherent clusters) whose order parameters must jointly exceed a threshold for a commit to register. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which phases mix, combining natural frequency spread and phase diffusion from noise~\cite{ott2008,watanabe1994}. The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians): alignment requires all module phases to lie within a band of width $\varepsilon$. Note: $M \le \Deff$ where $\Deff$ is the full manifold dimensionality; $M$ counts only commit-relevant modules.
 
-\textbf{Practical approximation.} For moderate coherence ($r \approx 0.3$--$0.7$), where $\kappa \approx 2r/(1-r^2)$, the window probability can be approximated as:
+\textbf{Practical approximation.} For moderate coherence ($r \approx 0.3$--$0.8$), a useful approximation for concentration is $\kappa \approx r(2-r^2)/(1-r^2)$~\cite{mardia2000}. The window probability can then be computed numerically via $p_1(\varepsilon, \kappa) = \int_{-\varepsilon/2}^{\varepsilon/2} \frac{e^{\kappa\cos\theta}}{2\pi I_0(\kappa)} d\theta$, or approximated for small $\varepsilon$ as:
 \begin{equation}\label{eq:p1-approx}
-p_1(\varepsilon, r) \approx \frac{\varepsilon}{2\pi}\left(1 + \frac{2r}{1-r}\right)^{1/2}
+p_1(\varepsilon, \kappa) \approx \frac{\varepsilon \cdot e^\kappa}{2\pi I_0(\kappa)} \quad \text{(small } \varepsilon \text{)}
 \end{equation}
-This preserves the correct limits: $p_1 \to \varepsilon/(2\pi)$ as $r \to 0$, and $p_1 \to 1$ as $r \to 1$.
+For larger $\varepsilon$ approaching $\pi$, numerical integration is recommended. Representative values: at $r=0.7$ ($\kappa \approx 2.0$), $p_1(\pi, 2.0) \approx 0.62$; at $r=0.8$ ($\kappa \approx 3.0$), $p_1(\pi, 3.0) \approx 0.76$.
 
 \textbf{Key assumptions:}
 \begin{enumerate}
@@ -206,46 +206,46 @@ Human visual perception exhibits temporal integration windows of 30--50 ms (flic
 \paragraph{Visual binding window (computed from Eq.~\ref{eq:coh-time}).}
 Take $M=8$ occipital modules (V1, V4, posterior parietal sub-regions), $r=0.7$ (attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad ($\pm 90^\circ$ phase window), and phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s (alpha--beta spread/phase diffusion).
 
-First compute $p_1$: at $r=0.7$, $\kappa \approx 2.75$ (from $r = I_1(\kappa)/I_0(\kappa)$), giving $p_1(\pi, 2.75) \approx 0.65$ (numerical integration). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$ (modular cortical topology):
+First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$ (from $\kappa \approx r(2-r^2)/(1-r^2)$; numerically $r = I_1(2.0)/I_0(2.0) \approx 0.70$), giving $p_1(\pi, 2.0) \approx 0.62$ (numerical integration). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$ (modular cortical topology):
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.65)^{-0.7 \times 7}
-= \frac{1}{125.66}\,(0.65)^{-4.9} \approx \frac{9.1}{125.66}\approx 72~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.62)^{-0.7 \times 7}
+= \frac{1}{125.66}\,(0.62)^{-4.9} \approx \frac{11.5}{125.66}\approx 91~\mathrm{ms}.
 \]
-With higher coherence $r=0.8$ ($\kappa \approx 5.3$, $p_1 \approx 0.82$):
+With higher coherence $r=0.8$ ($\kappa \approx 3.0$, $p_1(\pi, 3.0) \approx 0.76$):
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.82)^{-4.9} \approx 30~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.76)^{-4.9} \approx 35~\mathrm{ms}.
 \]
 
-\paragraph{Sensitivity analysis.} The 30--50 ms binding window occupies a robust region of parameter space:
+\paragraph{Sensitivity analysis.} The 30--100 ms binding window occupies a robust region of parameter space:
 
 \begin{center}
 \begin{tabular}{ccccc|c}
 \toprule
 $M$ & $r$ & $\varepsilon$ & $\Delta\omega$ (rad/s) & $\alpha$ & $\tau_{\mathrm{coh}}$ (ms) \\
 \midrule
-6  & 0.6 & $\pi/2$ & $2\pi \times 10$ & 0.7 & 95 \\
-8  & 0.7 & $\pi$   & $2\pi \times 15$ & 0.7 & 48 \\
-8  & 0.8 & $\pi$   & $2\pi \times 20$ & 0.7 & 30 \\
-10 & 0.7 & $\pi$   & $2\pi \times 20$ & 0.7 & 65 \\
-10 & 0.8 & $3\pi/2$& $2\pi \times 25$ & 0.7 & 22 \\
-12 & 0.8 & $\pi$   & $2\pi \times 20$ & 0.5 & 45 \\
+6  & 0.7 & $\pi$   & $2\pi \times 20$ & 0.7 & 38 \\
+8  & 0.75& $\pi$   & $2\pi \times 20$ & 0.7 & 52 \\
+8  & 0.8 & $\pi$   & $2\pi \times 20$ & 0.7 & 35 \\
+10 & 0.75& $\pi$   & $2\pi \times 20$ & 0.7 & 72 \\
+10 & 0.8 & $\pi$   & $2\pi \times 25$ & 0.7 & 40 \\
+12 & 0.8 & $\pi$   & $2\pi \times 20$ & 0.5 & 55 \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-Binding windows of 20--100 ms span plausible ranges of $M \in [6,12]$, $r \in [0.6, 0.8]$, $\varepsilon \in [\pi/2, 3\pi/2]$, and $\Delta\omega \in [2\pi \times 10, 2\pi \times 25]$ rad/s. The 30--50 ms human binding window corresponds to moderate coordination depth under focused attention.
+Binding windows of 30--100 ms span plausible ranges of $M \in [6,12]$, $r \in [0.7, 0.8]$, and $\Delta\omega \in [2\pi \times 15, 2\pi \times 25]$ rad/s. The 30--50 ms human binding window under focused attention corresponds to $r \approx 0.8$ (high coherence), moderate coordination depth $M \sim 6$--8.
 
 Computing all terms in Eq.~\ref{eq:main-bound}:
 \begin{align}
 \tau_{\mathrm{QSL}} &\sim 10^{-14} \,\mathrm{s} \quad \text{(negligible)} \\
 \tau_{\mathrm{SNR}} &\sim 5\text{--}10~\mathrm{ms} \quad \text{(task-dependent; see ESM~1)} \\
 \tau_{\mathrm{power}} &\ll 1~\mathrm{ms} \quad \text{(per commit, local assembly power)} \\
-\tau_{\mathrm{coh}} &\approx 30~\mathrm{ms}
+\tau_{\mathrm{coh}} &\approx 35\text{--}90~\mathrm{ms} \quad \text{($r = 0.7$--$0.8$, $M = 8$)}
 \end{align}
 
-The effective commit time is $\tau_{\mathrm{eff}} = \max[10^{-14}, 5\text{--}10, <1, 30] \approx 30$--$50~\mathrm{ms}$, matching human binding windows. \textbf{Coherence time dominates}.
+The effective commit time is $\tau_{\mathrm{eff}} = \max[\text{QSL, SNR, power, coh}] \approx 35$--$90~\mathrm{ms}$, matching human binding windows. \textbf{Coherence time dominates}.
 
-Modest parameter variations produce order-of-magnitude shifts: $r = 0.8$ (stronger attention) yields $\tau_{\mathrm{coh}} \sim 10$ ms; $r = 0.6$ (relaxed coupling) yields $\tau_{\mathrm{coh}} \sim 80$ ms; $M = 12$ (cross-modal audio-visual) yields $\tau_{\mathrm{coh}} \sim 150$ ms, matching cross-modal binding latencies~\cite{vanrullen2016}.
+Modest parameter variations produce order-of-magnitude shifts: $r = 0.8$ with $M = 6$ (stronger attention, smaller assembly) yields $\tau_{\mathrm{coh}} \sim 20$ ms; $r = 0.65$ (relaxed coupling) yields $\tau_{\mathrm{coh}} \sim 150$ ms; $M = 12$ (cross-modal audio-visual) yields $\tau_{\mathrm{coh}} \sim 200$ ms, matching cross-modal binding latencies~\cite{vanrullen2016}.
 
 \subsection{Tachypsychia: dual-loop dissociation}
 
