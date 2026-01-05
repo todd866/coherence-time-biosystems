@@ -24,3 +24,6 @@ texput.log
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Companion IG paper (separate repo: github.com/todd866/alignment-geometry)
+ig/
