@@ -3,6 +3,15 @@
 **Repository:** todd866/coherence-time-biosystems
 **Paper status:** Under review at *BioSystems* (submitted 2025-11-15)
 
+## Companion Paper
+
+**[Alignment Probabilities on Product Statistical Manifolds](https://github.com/todd866/alignment-geometry)** (Information Geometry, in preparation)
+
+The companion paper provides the rigorous mathematical foundation:
+- Proves the $(M-1)$ exponent from quotient geometry
+- Derives $\alpha$ from weak-coupling perturbation theory
+- Establishes coordinate-invariant framework
+
 ## One-line thesis
 
 Distributed biological computation is bottlenecked by **coherence time**: the waiting time for multiple semi-independent oscillator modules to align within a tolerance window.
@@ -12,15 +21,16 @@ Distributed biological computation is bottlenecked by **coherence time**: the wa
 We derive the scaling law:
 
 ```
-τ_coh ≈ (1/Δω)(2π/ε)^[α(1-r)(M-1)]
+τ_coh ≈ (1/Δω) · p₁(ε, κ(r))^{-α(M-1)}
 ```
 
 where:
 - **M** = coordination depth (number of semi-independent modules requiring alignment)
-- **r** = Kuramoto coherence (mean resultant length; circular variance is 1-r)
-- **ε** = phase alignment tolerance (radians)
+- **p₁** = single-variable window probability (from von Mises concentration κ)
+- **r** = Kuramoto coherence (determines κ via r = I₁(κ)/I₀(κ))
+- **ε** = phase alignment tolerance (full window width, radians)
 - **Δω** = phase exploration rate (frequency spread + diffusion)
-- **α** = topology-dependent coordination parameter
+- **α** = effective independence (1 for independent modules, <1 for coupled)
 
 ## What the paper explains (order-of-magnitude)
 
@@ -33,17 +43,19 @@ where:
 
 ```
 4_coherence_time/
-├── coherence_time.tex        # Submitted manuscript (frozen)
+├── coherence_time.tex        # Submitted manuscript (frozen - do not modify)
 ├── coherence_time.pdf        # Submitted PDF
 ├── figures/                  # Submitted figures
 ├── revisions/                # ← ALL REVISION WORK HERE
-│   ├── coherence_time.tex    # R1 manuscript (consolidated, 20 pages)
-│   ├── coherence_time.pdf    # Compiled revision
+│   ├── coherence_time_r1.tex # R1 revision (27 pages, improved formula)
+│   ├── coherence_time_r1.pdf # Compiled R1
+│   ├── REVISION_PLAN.md      # Original revision notes
+│   ├── REVISION_PLAN_R1.md   # Detailed R1 plan addressing reviewer feedback
 │   ├── kuramoto_coherence_time_v2.py   # Updated validation code
-│   ├── kuramoto_coherence_time_original.py  # Original simulation
 │   ├── validation_results/   # JSON + figures for all topologies
-│   ├── figures/              # Revision figures
-│   └── REVISION_PLAN.md      # Revision notes
+│   └── figures/              # Revision figures
+├── ig/                       # Companion IG paper (separate repo)
+│   └── → github.com/todd866/alignment-geometry
 ├── LICENSE
 ├── CITATION.cff
 └── build_clean.sh
