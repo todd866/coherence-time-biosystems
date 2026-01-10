@@ -27,3 +27,4 @@ __pycache__/
 
 # Companion IG paper (separate repo: github.com/todd866/alignment-geometry)
 ig/
+revisions/archive/
