@@ -35,7 +35,7 @@ Sydney, NSW, Australia\\
 \maketitle
 
 \begin{abstract}
-Cognitive and biological processing depends on coherent oscillations across distributed assemblies. Yet the physical principles determining how fast these assemblies can synchronize---and thus how fast neural processes associated with cognition can proceed---remain incompletely formalized. We derive a quantitative framework showing that coherence time in coupled oscillator networks scales exponentially with coordination depth. For $M$ semi-independent modules requiring phase alignment within tolerance $\varepsilon$ at coherence $r$, the minimum interval between irreversible state registrations (``commits'') is dominated by rare-event first-passage time into low-measure alignment sets on the configuration manifold. This produces a fundamental speed-flexibility trade-off: increasing coordination depth expands combinatorial flexibility but slows commits exponentially; tighter coherence accelerates synchronization but restricts dynamics to low-dimensional attractors. We situate this coordination limit within a hierarchy of physical bounds---quantum speed limits, Landauer-Margolus-Levitin thermodynamic constraints, and energy-time uncertainty relations---showing that in biological neural systems, these quantum and thermodynamic bounds are typically non-binding; the dominant constraint is the time required for distributed oscillatory assemblies to achieve sufficient phase coherence. While neural oscillators provide the most empirically accessible measurements, the framework applies to any biological system whose function requires coordinated phase relations and sparse commitment events, from chromosomal segregation to circadian networks. We provide parameter estimation protocols and testable predictions including alpha entrainment effects on temporal acuity and dual-loop dissociations under arousal.
+Cognitive and biological processing depends on coherent oscillations across distributed assemblies. Yet the physical principles determining how fast these assemblies can synchronize---and thus how fast neural processes associated with cognition can proceed---remain incompletely formalized. We derive a quantitative framework showing that coherence time in coupled oscillator networks scales exponentially with coordination depth. For $M$ semi-independent modules requiring phase alignment within tolerance $\varepsilon$ at coherence $r$, the minimum interval between irreversible state registrations (``commits'') is dominated by rare-event first-passage time into low-measure alignment sets on the configuration manifold. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; increasing coherence $r$ accelerates synchronization but restricts dynamics to low-dimensional attractors. We situate this coordination limit within a hierarchy of physical bounds---quantum speed limits, Landauer-Margolus-Levitin thermodynamic constraints, and energy-time uncertainty relations---showing that in biological neural systems, these quantum and thermodynamic bounds are typically non-binding; the dominant constraint is the time required for distributed oscillatory assemblies to achieve sufficient phase coherence. While neural oscillators provide the most empirically accessible measurements, the framework applies to any biological system whose function requires coordinated phase relations and sparse commitment events, from chromosomal segregation to circadian networks. We provide parameter estimation protocols and testable predictions including alpha entrainment effects on temporal acuity and dual-loop dissociations under arousal.
 \end{abstract}
 
 \textbf{Keywords:} biological oscillations, coherence time, coordination depth, temporal resolution, quantum speed limits, Landauer bound, coupled oscillators
@@ -76,7 +76,7 @@ The minimum time between commits is bounded below by four physical constraints:
 \boxed{\tau_{\mathrm{eff}} \;\gtrsim\; \max\left[\tau_{\mathrm{QSL}},\; \tau_{\mathrm{SNR}},\; \tau_{\mathrm{coh}},\; \tau_{\mathrm{power}}\right]}
 \end{equation}
 
-This is a \textbf{lower bound}: the effective commit interval must be at least as long as the slowest constraint. When these constraints act on largely independent subsystems and can be satisfied in parallel, the bound is approximately tight and the max operation gives the dominant timescale. The four terms are:
+This is a \textbf{lower bound}: the effective commit interval must be at least as long as the slowest constraint. The max operation is appropriate when these constraints act on largely independent subsystems that can be satisfied in parallel (e.g., quantum state evolution, signal detection, and phase coordination proceed concurrently). If constraints were strictly sequential (e.g., signal detection \emph{then} coordination \emph{then} dissipation), a sum would be more appropriate. In biological neural systems, the constraints are largely parallel, and the coherence time dominates by orders of magnitude, so the distinction has minimal practical impact. The four terms are:
 
 \paragraph{Quantum speed limits ($\tau_{\mathrm{QSL}}$).} The Mandelstam-Tamm and Margolus-Levitin bounds~\cite{mandelstam1945,margolus1998} establish
 \[
@@ -122,7 +122,7 @@ P(A_\varepsilon) \propto p_1(\varepsilon, \kappa)^{M-1}
 \[
 \tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega} \left( \frac{2\pi I_0(\kappa)}{\varepsilon \, e^\kappa} \right)^{\alpha(M-1)}
 \]
-This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit.
+This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit. \emph{Note:} We use the exact $p_1(\varepsilon, \kappa)$ integral for all numerical estimates (e.g., the binding window calculations use $\varepsilon = \pi$, which is not a small window); the small-$\varepsilon$ expansion is presented only to clarify the scaling structure.
 
 \textbf{The exponent is $(M-1)$, not $M$.} This arises from quotient geometry: the reference module $\theta_1$ serves as anchor (whether fixed or conditioned upon), leaving $M-1$ independent constraints. This is analogous to the classic result that the probability of $M$ uniform phases falling in \emph{some} semicircle is $M/2^{M-1}$, where the factor $M$ accounts for the free choice of arc location; our anchored definition removes this degree of freedom.
 
@@ -201,10 +201,10 @@ The central claim of this paper is that in biological neural systems, the quantu
 Consider the hierarchy of timescales for cortical visual processing:
 \begin{align}
 \tau_{\mathrm{QSL}} &\sim 10^{-13} \text{ s} \quad \text{(quantum speed limit)} \\
-\tau_{\mathrm{Landauer}} &\sim 10^{-12} \text{ s} \quad \text{(thermal relaxation)} \\
 \tau_{\mathrm{SNR}} &\sim 10^{-3} \text{ s} \quad \text{(signal detection)} \\
 \tau_{\mathrm{coh}} &\sim 10^{-2} \text{ s} \quad \text{(coordination time)}
 \end{align}
+(Note: The Landauer bound constrains \emph{energy} per bit, not time; we omit it from this hierarchy since the time-limiting step is coordination, not dissipation.)
 
 The coherence time exceeds quantum limits by eleven orders of magnitude. This enormous gap arises because neural computation is not limited by how fast individual elements can switch states, but by how long it takes for \emph{distributed assemblies of semi-independent modules} to achieve coordinated phase alignment.
 
@@ -226,11 +226,12 @@ This analysis clarifies the relationship between our framework and fundamental p
 \item Typical values: occipital visual tasks yield $M \sim 6$--10; cross-modal binding $M \sim 10$--15.
 \end{enumerate}
 
-\paragraph{Kuramoto coherence ($r$).} Extract instantaneous phase $\theta_j(t)$ from bandpass-filtered LFP/EEG via Hilbert transform. Compute the global order parameter:
-\[
-r(t) = \left|\frac{1}{N}\sum_{j=1}^N e^{i\theta_j(t)}\right|
-\]
-where $N$ is the number of recording channels. For the coherence time model, we need module-level coherence: first cluster channels into $M$ modules, compute each module's aggregate phase, then estimate $r$ and $\kappa$ from the inter-module phase distribution. Typical values: spontaneous cortex $\sim 0.2$--0.4; attention $\sim 0.5$--0.7; circadian networks $\sim 0.7$--0.9~\cite{fries2015}.
+\paragraph{Kuramoto coherence ($r$).} Extract instantaneous phase $\theta_j(t)$ from bandpass-filtered LFP/EEG via Hilbert transform. For the coherence time model, we distinguish:
+\begin{itemize}
+\item \textbf{Within-module coherence:} $r_{\mathrm{intra},m}(t) = \left|\frac{1}{n_m}\sum_{j \in m} e^{i\theta_j(t)}\right|$ for module $m$ with $n_m$ channels.
+\item \textbf{Inter-module coherence:} $r_{\mathrm{inter}}(t) = \left|\frac{1}{M}\sum_{m=1}^M e^{i\psi_m(t)}\right|$ where $\psi_m$ is module $m$'s aggregate phase.
+\end{itemize}
+Commits require high $r_{\mathrm{intra}}$ (modules are internally coherent) \emph{and} rare alignment of inter-module phases (low baseline $r_{\mathrm{inter}}$, with commits occurring when $r_{\mathrm{inter}}$ transiently exceeds threshold). The $r$ and $\kappa$ in Eq.~\ref{eq:coh-time} refer to the \emph{inter-module} distribution. Typical inter-module values: spontaneous cortex $\sim 0.2$--0.4; attention $\sim 0.5$--0.7~\cite{fries2015}.
 
 \paragraph{Phase alignment window ($\varepsilon$).} From spike train or LFP cross-correlograms, measure half-width at half-maximum (HWHM, units: seconds). The \textbf{full} phase window is $\varepsilon = 2\,\omega_0\,\mathrm{HWHM}$ (radians).
 
@@ -242,7 +243,7 @@ where $N$ is the number of recording channels. For the coherence time model, we 
 
 Human visual perception exhibits temporal integration windows of 30--50 ms (flicker fusion at 20--30 Hz). We apply Eq.~\ref{eq:main-bound} with neural parameters.
 
-Take $M=8$ occipital modules, $r=0.7$ (attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad, and phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s.
+\textbf{Parameter provenance:} We take $M=8$ occipital modules (a plausible count of functional submodules in visual binding, including V1, V2, V4, and posterior parietal subdivisions; can be estimated via community detection on coherence networks). Coherence $r=0.7$ reflects attentional engagement~\cite{fries2015}. Full tolerance $\varepsilon=\pi$ rad ($\pm 90°$) corresponds to the broad phase windows observed in cross-correlograms during visual binding. Phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s is estimated from the decorrelation time of relative phases in alpha/beta bands (not the carrier frequency). Effective independence $\alpha=0.7$ reflects modular cortical topology; it can be fit empirically from the scaling of inter-commit times with $M$.
 
 First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$, giving $p_1(\pi, 2.0) \approx 0.62$ (numerical integration). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$ (modular cortical topology):
 \[
@@ -293,7 +294,7 @@ During acute stress or falls, subjects report subjective time slowing while obje
 
 \emph{Perceptual loop} (cortical): High-$M$ ($\sim 10$--15 modules) coherent field dynamics. Commits sparse (5--20 Hz). Arousal increases coherence $r$ and thus information rate per commit interval.
 
-\emph{Motor loop} (cerebellar/basal ganglia): Low-$M$ ($\sim 3$--5 modules) primitives. Commits faster (50--150 ms). Arousal modulates decision threshold, preserving reaction time.
+\emph{Motor loop} (cerebellar/basal ganglia): Low-$M$ ($\sim 3$--5 modules) primitives. Motor latencies of 50--150 ms reflect simpler coordination requirements (lower $M$, higher $\alpha$) than multi-area perceptual binding. Arousal modulates decision threshold, preserving reaction time.
 
 \textbf{Measurable proxies:} Perceptual loop commit rate could be indexed by temporal-order judgment thresholds or EEG phase coherence in theta/alpha bands. Motor loop could be indexed by simple RT distributions or EMG onset latencies. The hypothesis predicts these measures should be \emph{statistically dissociable} under arousal manipulation, with temporal-order thresholds changing while simple RT remains stable.
 
@@ -378,9 +379,9 @@ If phenomenal experience reflects pre-commit coherent dynamics, conscious states
 
 \section{Conclusion}
 
-We have established that coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase alignment for irreversible state registration---bounds the rate of neural processes associated with cognition. The bound
+We have established that coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase alignment for irreversible state registration---bounds the rate of neural processes associated with cognition. The lower bound
 \[
-\tau_{\mathrm{eff}} = \max\left[\tau_{\mathrm{QSL}},\, \tau_{\mathrm{SNR}},\, \tau_{\mathrm{coh}},\, \tau_{\mathrm{power}}\right]
+\tau_{\mathrm{eff}} \gtrsim \max\left[\tau_{\mathrm{QSL}},\, \tau_{\mathrm{SNR}},\, \tau_{\mathrm{coh}},\, \tau_{\mathrm{power}}\right]
 \]
 with coherence time
 \[
