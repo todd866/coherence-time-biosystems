@@ -113,7 +113,9 @@ where $p_1(\varepsilon, \kappa) = \int_{-\varepsilon/2}^{\varepsilon/2} \frac{e^
 
 \textbf{Case B (random reference):} If $\theta_1$ is itself drawn from the same von Mises distribution, then $P(A_\varepsilon) = \mathbb{E}_{\theta_1}[q(\theta_1)^{M-1}]$ where $q(\theta_1) = P(|\theta - \theta_1| < \varepsilon/2)$. In the small-window limit, rotational symmetry ensures the scaling remains $\propto \varepsilon^{M-1}$, though the constant differs.
 
-In both cases:
+\textbf{Case C (mean-phase reference):} Alternatively, alignment can be defined relative to the instantaneous mean phase $\bar{\psi} = \arg(\sum_m e^{i\psi_m})$: all modules must fall within $\varepsilon/2$ of $\bar{\psi}$. This definition is natural for empirical detection (threshold on max phase deviation from mean) and yields the same $(M-1)$ scaling exponent, differing only by an $O(1)$ constant from the anchored case.
+
+In all cases:
 \begin{equation}\label{eq:coh-mises}
 P(A_\varepsilon) \propto p_1(\varepsilon, \kappa)^{M-1}
 \end{equation}
@@ -126,7 +128,9 @@ This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dep
 
 \textbf{The exponent is $(M-1)$, not $M$.} This arises from quotient geometry: the reference module $\theta_1$ serves as anchor (whether fixed or conditioned upon), leaving $M-1$ independent constraints. This is analogous to the classic result that the probability of $M$ uniform phases falling in \emph{some} semicircle is $M/2^{M-1}$, where the factor $M$ accounts for the free choice of arc location; our anchored definition removes this degree of freedom.
 
-\textbf{First-passage time structure.} Assuming independence across modules on the commit timescale, the alignment event $A_\varepsilon$ is a rare target set on the $M$-torus $T^M$. Under fast mixing relative to the target set size, first-passage times are approximately exponential with mean $\tau \approx 1/(\text{attempt rate} \times P(A_\varepsilon))$---a form of Kac's recurrence theorem~\cite{kac1947}. The attempt rate is set by the phase-exploration rate $\Delta\omega$. Thus:
+\textbf{First-passage time structure.} Assuming independence across modules on the commit timescale, the alignment event $A_\varepsilon$ is a rare target set on the $M$-torus $T^M$. Under fast mixing relative to the target set size, first-passage times are approximately exponential with mean $\tau \approx 1/(\text{attempt rate} \times P(A_\varepsilon))$---a form of Kac's recurrence theorem~\cite{kac1947}.
+
+\textbf{Mixing time interpretation.} Let $\tau_{\mathrm{mix}}$ denote the mixing time of the joint phase process---the timescale on which phase configurations become approximately independent of their initial state. The effective number of independent ``alignment attempts'' per unit time is $\sim 1/\tau_{\mathrm{mix}}$. We identify $\Delta\omega \approx 1/\tau_{\mathrm{mix}}$, yielding:
 \begin{equation}\label{eq:coh-time-exact}
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-(M-1)}
 \end{equation}
@@ -137,6 +141,12 @@ For coupled modules (weak inter-module coupling), the effective exponent is redu
 \end{equation}
 where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints. One can define an effective constraint dimension $d_{\mathrm{eff}} = \alpha(M-1)$ and estimate it empirically from the participation ratio of the covariance matrix of phase deviations $\delta\theta_i = \theta_i - \bar{\theta}$.
 
+\textbf{Log-linear form.} Taking logarithms makes the exponential-in-$M$ scaling explicit:
+\[
+\log \tau_{\mathrm{coh}} = -\log \Delta\omega - \alpha(M-1)\log p_1(\varepsilon, \kappa(r)).
+\]
+Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially with effective constraint dimension $\alpha(M-1)$.
+
 \textbf{Key assumptions.} Equation~\ref{eq:coh-time} relies on:
 \begin{enumerate}
 \item \textbf{Stationarity}: The phase distribution is approximately stationary over the commit timescale.
@@ -145,6 +155,8 @@ where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully in
 \item \textbf{Attempt rate interpretation}: $\Delta\omega$ represents the inverse correlation time of phase deviations, not the carrier frequency.
 \end{enumerate}
 \textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity.
+
+\textbf{Heavy-tailed waiting times.} Empirically observed inter-commit intervals may exhibit heavy tails even when the underlying process is well-described by Eq.~\ref{eq:coh-time}. This arises naturally when $r(t)$, $\Delta\omega(t)$, or network state drift slowly relative to the commit timescale. The marginal waiting time distribution then becomes a \emph{mixture of exponentials} (a Cox or doubly stochastic process), which can produce power-law-like tails. The key testable prediction is that waiting times \emph{conditional on a narrow bin of $r$} should remain approximately exponential, even when the unconditional distribution is heavy-tailed.
 
 \textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (functional clusters) whose order parameters must jointly exceed a threshold for a commit to register. \emph{Modules are not individual oscillators}: within-module coherence is absorbed into the module's aggregate phase estimate. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which inter-module phases mix (not the carrier frequency). The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians); $\varepsilon = \pi/2$ corresponds to $\pm 45^\circ$ alignment tolerance, typical for gamma-band binding.
 
@@ -232,6 +244,8 @@ This analysis clarifies the relationship between our framework and fundamental p
 \item \textbf{Inter-module coherence:} $r_{\mathrm{inter}}(t) = \left|\frac{1}{M}\sum_{m=1}^M e^{i\psi_m(t)}\right|$ where $\psi_m$ is module $m$'s aggregate phase.
 \end{itemize}
 Commits require high $r_{\mathrm{intra}}$ (modules are internally coherent) \emph{and} rare alignment of inter-module phases (low baseline $r_{\mathrm{inter}}$, with commits occurring when $r_{\mathrm{inter}}$ transiently exceeds threshold). The $r$ and $\kappa$ in Eq.~\ref{eq:coh-time} refer to the \emph{inter-module} distribution. Typical inter-module values: spontaneous cortex $\sim 0.2$--0.4; attention $\sim 0.5$--0.7~\cite{fries2015}.
+
+\textbf{Interpretation of $r$ in Eq.~\ref{eq:coh-time}.} The parameter $r$ can be interpreted in two ways: (1) as a slowly varying \emph{state variable} $r(t)$, in which case Eq.~\ref{eq:coh-time} gives an instantaneous hazard rate $\lambda(t) = \Delta\omega\, p_1^{\alpha(M-1)}$, and the waiting time distribution becomes a hazard integral over the trajectory of $r(t)$; or (2) as a \emph{conditional} parameter representing coherence during the pre-commit interval, in which case Eq.~\ref{eq:coh-time} gives the mean waiting time conditional on that coherence level. Interpretation (1) naturally explains heavy-tailed waiting time distributions when $r(t)$ drifts slowly.
 
 \paragraph{Phase alignment window ($\varepsilon$).} From spike train or LFP cross-correlograms, measure half-width at half-maximum (HWHM, units: seconds). The \textbf{full} phase window is $\varepsilon = 2\,\omega_0\,\mathrm{HWHM}$ (radians).
 
@@ -385,19 +399,19 @@ The coherence time framework identifies a fundamental design constraint for any 
 
 \paragraph{Clocked architectures.} Conventional digital computers (CPUs, GPUs, current AI accelerators) enforce synchronization via a global clock signal. Every operation is gated by a central timing reference; state updates occur in lockstep across all components. This architecture sidesteps the coherence time penalty entirely---there is no waiting for spontaneous phase alignment because alignment is \emph{imposed} by the clock.
 
-However, this comes at a cost beyond power and wire delays: \textbf{clocked systems are fundamentally one-dimensional at the substrate level}. The clock defines a single time axis along which all computation is serialized. Even massively parallel operations (matrix multiplications across thousands of cores) are projections onto this 1D temporal backbone---snapshots that are sequentially updated. The system can \emph{represent} high-dimensional states in memory, but the dynamics themselves unfold along a single coordinate.
+We hypothesize that this comes at a cost beyond power and wire delays: \textbf{clocked systems may be constrained in ontological dimensionality}. The clock imposes a global update constraint that can suppress the kinds of metastable, spontaneously coordinated dynamics we model here. Even massively parallel operations (matrix multiplications across thousands of cores) proceed via synchronized state updates---the system can \emph{represent} high-dimensional states in memory, but may not \emph{instantiate} the autonomous, semi-independent module dynamics that characterize biological oscillator assemblies. This is a hypothesis about dynamical structure, not a theorem; intermediate architectures (asynchronous digital, neuromorphic with local clocks) occupy a spectrum between the extremes we describe.
 
 \paragraph{Unclocked architectures.} Biological neural networks, and potentially neuromorphic hardware designed on similar principles, operate without global synchronization. Each module evolves on its own trajectory; the phase space is the \emph{actual} dynamical space of the system, not a represented abstraction. The dimensionality is ontologically realized in the substrate.
 
 Such systems pay the coherence time penalty derived in this paper: coordination across $M$ modules requires waiting for rare alignment events, with time scaling exponentially in $M$. But they gain access to genuinely high-dimensional dynamics---the very property that prior work identified as constitutive of intelligence~\cite{todd2025intelligence}.
 
-\paragraph{A design principle.} This suggests a fundamental trade-off for artificial systems:
+\paragraph{A design hypothesis.} This suggests a potential trade-off for artificial systems:
 \begin{itemize}
-\item \textbf{Clocked}: Fast, deterministic, scalable in parallelism---but bounded in ontological dimensionality. The substrate cannot \emph{be} a high-dimensional dynamical system; it can only simulate one.
-\item \textbf{Unclocked}: Genuinely high-dimensional, capable of the coherent dynamics that characterize biological intelligence---but subject to coordination bottlenecks that scale exponentially with integration depth.
+\item \textbf{Clocked}: Fast, deterministic, scalable in parallelism---but potentially constrained in dynamical autonomy. The substrate may not support the spontaneous coordination dynamics modeled here.
+\item \textbf{Unclocked}: Capable of genuinely autonomous, high-dimensional dynamics---but subject to coordination bottlenecks that scale exponentially with integration depth.
 \end{itemize}
 
-If high-dimensional coherent dynamics are not merely \emph{correlated with} but \emph{constitutive of} intelligence, then clocked architectures face a ceiling that cannot be overcome by adding parameters or compute. Unclocked architectures avoid this ceiling but must navigate the speed-flexibility frontier described in Proposition~\ref{prop:tradeoff}.
+If high-dimensional coherent dynamics prove to be not merely \emph{correlated with} but \emph{constitutive of} certain cognitive capacities, then clocked architectures may face constraints that unclocked ones do not. This remains speculative; the empirical question is whether the coordination-time framework applies to engineered systems and, if so, whether it identifies real performance boundaries.
 
 This framing may inform the design of neuromorphic systems, spiking neural networks, and other non-von Neumann architectures. The coherence time formula (Eq.~\ref{eq:coh-time}) provides quantitative guidance: to achieve update rates comparable to biological cognition, such systems must either accept modest coordination depth $M$, engineer high baseline coherence $r$, or develop hierarchical architectures that localize coordination requirements.
 
