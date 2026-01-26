@@ -46,20 +46,32 @@ def main():
         ax.set_xlabel("Coordination depth M", fontsize=11)
         ax.set_ylabel("Coherence time (s)", fontsize=11)
 
-        # Fitted line
-        if np.isfinite(alpha_hat):
-            M0 = float(M[0])
-            tau0 = float(tau_med[0])
-            r0 = float(rbar[0])
+        # Fitted line: use actual model predictions with interpolated r(M)
+        if np.isfinite(alpha_hat) and 'intercept' in fit:
+            intercept = fit['intercept']
+            domega = np.array(sweep.get("domega_mean", sweep.get("domega_effective", [1.0]*len(M))))
             c = np.log(2 * np.pi / float(epsilon))
+
             M_grid = np.linspace(M.min(), M.max(), 50)
-            rel = np.exp(alpha_hat * c * (1 - r0) * (M_grid - M0))
-            tau_pred = tau0 * rel
+            # Interpolate r and domega across M
+            r_interp = np.interp(M_grid, M, rbar)
+            dw_interp = np.interp(M_grid, M, domega)
+
+            # Predicted log(tau * domega) from fitted model
+            x_pred = (1 - r_interp) * (M_grid - 1)
+            log_tau_dw_pred = alpha_hat * c * x_pred + intercept
+            tau_pred = np.exp(log_tau_dw_pred) / dw_interp
+
             ax.plot(M_grid, tau_pred, '--', linewidth=2, color='black', alpha=0.7)
 
         ax.set_title(f"{title}\n$\\hat{{\\alpha}}={alpha_hat:.2f}$, $R^2={r2:.2f}$", fontsize=11)
         ax.grid(True, alpha=0.3)
-        ax.set_ylim(3, 25)  # consistent y-axis
+        # Dynamic y-limits based on data (with padding)
+        valid_tau = tau_med[np.isfinite(tau_med) & (tau_med > 0)]
+        if len(valid_tau) > 0:
+            ymin = max(0.5, valid_tau.min() * 0.7)
+            ymax = valid_tau.max() * 1.5
+            ax.set_ylim(ymin, ymax)
 
     fig.tight_layout()
 

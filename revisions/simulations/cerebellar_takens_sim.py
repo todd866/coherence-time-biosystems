@@ -42,8 +42,13 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 from scipy.spatial.distance import pdist, squareform
 from mpl_toolkits.mplot3d import Axes3D
+from pathlib import Path
 
 np.random.seed(42)
+
+# Ensure output directory exists
+FIGURES_DIR = Path(__file__).parent.parent / "figures"
+FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def lorenz(state, t, sigma=10, rho=28, beta=8/3):
@@ -405,9 +410,9 @@ def main():
              bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
 
     plt.tight_layout()
-    plt.savefig('../figures/cerebellar_takens.pdf', bbox_inches='tight', dpi=150)
-    plt.savefig('../figures/cerebellar_takens.png', bbox_inches='tight', dpi=150)
-    print("   Saved: ../figures/cerebellar_takens.pdf and .png")
+    plt.savefig(FIGURES_DIR / 'cerebellar_takens.pdf', bbox_inches='tight', dpi=150)
+    plt.savefig(FIGURES_DIR / 'cerebellar_takens.png', bbox_inches='tight', dpi=150)
+    print(f"   Saved: {FIGURES_DIR / 'cerebellar_takens.pdf'} and .png")
 
     # Additional analysis: varying tau
     print("\n5. Analyzing optimal delay selection...")
@@ -455,9 +460,9 @@ def main():
     axes[1].grid(True, alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig('../figures/cerebellar_takens_delay.pdf', bbox_inches='tight', dpi=150)
-    plt.savefig('../figures/cerebellar_takens_delay.png', bbox_inches='tight', dpi=150)
-    print("   Saved: ../figures/cerebellar_takens_delay.pdf and .png")
+    plt.savefig(FIGURES_DIR / 'cerebellar_takens_delay.pdf', bbox_inches='tight', dpi=150)
+    plt.savefig(FIGURES_DIR / 'cerebellar_takens_delay.png', bbox_inches='tight', dpi=150)
+    print(f"   Saved: {FIGURES_DIR / 'cerebellar_takens_delay.pdf'} and .png")
 
     # === NEW: Degradation analysis ===
     # This directly addresses the clinical relevance: coordination fails before cell death
@@ -581,9 +586,9 @@ def main():
     axes[1, 2].remove()
 
     plt.tight_layout()
-    plt.savefig('../figures/cerebellar_takens_degradation.pdf', bbox_inches='tight', dpi=150)
-    plt.savefig('../figures/cerebellar_takens_degradation.png', bbox_inches='tight', dpi=150)
-    print("   Saved: ../figures/cerebellar_takens_degradation.pdf and .png")
+    plt.savefig(FIGURES_DIR / 'cerebellar_takens_degradation.pdf', bbox_inches='tight', dpi=150)
+    plt.savefig(FIGURES_DIR / 'cerebellar_takens_degradation.png', bbox_inches='tight', dpi=150)
+    print(f"   Saved: {FIGURES_DIR / 'cerebellar_takens_degradation.pdf'} and .png")
 
     # Key finding
     jitter_05_pres = preservation_vs_jitter[np.argmin(np.abs(jitter_levels - 0.5))]

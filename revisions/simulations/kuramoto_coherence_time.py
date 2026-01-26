@@ -155,12 +155,21 @@ class KuramotoNetwork:
         return r_m, psi_m
 
     def coherence_event(self, theta_t: np.ndarray) -> bool:
+        """
+        Detect alignment event using mean-phase reference (Case C in paper).
+
+        All modules must fall within ε/2 of the mean phase, where ε is the
+        full phase window width (paper convention). This is equivalent to
+        the anchored reference case up to an O(1) constant; the (M-1) scaling
+        exponent is preserved.
+        """
         r_m, psi_m = self.module_stats(theta_t)
         if not np.all(r_m >= self.p.r_threshold):
             return False
         _, psi_bar = mean_resultant(psi_m)
         phase_err = np.abs(wrap_angle(psi_m - psi_bar))
-        return bool(np.max(phase_err) <= self.p.epsilon)
+        # ε is full window width, so check against ε/2 (half-width from mean)
+        return bool(np.max(phase_err) <= self.p.epsilon / 2.0)
 
     def measure_tau_coh(self, t: np.ndarray, theta: np.ndarray) -> Optional[float]:
         dwell_steps = int(np.ceil(self.p.dwell_time / self.p.dt))
@@ -187,8 +196,20 @@ class KuramotoNetwork:
         return float(np.mean(r))
 
     def delta_omega_proxy(self) -> float:
-        """Static proxy for phase exploration rate (used if no trajectory available)."""
-        return float(np.std(self.omega) + 0.5 * (self.p.sigma ** 2))
+        """
+        Static proxy for phase exploration rate (used if no trajectory available).
+
+        NOTE: This is a dimensionless heuristic combining frequency spread and noise.
+        For quantitative work, use measure_effective_domega() which computes the
+        actual spread of instantaneous frequencies from the trajectory.
+
+        Returns a rough estimate in rad/s, but the effective Δω from simulation
+        is more accurate and should be preferred for fitting.
+        """
+        # omega_std is rad/s; we use it as the primary estimate
+        # The noise term (sigma) contributes to phase diffusion but has different units
+        # We omit it here; use measure_effective_domega() for accurate measurement
+        return float(np.std(self.omega))
 
     def measure_effective_domega(self, theta: np.ndarray) -> float:
         """
@@ -335,15 +356,26 @@ def plot_validation_figure(results: Dict[str, np.ndarray], epsilon: float,
     ax.set_xlabel("Coordination depth M", fontsize=12)
     ax.set_ylabel("Coherence time τ_coh (s)", fontsize=12)
 
-    # Fitted line
-    if np.isfinite(alpha_hat) and mask.any():
-        M0 = float(M[mask][0])
-        tau0 = float(tau_med[mask][0])
-        r0 = float(rbar[mask][0])
+    # Fitted line: use actual model predictions, not constant r₀
+    if np.isfinite(alpha_hat) and mask.any() and 'intercept' in fit:
+        intercept = fit['intercept']
         c = np.log(2 * np.pi / float(epsilon))
-        M_grid = np.linspace(M[mask].min(), M[mask].max(), 50)
-        rel = np.exp(alpha_hat * c * (1 - r0) * (M_grid - M0))
-        tau_pred = tau0 * rel
+
+        # Interpolate r(M) for prediction curve
+        M_fit = M[mask]
+        r_fit = rbar[mask]
+        dw_fit = domega[mask]
+
+        M_grid = np.linspace(M_fit.min(), M_fit.max(), 50)
+        # Linear interpolation of r and domega across M
+        r_interp = np.interp(M_grid, M_fit, r_fit)
+        dw_interp = np.interp(M_grid, M_fit, dw_fit)
+
+        # Predicted log(tau * domega) from fitted model
+        x_pred = (1 - r_interp) * (M_grid - 1)
+        log_tau_dw_pred = alpha_hat * c * x_pred + intercept
+        tau_pred = np.exp(log_tau_dw_pred) / dw_interp
+
         ax.plot(M_grid, tau_pred, '--', linewidth=2, color='#E94F37',
                 label=f'Fit: α̂ = {alpha_hat:.2f}, R² = {r2:.2f}')
 
@@ -394,7 +426,9 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--T", type=float, default=60.0, help="Simulation duration (s)")
     ap.add_argument("--dt", type=float, default=0.005, help="Time step (s)")
     ap.add_argument("--r-threshold", type=float, default=0.6, help="Module coherence threshold")
-    ap.add_argument("--epsilon", type=float, default=2.0, help="Phase alignment tolerance (rad)")
+    ap.add_argument("--epsilon", type=float, default=2.0,
+                    help="Phase alignment tolerance - FULL window width (rad). "
+                         "Alignment requires all phases within ±ε/2 of mean.")
     ap.add_argument("--dwell", type=float, default=0.03, help="Required dwell time at coherence (s)")
     ap.add_argument("--trials", type=int, default=20, help="Number of trials per M")
     ap.add_argument("--M-min", type=int, default=3, help="Minimum number of modules")
