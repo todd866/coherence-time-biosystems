@@ -377,6 +377,28 @@ If phenomenal experience reflects pre-commit coherent dynamics, conscious states
 
 \textbf{Free Energy Principle}~\cite{friston2010}: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~\ref{eq:main-bound}.
 
+\subsection{Implications for artificial systems}
+
+The coherence time framework identifies a fundamental design constraint for any distributed computing system that lacks a global clock.
+
+\paragraph{Clocked architectures.} Conventional digital computers (CPUs, GPUs, current AI accelerators) enforce synchronization via a global clock signal. Every operation is gated by a central timing reference; state updates occur in lockstep across all components. This architecture sidesteps the coherence time penalty entirely---there is no waiting for spontaneous phase alignment because alignment is \emph{imposed} by the clock.
+
+However, this comes at a cost beyond power and wire delays: \textbf{clocked systems are fundamentally one-dimensional at the substrate level}. The clock defines a single time axis along which all computation is serialized. Even massively parallel operations (matrix multiplications across thousands of cores) are projections onto this 1D temporal backbone---snapshots that are sequentially updated. The system can \emph{represent} high-dimensional states in memory, but the dynamics themselves unfold along a single coordinate.
+
+\paragraph{Unclocked architectures.} Biological neural networks, and potentially neuromorphic hardware designed on similar principles, operate without global synchronization. Each module evolves on its own trajectory; the phase space is the \emph{actual} dynamical space of the system, not a represented abstraction. The dimensionality is ontologically realized in the substrate.
+
+Such systems pay the coherence time penalty derived in this paper: coordination across $M$ modules requires waiting for rare alignment events, with time scaling exponentially in $M$. But they gain access to genuinely high-dimensional dynamics---the very property that prior work identified as constitutive of intelligence~\cite{todd2025intelligence}.
+
+\paragraph{A design principle.} This suggests a fundamental trade-off for artificial systems:
+\begin{itemize}
+\item \textbf{Clocked}: Fast, deterministic, scalable in parallelism---but bounded in ontological dimensionality. The substrate cannot \emph{be} a high-dimensional dynamical system; it can only simulate one.
+\item \textbf{Unclocked}: Genuinely high-dimensional, capable of the coherent dynamics that characterize biological intelligence---but subject to coordination bottlenecks that scale exponentially with integration depth.
+\end{itemize}
+
+If high-dimensional coherent dynamics are not merely \emph{correlated with} but \emph{constitutive of} intelligence, then clocked architectures face a ceiling that cannot be overcome by adding parameters or compute. Unclocked architectures avoid this ceiling but must navigate the speed-flexibility frontier described in Proposition~\ref{prop:tradeoff}.
+
+This framing may inform the design of neuromorphic systems, spiking neural networks, and other non-von Neumann architectures. The coherence time formula (Eq.~\ref{eq:coh-time}) provides quantitative guidance: to achieve update rates comparable to biological cognition, such systems must either accept modest coordination depth $M$, engineer high baseline coherence $r$, or develop hierarchical architectures that localize coordination requirements.
+
 \section{Conclusion}
 
 We have established that coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase alignment for irreversible state registration---bounds the rate of neural processes associated with cognition. The lower bound
