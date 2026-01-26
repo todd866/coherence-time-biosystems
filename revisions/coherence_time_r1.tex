@@ -122,7 +122,7 @@ P(A_\varepsilon) \propto p_1(\varepsilon, \kappa)^{M-1}
 \[
 \tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega} \left( \frac{2\pi I_0(\kappa)}{\varepsilon \, e^\kappa} \right)^{\alpha(M-1)}
 \]
-This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit. \emph{Note:} We use the exact $p_1(\varepsilon, \kappa)$ integral for all numerical estimates (e.g., the binding window calculations use $\varepsilon = \pi$, which is not a small window); the small-$\varepsilon$ expansion is presented only to clarify the scaling structure.
+This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit. \emph{Note:} We use the exact $p_1(\varepsilon, \kappa)$ integral for all numerical estimates (e.g., the binding window calculations use $\varepsilon = \pi/2$); the small-$\varepsilon$ expansion is presented only to clarify the scaling structure.
 
 \textbf{The exponent is $(M-1)$, not $M$.} This arises from quotient geometry: the reference module $\theta_1$ serves as anchor (whether fixed or conditioned upon), leaving $M-1$ independent constraints. This is analogous to the classic result that the probability of $M$ uniform phases falling in \emph{some} semicircle is $M/2^{M-1}$, where the factor $M$ accounts for the free choice of arc location; our anchored definition removes this degree of freedom.
 
@@ -146,7 +146,7 @@ where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully in
 \end{enumerate}
 \textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity.
 
-\textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (functional clusters) whose order parameters must jointly exceed a threshold for a commit to register. \emph{Modules are not individual oscillators}: within-module coherence is absorbed into the module's aggregate phase estimate. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which inter-module phases mix (not the carrier frequency). The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians); $\varepsilon = \pi$ corresponds to $\pm 90°$ alignment tolerance.
+\textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (functional clusters) whose order parameters must jointly exceed a threshold for a commit to register. \emph{Modules are not individual oscillators}: within-module coherence is absorbed into the module's aggregate phase estimate. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which inter-module phases mix (not the carrier frequency). The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians); $\varepsilon = \pi/2$ corresponds to $\pm 45^\circ$ alignment tolerance, typical for gamma-band binding.
 
 \subsection{The speed-flexibility trade-off}
 
@@ -212,7 +212,7 @@ Mathematically, this reflects the exponential scaling of coherence time with coo
 \[
 \tau_{\mathrm{coh}} \propto p_1^{-\alpha(M-1)}
 \]
-For $M = 8$ modules with $p_1 \approx 0.7$ and $\alpha = 0.7$, the exponential factor is $(0.7)^{-4.9} \approx 10$. Even modest coordination requirements ($M \sim 5$--15) produce millisecond-scale coherence times from microsecond-scale phase dynamics.
+For $M = 8$ modules with $p_1 \approx 0.7$ and $\alpha = 0.7$, the exponential factor is $(0.7)^{-4.9} \approx 6$. Even modest coordination requirements ($M \sim 5$--15) produce millisecond-scale coherence times from microsecond-scale phase dynamics.
 
 This analysis clarifies the relationship between our framework and fundamental physics: quantum and thermodynamic limits set absolute bounds on computation, but biological systems operate in a regime where multi-module coordination---not quantum switching speed or Landauer dissipation---determines processing rate.
 
@@ -243,16 +243,16 @@ Commits require high $r_{\mathrm{intra}}$ (modules are internally coherent) \emp
 
 Human visual perception exhibits temporal integration windows of 30--50 ms (flicker fusion at 20--30 Hz). We apply Eq.~\ref{eq:main-bound} with neural parameters.
 
-\textbf{Parameter provenance:} We take $M=8$ occipital modules (a plausible count of functional submodules in visual binding, including V1, V2, V4, and posterior parietal subdivisions; can be estimated via community detection on coherence networks). Coherence $r=0.7$ reflects attentional engagement~\cite{fries2015}. Full tolerance $\varepsilon=\pi$ rad ($\pm 90°$) corresponds to the broad phase windows observed in cross-correlograms during visual binding. Phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s is estimated from the decorrelation time of relative phases in alpha/beta bands (not the carrier frequency). Effective independence $\alpha=0.7$ reflects modular cortical topology; it can be fit empirically from the scaling of inter-commit times with $M$.
+\textbf{Parameter provenance:} We take $M=8$ occipital modules (a plausible count of functional submodules in visual binding, including V1, V2, V4, and posterior parietal subdivisions; can be estimated via community detection on coherence networks). Coherence $r=0.7$--$0.8$ reflects attentional engagement~\cite{fries2015}. Full tolerance $\varepsilon=\pi/2$ rad ($\pm 45^\circ$) corresponds to the phase windows observed in gamma-band cross-correlograms during visual binding; note that $\pm 90^\circ$ tolerance would be too loose for functional synchrony. Phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s is estimated from the decorrelation time of relative phases in alpha/beta bands (not the carrier frequency). Effective independence $\alpha=0.7$ reflects modular cortical topology; it can be fit empirically from the scaling of inter-commit times with $M$.
 
-First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$, giving $p_1(\pi, 2.0) \approx 0.62$ (numerical integration). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$ (modular cortical topology):
+First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$, giving $p_1(\pi/2, 2.0) \approx 0.68$ (numerical integration of Eq.~\ref{eq:coh-mises}). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$:
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.62)^{-0.7 \times 7}
-= \frac{1}{125.66}\,(0.62)^{-4.9} \approx 83~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.68)^{-0.7 \times 7}
+= \frac{1}{125.66}\,(0.68)^{-4.9} \approx 54~\mathrm{ms}.
 \]
-With higher coherence $r=0.8$ ($\kappa \approx 3.0$, $p_1(\pi, 3.0) \approx 0.76$):
+With higher coherence $r=0.8$ ($\kappa \approx 2.9$, $p_1(\pi/2, 2.9) \approx 0.78$):
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.76)^{-4.9} \approx 30~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.78)^{-4.9} \approx 27~\mathrm{ms}.
 \]
 
 Computing all terms in Eq.~\ref{eq:main-bound}:
@@ -260,28 +260,30 @@ Computing all terms in Eq.~\ref{eq:main-bound}:
 \tau_{\mathrm{QSL}} &\sim 10^{-13} \,\mathrm{s} \quad \text{(negligible---quantum limit non-binding)} \\
 \tau_{\mathrm{SNR}} &\sim 5\text{--}10~\mathrm{ms} \quad \text{(task-dependent)} \\
 \tau_{\mathrm{power}} &\ll 1~\mathrm{ms} \quad \text{(per commit)} \\
-\tau_{\mathrm{coh}} &\approx 30\text{--}83~\mathrm{ms} \quad \text{($r = 0.7$--$0.8$, $M = 8$)}
+\tau_{\mathrm{coh}} &\approx 27\text{--}54~\mathrm{ms} \quad \text{($r = 0.7$--$0.8$, $M = 8$)}
 \end{align}
 
-The effective commit time is $\tau_{\mathrm{eff}} \gtrsim \max[\text{QSL, SNR, power, coh}] \approx 30$--$83~\mathrm{ms}$, matching human binding windows (30--50 ms). \textbf{Coherence time dominates}; quantum and Landauer bounds are not the limiting factors.
+The effective commit time is $\tau_{\mathrm{eff}} \gtrsim \max[\text{QSL, SNR, power, coh}] \approx 27$--$54~\mathrm{ms}$, matching human binding windows (30--50 ms). \textbf{Coherence time dominates}; quantum and Landauer bounds are not the limiting factors.
 
-\paragraph{Sensitivity analysis.} Table~\ref{tab:sensitivity} shows how $\tau_{\mathrm{coh}}$ varies across plausible parameter ranges. The 30--100 ms binding window is robust to parameter uncertainty.
+\paragraph{Sensitivity analysis.} Table~\ref{tab:sensitivity} shows how $\tau_{\mathrm{coh}}$ varies across plausible parameter ranges. The 20--80 ms binding window is robust to parameter uncertainty. All $p_1$ values computed via numerical integration of Eq.~\ref{eq:coh-mises}; $\kappa$ obtained from $r$ via numerical inversion of $r = I_1(\kappa)/I_0(\kappa)$.
+
+\textbf{Sanity check:} For any $\kappa \geq 0$, $p_1(\pi, \kappa) \geq 0.5$ with strict inequality for $\kappa > 0$, since the window $\varepsilon = \pi$ covers half the circle centered on the mode of a unimodal distribution.
 
 \begin{table}[H]
 \centering
-\caption{Sensitivity of coherence time to parameter variations. Base case: $M=8$, $r=0.75$, $\varepsilon=\pi$, $\Delta\omega = 2\pi \times 20$ rad/s, $\alpha=0.7$.}
+\caption{Sensitivity of coherence time to parameter variations. Base case: $M=8$, $r=0.75$, $\varepsilon=\pi/2$, $\Delta\omega = 2\pi \times 20$ rad/s, $\alpha=0.7$.}
 \label{tab:sensitivity}
 \begin{tabular}{lccccc}
 \toprule
 Parameter varied & $M$ & $r$ & $\varepsilon$ & $\Delta\omega$ (rad/s) & $\tau_{\mathrm{coh}}$ (ms) \\
 \midrule
-Base case & 8 & 0.75 & $\pi$ & $2\pi \times 20$ & 52 \\
-Lower $M$ & 6 & 0.75 & $\pi$ & $2\pi \times 20$ & 28 \\
-Higher $M$ & 10 & 0.75 & $\pi$ & $2\pi \times 20$ & 95 \\
-Lower $r$ & 8 & 0.65 & $\pi$ & $2\pi \times 20$ & 98 \\
-Higher $r$ & 8 & 0.85 & $\pi$ & $2\pi \times 20$ & 25 \\
-Narrower $\varepsilon$ & 8 & 0.75 & $2\pi/3$ & $2\pi \times 20$ & 120 \\
-Faster $\Delta\omega$ & 8 & 0.75 & $\pi$ & $2\pi \times 30$ & 35 \\
+Base case & 8 & 0.75 & $\pi/2$ & $2\pi \times 20$ & 39 \\
+Lower $M$ & 6 & 0.75 & $\pi/2$ & $2\pi \times 20$ & 25 \\
+Higher $M$ & 10 & 0.75 & $\pi/2$ & $2\pi \times 20$ & 61 \\
+Lower $r$ & 8 & 0.65 & $\pi/2$ & $2\pi \times 20$ & 75 \\
+Higher $r$ & 8 & 0.85 & $\pi/2$ & $2\pi \times 20$ & 19 \\
+Narrower $\varepsilon$ & 8 & 0.75 & $\pi/3$ & $2\pi \times 20$ & 105 \\
+Faster $\Delta\omega$ & 8 & 0.75 & $\pi/2$ & $2\pi \times 30$ & 26 \\
 \bottomrule
 \end{tabular}
 \end{table}
