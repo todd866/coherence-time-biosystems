@@ -1,8 +1,8 @@
-# Coherence Time in Neural Oscillator Assemblies Sets the Speed of Thought
+# Coherence Time in Biological Oscillator Assemblies Bounds the Rate of State Registration
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Status:** Under review at *BioSystems*
+**Status:** R1 revision submitted to *BioSystems* (BIOSYS-D-25-00981)
 
 ## Overview
 
@@ -20,6 +20,18 @@ where:
 
 The exponent is **(M−1)**, not M, because alignment is rotationally invariant—one phase serves as reference.
 
+## R1 Revision (Jan 2026)
+
+Reviewer feedback addressed:
+- Replaced "speed of thought" with "rate of state registration" (Reviewer #2)
+- Added explicit discussion of Landauer bound, Margolus-Levitin quantum speed limit, and energy-time uncertainty (Reviewers #1 & #2)
+- Cited Bormashenko (2024) Entropy paper on Landauer bound
+- Cited 4 BioSystems papers on quantum limits of computation
+- Generalized scope to "biological oscillator assemblies" (not just neural)
+- Abstract trimmed to <250 words, no references
+
+Key new section: **§2.3 Quantum and thermodynamic limits of computation** — shows that QSL and Landauer bounds are non-binding in neural systems; coherence time dominates by 11 orders of magnitude.
+
 ## Key Predictions
 
 | Phenomenon | Predicted | Observed |
@@ -31,12 +43,12 @@ The exponent is **(M−1)**, not M, because alignment is rotationally invariant�
 ## Repository Structure
 
 ```
-├── coherence_time.tex       # Submitted manuscript
-├── coherence_time.pdf       # Compiled PDF
+├── coherence_time.tex       # Original submission
+├── coherence_time.pdf       # Original PDF
 ├── figures/                 # Manuscript figures
 ├── revisions/               # Post-submission work
-│   ├── coherence_time_r1.*  # R1 revision (improved formula)
-│   ├── REVISION_PLAN*.md    # Revision notes
+│   ├── coherence_time_r1.*  # R1 revision (addressing reviewer feedback)
+│   ├── figures/             # R1 figures
 │   └── simulations/         # Validation code
 └── README.md
 ```
@@ -48,23 +60,29 @@ The **(M−1)** exponent and the geometric derivation are detailed in a companio
 > Todd, I. (2025). *Alignment Probabilities on Product Statistical Manifolds: Fisher Information and Coordination Depth.* Information Geometry (in preparation).
 > GitHub: [todd866/alignment-geometry](https://github.com/todd866/alignment-geometry)
 
-The companion provides the rigorous quotient-geometry proof; this paper focuses on neural applications and empirical validation.
+## Related Work
+
+This paper extends:
+> Todd, I. (2026). *Intelligence as High-Dimensional Coherence.* BioSystems. DOI: 10.1016/j.biosystems.2026.105704
+
+The Intelligence paper establishes *what* intelligence is (high-D coherent dynamics); this paper establishes *how fast* such systems can act.
 
 ## Building
 
 ```bash
-pdflatex coherence_time.tex
+cd revisions
+pdflatex coherence_time_r1.tex
 ```
 
 ## Citation
 
 ```bibtex
-@article{todd2025coherence,
-  title={Coherence Time in Neural Oscillator Assemblies Sets the Speed of Thought},
+@article{todd2026coherence,
+  title={Coherence Time in Biological Oscillator Assemblies Bounds the Rate of State Registration},
   author={Todd, Ian},
   journal={BioSystems},
-  year={2025},
-  note={Under review}
+  year={2026},
+  note={Under review, R1 revision}
 }
 ```
 

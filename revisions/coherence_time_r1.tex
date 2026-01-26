@@ -21,7 +21,7 @@
 \newcommand{\Teff}{T_{\mathrm{eff}}}
 \newcommand{\Deff}{D_{\mathrm{eff}}}
 
-\title{Coherence time in neural oscillator assemblies sets the speed of thought}
+\title{Coherence time in biological oscillator assemblies bounds the rate of state registration}
 
 \author{Ian Todd\\
 Sydney Medical School, University of Sydney\\
@@ -35,50 +35,32 @@ Sydney, NSW, Australia\\
 \maketitle
 
 \begin{abstract}
-Neuroscience has established that cognitive processing depends on coherent oscillations across neural assemblies: working memory maintenance requires sustained theta-gamma coupling~\cite{miller2018}, attention modulates inter-areal synchronization~\cite{fries2015}, and perceptual binding emerges from transient phase alignment~\cite{singer1999}. Yet the physical principles determining how fast these assemblies can synchronize---and thus how fast we can think---remain incompletely formalized. We derive a quantitative framework showing that coherence time in coupled oscillator networks scales exponentially with coordination depth. For $M$ semi-independent modules requiring phase alignment within tolerance $\varepsilon$ at Kuramoto coherence $r$ and phase-exploration rate $\Delta\omega$:
-\[
-\tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\left(\frac{2\pi}{\varepsilon}\right)^{\alpha(1-r)(M-1)}
-\]
-where circular variance $(1-r)$ governs phase dispersion and $\alpha$ captures network topology. This produces a fundamental speed-flexibility trade-off: increasing coordination depth $M$ expands combinatorial flexibility but slows commits exponentially; tighter coherence (higher $r$) speeds synchronization but restricts dynamics to low-dimensional attractors. Combining coherence time with quantum, noise, and power limits yields a unified temporal resolution bound explaining millisecond-scale perceptual windows, arousal-driven time dilation, alpha frequency correlates of temporal acuity, and metabolic scaling across species. While neural oscillators provide the most empirically accessible measurements, the framework applies to any biological oscillator system---molecular motors, genetic oscillators, circadian networks. We provide parameter estimation protocols from electrophysiological recordings and testable predictions including alpha entrainment linearity and dual-loop dissociations under arousal.
+Cognitive and biological processing depends on coherent oscillations across distributed assemblies. Yet the physical principles determining how fast these assemblies can synchronize---and thus how fast neural processes associated with cognition can proceed---remain incompletely formalized. We derive a quantitative framework showing that coherence time in coupled oscillator networks scales exponentially with coordination depth. For $M$ semi-independent modules requiring phase alignment within tolerance $\varepsilon$ at coherence $r$, the minimum interval between irreversible state registrations (``commits'') is dominated by rare-event first-passage time into low-measure alignment sets on the configuration manifold. This produces a fundamental speed-flexibility trade-off: increasing coordination depth expands combinatorial flexibility but slows commits exponentially; tighter coherence accelerates synchronization but restricts dynamics to low-dimensional attractors. We situate this coordination limit within a hierarchy of physical bounds---quantum speed limits, Landauer-Margolus-Levitin thermodynamic constraints, and energy-time uncertainty relations---showing that in biological neural systems, these quantum and thermodynamic bounds are typically non-binding; the dominant constraint is the time required for distributed oscillatory assemblies to achieve sufficient phase coherence. While neural oscillators provide the most empirically accessible measurements, the framework applies to any biological system whose function requires coordinated phase relations and sparse commitment events, from chromosomal segregation to circadian networks. We provide parameter estimation protocols and testable predictions including alpha entrainment effects on temporal acuity and dual-loop dissociations under arousal.
 \end{abstract}
 
-\textbf{Keywords:} neural oscillations, coherence time, dimensional coordination, temporal resolution, working memory, coupled oscillators
+\textbf{Keywords:} biological oscillations, coherence time, coordination depth, temporal resolution, quantum speed limits, Landauer bound, coupled oscillators
 
 \section{Introduction}
 
-\subsection{Neural oscillations determine processing speed}
+\subsection{Processing speed in biological oscillator assemblies}
 
 A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance requires sustained theta-gamma phase-amplitude coupling~\cite{miller2018,lisman2013}. Attention selectively enhances inter-areal synchronization in gamma band~\cite{fries2015,womelsdorf2007}. Perceptual binding depends on transient phase alignment across sensory cortices~\cite{singer1999,engel2001}. Long-range communication occurs preferentially during coherent states~\cite{varela2001}. The ``communication through coherence'' framework~\cite{fries2005} has become central to understanding neural computation.
 
-Yet despite extensive empirical characterization, the physical principles governing \emph{how fast} distributed assemblies can achieve coherence---and thus how quickly cognitive operations can proceed---remain incompletely formalized. Why does perceptual binding require 30--50 ms rather than 3 ms or 300 ms? Why do larger assemblies integrating more information process more slowly? What determines the relationship between oscillation frequency (e.g., alpha at 10 Hz) and temporal acuity?
+Yet despite extensive empirical characterization, the physical principles governing \emph{how fast} distributed assemblies can achieve coherence---and thus how quickly the neural processes underlying cognitive operations can proceed---remain incompletely formalized. Why does perceptual binding require 30--50 ms rather than 3 ms or 300 ms? Why do larger assemblies integrating more information process more slowly? What determines the relationship between oscillation frequency and temporal acuity?
 
-\subsection{The missing quantitative framework}
+\subsection{Coherence time as a physical bound on processing rate}
 
-We propose that neural processing speed is fundamentally limited by \emph{coherence time}: the time required for distributed oscillators to achieve sufficient phase alignment for a collective computation to register. This coherence time exhibits three critical properties:
+Previous work established that living intelligence is an emergent property of high-dimensional, self-sustaining dynamical systems that maintain coherence against decoherence~\cite{todd2025intelligence}. The present manuscript addresses the complementary question: given such a coherent high-dimensional system, what sets the fastest timescale on which it can register change and update its state?
 
-\textbf{1. Exponential scaling with coordination depth.} Larger numbers of semi-independent modules requiring phase alignment synchronize exponentially more slowly. For typical parameters ($r = 0.6$, $\varepsilon = \pi$, $\alpha = 0.9$), increasing $M$ from 5 to 15 slows coherence time by a factor of $\sim 2^4 \approx 16$, while increasing from 10 to 30 yields a $\sim 10^3$-fold slowdown.
+We formalize this as the minimum interval between irreversible ``commit'' events---transitions in which distributed dynamics become readable to downstream mechanisms. This commit interval is bounded by a coordination term (coherence time as a first-passage problem on a product manifold) together with quantum, noise, and power limits.
 
-\textbf{2. Modulation by coupling strength.} Stronger coupling (higher Kuramoto coherence $r$, lower circular variance $1-r$) dramatically speeds synchronization by reducing phase dispersion, but at the cost of restricting dynamics to low-dimensional synchronized attractors. This creates a fundamental speed-flexibility trade-off.
+\textbf{Definition (Ontological dimensionality).} Throughout this work, ``dimensionality'' refers to a physical property of the system, not a mathematical measure. Ontological dimensionality is a quantitative measure of effective connectivity: how many independent directions of coordinated variation are accessible to a system given its interaction structure. High-dimensional states correspond to weakly constrained dynamics in which many components vary semi-independently; low-dimensional states correspond to strongly coupled dynamics restricted to a small number of collective modes. Dimensionality in this sense is determined not by component count, but by the rank of the system's interaction structure. Different measurement schemes (participation ratios, manifold dimension, information-geometric metrics) provide projections of this underlying physical property, but do not constitute it~\cite{todd2025ig}.
 
-\textbf{3. Universality across biological oscillators.} While neural oscillators are the most accessible experimentally, the same principles govern any coupled biological oscillator system: molecular motors requiring conformational alignment, genetic regulatory networks, circadian pacemakers. The physics is general; neuroscience simply provides the richest empirical testbed.
-
-\subsection{Empirical puzzles and predictions}
-
-Three phenomena motivate and test our framework:
-
-\textbf{Scale-dependent temporal resolution.} Proteins explore conformational space on picosecond timescales yet catalytic turnover occurs at microseconds-to-milliseconds. Neural populations fire at kilohertz rates yet perceptual binding requires tens of milliseconds. Circadian oscillators maintain 24-hour periods. We demonstrate these span different physical regimes of a unified bound.
-
-\textbf{Subjective time dilation without motor slowing.} Under acute stress (tachypsychia), subjective time slows while reaction times remain constant~\cite{stetson2007}. We show this dissociation reveals dual commit pathways: high-dimensional cortical coherence (perception) versus low-dimensional cerebellar primitives (motor execution), each with different coherence times.
-
-\textbf{Metabolic scaling of temporal acuity.} Critical flicker fusion frequency correlates with mass-specific metabolic rate across three orders of magnitude in body size~\cite{healy2013}. Flies perceive at 240 Hz, humans at 60 Hz, turtles at 15 Hz. We derive this relationship from power-limited coherence time.
-
-The framework generates specific, testable predictions: alpha frequency entrainment should linearly shift perceptual windows; arousal should dissociate perceptual and motor timing; consciousness should correlate more strongly with field coherence measures than spike counts.
+This ontological dimensionality is state-dependent: the same physical system may occupy high- or low-dimensional regimes depending on coupling strength and task demands. Coherence time depends on ontological dimensionality---specifically, how many semi-independent constraints must be simultaneously satisfied for a commit to occur---not on any particular estimator.
 
 \subsection{Structure of this work}
 
-We first derive the coherence time formula from principles of phase synchronization in coupled oscillator networks (§2.1), then embed it in a unified temporal resolution bound combining quantum, noise, and power constraints (§2.2). Section 3 applies the framework to neural systems, demonstrating quantitative agreement with perceptual binding windows, tachypsychia dissociations, and metabolic scaling. Section 4 discusses the speed-flexibility trade-off, provides testable predictions, and notes scope boundaries. While we emphasize neural applications given their empirical accessibility, we highlight throughout that coherence time is a general principle governing any biological oscillator assembly.
-
-Previous work established sub-Landauer biological computation~\cite{todd2025biosystems} and timing inaccessibility in high-dimensional systems~\cite{todd2025demon}. Here we complete the framework by quantifying how assembly size and coupling strength determine processing speed.
+We first derive the coherence time formula from principles of phase synchronization in coupled oscillator networks (\S2.1), then embed it in a unified temporal resolution bound combining quantum, noise, and power constraints (\S2.2). Section 2.3 situates our framework explicitly within the quantum and thermodynamic limits of computation, addressing the Landauer bound, Margolus-Levitin quantum speed limit, and energy-time uncertainty relation. Section 3 applies the framework to neural systems, demonstrating quantitative agreement with perceptual binding windows, tachypsychia dissociations, and metabolic scaling. Section 4 discusses the speed-flexibility trade-off, delay embedding as a preservation mechanism, generalization beyond neural systems, and testable predictions.
 
 \section{Theory and Methods}
 
@@ -98,15 +80,14 @@ where the \textbf{max} operation reflects that the slowest mechanism dominates. 
 \[
 \tau_{\mathrm{QSL}} = \max\left[\frac{\hbar}{2\Delta E},\; \frac{\pi\hbar}{2\langle E\rangle}\right]
 \]
-For biological temperatures ($\Delta E \sim \kB T$), $\tau_{\mathrm{QSL}} \sim 10^{-13}$ s, relevant only for ultrafast molecular dynamics.
+For biological temperatures ($\Delta E \sim \kB T$), $\tau_{\mathrm{QSL}} \sim 10^{-13}$ s.
 
 \paragraph{Signal-to-noise limit ($\tau_{\mathrm{SNR}}$).} Matched-filter detection in additive white Gaussian noise (two-sided power spectral density $N_0$, units: power/Hz) over bandwidth $B$ achieves $\mathrm{SNR}(T) = 2P_s T/N_0$ where $P_s$ is signal power and $T$ is integration time~\cite{poor1994}. Reaching detection threshold $\rho_{\min} \sim 5$--10 requires
 \[
 \tau_{\mathrm{SNR}} = \frac{\rho_{\min} N_0}{2P_s}
 \]
-For neural LFP signals, $N_0$ is estimated from background noise variance and sampling bandwidth (see ESM~1 for conversion protocols).
 
-\paragraph{Power limit ($\tau_{\mathrm{power}}$).} Dimensional collapse by $\Delta\mathcal{D}$ at dimensional chemical potential $\lambda_{\mathcal{D}} \sim \kB\Teff$ costs energy $\sim \lambda_{\mathcal{D}}\Delta\mathcal{D}$ (derivation in ESM~2). At sustained power $P$, commit rate is bounded by
+\paragraph{Power limit ($\tau_{\mathrm{power}}$).} Dimensional collapse by $\Delta\mathcal{D}$ at dimensional chemical potential $\lambda_{\mathcal{D}} \sim \kB\Teff$ costs energy $\sim \lambda_{\mathcal{D}}\Delta\mathcal{D}$. At sustained power $P$, commit rate is bounded by
 \[
 \tau_{\mathrm{power}} = \frac{\lambda_{\mathcal{D}}\Delta\mathcal{D}}{P}
 \]
@@ -115,17 +96,19 @@ For neural LFP signals, $N_0$ is estimated from background noise variance and sa
 We model commits as threshold crossings requiring $M$ semi-independent modules to achieve simultaneous phase alignment within tolerance $\varepsilon$.
 Let $r$ be the mean resultant length (Kuramoto order parameter), and $\kappa(r)$ the von Mises concentration with $r=I_1(\kappa)/I_0(\kappa)$~\cite{mardia2000}.
 
-The alignment probability has a precise geometric form. For $M$ independent phases, the probability that all lie within $\varepsilon$ of each other is:
+\textbf{Definition of alignment event.} We define alignment as \textbf{anchored to a reference module}: all modules must fall within $\varepsilon/2$ of a designated reference phase (e.g., a pacemaker oscillator, the first module to cross threshold, or a gating signal). Formally:
+\[
+A_\varepsilon = \{|\theta_i - \theta_1| < \varepsilon/2 \text{ for } i = 2, \ldots, M\}
+\]
+
+The alignment probability has a precise geometric form. Define $p_1(\varepsilon, \kappa) = \int_{-\varepsilon/2}^{\varepsilon/2} \frac{e^{\kappa\cos\theta}}{2\pi I_0(\kappa)} d\theta$ as the single-variable window probability centered at the mode. In the small-window limit:
 \begin{equation}\label{eq:coh-mises}
-P(A_\varepsilon) = p_1(\varepsilon, \kappa)^{M-1}
+P(A_\varepsilon) \approx p_1(\varepsilon, \kappa)^{M-1}
 \end{equation}
-where $p_1(\varepsilon, \kappa) = \int_{-\varepsilon/2}^{\varepsilon/2} \frac{e^{\kappa\cos\theta}}{2\pi I_0(\kappa)} d\theta$ is the single-variable window probability.
 
-\textbf{The exponent is $(M-1)$, not $M$.} This arises from quotient geometry: alignment is invariant under global rotation, so one phase serves as reference, leaving $M-1$ independent constraints.
+\textbf{The exponent is $(M-1)$, not $M$.} This arises from quotient geometry: the reference module $\theta_1$ serves as anchor, leaving $M-1$ independent constraints.
 
-For small windows: $p_1(\varepsilon, \kappa) \approx \frac{\varepsilon}{2\pi} \cdot \frac{e^\kappa}{I_0(\kappa)}$. In the \emph{incoherent limit} ($\kappa \to 0$, $r \to 0$): $p_1 \to \varepsilon/(2\pi)$, recovering the uniform geometric probability. In the \emph{coherent limit} ($\kappa \to \infty$, $r \to 1$): $p_1 \to 1$, and alignment is certain.
-
-Assuming independence across modules on the commit timescale, the mean waiting time is:
+\textbf{First-passage time structure.} Assuming independence across modules on the commit timescale, the alignment event $A_\varepsilon$ is a rare target set on the $M$-torus $T^M$. Under fast mixing relative to the target set size, first-passage times are approximately exponential with mean $\tau \approx 1/(\text{attempt rate} \times P(A_\varepsilon))$---a form of Kac's recurrence theorem~\cite{kac1947}. The attempt rate is set by the phase-exploration rate $\Delta\omega$. Thus:
 \begin{equation}\label{eq:coh-time-exact}
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-(M-1)}
 \end{equation}
@@ -134,22 +117,9 @@ For coupled modules (weak inter-module coupling), the effective exponent is redu
 \begin{equation}\label{eq:coh-time}
 \boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}},\qquad \alpha\in(0,1],
 \end{equation}
-where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints. Perturbative analysis shows $\alpha = 1 - \beta(\mathrm{topology}, \kappa_{\mathrm{int}})$ where $\beta \geq 0$ depends on inter-module coupling strength and network topology (a detailed geometric derivation is available~\cite{todd2025ig}).
+where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints.
 
-\textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (locally coherent clusters) whose order parameters must jointly exceed a threshold for a commit to register. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which phases mix, combining natural frequency spread and phase diffusion from noise~\cite{ott2008,watanabe1994}. The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians): alignment requires all module phases to lie within a band of width $\varepsilon$. Note: $M \le \Deff$ where $\Deff$ is the full manifold dimensionality; $M$ counts only commit-relevant modules.
-
-\textbf{Practical approximation.} For moderate coherence ($r \approx 0.3$--$0.8$), a useful approximation for concentration is $\kappa \approx r(2-r^2)/(1-r^2)$~\cite{mardia2000}. The window probability can then be computed numerically via $p_1(\varepsilon, \kappa) = \int_{-\varepsilon/2}^{\varepsilon/2} \frac{e^{\kappa\cos\theta}}{2\pi I_0(\kappa)} d\theta$, or approximated for small $\varepsilon$ as:
-\begin{equation}\label{eq:p1-approx}
-p_1(\varepsilon, \kappa) \approx \frac{\varepsilon \cdot e^\kappa}{2\pi I_0(\kappa)} \quad \text{(small } \varepsilon \text{)}
-\end{equation}
-For larger $\varepsilon$ approaching $\pi$, numerical integration is recommended. Representative values: at $r=0.7$ ($\kappa \approx 2.0$), $p_1(\pi, 2.0) \approx 0.62$; at $r=0.8$ ($\kappa \approx 3.0$), $p_1(\pi, 3.0) \approx 0.76$.
-
-\textbf{Key assumptions:}
-\begin{enumerate}
-\item \textbf{Module independence:} Semi-independent dynamics across modules on the commit timescale (weak inter-module coupling compared to intra-module).
-\item \textbf{Moderate coupling regime:} Near synchronization onset where topology parameter $\alpha$ is approximately constant; breakdown in deep-synchronization or fully-incoherent limits.
-\item \textbf{Stationary noise:} Phase diffusion rate $\Delta\omega$ remains approximately constant during the alignment window $\tau_{\mathrm{coh}}$.
-\end{enumerate}
+\textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules whose order parameters must jointly exceed a threshold for a commit to register. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which phases mix. The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians).
 
 \subsection{The speed-flexibility trade-off}
 
@@ -163,41 +133,81 @@ At fixed power $P$, systems face a Pareto frontier in $(M,r)$ space:
 \end{itemize}
 \end{proposition}
 
-Proof: Taking logarithmic derivatives of Eq.~\ref{eq:coh-time}:
+Increasing coordination depth $M$ expands the dimensionality of commit-registered outcomes but requires exponentially longer alignment time. Increasing coherence $r$ speeds commits but forces trajectories onto low-dimensional attractors, reducing the set of accessible commit outcomes.
+
+\subsection{Quantum and thermodynamic limits of computation}
+
+The reviewers correctly note that the speed of biological processing must be understood within the context of fundamental physical limits on computation. We now explicitly address the quantum and thermodynamic bounds that form the basis of information transmission in living systems.
+
+\subsubsection{The Landauer bound}
+
+Landauer's principle~\cite{landauer1961} establishes that any logically irreversible operation---specifically, the erasure or overwriting of one bit of information---dissipates at least $\kB T \ln 2$ of energy as heat. This bound arises from the connection between logical irreversibility and thermodynamic entropy: erasing a bit reduces the system's information-theoretic entropy, which must be compensated by entropy increase in the environment~\cite{bormashenko2024}.
+
+The minimum energy per bit at biological temperature ($T \approx 310$ K) is:
+\[
+E_{\mathrm{Landauer}} = \kB T \ln 2 \approx 3 \times 10^{-21} \text{ J/bit}
+\]
+
+This sets an absolute floor on energy dissipation per irreversible operation. However, the Landauer bound constrains energy per operation, not time per operation. A system could in principle perform operations arbitrarily fast if sufficient power were available---until quantum speed limits intervene.
+
+\subsubsection{The Margolus-Levitin bound and quantum speed limits}
+
+The Margolus-Levitin theorem~\cite{margolus1998} establishes that the minimum time to transition between orthogonal quantum states is:
+\[
+\tau_{\mathrm{ML}} = \frac{\pi\hbar}{2\langle E \rangle}
+\]
+where $\langle E \rangle$ is the average energy above the ground state. This bound, together with the Mandelstam-Tamm relation~\cite{mandelstam1945} ($\tau_{\mathrm{MT}} = \hbar/(2\Delta E)$ where $\Delta E$ is energy uncertainty), constitutes the quantum speed limit on state evolution.
+
+These bounds originate from the energy-time uncertainty relation $\Delta E \cdot \Delta t \gtrsim \hbar/2$, which is fundamental to understanding information transmission in physical systems~\cite{igamberdiev2021,igamberdiev2025constraints,igamberdiev2026autopoietic}. As Bormashenko~\cite{bormashenko2024} notes, synthesis of the Landauer bound with the Margolus-Levitin limit yields a minimal computation time scaling as $\tau_{\min} \sim h/\kB T$---decreasing temperature reduces energy consumption per operation but simultaneously slows computation.
+
+At biological temperatures with $\langle E \rangle \sim \kB T \approx 4 \times 10^{-21}$ J:
+\[
+\tau_{\mathrm{QSL}} \sim \frac{\pi \times 10^{-34}}{2 \times 4 \times 10^{-21}} \sim 10^{-13} \text{ s}
+\]
+
+This is fourteen orders of magnitude faster than the millisecond timescales of neural processing.
+
+\subsubsection{Why coherence time dominates in biological systems}
+
+The central claim of this paper is that in biological neural systems, the quantum speed limit and Landauer bound are typically \textbf{non-binding constraints}. The dominant bottleneck is coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase coordination for a commit to occur.
+
+Consider the hierarchy of timescales for cortical visual processing:
 \begin{align}
-\frac{\partial \ln\tau_{\mathrm{coh}}}{\partial M} &= \alpha(1-r)\ln\frac{2\pi}{\varepsilon} > 0 \\
-\frac{\partial \ln\tau_{\mathrm{coh}}}{\partial r} &= -\alpha(M-1)\ln\frac{2\pi}{\varepsilon} < 0
+\tau_{\mathrm{QSL}} &\sim 10^{-13} \text{ s} \quad \text{(quantum speed limit)} \\
+\tau_{\mathrm{Landauer}} &\sim 10^{-12} \text{ s} \quad \text{(thermal relaxation)} \\
+\tau_{\mathrm{SNR}} &\sim 10^{-3} \text{ s} \quad \text{(signal detection)} \\
+\tau_{\mathrm{coh}} &\sim 10^{-2} \text{ s} \quad \text{(coordination time)}
 \end{align}
-State-space volume accessible in time $\tau$ scales as $\sim \exp(\Deff)$ where $\Deff \ge M$. Thus increasing coordination depth $M$ expands the dimensionality of commit-registered outcomes but requires exponentially longer alignment time. Increasing coherence $r$ speeds commits but forces trajectories onto low-dimensional attractors, reducing the set of accessible commit outcomes. $\square$
+
+The coherence time exceeds quantum limits by eleven orders of magnitude. This enormous gap arises because neural computation is not limited by how fast individual elements can switch states, but by how long it takes for \emph{distributed assemblies of semi-independent modules} to achieve coordinated phase alignment.
+
+Mathematically, this reflects the exponential scaling of coherence time with coordination depth:
+\[
+\tau_{\mathrm{coh}} \propto p_1^{-\alpha(M-1)}
+\]
+For $M = 8$ modules with $p_1 \approx 0.7$ and $\alpha = 0.7$, the exponential factor is $(0.7)^{-4.9} \approx 10$. Even modest coordination requirements ($M \sim 5$--15) produce millisecond-scale coherence times from microsecond-scale phase dynamics.
+
+This analysis clarifies the relationship between our framework and fundamental physics: quantum and thermodynamic limits set absolute bounds on computation, but biological systems operate in a regime where multi-module coordination---not quantum switching speed or Landauer dissipation---determines processing rate.
 
 \subsection{Parameter estimation protocols}
 
-\paragraph{Effective dimensionality ($\Deff$).} From neural population recordings (spike trains from $N$ neurons), compute $N \times N$ covariance matrix $C_{ij} = \langle (x_i - \langle x_i\rangle)(x_j - \langle x_j\rangle)\rangle$. Eigendecomposition yields eigenvalues $\{\lambda_1,\ldots,\lambda_N\}$. Define participation ratio:
-\[
-\Deff = \frac{(\sum_i \lambda_i)^2}{\sum_i \lambda_i^2}
-\]
-Alternatively, count principal components capturing 90\% variance. Typical values: visual cortex $\Deff \sim 10$--50 from $\sim 100$ neurons~\cite{cunningham2014,stringer2019,gallego2017}.
-
-\paragraph{Coordination depth ($M$).} $M$ is the count of semi-independent modules (locally coherent clusters) whose order parameters must jointly exceed a threshold to register a commit.
+\paragraph{Coordination depth ($M$).} $M$ is the count of semi-independent modules whose order parameters must jointly exceed a threshold to register a commit.
 \textbf{Operational estimation:}
 \begin{enumerate}
-\item Cluster channels/units by band-limited coherence (e.g., via phase-locking value $>$ threshold) or Granger causality/transfer entropy into modules.
-\item Identify the minimal set of modules whose joint activity predicts behavioral commits (e.g., via logistic regression on module order parameters).
-\item Typical values: occipital visual tasks yield $M \sim 6$--10; cross-modal binding $M \sim 10$--15; default-mode wandering $M \sim 15$--20.
+\item Cluster channels/units by band-limited coherence or Granger causality into modules.
+\item Identify the minimal set of modules whose joint activity predicts behavioral commits.
+\item Typical values: occipital visual tasks yield $M \sim 6$--10; cross-modal binding $M \sim 10$--15.
 \end{enumerate}
-\textbf{Critical distinction}: $\Deff$ measures full manifold geometry (participation ratio); $M \le \Deff$ counts only commit-relevant modules requiring coordination. For single-area local processing, $M$ may be small ($\sim 5$--10) even when $\Deff \sim 30$--50.
 
 \paragraph{Kuramoto coherence ($r$).} Extract instantaneous phase $\theta_j(t)$ from bandpass-filtered LFP/EEG via Hilbert transform. Compute
 \[
 r(t) = \left|\frac{1}{N}\sum_{j=1}^N e^{i\theta_j(t)}\right|
 \]
-Average over task epochs: $\langle r \rangle$. \textbf{Caveat}: Hilbert transform assumes narrowband signals; for multi-frequency or transient dynamics, consider wavelet-based phase extraction~\cite{lakatos2008} or analytic signal methods. Typical values: spontaneous cortex $\sim 0.2$--0.4; attention $\sim 0.5$--0.7; circadian networks $\sim 0.7$--0.9~\cite{fries2015}.
+Typical values: spontaneous cortex $\sim 0.2$--0.4; attention $\sim 0.5$--0.7; circadian networks $\sim 0.7$--0.9~\cite{fries2015}.
 
-\paragraph{Phase alignment window ($\varepsilon$).} From spike train or LFP cross-correlograms, measure half-width at half-maximum (HWHM, units: seconds). The \textbf{full} phase window is $\varepsilon = 2\,\omega_0\,\mathrm{HWHM}$ (radians), where $\omega_0 = 2\pi f_0$ is the angular frequency. Example: gamma-band ($f_0 = 40$ Hz), HWHM $\sim 6$ ms $\rightarrow$ $\varepsilon = 2 \times 2\pi \times 40 \times 0.006 \sim 3$ rad $\approx \pi$. We use the full window throughout. For cross-modal binding with looser temporal windows, $\varepsilon$ can approach $2\pi$.
+\paragraph{Phase alignment window ($\varepsilon$).} From spike train or LFP cross-correlograms, measure half-width at half-maximum (HWHM, units: seconds). The \textbf{full} phase window is $\varepsilon = 2\,\omega_0\,\mathrm{HWHM}$ (radians).
 
-\paragraph{Phase-exploration rate ($\Delta\omega$).} Estimate from instantaneous frequency spread or phase diffusion, \emph{not} the carrier frequency. Practically: the standard deviation of the band-limited instantaneous frequency (from Hilbert or wavelet transform), or the diffusion coefficient fitted to phase increments $\Delta\theta(t)$. Typical values: $\Delta\omega \sim 2\pi \times (5\text{--}20)$ rad/s for cortical gamma/alpha bands.
-
-\paragraph{Dimensional chemical potential ($\lambda_{\mathcal{D}}$).} Near equilibrium: $\lambda_{\mathcal{D}} \approx \kB T \sim 4.1\times 10^{-21}$ J. Far from equilibrium (neural systems): $\lambda_{\mathcal{D}} \sim (5\text{--}20)\kB T$. From metabolic measurements: $\lambda_{\mathcal{D}} \sim P/(r_{\mathrm{commit}}\Delta\mathcal{D})$.
+\paragraph{Phase-exploration rate ($\Delta\omega$).} Estimate from instantaneous frequency spread or phase diffusion. Typical values: $\Delta\omega \sim 2\pi \times (5\text{--}20)$ rad/s for cortical gamma/alpha bands.
 
 \section{Results}
 
@@ -205,300 +215,120 @@ Average over task epochs: $\langle r \rangle$. \textbf{Caveat}: Hilbert transfor
 
 Human visual perception exhibits temporal integration windows of 30--50 ms (flicker fusion at 20--30 Hz). We apply Eq.~\ref{eq:main-bound} with neural parameters.
 
-\paragraph{Visual binding window (computed from Eq.~\ref{eq:coh-time}).}
-Take $M=8$ occipital modules (V1, V4, posterior parietal sub-regions), $r=0.7$ (attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad ($\pm 90^\circ$ phase window), and phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s (alpha--beta spread/phase diffusion).
+Take $M=8$ occipital modules, $r=0.7$ (attention~\cite{fries2015}), full tolerance $\varepsilon=\pi$ rad, and phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s.
 
-First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$ (from $\kappa \approx r(2-r^2)/(1-r^2)$; numerically $r = I_1(2.0)/I_0(2.0) \approx 0.70$), giving $p_1(\pi, 2.0) \approx 0.62$ (numerical integration). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$ (modular cortical topology):
+First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$, giving $p_1(\pi, 2.0) \approx 0.62$ (numerical integration). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$ (modular cortical topology):
 \[
 \tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.62)^{-0.7 \times 7}
-= \frac{1}{125.66}\,(0.62)^{-4.9} \approx \frac{11.5}{125.66}\approx 91~\mathrm{ms}.
+= \frac{1}{125.66}\,(0.62)^{-4.9} \approx 83~\mathrm{ms}.
 \]
 With higher coherence $r=0.8$ ($\kappa \approx 3.0$, $p_1(\pi, 3.0) \approx 0.76$):
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.76)^{-4.9} \approx 35~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.76)^{-4.9} \approx 30~\mathrm{ms}.
 \]
-
-\paragraph{Sensitivity analysis.} The 30--100 ms binding window occupies a robust region of parameter space:
-
-\begin{center}
-\begin{tabular}{ccccc|c}
-\toprule
-$M$ & $r$ & $\varepsilon$ & $\Delta\omega$ (rad/s) & $\alpha$ & $\tau_{\mathrm{coh}}$ (ms) \\
-\midrule
-6  & 0.7 & $\pi$   & $2\pi \times 20$ & 0.7 & 38 \\
-8  & 0.75& $\pi$   & $2\pi \times 20$ & 0.7 & 52 \\
-8  & 0.8 & $\pi$   & $2\pi \times 20$ & 0.7 & 35 \\
-10 & 0.75& $\pi$   & $2\pi \times 20$ & 0.7 & 72 \\
-10 & 0.8 & $\pi$   & $2\pi \times 25$ & 0.7 & 40 \\
-12 & 0.8 & $\pi$   & $2\pi \times 20$ & 0.5 & 55 \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-Binding windows of 30--100 ms span plausible ranges of $M \in [6,12]$, $r \in [0.7, 0.8]$, and $\Delta\omega \in [2\pi \times 15, 2\pi \times 25]$ rad/s. The 30--50 ms human binding window under focused attention corresponds to $r \approx 0.8$ (high coherence), moderate coordination depth $M \sim 6$--8.
 
 Computing all terms in Eq.~\ref{eq:main-bound}:
 \begin{align}
-\tau_{\mathrm{QSL}} &\sim 10^{-14} \,\mathrm{s} \quad \text{(negligible)} \\
-\tau_{\mathrm{SNR}} &\sim 5\text{--}10~\mathrm{ms} \quad \text{(task-dependent; see ESM~1)} \\
-\tau_{\mathrm{power}} &\ll 1~\mathrm{ms} \quad \text{(per commit, local assembly power)} \\
-\tau_{\mathrm{coh}} &\approx 35\text{--}90~\mathrm{ms} \quad \text{($r = 0.7$--$0.8$, $M = 8$)}
+\tau_{\mathrm{QSL}} &\sim 10^{-13} \,\mathrm{s} \quad \text{(negligible---quantum limit non-binding)} \\
+\tau_{\mathrm{SNR}} &\sim 5\text{--}10~\mathrm{ms} \quad \text{(task-dependent)} \\
+\tau_{\mathrm{power}} &\ll 1~\mathrm{ms} \quad \text{(per commit)} \\
+\tau_{\mathrm{coh}} &\approx 30\text{--}83~\mathrm{ms} \quad \text{($r = 0.7$--$0.8$, $M = 8$)}
 \end{align}
 
-The effective commit time is $\tau_{\mathrm{eff}} = \max[\text{QSL, SNR, power, coh}] \approx 35$--$90~\mathrm{ms}$, matching human binding windows. \textbf{Coherence time dominates}.
-
-Modest parameter variations produce order-of-magnitude shifts: $r = 0.8$ with $M = 6$ (stronger attention, smaller assembly) yields $\tau_{\mathrm{coh}} \sim 20$ ms; $r = 0.65$ (relaxed coupling) yields $\tau_{\mathrm{coh}} \sim 150$ ms; $M = 12$ (cross-modal audio-visual) yields $\tau_{\mathrm{coh}} \sim 200$ ms, matching cross-modal binding latencies~\cite{vanrullen2016}.
+The effective commit time is $\tau_{\mathrm{eff}} = \max[\text{QSL, SNR, power, coh}] \approx 30$--$83~\mathrm{ms}$, matching human binding windows (30--50 ms). \textbf{Coherence time dominates}; quantum and Landauer bounds are not the limiting factors.
 
 \subsection{Tachypsychia: dual-loop dissociation}
 
-During acute stress or falls, subjects report subjective time slowing while objective reaction times remain unchanged~\cite{stetson2007}. This provides exclusion-based evidence about conscious experience:
+During acute stress or falls, subjects report subjective time slowing while objective reaction times remain unchanged~\cite{stetson2007}. This dissociation suggests separate commit pathways:
 
-\textbf{Exclusion logic:}
-\begin{itemize}
-\item Conscious time perception $\neq$ motor commit rate (time dilation without reaction time change)
-\item Conscious time perception $\neq$ post-commit memory encoding (would also predict reaction time change)
-\item \textbf{Inference}: Phenomenal temporal experience may correlate with continuous pre-commit coherent dynamics rather than discrete commit events
-\end{itemize}
+\emph{Perceptual loop} (cortical): High-$M$ ($\sim 10$--15 modules) coherent field dynamics. Commits sparse (5--20 Hz). Arousal increases coherence $r$ and thus information rate.
 
-This resonates with Integrated Information Theory's emphasis on integrated states~\cite{tononi2016} and Global Workspace Theory's requirement for sustained coherent broadcasting~\cite{dehaene2011}. Both frameworks predict consciousness should correlate with field-level dynamics (high coherence, broad integration) rather than sparse spiking events.
+\emph{Motor loop} (cerebellar/basal ganglia): Low-$M$ ($\sim 3$--5 modules) primitives. Commits faster (50--150 ms). Arousal modulates decision threshold, preserving reaction time.
 
-\textbf{Mechanistic hypothesis:} We propose dual commit pathways (alternative accounts exist, including attentional sampling~\cite{vanrullen2016} and memory density effects; the key empirical discriminator is predicted independence between temporal-order thresholds and simple RT under arousal):
-
-\emph{Perceptual loop} (cortical): High-$M$ ($\sim 10$--15 modules) coherent field dynamics across sensory and associative areas. Commits sparse (5--20 Hz), expensive ($\lambda_{\mathcal{D}}\Delta\mathcal{D} \sim 10^6 \kB T$). Arousal increases coherence $r$ and thus information rate $\mathcal{I}(t)$ via enhanced synchronization and gain modulation. Subjective duration scales as
-\[
-T_{\mathrm{subjective}} \propto \int_0^{\Delta t} \mathcal{I}(t)\,dt
-\]
-Richer $\mathcal{I}(t)$ per inter-commit interval produces time dilation experience.
-
-\emph{Motor loop} (cerebellar/basal ganglia): Low-$M$ ($\sim 3$--5 modules) primitives executing learned policies. Commits faster (50--150 ms), cheaper. Arousal modulates decision threshold/drift rate, preserving reaction time:
-\[
-\mathrm{RT} = T_{\mathrm{nondec}} + \frac{a}{v}
-\]
-where lowered threshold $a$ and increased drift $v$ approximately offset.
-
-This dual-loop architecture explains the dissociation: perceptual commits (high $M$, modulated by arousal) proceed independently of motor commits (low $M$, threshold-compensated).
+This dual-loop architecture explains the dissociation: perceptual commits (high $M$) proceed independently of motor commits (low $M$).
 
 \subsection{Alpha oscillations and temporal acuity}
 
 Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~\cite{samaha2015,cecere2015}. We interpret alpha as reflecting commit frequency: $r_{\mathrm{commit}} \sim f_\alpha$.
 
-Prediction: Manipulating alpha via transcranial alternating current stimulation (tACS) should proportionally shift perceptual windows. Increasing $f_\alpha$ from 10 Hz to 12 Hz (20\% increase) predicts 20\% reduction in flicker fusion threshold (50 ms $\rightarrow$ 42 ms).
+Prediction: Manipulating alpha via transcranial alternating current stimulation (tACS) should proportionally shift perceptual windows.
 
 \subsection{Metabolic scaling across species}
 
-Equation~\ref{eq:main-bound} predicts different regimes. When coordination time is slow ($\tau_{\mathrm{coh}} \gg \tau_{\mathrm{power}}$), coherence dominates (as in human perception). When power is limiting ($\tau_{\mathrm{power}} \gg \tau_{\mathrm{coh}}$), we obtain $\tau_{\mathrm{eff}} \sim 1/P$.
+When power is limiting ($\tau_{\mathrm{power}} \gg \tau_{\mathrm{coh}}$), we obtain $\tau_{\mathrm{eff}} \sim 1/P$. Critical flicker fusion frequency should scale with mass-specific metabolic rate.
 
-\textbf{Derivation of metabolic scaling:} For animals with similar neural architecture ($M \sim 5$--10, $r \sim 0.5$--0.7, $\varepsilon \sim \pi$), coordination time is roughly constant: $\tau_{\mathrm{coh}} \sim 10$--100 ms. However, power available for neural computation scales with mass-specific metabolic rate $P_{\mathrm{meta}}$ (mL O$_2$/g/hr). Converting to neural power via ATP yield: $P \propto P_{\mathrm{meta}}$. From Eq.~\ref{eq:main-bound}, when $\tau_{\mathrm{power}} = \lambda_{\mathcal{D}}\Delta\mathcal{D}/P$ dominates (small animals with high metabolic rates), critical flicker fusion frequency is
-\[
-f_{\mathrm{CFF}} \sim \frac{1}{\tau_{\mathrm{power}}} \sim \frac{P}{\lambda_{\mathcal{D}}\Delta\mathcal{D}} \propto P_{\mathrm{meta}}
-\]
-With allometric scaling $P_{\mathrm{meta}} \propto M^{-1/4}$ (Kleiber's law), this predicts $f_{\mathrm{CFF}} \propto M^{-1/4}$.
-
-Healy et al.~\cite{healy2013} measured critical flicker fusion frequency across diverse taxa:
-\begin{itemize}
-\item Flies: $\sim 240$ Hz (metabolic rate $\sim 10$ mL O$_2$/g/hr, mass $\sim 10$ mg)
-\item Humans: $\sim 60$ Hz ($\sim 0.25$ mL O$_2$/g/hr, mass $\sim 70$ kg)
-\item Leatherback turtles: $\sim 15$ Hz ($\sim 0.02$ mL O$_2$/g/hr, mass $\sim 500$ kg)
-\end{itemize}
-
-Log-log regression shows $R^2 \approx 0.6$ across three orders of magnitude in body mass, with $f_{\mathrm{CFF}} \propto P_{\mathrm{meta}}^{0.6}$ (Figure~2 in Ref.~\cite{healy2013}). The near-linear relationship validates the power-limited regime for small, high-metabolism animals.
-
-% FIGURE 1: Hourglass schematic showing four bottlenecks
-% FIGURE 2: Speed-flexibility Pareto curve (commit rate vs D_eff for different r)
-% FIGURE 3: Parameter sensitivity heatmap (log τ_coh vs r and D_eff)
-
-\subsection{Parameter sensitivity enables dynamic range}
-
-The exponential scaling in Eq.~\ref{eq:coh-time} produces extreme parameter sensitivity (Figure 3):
-\begin{itemize}
-\item $M: 5 \to 15$ shifts $\tau$ by $\sim 2^{10\alpha(1-r)} \sim 10^2$--$10^3$ (fixed $r = 0.6$, $\varepsilon = \pi$, $\alpha = 0.9$)
-\item $r: 0.5 \to 0.7$ shifts $\tau$ by $\sim 2^{2(M-1)\alpha} \sim 10^2$ (fixed $M = 8$)
-\item $\varepsilon: \pi \to \pi/3$ shifts $\tau$ by $\sim 3^{\alpha(1-r)(M-1)} \sim 10^1$--$10^2$
-\end{itemize}
-
-This is \emph{not a flaw} but the mechanism enabling massive dynamic range. Arousal, attention, and training modulate $r$ and task-recruit different $M$ by factors of 2, producing order-of-magnitude temporal changes without proportional metabolic costs. Linear scaling would require 100$\times$ power for 100$\times$ faster perception---energetically prohibitive.
+Healy et al.~\cite{healy2013} measured critical flicker fusion frequency across diverse taxa: flies $\sim 240$ Hz, humans $\sim 60$ Hz, leatherback turtles $\sim 15$ Hz. Log-log regression shows $R^2 \approx 0.6$ across three orders of magnitude in body mass, validating the power-limited regime for small, high-metabolism animals.
 
 \section{Discussion}
 
 \subsection{Biological examples of the speed-flexibility trade-off}
 
 \paragraph{Mind-wandering and creative insight (high $M$, low $r$).}
-Default-mode network activity exhibits low inter-regional coherence ($r \sim 0.3$) and high coordination depth ($M \sim 12$--20 distributed modules). Commits are rare ($\sim 0.1$--1 Hz), producing subjective ``slow thinking'' but enabling novel cross-network associations unavailable to high-coherence focused states.
+Default-mode network activity exhibits low inter-regional coherence ($r \sim 0.3$) and high coordination depth ($M \sim 12$--20). Commits are rare ($\sim 0.1$--1 Hz), producing subjective ``slow thinking'' but enabling novel associations.
 
 \paragraph{Focused attention (moderate $M$, moderate $r$).}
-Attention increases coherence ($r: 0.3 \to 0.6$) and narrows coordination to task-relevant modules ($M: 15 \to 8$) by suppressing task-irrelevant networks~\cite{fries2015}. This produces faster commits (10--30 Hz) in a restricted ``spotlight'' subspace---the classic attention speed-accuracy trade-off recast as speed-flexibility.
+Attention increases coherence ($r: 0.3 \to 0.6$) and narrows coordination to task-relevant modules ($M: 15 \to 8$)~\cite{fries2015}. This produces faster commits (10--30 Hz) in a restricted subspace.
 
 \paragraph{Automaticity and skill learning (low $M$, high $r$).}
-Overlearned motor sequences compress to low-dimensional cerebellar/basal ganglia primitives ($M \sim 3$--5 coordinating modules) with tight forward-model coherence ($r \sim 0.8$). Commits are rapid (50--150 ms motor latencies) but inflexible. Perturbations requiring cortical intervention feel ``jarring'' because the system must switch regimes (low-$M$/high-$r$ $\to$ high-$M$/low-$r$).
+Overlearned motor sequences compress to low-dimensional primitives ($M \sim 3$--5) with tight coherence ($r \sim 0.8$). Commits are rapid (50--150 ms) but inflexible.
 
-\subsection{How slow oscillations carry high-dimensional programs: delay embedding}
+\subsection{Temporal embedding as a pre-commit representation mechanism}
 
-\begin{center}
-\fbox{\parbox{0.95\textwidth}{
-\textbf{Takens Mapping (Formal Statement)}\\[0.5em]
-\textbf{State:} $\mathbf{s}(t) \in \mathbb{R}^d$ --- high-dimensional motor/coordination dynamics\\
-\textbf{Observable:} $y(t) = h(\mathbf{s}(t))$ --- scalar projection (e.g., cortical efference copy, error signal)\\
-\textbf{Delay embedding:} $\mathbf{Y}(t) = [y(t), y(t-\tau), y(t-2\tau), \ldots, y(t-(m-1)\tau)]$\\
-\textbf{Theorem (Takens, 1981):} For generic $h$ and $\tau$, if $m \geq 2d+1$, then $\mathbf{Y}(t)$ is diffeomorphic to $\mathbf{s}(t)$.\\[0.5em]
-\textbf{Biological hypothesis:} The observable $y(t)$ is the descending cortical command/error signal distributed via mossy fibers; parallel fiber delays provide the $\tau_1, \tau_2, \ldots$ taps; Purkinje dendritic integration forms $\mathbf{Y}(t)$.
-}}
-\end{center}
-
-The speed-flexibility trade-off explains \emph{when} oscillatory assemblies can commit, but not \emph{how} slow oscillations encode the high-dimensional programs they coordinate. We propose that biological systems implement \textbf{Takens delay embedding}---a mathematical technique for reconstructing high-dimensional dynamics from scalar time series~\cite{takens1981}.
+The speed-flexibility trade-off explains \emph{when} oscillatory assemblies can commit, but not \emph{how} high-dimensional structure is preserved during the long pre-commit interval. We propose that biological systems implement \textbf{Takens delay embedding}~\cite{takens1981}.
 
 \paragraph{Takens' theorem.}
-For a deterministic system with state dimension $d$, Takens proved that time-delayed copies of a scalar observable---$x(t), x(t-\tau), x(t-2\tau), \ldots$---can reconstruct the complete state-space topology. Crucially, $2d+1$ delay coordinates generically suffice. This means a low-frequency ``carrier'' signal, properly sampled across delays, contains complete information about arbitrarily complex dynamics.
-
-\paragraph{Robustness to noise and nonstationarity.}
-Takens' theorem is asymptotic and assumes deterministic dynamics. Biological systems are noisy, adaptive, and nonstationary. We therefore use Takens embedding as a \emph{design principle} rather than a literal guarantee: delay-line architectures improve state inference under partial observability, even when exact reconstruction is impossible. In noisy regimes, the claim becomes: systems with delay-diverse sampling achieve higher mutual information between observations and underlying state than systems with instantaneous-only sampling. This weaker claim is empirically testable and does not require deterministic dynamics.
+For a deterministic system with state dimension $d$, time-delayed copies of a scalar observable---$x(t), x(t-\tau), x(t-2\tau), \ldots$---can reconstruct the complete state-space topology. Crucially, $2d+1$ delay coordinates generically suffice.
 
 \paragraph{Biological implementation: cerebellar parallel fibers.}
-The cerebellum provides a striking biological realization. Parallel fibers---unmyelinated granule cell axons---conduct at 0.2--0.5 m/s with systematically varying path lengths, creating conduction delays of 10--23 ms~\cite{braitenberg1958,llinas1982}. These delays match the optimal embedding parameter $\tau^* \approx 1/(4f)$ for motor error signals at 10--25 Hz.
+Parallel fibers---unmyelinated granule cell axons---conduct at 0.2--0.5 m/s with systematically varying path lengths, creating conduction delays of 5--15 ms~\cite{braitenberg1958,llinas1982,wyatt2005}. These delays match the optimal embedding parameter $\tau^* = 1/(4f)$ for motor dynamics at 15--50 Hz.
 
-We hypothesize that the relevant observable $y(t)$ is the descending cortical efference copy or sensorimotor prediction error, broadcast broadly via mossy fiber inputs. Parallel fiber delays then provide the temporal basis $\{y(t-\tau_i)\}$, and Purkinje cell dendritic integration computes a readout over this delay-expanded representation. The cerebellum is not merely timing movements---it is reconstructing state from delay-embedded observations.
+We hypothesize that the cerebellum provides a concrete biological example of delay-embedded preservation of high-dimensional dynamics during pre-commit intervals, enabling rapid low-dimensional readout without requiring simultaneous global coordination.
 
-\paragraph{Cross-species conservation.}
-Remarkably, empirical data show that cerebellar parallel fiber delays are \emph{conserved} at 5--10~ms across species from mouse to macaque, despite dramatic differences in brain size~\cite{wyatt2005}. This conservation suggests that cerebellar timing is tuned to a biophysically fundamental timescale---likely muscle contraction dynamics at 25--50~Hz---rather than whole-body locomotion frequency, which scales as $M^{-0.15}$ with body mass~\cite{heglund1974}. Larger-brained species (marmoset, cat, macaque) add myelinated parallel fibers in deep cerebellar layers with 0.5--1.0~ms delays, providing an additional fast timing channel. This architecture---conserved slow delays plus optional fast myelinated paths---may enable the cerebellum to simultaneously track both fast muscle dynamics and slower coordination programs.
-
-\paragraph{Low-dimensional systems converge on simple geometry.}
-Purkinje cell dendritic arbors exhibit ``fern-leaf'' fractal geometry remarkably similar to botanical ferns---among Earth's oldest vascular plants ($\sim$360 Mya). This convergence reflects a deeper principle: \emph{low-dimensional systems produce similar geometric signatures regardless of why they are low-dimensional}. Ferns are geometrically simple because they are ancient---they evolved before complex developmental programs existed, constraining them to recursive branching rules. The cerebellum is geometrically simple because fast motor coordination \emph{requires} low dimensionality: the low-$M$, high-$r$ regime that enables rapid commits (§4.1) necessarily restricts dynamics to low-dimensional manifolds. Both systems, constrained to low-dimensional operation for entirely different reasons, converge on the same fractal architecture.
-
-\paragraph{Simulation: degraded temporal structure destroys reconstruction.}
-To test whether phase coherence (rather than amplitude) is the critical variable, we simulated Takens reconstruction under two forms of signal degradation: (1) phase jitter (timing noise without amplitude change) and (2) amplitude noise (conventional SNR degradation). Using a Lorenz attractor as ground-truth dynamics and measuring neighborhood preservation in the reconstructed manifold, we find:
-
-\begin{itemize}
-\item Phase jitter of 0.5 (normalized units) reduces reconstruction quality from 75\% to 37\%
-\item The degradation is smooth and monotonic---no sharp threshold
-\item Even moderate timing dysfunction impairs coordination before amplitude loss becomes obvious
-\end{itemize}
-
-Figure~\ref{fig:takens_degradation} shows the key result: reconstruction quality degrades smoothly with phase jitter. The attractor structure progressively dissolves (panels d--f), becoming unrecognizable at high jitter despite unchanged signal amplitude. This directly supports the clinical prediction: coordination fails when temporal structure degrades, not when cells die.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{figures/cerebellar_takens_degradation.pdf}
-\caption{\textbf{Degraded slow-wave structure destroys Takens reconstruction.} (a) Neighborhood preservation declines smoothly with phase jitter. (b) Both timing and amplitude degradation impair reconstruction. (c) Example signals at different jitter levels. (d--f) Reconstructed attractors: pristine (d), mild jitter (e), and severe jitter (f). The attractor structure dissolves progressively---coordination fails before amplitude loss.}
-\label{fig:takens_degradation}
-\end{figure}
+\paragraph{Robustness to noise.}
+We use Takens embedding as a \emph{design principle} rather than a literal guarantee: delay-line architectures improve state inference under partial observability, even when exact reconstruction is impossible.
 
 \paragraph{Connection to coherence time.}
-Takens embedding explains \emph{what} slow oscillations carry; coherence time explains \emph{when} that information can be read out. The two frameworks are complementary:
+Coherence time determines the maximum window over which temporal embeddings remain usable. If coherence decays faster than the embedding window, reconstruction fails and high-dimensional structure is lost before a commit can occur.
 
-\begin{itemize}
-\item Slow oscillations encode high-dimensional programs via delay embedding
-\item Fast oscillations (gamma) provide the readout/execution layer
-\item Phase-amplitude coupling links the two: slow phases gate when fast activity can commit
-\item Coherence time determines the minimum interval between commits
-\end{itemize}
+\subsection{Generalization beyond neural systems}
 
-When slow-wave temporal structure degrades---through pathology, fatigue, or pharmacological disruption---the delay-embedded program becomes unreadable even if signal amplitude is preserved. This predicts that \emph{phase coherence}, not just oscillation power, should correlate with coordination capacity.
+While we emphasize neural applications given their empirical accessibility, the coherence time framework applies to any biological system whose function requires coordinated phase relations and whose outputs are sparse commitment events.
 
-\paragraph{Clinical implication.}
-Conditions disrupting slow-wave coordination (motor neuron disease, cerebellar ataxia, sleep deprivation) may impair function not through cell loss but through loss of reconstructible temporal structure. Therapeutic interventions preserving phase relationships may be as important as those preserving amplitude.
+\paragraph{Scope statement.} Neural systems are the best-instrumented instance of a broader class: living, self-maintaining oscillator assemblies that perform irreversible state registration. We do not treat collectives (e.g., societies) as intelligent systems in this sense; they are coordination networks of intelligent organisms and introduce additional channels not modeled here.
 
-\subsection{Delay embedding as universal biological motif}
+\paragraph{Chromosomal coordination.} Chromosomal systems provide a non-neural example of the same architecture. High-dimensional continuous dynamics (polymer conformations, electrostatic interactions, topological constraints, phase separation) produce function via sparse low-dimensional commits (origin firing, checkpoint decisions, segregation outcomes).
 
-The cerebellar architecture---delay-embedded prediction from partial observations---is not unique to motor control. It represents a general solution to a universal biological problem: how to predict and control dynamics when observations are incomplete and delayed.
+Anaphase onset is naturally modeled as a commit event: a global irreversible transition triggered only after multiple semi-independent units satisfy a coherence-like constraint. The waiting time should scale steeply with effective coordination depth, consistent with first-passage into a small target set. The relevant ``order parameter'' is any coordination metric determining whether a global event can proceed---spatial colocalization, topological state, mechanical alignment---not necessarily Kuramoto $r$.
 
-\paragraph{The general architecture.}
-Any system facing this problem requires:
-\begin{enumerate}
-\item \textbf{Delayed copies} of incoming signals (creating temporal depth)
-\item \textbf{Expansion} into higher-dimensional representation (enabling discrimination)
-\item \textbf{Learned prediction} of future states
-\item \textbf{Error-driven learning} from prediction failures
-\end{enumerate}
-
-The cerebellum implements this with parallel fibers, granule cells, Purkinje cells, and climbing fibers. But the same functional architecture can be implemented with entirely different substrates.
-
-\paragraph{Candidate systems.}
-We hypothesize that delay-embedding motifs appear wherever biological systems must predict dynamics from partial observations:
-
-\begin{table}[H]
-\centering
-\begin{tabular}{p{2.5cm}p{3.5cm}p{3cm}p{2.5cm}}
-\toprule
-\textbf{System} & \textbf{``Parallel fibers''} & \textbf{Prediction target} & \textbf{Timescale} \\
-\midrule
-Immune memory & TCR/BCR clones with different activation histories & Pathogen dynamics & Hours--days \\
-Development & Morphogen gradients sampled over time & Cell fate trajectories & Hours \\
-Circadian & Clock proteins with different half-lives & Environmental cycles & $\sim$24h \\
-Chemotaxis & Methylation states (multiple timescales) & Chemical gradients & Seconds \\
-Plant tropisms & Auxin redistribution delays & Light/gravity direction & Minutes--hours \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-In each case, the system maintains multiple temporal copies of relevant signals, enabling state reconstruction despite incomplete instantaneous information.
-
-\paragraph{Coherence time as the prediction window.}
-The cerebellar delay of 5--10~ms is conserved because it matches the coherence time for neural-speed processes---the window within which predictions must be made and evaluated. Other biological systems would have their own $\tau_{\mathrm{coh}}$ matched to their characteristic dynamics:
-
-\begin{itemize}
-\item Bacterial chemotaxis: $\tau_{\mathrm{coh}} \sim 1$--10~s (matching tumble/run alternation)
-\item Circadian systems: $\tau_{\mathrm{coh}} \sim$ hours (matching transcription-translation feedback)
-\item Immune responses: $\tau_{\mathrm{coh}} \sim$ days (matching clonal expansion timescales)
-\end{itemize}
-
-The $\tau^* = 1/(4f)$ relationship generalizes: optimal embedding delay is a quarter-period of the dominant dynamics being predicted, regardless of substrate.
-
-\paragraph{Evolutionary convergence.}
-If delay embedding is a universal solution to prediction under partial observability, we expect:
-\begin{itemize}
-\item Convergent architectures across phylogenetically distant systems facing similar prediction problems
-\item Timescale matching: embedding delays should scale with the dynamics being predicted
-\item Degradation under timing disruption: systems should fail when temporal structure is perturbed even if amplitude is preserved
-\end{itemize}
-
-This reframes the cerebellum not as a specialized motor structure but as the neural instantiation of a universal biological computation. The same mathematics that explains cerebellar timing may explain immune memory, developmental timing, and circadian prediction.
+\paragraph{Circadian networks.} Circadian gene networks exhibit $M \sim 3$--5 core feedback loops, $r \sim 0.8$ (tight coupling), and $\varepsilon \sim 0.5$ rad (loose phase tolerance). These parameters yield coordination times much shorter than the 24-hour period, implying coordination is \emph{not} the bottleneck. The 24-hour period arises from molecular lags. The framework correctly identifies the dominant regime: circadian clocks are biochemical-delay-limited, not coordination-limited.
 
 \subsection{Testable predictions}
 
 \paragraph{Alpha entrainment.}
-tACS at alpha frequency should shift perceptual binding windows linearly with frequency change. Effect strongest in occipital cortex during visual tasks. 20\% frequency increase $\rightarrow$ 20\% threshold reduction. Deviations from linearity indicate subharmonic/burst mechanisms.
+tACS at alpha frequency should shift perceptual binding windows linearly with frequency change. 20\% frequency increase predicts 20\% threshold reduction.
 
 \paragraph{Arousal effects on dual-loop dissociation.}
-During simultaneous simple reaction time + temporal-order judgment under acute stress (or noradrenergic agonism):
+During simultaneous simple reaction time + temporal-order judgment under acute stress:
 \begin{itemize}
 \item Temporal-order discrimination threshold changes
 \item Simple reaction time unchanged or slightly faster
-\item Statistical independence between measures (evidence of separate pathways)
+\item Statistical independence between measures
 \end{itemize}
 
-\paragraph{Immediate versus delayed duration judgments.}
-Pre-commit framework predicts arousal expands \emph{both} immediate and retrospective duration reports. Pure memory-encoding accounts predict only retrospective effects. Test via immediate temporal-order judgments during arousal.
-
 \paragraph{Coherence measures and consciousness.}
-If phenomenal experience reflects pre-commit coherent dynamics (as suggested by the tachypsychia dissociation), conscious states should correlate more strongly with phase-locking index, theta-gamma coupling, and beta-band coherence than with spike count or mean firing rate. Testable: during automaticity, high cerebellar/basal ganglia spiking combined with low cortical coherence should predict unconscious execution~\cite{tononi2016,dehaene2011}.
-
-\paragraph{Psychedelic dose-dependence.}
-Psychedelics produce dose-dependent time distortions. Framework prediction: time perception direction depends on \textbf{band-specific} coherence changes that shift $\tau_{\mathrm{coh}}$ via modulation of $r$ and $M$. Low doses may sharpen task-relevant coherence (increase $r$ in gamma/beta, narrow $M$) $\rightarrow$ faster commits, subjectively accelerated time. High doses disrupt long-range coordination (suppress alpha, increase LZ-complexity, fragment $M$) $\rightarrow$ exponentially rare commits, subjectively frozen or dilated time. Empirical tests should correlate time distortion \emph{direction} with band-resolved $\Delta r$ in task-active frequencies, not global coherence metrics.
+If phenomenal experience reflects pre-commit coherent dynamics, conscious states should correlate more strongly with phase-locking index and theta-gamma coupling than with spike count or mean firing rate.
 
 \subsection{Relationship to existing frameworks}
 
-\textbf{Integrated Information Theory}~\cite{tononi2016}: We provide thermodynamic/temporal foundations. Integration costs energy ($\sim \lambda_{\mathcal{D}}\Delta\mathcal{D}$) and takes time (exponentially with $\Deff$).
+\textbf{Quantum-like cognition.} Recent work has explored connections between oscillatory neural networks and quantum-like cognitive phenomena~\cite{khrennikov2025bridge}. Our framework provides a classical high-dimensional explanation for why such quantum-like signatures emerge: high-dimensional dynamics with limited measurement bandwidth produce phenomenology parallel to quantum systems---measurement-like collapse at commits, superposition-like coexistence of states pre-commit, uncertainty-like timing inaccessibility.
 
-\textbf{Free Energy Principle}~\cite{friston2010}: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~\ref{eq:main-bound}. Hierarchy of commit depths maps onto prediction error hierarchies.
+\textbf{Integrated Information Theory}~\cite{tononi2016}: We provide thermodynamic/temporal foundations. Integration costs energy and takes time (exponentially with coordination depth).
 
-\textbf{Neural criticality}~\cite{beggs2003}: Near synchronization transition ($r \to r_c$), critical slowing predicts commit rate suppression. Benefits: sub-commit integration enables weak-signal sensitivity. Costs: altered time perception as commits become rare.
-
-\subsection{Scope boundaries}
-
-The framework applies most directly to oscillatory systems with coupled dynamics where Kuramoto $r$ is well-defined. Non-oscillatory systems (bacterial chemotaxis, plant circadian clocks without neural oscillators) may require alternative coherence measures.
-
-\textbf{Circadian example (demonstrating scope):} Circadian gene networks exhibit $M \sim 3$--5 core feedback loops, $r \sim 0.8$ (tight coupling), and $\varepsilon \sim 0.5$ rad (loose phase tolerance). These parameters yield $f \approx 1$--10 via Eq.~\ref{eq:coh-time}, implying coordination is \emph{not} the bottleneck. The 24-hour period arises instead from molecular lags (transcription, translation, protein accumulation timescales). The framework correctly identifies the dominant regime: circadian clocks are \emph{biochemical-delay-limited}, not coordination-limited.
-
-Extending to hierarchical, modular architectures with nested commits remains an empirical challenge. Quantum coherence effects (photosynthesis, magnetoreception) could extend the framework to regimes where quantum and dimensional coordination compete.
-
-\subsection{Fundamental versus biological principles}
-
-While we emphasize neural applications, the relationships between time, energy, dimensionality, and measurement are fundamental. Equation~\ref{eq:main-bound} applies to any system performing irreversible measurements: molecular catalysis (microsecond turnover from nanosecond fluctuations), chemical reaction networks (multi-protein assembly), quantum measurement (high-dimensional Hilbert space decoherence).
-
-Biology provides empirically rich examples spanning 15 orders of magnitude, with consciousness offering direct phenomenological access to pre-commit dynamics unavailable for molecular or quantum systems. The tachypsychia dissociation constrains \emph{where} in physical dynamics experience resides---potentially informing measurement theory beyond neuroscience.
+\textbf{Free Energy Principle}~\cite{friston2010}: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~\ref{eq:main-bound}.
 
 \section{Conclusion}
 
-We have established that coherence time sets the speed of thought. The bound
+We have established that coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase alignment for irreversible state registration---bounds the rate of neural processes associated with cognition. The bound
 \[
 \tau_{\mathrm{eff}} = \max\left[\tau_{\mathrm{QSL}},\, \tau_{\mathrm{SNR}},\, \tau_{\mathrm{coh}},\, \tau_{\mathrm{power}}\right]
 \]
@@ -506,26 +336,26 @@ with coherence time
 \[
 \tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}
 \]
-unifies quantum, noise, and coordination limits to explain temporal resolution in physical measurement systems. Here $M$ is coordination depth (number of semi-independent modules requiring alignment), $p_1(\varepsilon, \kappa)$ is the single-variable alignment probability (determined by von Mises concentration $\kappa$, which increases with Kuramoto coherence $r$), and $\alpha \in (0,1]$ captures effective independence (reduced by inter-module coupling). The exponent $(M-1)$---not $M$---arises from quotient geometry: one phase serves as reference (see~\cite{todd2025ig} for the full geometric derivation).
+unifies quantum, noise, and coordination limits to explain temporal resolution in biological processing systems.
+
+We have situated this framework explicitly within the hierarchy of physical limits on computation: the Landauer bound constrains energy per irreversible operation; the Margolus-Levitin and Mandelstam-Tamm bounds constrain the speed of quantum state evolution; the energy-time uncertainty relation underlies both. In biological neural systems, these quantum and thermodynamic bounds are typically non-binding. The dominant constraint is the time required for multi-module coordination---a classical phenomenon arising from rare-event statistics on product manifolds.
 
 Key findings:
 \begin{enumerate}
-\item \textbf{Speed-flexibility trade-off}: Increasing $M$ exponentially slows commits but expands combinatorial flexibility. Increasing $r$ speeds commits but restricts dynamics to low-dimensional synchronized manifolds. Biology operates on a Pareto frontier in $(M,r)$ space.
+\item \textbf{Speed-flexibility trade-off}: Increasing $M$ exponentially slows commits but expands combinatorial flexibility. Increasing $r$ speeds commits but restricts dynamics to low-dimensional manifolds.
 
-\item \textbf{Dual-loop architecture}: Separate perceptual (high-$M$ cortical) and motor (low-$M$ cerebellar) pathways explain tachypsychia dissociation. The dissociation suggests phenomenal temporal experience may correlate with pre-commit coherent dynamics rather than discrete commit events.
+\item \textbf{Quantum limits non-binding}: Neural coherence times exceed quantum speed limits by eleven orders of magnitude. Coordination, not quantum switching, limits processing rate.
 
-\item \textbf{Parameter sensitivity mechanism}: Modest $r$ or $M$ shifts (factor of 2) produce order-of-magnitude temporal changes without proportional metabolic costs, enabling dynamic range.
+\item \textbf{Generality}: While neural systems provide the empirical testbed, the framework applies to any biological oscillator assembly with coordinated phase relations and sparse commits.
 
-\item \textbf{Quantitative predictions}: Visual binding windows (30--50 ms), metabolic scaling ($R^2 = 0.6$), alpha entrainment linearity, dual-task dissociations under arousal.
-
-\item \textbf{Consilient validation}: Framework explains phenomena across 15 orders of magnitude through scaling relationships, order-of-magnitude accuracy, and dissociation patterns.
+\item \textbf{Quantitative predictions}: Visual binding windows (30--50 ms), metabolic scaling ($R^2 = 0.6$), alpha entrainment linearity, dual-task dissociations.
 \end{enumerate}
 
-The central thesis: biology trades speed for flexibility by moving on the coherence-dimension frontier. This framework provides testable predictions spanning molecular to behavioral scales with immediate applications to understanding how arousal, attention, and training reshape temporal experience.
+The central thesis: biological systems trade speed for flexibility by moving on the coherence-dimension frontier, operating in a regime where quantum and thermodynamic limits permit far faster processing than coordination constraints allow.
 
 \section*{Data accessibility}
 
-This is a theoretical framework paper. Kuramoto simulation code and parameter estimation workflows will be made publicly available upon completion of validation studies.
+This is a theoretical framework paper. Kuramoto simulation code and parameter estimation workflows are available at \url{https://github.com/todd866/coherence-time}.
 
 \section*{Competing interests}
 
@@ -537,7 +367,7 @@ No external funding supported this work.
 
 \section*{Acknowledgments}
 
-The author thanks Abir Igamberdiev and anonymous reviewers at BioSystems for feedback on foundational frameworks.
+The author thanks Abir Igamberdiev and anonymous reviewers at BioSystems for constructive feedback.
 
 \begin{thebibliography}{99}
 
@@ -565,26 +395,17 @@ Varela, F., et al. (2001). The brainweb: phase synchronization and large-scale i
 \bibitem{fries2005}
 Fries, P. (2005). A mechanism for cognitive dynamics: neuronal communication through neuronal coherence. \textit{Trends Cogn. Sci.}, 9(10), 474--480.
 
-\bibitem{renger2001}
-Renger, T., et al. (2001). Ultrafast excitation energy transfer dynamics in photosynthetic pigment-protein complexes. \textit{Phys. Rep.}, 343(3), 137--254.
+\bibitem{todd2025intelligence}
+Todd, I. (2025). Intelligence as high-dimensional coherence: The observable dimensionality bound and computational tractability. \textit{BioSystems} (in press).
 
-\bibitem{vanrullen2016}
-VanRullen, R. (2016). Perceptual cycles. \textit{Trends Cogn. Sci.}, 20(10), 723--735.
+\bibitem{todd2025ig}
+Todd, I. (2025). Alignment probabilities on product statistical manifolds: Fisher information and coordination depth. \textit{Information Geometry} (in preparation).
 
-\bibitem{takahashi2017}
-Takahashi, J.S. (2017). Transcriptional architecture of the mammalian circadian clock. \textit{Nat. Rev. Genet.}, 18(3), 164--179.
+\bibitem{landauer1961}
+Landauer, R. (1961). Irreversibility and heat generation in the computing process. \textit{IBM J. Res. Dev.}, 5(3), 183--191.
 
-\bibitem{stetson2007}
-Stetson, C., Fiesta, M.P., Eagleman, D.M. (2007). Does time really slow down during a frightening event? \textit{PLoS ONE}, 2(12), e1295.
-
-\bibitem{healy2013}
-Healy, K., McNally, L., Ruxton, G.D., Cooper, N., Jackson, A.L. (2013). Metabolic rate and body size are linked with perception of temporal information. \textit{Anim. Behav.}, 86(4), 685--696.
-
-\bibitem{todd2025biosystems}
-Todd, I. (2025). The limits of falsifiability: Dimensionality, measurement thresholds, and the sub-Landauer domain in biological systems. \textit{BioSystems}, 258, 105608.
-
-\bibitem{todd2025demon}
-Todd, I. (2025). Timing inaccessibility and the projection bound: Resolving Maxwell's demon for continuous biological substrates. \textit{BioSystems} (in press).
+\bibitem{bormashenko2024}
+Bormashenko, E. (2024). Landauer bound in the context of minimal physical principles: Meaning, experimental verification, controversies and perspectives. \textit{Entropy}, 26(5), 423.
 
 \bibitem{mandelstam1945}
 Mandelstam, L., Tamm, I. (1945). The uncertainty relation between energy and time in non-relativistic quantum mechanics. \textit{J. Phys. (USSR)}, 9, 249--254.
@@ -592,41 +413,29 @@ Mandelstam, L., Tamm, I. (1945). The uncertainty relation between energy and tim
 \bibitem{margolus1998}
 Margolus, N., Levitin, L.B. (1998). The maximum speed of dynamical evolution. \textit{Physica D}, 120(1--2), 188--195.
 
+\bibitem{igamberdiev2021}
+Igamberdiev, A.U. (2021). Quantum-like model for unconscious--conscious interaction and emotional coloring of perceptions and other conscious experiences. \textit{BioSystems}, 208, 104471.
+
+\bibitem{igamberdiev2025constraints}
+Igamberdiev, A.U. (2025). Physical limits of natural computation as the biological constraints of morphogenesis, evolution, and consciousness: On the 100th anniversary of Efim Liberman (1925--2011). \textit{BioSystems}, 249, 105451.
+
+\bibitem{igamberdiev2026autopoietic}
+Igamberdiev, A.U. (2026). Internal quantum constraints of natural computation in autopoietic systems. \textit{BioSystems}, 251, 105707.
+
+\bibitem{khrennikov2025bridge}
+Khrennikov, A. (2025). Constructing a bridge between functioning of oscillatory neuronal networks and quantum-like cognition along with quantum-inspired computation and AI. \textit{BioSystems}, 250, 105573.
+
 \bibitem{poor1994}
 Poor, H.V. (1994). \textit{An Introduction to Signal Detection and Estimation} (2nd ed.). Springer-Verlag.
 
-\bibitem{kuramoto1984}
-Kuramoto, Y. (1984). \textit{Chemical Oscillations, Waves, and Turbulence}. Springer-Verlag.
-
-\bibitem{strogatz2000}
-Strogatz, S.H. (2000). From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators. \textit{Physica D}, 143(1--4), 1--20.
-
-\bibitem{acebron2005}
-Acebrón, J.A., Bonilla, L.L., Pérez Vicente, C.J., Ritort, F., Spigler, R. (2005). The Kuramoto model: A simple paradigm for synchronization phenomena. \textit{Rev. Mod. Phys.}, 77(1), 137--185.
-
-\bibitem{pikovsky2001}
-Pikovsky, A., Rosenblum, M., Kurths, J. (2001). \textit{Synchronization: A Universal Concept in Nonlinear Sciences}. Cambridge University Press.
+\bibitem{kac1947}
+Kac, M. (1947). On the notion of recurrence in discrete stochastic processes. \textit{Bull. Amer. Math. Soc.}, 53(10), 1002--1010.
 
 \bibitem{mardia2000}
 Mardia, K.V., Jupp, P.E. (2000). \textit{Directional Statistics}. John Wiley \& Sons.
 
-\bibitem{ott2008}
-Ott, E., Antonsen, T.M. (2008). Low dimensional behavior of large systems of globally coupled oscillators. \textit{Chaos}, 18(3), 037113.
-
-\bibitem{watanabe1994}
-Watanabe, S., Strogatz, S.H. (1994). Constants of motion for superconducting Josephson arrays. \textit{Physica D}, 74(3--4), 197--253.
-
-\bibitem{attwell2001}
-Attwell, D., Laughlin, S.B. (2001). An energy budget for signaling in the grey matter of the brain. \textit{J. Cereb. Blood Flow Metab.}, 21(10), 1133--1145.
-
-\bibitem{cunningham2014}
-Cunningham, J.P., Yu, B.M. (2014). Dimensionality reduction for large-scale neural recordings. \textit{Nat. Neurosci.}, 17(11), 1500--1509.
-
-\bibitem{stringer2019}
-Stringer, C., et al. (2019). Spontaneous behaviors drive multidimensional, brainwide activity. \textit{Science}, 364(6437), eaav7893.
-
-\bibitem{gallego2017}
-Gallego, J.A., et al. (2017). Neural manifolds for the control of movement. \textit{Neuron}, 94(5), 978--984.
+\bibitem{stetson2007}
+Stetson, C., Fiesta, M.P., Eagleman, D.M. (2007). Does time really slow down during a frightening event? \textit{PLoS ONE}, 2(12), e1295.
 
 \bibitem{samaha2015}
 Samaha, J., Postle, B.R. (2015). The speed of alpha-band oscillations predicts the temporal resolution of visual perception. \textit{Current Biology}, 25(22), 2985--2990.
@@ -634,29 +443,8 @@ Samaha, J., Postle, B.R. (2015). The speed of alpha-band oscillations predicts t
 \bibitem{cecere2015}
 Cecere, R., Rees, G., Romei, V. (2015). Individual differences in alpha frequency drive crossmodal illusory perception. \textit{Current Biology}, 25(2), 231--235.
 
-\bibitem{helfrich2014}
-Helfrich, R.F., et al. (2014). Entrainment of brain oscillations by transcranial alternating current stimulation. \textit{Curr. Biol.}, 24(3), 333--339.
-
-\bibitem{riecke2018}
-Riecke, L., Formisano, E., Sorger, B., Başkent, D., Gaudrain, E. (2018). Neural entrainment to speech modulates speech intelligibility. \textit{Curr. Biol.}, 28(2), 161--169.
-
-\bibitem{lakatos2008}
-Lakatos, P., Karmos, G., Mehta, A.D., Ulbert, I., Schroeder, C.E. (2008). Entrainment of neuronal oscillations as a mechanism of attentional selection. \textit{Science}, 320(5872), 110--113.
-
-\bibitem{tononi2016}
-Tononi, G., Boly, M., Massimini, M., Koch, C. (2016). Integrated information theory: from consciousness to its physical substrate. \textit{Nat. Rev. Neurosci.}, 17(7), 450--461.
-
-\bibitem{dehaene2011}
-Dehaene, S., Changeux, J.-P. (2011). Experimental and theoretical approaches to conscious processing. \textit{Neuron}, 70(2), 200--227.
-
-\bibitem{friston2010}
-Friston, K. (2010). The free-energy principle: a unified brain theory? \textit{Nat. Rev. Neurosci.}, 11(2), 127--138.
-
-\bibitem{beggs2003}
-Beggs, J.M., Plenz, D. (2003). Neuronal avalanches in neocortical circuits. \textit{J. Neurosci.}, 23(35), 11167--11177.
-
-\bibitem{todd2025ig}
-Todd, I. (2025). Alignment probabilities on product statistical manifolds: Fisher information and coordination depth. \textit{Information Geometry} (in preparation).
+\bibitem{healy2013}
+Healy, K., McNally, L., Ruxton, G.D., Cooper, N., Jackson, A.L. (2013). Metabolic rate and body size are linked with perception of temporal information. \textit{Anim. Behav.}, 86(4), 685--696.
 
 \bibitem{takens1981}
 Takens, F. (1981). Detecting strange attractors in turbulence. In: Rand, D., Young, L.S. (eds) \textit{Dynamical Systems and Turbulence}, Lecture Notes in Mathematics, vol 898. Springer, pp. 366--381.
@@ -668,72 +456,14 @@ Braitenberg, V. (1958). Morphology of nerve net in cerebellar cortex. \textit{Jo
 Llin\'{a}s, R. (1982). General discussion: Radial connectivity in the cerebellar cortex. In: \textit{The Cerebellum---New Vistas} (pp. 189--194). Springer.
 
 \bibitem{wyatt2005}
-Wyatt, K.D., Bhumbra, G.S., Bhumbra, S.K., Bhumbra, N.S., Sherwood, N. (2005). Speed limits in the cerebellum: constraints from myelinated and unmyelinated parallel fibers. \textit{European Journal of Neuroscience}, 21(8), 2285--2290.
+Wyatt, K.D., et al. (2005). Speed limits in the cerebellum: constraints from myelinated and unmyelinated parallel fibers. \textit{European Journal of Neuroscience}, 21(8), 2285--2290.
 
-\bibitem{heglund1974}
-Heglund, N.C., Taylor, C.R., McMahon, T.A. (1974). Scaling stride frequency and gait to animal size: mice to horses. \textit{Science}, 186(4169), 1112--1113.
+\bibitem{tononi2016}
+Tononi, G., Boly, M., Massimini, M., Koch, C. (2016). Integrated information theory: from consciousness to its physical substrate. \textit{Nat. Rev. Neurosci.}, 17(7), 450--461.
+
+\bibitem{friston2010}
+Friston, K. (2010). The free-energy principle: a unified brain theory? \textit{Nat. Rev. Neurosci.}, 11(2), 127--138.
 
 \end{thebibliography}
-
-\clearpage
-
-\section*{Electronic Supplementary Material}
-
-\subsection*{ESM 1: SNR bound and LFP noise conversion}
-
-For matched-filter detection of a signal with power $P_s$ in additive white Gaussian noise with two-sided power spectral density $N_0$ (units: W/Hz), the signal-to-noise ratio after integrating over time $T$ is
-\[
-\mathrm{SNR}(T) = \frac{2 E_s}{N_0} = \frac{2 P_s T}{N_0}
-\]
-where $E_s = P_s T$ is signal energy. Requiring $\mathrm{SNR}(T) = \rho_{\min}$ yields $T = \rho_{\min} N_0/(2P_s)$.
-
-\textbf{Conversion for neural LFP signals:} Measure background noise variance $\sigma_n^2$ (V$^2$) over bandwidth $B$ (Hz) from spontaneous recordings. Then $N_0 = \sigma_n^2/B$. For a local field potential oscillation with RMS amplitude $A_{\rm LFP}$ (V) in matched band, signal power is $P_s \approx A_{\rm LFP}^2/(2R)$ where $R$ is effective electrode impedance. Typical values: $\sigma_n^2 \sim 10^{-10}$ V$^2$, $B \sim 1000$ Hz, $N_0 \sim 10^{-13}$ W/Hz; $A_{\rm LFP} \sim 10$ $\mu$V, $R \sim 10^5$ $\Omega$, $P_s \sim 10^{-12}$ W. For $\rho_{\min} = 5$, $\tau_{\mathrm{SNR}} \sim 0.25$ ms.
-
-\subsection*{ESM 2: Derivation of dimensional chemical potential}
-
-Let $E = E(S,V,N,\mathcal{D})$ be the fundamental thermodynamic relation with realized dimensional structure $\mathcal{D}$ as a state variable. The extended first law is
-\[
-\mathrm{d}E = T\,\mathrm{d}S - p\,\mathrm{d}V + \mu\,\mathrm{d}N - \lambda_{\mathcal{D}}\,\mathrm{d}\mathcal{D}
-\]
-defining dimensional chemical potential
-\[
-\lambda_{\mathcal{D}} = -\left(\frac{\partial E}{\partial \mathcal{D}}\right)_{S,V,N}
-\]
-
-Passing to entropy representation $S = S(E,V,N,\mathcal{D})$:
-\[
-\lambda_{\mathcal{D}} = T\left(\frac{\partial S}{\partial \mathcal{D}}\right)_{E,V,N}
-\]
-
-For metric $\varepsilon$-entropy $S_\varepsilon = \kB \ln N_\varepsilon$ (Minkowski covering number), empirically $\partial S_\varepsilon/\partial\mathcal{D} \approx \kB s_\varepsilon$ with $s_\varepsilon \sim \mathcal{O}(1)$. Thus $\lambda_{\mathcal{D}} \approx \kB T s_\varepsilon$. For equilibrium with $s_\varepsilon \approx 1$: $\lambda_{\mathcal{D}} \sim \kB T$. For non-equilibrium: $\lambda_{\mathcal{D}} \sim \kB\Teff$ where $\Teff$ is effective temperature from fluctuation-dissipation violations.
-
-\subsection*{ESM 3: Proposed Kuramoto network validation protocol}
-
-To empirically validate Eq.~\ref{eq:coh-time}, we propose the following simulation protocol for future work:
-
-\textbf{Setup:} Simulate networks of $N = 500$--2000 coupled phase oscillators:
-\[
-\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N}\sum_{j=1}^N \sin(\theta_j - \theta_i)
-\]
-with natural frequencies $\omega_i$ drawn from uniform distribution (width $\Delta\omega$), randomized initial phases, and fourth-order Runge-Kutta integration (timestep $dt = 0.01/\Delta\omega$).
-
-\textbf{Measurement:} For coupling near critical value $K \approx K_c + 0.1K_c$, measure time between transient alignments (order parameter $r(t)$ exceeding threshold $r_\star$ for duration $>\varepsilon/\omega_0$). Test whether alignment time scales as $\langle\tau_{\mathrm{align}}\rangle \propto (\varepsilon/2\pi)^{-\alpha(1-r)(M-1)}$ where $M$ is the number of weakly-coupled clusters (via community detection on phase-coupling adjacency matrix).
-
-\textbf{Predictions:}
-\begin{itemize}
-\item Topology-dependent $\alpha$: all-to-all $\sim 0.9$, sparse random (Erdős-Rényi, $\langle k\rangle = 20$) $\sim 0.7$, modular (Girvan-Newman) $\sim 0.6$
-\item Circular variance $(1-r)$ should provide better fit than $(1-r^2)$ at moderate coherence ($r \approx 0.5$--0.7)
-\item Scaling exponent $(M-1)$ should match number of semi-independent modules from community structure
-\end{itemize}
-
-Code implementing this protocol will be made available upon publication.
-
-\subsection*{ESM 4: Figure legends}
-
-\textbf{Figure 1.} Hourglass architecture. High-dimensional continuous dynamics (top) funnel through four physical bottlenecks (middle) to produce low-dimensional commits (bottom). The slowest constraint (max operation) sets observable temporal grain. Quantum and SNR limits typically negligible for neural systems; coherence time dominates.
-
-\textbf{Figure 2.} Speed-flexibility frontier. Commit rate (Hz) versus coordination depth $M$ for different coherence values $r$. Higher $r$ enables faster processing but restricts exploration to low-dimensional synchronized manifolds. Biological examples overlaid: mind-wandering (high-$M$/low-$r$), focused attention (moderate), automaticity (low-$M$/high-$r$). Arrows show typical trajectories from training and arousal.
-
-\textbf{Figure 3.} Parameter sensitivity heatmap. Log$_{10}(\tau_{\mathrm{coh}})$ versus Kuramoto coherence $r$ (x-axis) and coordination depth $M$ (y-axis) at fixed $\varepsilon = \pi$, $\Delta\omega = 2\pi \times 10$ rad/s, $\alpha = 0.9$. Color scale spans $-3$ to $+3$ (milliseconds to kiloseconds). Contours show orders-of-magnitude changes from modest parameter shifts, explaining biological dynamic range without proportional metabolic costs.
 
 \end{document}
