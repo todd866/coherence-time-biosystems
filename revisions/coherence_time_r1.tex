@@ -160,6 +160,12 @@ Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially 
 
 \textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (functional clusters) whose order parameters must jointly exceed a threshold for a commit to register. \emph{Modules are not individual oscillators}: within-module coherence is absorbed into the module's aggregate phase estimate. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which inter-module phases mix (not the carrier frequency). The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians); $\varepsilon = \pi/2$ corresponds to $\pm 45^\circ$ alignment tolerance, typical for gamma-band binding.
 
+\textbf{Foundational assumption: causal significance of electric fields.} This framework presupposes that oscillatory phase relations are \emph{causally significant}---that electric field dynamics influence neural computation beyond what can be captured by action potential timing alone. If neural computation reduced to binary spike events, the substrate would be one-dimensional: spikes either occur or do not. The oscillatory framework we develop here assumes instead that local field potentials and ephaptic coupling~\cite{anastassiou2011,pinotsis2023} carry information and influence computation through their timing structure.
+
+The justification is straightforward: spike timing is sensitively dependent on surrounding electric fields. Any change in local field potential, no matter how small, shifts when action potentials occur. In neural systems operating near criticality~\cite{beggs2003,shew2013}, small timing differences cascade---the precise moment of a spike determines which downstream neurons fire, which determines subsequent dynamics. Electric fields thus serve as a continuous modulator of the discrete spike events they influence. If this is correct, then oscillators---not spikes---become the fundamental primitive, and the coherence time bounds derived here govern processing rate.
+
+Notably, ephaptic coupling operates differently across brain regions. Cerebellar architecture, with its densely packed parallel fibers and Purkinje cells, supports strong local field effects~\cite{han2018}. Cortical architecture, with its columnar organization and heterogeneous cell types, produces different field geometries. This regional variation in ephaptic coupling strength may explain why cerebellar processing appears exempt from the coordination penalties we attribute to high-$M$ cortical assemblies---the cerebellum may use different coupling mechanisms that bypass the phase-alignment bottleneck.
+
 \subsection{The speed-flexibility trade-off}
 
 The coherence time reveals opposing constraints on commit rate:
@@ -593,6 +599,18 @@ Tononi, G., Boly, M., Massimini, M., Koch, C. (2016). Integrated information the
 
 \bibitem{friston2010}
 Friston, K. (2010). The free-energy principle: a unified brain theory? \textit{Nat. Rev. Neurosci.}, 11(2), 127--138.
+
+\bibitem{anastassiou2011}
+Anastassiou, C.A., Perin, R., Markram, H., Koch, C. (2011). Ephaptic coupling of cortical neurons. \textit{Nat. Neurosci.}, 14(2), 217--223.
+
+\bibitem{beggs2003}
+Beggs, J.M., Plenz, D. (2003). Neuronal avalanches in neocortical circuits. \textit{J. Neurosci.}, 23(35), 11167--11177.
+
+\bibitem{shew2013}
+Shew, W.L., Plenz, D. (2013). The functional benefits of criticality in the cortex. \textit{Neuroscientist}, 19(1), 88--100.
+
+\bibitem{han2018}
+Han, K.S., Chen, C.H., Khan, M.M., Guo, C., Bhumbra, G.S., Bhattacharjee, A., et al. (2018). Ephaptic coupling promotes synchronous firing of cerebellar Purkinje cells. \textit{Neuron}, 100(3), 564--578.
 
 \end{thebibliography}
 

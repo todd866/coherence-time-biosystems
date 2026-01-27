@@ -10,11 +10,11 @@ Key insight:
 - This is structurally equivalent to delay embedding: x(t), x(t-τ), x(t-2τ), ...
 - A single slow-frequency signal, tapped at multiple delays, reconstructs high-D dynamics
 
-Clinical relevance for MND:
+Theoretical relevance:
 - If slow cortical oscillations carry coordination programs (via Takens embedding)
 - And cerebellar reconstruction depends on intact slow-wave structure
-- Then loss of slow-wave coherence → loss of reconstructible coordination manifold
-- This explains why coordination fails BEFORE motor neurons die
+- Then coherence time bounds the rate at which coordination manifolds can be updated
+- Loss of slow-wave coherence → loss of reconstructible coordination manifold
 
 This simulation shows:
 1. A chaotic system (Lorenz) as ground-truth high-D dynamics
@@ -61,8 +61,8 @@ def add_phase_jitter(signal, jitter_strength, dt=0.01):
     """
     Add phase jitter to a signal, simulating degraded slow-wave temporal structure.
 
-    This models what happens in pathological states (MND, cerebellar ataxia, etc.)
-    where slow oscillations lose phase coherence without necessarily losing amplitude.
+    This models what happens when slow oscillations lose phase coherence
+    without necessarily losing amplitude---a degradation of temporal structure.
 
     Parameters:
     -----------
@@ -375,7 +375,7 @@ def main():
     ax5.set_xlim(0.5, 7.5)
     ax5.set_ylim(0, 1)
 
-    # Panel F: Key point - clinical relevance
+    # Panel F: Key point - theoretical implications
     ax6 = fig.add_subplot(2, 3, 6)
     ax6.axis('off')
 
@@ -390,7 +390,7 @@ def main():
     → systematic conduction delays
     → natural implementation of delay embedding
 
-    CLINICAL RELEVANCE FOR MND:
+    THEORETICAL IMPLICATIONS:
 
     • Slow cortical oscillations (1-10 Hz) carry
       high-dimensional coordination signals
@@ -398,11 +398,11 @@ def main():
     • Cerebellum reconstructs full dynamics
       from delay-tapped slow input
 
-    • Loss of slow-wave structure → loss of
-      reconstructible coordination manifold
+    • Coherence time bounds the rate at which
+      the coordination manifold can be updated
 
-    • Coordination fails BEFORE cell death
-      because the manifold becomes unreadable
+    • Phase coherence (not just amplitude) is
+      necessary for manifold reconstruction
     """
 
     ax6.text(0.1, 0.95, text, transform=ax6.transAxes, fontsize=10,
@@ -596,9 +596,9 @@ def main():
     print(f"\n   Key finding: Phase jitter alone destroys reconstruction!")
     print(f"   At jitter=0.5: preservation = {jitter_05_pres:.0%}")
     print(f"   At noise=0.5:  preservation = {noise_05_pres:.0%}")
-    print(f"\n   CLINICAL IMPLICATION: Even without amplitude loss, temporal structure")
-    print(f"   degradation (phase jitter) causes coordination to fail. This explains")
-    print(f"   why MND patients show coordination deficits before obvious signal loss.")
+    print(f"\n   THEORETICAL IMPLICATION: Even without amplitude loss, temporal structure")
+    print(f"   degradation (phase jitter) causes reconstruction to fail. Coherence")
+    print(f"   in phase structure is necessary for manifold reconstruction.")
 
     # Summary statistics
     print("\n=== Summary ===")
@@ -610,8 +610,8 @@ def main():
     print(f"Correlation dimension (reconstructed): {dim_recon:.2f}")
     print(f"\nThe parallel fiber architecture naturally implements delay embedding,")
     print(f"allowing reconstruction of high-D dynamics from slow-wave input.")
-    print(f"\n*** CLINICAL KEY: Phase structure degradation destroys coordination ***")
-    print(f"*** before amplitude loss - explaining early coordination deficits in MND ***")
+    print(f"\n*** KEY FINDING: Phase structure degradation destroys reconstruction ***")
+    print(f"*** Coherence in temporal structure is necessary for high-D manifold recovery ***")
 
 
 if __name__ == "__main__":
