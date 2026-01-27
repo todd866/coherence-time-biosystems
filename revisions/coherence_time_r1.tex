@@ -147,6 +147,13 @@ where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully in
 \]
 Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially with effective constraint dimension $\alpha(M-1)$.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{simulations/figures/fig_topology_comparison.pdf}
+\caption{\textbf{Validation of M-scaling across network topologies.} Kuramoto oscillator simulations ($N=100$) confirm exponential scaling of coherence time with coordination depth $M$. Three connectivity patterns tested: (A) Modular ($\hat{\alpha}=0.34$, $R^2=0.71$), (B) All-to-all ($\hat{\alpha}=0.47$, $R^2=0.93$), (C) Sparse ($\hat{\alpha}=0.17$, $R^2=0.77$). Error bars show interquartile range across 20 trials. Fitted lines use the log-linear model with interpolated $r(M)$. The exponent $\alpha < 1$ reflects inter-module coupling that reduces effective independence.}
+\label{fig:topology}
+\end{figure}
+
 \textbf{Key assumptions.} Equation~\ref{eq:coh-time} relies on:
 \begin{enumerate}
 \item \textbf{Stationarity}: The phase distribution is approximately stationary over the commit timescale.
@@ -162,9 +169,25 @@ Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially 
 
 \textbf{Foundational assumption: causal significance of electric fields.} This framework presupposes that oscillatory phase relations are \emph{causally significant}---that electric field dynamics influence neural computation beyond what can be captured by action potential timing alone. If neural computation reduced to binary spike events, the substrate would be one-dimensional: spikes either occur or do not. The oscillatory framework we develop here assumes instead that local field potentials and ephaptic coupling~\cite{anastassiou2011,pinotsis2023} carry information and influence computation through their timing structure.
 
-The justification is straightforward: spike timing is sensitively dependent on surrounding electric fields. Any change in local field potential, no matter how small, shifts when action potentials occur. In neural systems operating near criticality~\cite{beggs2003,shew2013}, small timing differences cascade---the precise moment of a spike determines which downstream neurons fire, which determines subsequent dynamics. Electric fields thus serve as a continuous modulator of the discrete spike events they influence. If this is correct, then oscillators---not spikes---become the fundamental primitive, and the coherence time bounds derived here govern processing rate.
+\textbf{The skeptical position.} Several arguments suggest ephaptic effects may be computationally negligible:
+\begin{enumerate}
+\item \emph{Magnitude}: Ephaptic potentials are weak ($\sim$0.1--0.5 mV) compared to synaptic potentials ($\sim$1--10 mV) or action potentials ($\sim$100 mV). The signal is small relative to other influences.
+\item \emph{Noise floor}: Neural systems already contend with substantial noise (channel stochasticity, synaptic variability, thermal fluctuations). Ephaptic effects may simply contribute additional noise that gets filtered out.
+\item \emph{Redundancy}: Neural circuits have convergent and divergent connectivity. Small timing perturbations in individual neurons should average out across populations.
+\item \emph{Synaptic dominance}: Synaptic transmission is the established mechanism of neural communication; ephaptic coupling is at best a second-order correction.
+\end{enumerate}
 
-Notably, ephaptic coupling operates differently across brain regions. Cerebellar architecture, with its densely packed parallel fibers and Purkinje cells, supports strong local field effects~\cite{han2018}. Cortical architecture, with its columnar organization and heterogeneous cell types, produces different field geometries. This regional variation in ephaptic coupling strength may explain why cerebellar processing appears exempt from the coordination penalties we attribute to high-$M$ cortical assemblies---the cerebellum may use different coupling mechanisms that bypass the phase-alignment bottleneck.
+\textbf{Why these arguments fail at criticality.} Each objection assumes a system operating in a robust, noise-tolerant regime. Near criticality~\cite{beggs2003,shew2013}, the situation inverts:
+\begin{enumerate}
+\item \emph{Magnitude at criticality}: At a critical point, sensitivity diverges. A 0.1 mV shift can advance or delay spike timing by microseconds; in a system poised at a phase transition, microsecond differences determine which neurons cross threshold, which determines downstream cascades. Small causes have large effects---this is what criticality \emph{means}.
+\item \emph{Structured vs.\ random noise}: Ephaptic ``noise'' is spatially correlated---neighboring neurons experience similar field perturbations. Redundancy and averaging suppress \emph{uncorrelated} noise; correlated perturbations propagate coherently through the network.
+\item \emph{Timing vs.\ connectivity}: Synaptic weights determine \emph{whether} a neuron eventually fires given sufficient input. Fields influence \emph{when} it fires. For oscillatory coordination, timing is the computation. A neuron that fires 2 ms earlier participates in a different phase relationship, potentially a different assembly, a different downstream cascade.
+\item \emph{No central clock}: In clocked architectures, timing is imposed externally; perturbations between clock edges are irrelevant. Biological neural systems have no global clock. Timing emerges from dynamics, and fields are part of those dynamics. The question is not whether fields influence spike timing---they demonstrably do---but what mechanism would \emph{prevent} those timing shifts from propagating. In the absence of a clock to enforce timing, there is no such mechanism.
+\end{enumerate}
+
+The burden of proof may be inverted: in unclocked systems at criticality, causal significance of field dynamics is the default. Causal \emph{in}significance would require an active suppression mechanism that does not exist. If this argument holds, then oscillators---not spikes---become the fundamental primitive, and the coherence time bounds derived here govern processing rate.
+
+\textbf{Regional variation in ephaptic coupling.} Notably, ephaptic coupling operates differently across brain regions. Cerebellar architecture, with its densely packed parallel fibers and Purkinje cells, supports strong local field effects~\cite{han2018}. Cortical architecture, with its columnar organization and heterogeneous cell types, produces different field geometries. This regional variation in ephaptic coupling strength may explain why cerebellar processing appears exempt from the coordination penalties we attribute to high-$M$ cortical assemblies---the cerebellum may use different coupling mechanisms that bypass the phase-alignment bottleneck.
 
 \subsection{The speed-flexibility trade-off}
 
@@ -362,6 +385,13 @@ We use Takens embedding as a \emph{design principle} rather than a literal guara
 
 \paragraph{Connection to coherence time.}
 Coherence time determines the maximum window over which temporal embeddings remain usable. If coherence decays faster than the embedding window, reconstruction fails and high-dimensional structure is lost before a commit can occur.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/cerebellar_takens.pdf}
+\caption{\textbf{Delay embedding reconstructs high-dimensional dynamics from scalar observation.} Simulation demonstrating Takens' theorem applied to cerebellar architecture. (a-b) Lorenz attractor (ground truth, $d \approx 2.06$) and its 1D projection (what a slow cortical oscillation might carry). (c-d) Delay embedding with $\tau=8$, $m=3$ reconstructs attractor topology from the scalar signal alone. (e) Neighborhood preservation quantifies reconstruction quality across embedding dimensions. (f) Theoretical implications: parallel fibers with graded conduction delays implement delay embedding, enabling reconstruction of high-dimensional coordination signals from low-frequency input.}
+\label{fig:takens}
+\end{figure}
 
 \subsection{Generalization beyond neural systems}
 
