@@ -393,6 +393,31 @@ If phenomenal experience reflects pre-commit coherent dynamics, conscious states
 
 \textbf{Free Energy Principle}~\cite{friston2010}: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~\ref{eq:main-bound}.
 
+\subsection{Frequency and dimensionality: a disagreement with current theory}
+
+A prominent view in systems neuroscience holds that low-frequency oscillations (delta, theta, alpha) support low-dimensional, ``simple'' dynamics, while high-frequency oscillations (gamma) support high-dimensional, ``complex'' computations~\cite{miller2018,lundqvist2016}. Miller and colleagues argue that slow oscillations provide a low-dimensional ``scaffold'' or ``broadcast'' signal, while fast gamma carries detailed content in a higher-dimensional space.
+
+\textbf{We disagree.} The coherence time framework predicts the opposite relationship between frequency and dimensionality:
+
+\paragraph{The physics argument.} Consider an oscillatory system that must achieve phase alignment to register a commit. The number of alignment ``attempts'' per oscillation cycle is roughly $f / \Delta\omega$, where $f$ is the carrier frequency and $\Delta\omega$ is the phase-exploration rate. For alignment probability $p_1$:
+\begin{itemize}
+\item \textbf{High frequency}: Few attempts per cycle. To achieve reliable alignment within one period, the system requires high $p_1$, which requires high coherence $r$. But high $r$ confines dynamics to a low-dimensional synchronized manifold. \emph{Fast oscillations force low dimensionality.}
+\item \textbf{Low frequency}: Many attempts per cycle. The system can tolerate low $p_1$ and thus low $r$. Phases can explore more of configuration space while still achieving alignment before the next cycle. \emph{Slow oscillations permit high dimensionality.}
+\end{itemize}
+
+This is not a correlation but a constraint: maintaining high-dimensional coherent dynamics at high frequency is physically harder because there is less time for the rare alignment events that preserve high-$M$ coordination.
+
+\paragraph{Reinterpreting the empirical evidence.} The observation that gamma activity correlates with ``detailed'' processing and alpha/theta with ``global'' states is consistent with our framework but admits a different interpretation. High-frequency gamma may reflect \emph{local}, low-$M$ modules committing rapidly---not high-dimensional integration but many parallel low-dimensional commits. Meanwhile, low-frequency oscillations may coordinate high-$M$ assemblies that \emph{require} slow timescales to achieve alignment.
+
+\paragraph{Testable predictions distinguishing the two views.}
+\begin{enumerate}
+\item \textbf{Dimensionality-frequency relationship}: If Miller et al.\ are correct, pharmacologically or optogenetically increasing gamma power should increase state-space dimensionality (e.g., participation ratio of neural covariance). If our framework is correct, increasing gamma power while holding coordination depth $M$ constant should \emph{decrease} dimensionality (forcing tighter coupling to maintain coordination at higher frequency).
+\item \textbf{Information content per cycle}: Miller et al.\ predict more bits per gamma cycle than per alpha cycle. We predict the opposite: more bits per alpha cycle (because high-$M$ commits are possible), fewer bits per gamma cycle (because only low-$M$ commits can keep pace).
+\item \textbf{Cross-frequency coupling direction}: If slow oscillations scaffold fast ones (Miller), gamma amplitude should be phase-locked to theta/alpha with high fidelity. If fast oscillations are dimensionally constrained (our view), gamma bursts should occur when local modules achieve rapid low-$M$ commits, potentially \emph{out of phase} with slow oscillations that coordinate broader assemblies.
+\end{enumerate}
+
+We note that this disagreement is empirically tractable. The coherence time framework makes quantitative predictions about the relationship between oscillation frequency, coupling strength, and state-space dimensionality that can be tested with existing recording and analysis methods.
+
 \subsection{Implications for artificial systems}
 
 The coherence time framework identifies a fundamental design constraint for any distributed computing system that lacks a global clock.
@@ -466,6 +491,9 @@ The author thanks Abir Igamberdiev and anonymous reviewers at BioSystems for con
 
 \bibitem{miller2018}
 Miller, E.K., Lundqvist, M., Bastos, A.M. (2018). Working memory 2.0. \textit{Neuron}, 100(2), 463--475.
+
+\bibitem{lundqvist2016}
+Lundqvist, M., Rose, J., Herman, P., Brincat, S.L., Buschman, T.J., Miller, E.K. (2016). Gamma and beta bursts underlie working memory. \textit{Neuron}, 90(1), 152--164.
 
 \bibitem{fries2015}
 Fries, P. (2015). Rhythms for cognition: communication through coherence. \textit{Neuron}, 88(1), 220--235.
