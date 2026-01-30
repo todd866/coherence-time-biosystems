@@ -22,15 +22,12 @@ This simulation shows:
 3. Delay embedding reconstruction (what parallel fibers could compute)
 4. Comparison of reconstructed vs original attractor geometry
 
-Novelty note:
-This framing appears to be novel. Existing cerebellar theories include:
-- Marr-Albus-Ito (1969-1971): Pattern recognition via learned synaptic weights
-- Gilbert & Rasmussen (2025): Passive microzone computation
-- Various timing models: Granule-Golgi feedback loops
-
-None of these explain WHY parallel fibers have systematically graded lengths
-in terms of dynamical systems theory. The Takens embedding interpretation
-is the first to connect delay structure → state reconstruction.
+Theoretical note:
+Existing cerebellar theories (Marr-Albus-Ito pattern recognition, Gilbert &
+Rasmussen passive microzones, various timing models) focus on different aspects
+of cerebellar computation. To our knowledge, the connection between parallel
+fiber delay structure and dynamical systems embedding (Takens' theorem) has not
+been explored. This remains a hypothesis requiring empirical validation.
 
 Reference: Takens F (1981) Detecting strange attractors in turbulence.
            In: Rand D, Young LS (eds) Dynamical Systems and Turbulence.
@@ -57,17 +54,19 @@ def lorenz(state, t, sigma=10, rho=28, beta=8/3):
     return [sigma * (y - x), x * (rho - z) - y, x * y - beta * z]
 
 
-def add_phase_jitter(signal, jitter_strength, dt=0.01):
+def add_temporal_jitter(signal, jitter_strength, dt=0.01):
     """
-    Add phase jitter to a signal, simulating degraded slow-wave temporal structure.
+    Add temporal jitter (time-warping) to a signal, simulating degraded timing structure.
 
-    This models what happens when slow oscillations lose phase coherence
+    This models what happens when slow oscillations lose precise timing
     without necessarily losing amplitude---a degradation of temporal structure.
+    Implemented as smooth perturbation of sample indices (time-warping), which
+    is biologically plausible for timing drift in neural oscillators.
 
     Parameters:
     -----------
     signal : array - original time series
-    jitter_strength : float - standard deviation of phase perturbation (0 = pristine, 1 = severe)
+    jitter_strength : float - standard deviation of temporal perturbation (0 = pristine, 1 = severe)
     dt : float - time step
 
     Returns:
@@ -255,7 +254,7 @@ def main():
 
     # Embedding parameters
     tau = 8  # Delay in samples (~time constant of slow oscillation)
-    m = 3    # Embedding dimension (matches Lorenz attractor dimension)
+    m = 3    # Embedding dimension (works well empirically; panel (e) shows preservation peaks near m≈3-4)
 
     # Method 1: Standard Takens delay embedding
     embedded_takens = delay_embed(slow_signal, tau, m)
@@ -465,10 +464,11 @@ def main():
     print(f"   Saved: {FIGURES_DIR / 'cerebellar_takens_delay.pdf'} and .png")
 
     # === NEW: Degradation analysis ===
-    # This directly addresses the clinical relevance: coordination fails before cell death
-    # because temporal structure degrades smoothly
+    # Hypothesis: if cerebellar computation relies on delay embedding, then
+    # degraded temporal structure (temporal jitter) should impair reconstruction
+    # smoothly, even without cell loss. This is a testable prediction.
     print("\n6. Analyzing effect of degraded slow-wave structure...")
-    print("   (Key test: does reconstruction degrade smoothly with phase jitter?)")
+    print("   (Key test: does reconstruction degrade smoothly with temporal jitter?)")
 
     # Test range of degradation levels
     jitter_levels = np.linspace(0, 2.0, 15)
@@ -480,10 +480,10 @@ def main():
     tau = 8
     m = 3
 
-    # Phase jitter analysis (more clinically relevant - models timing dysfunction)
-    print("   Testing phase jitter (temporal structure degradation)...")
+    # Temporal jitter analysis (models timing dysfunction without amplitude loss)
+    print("   Testing temporal jitter (temporal structure degradation)...")
     for jitter in jitter_levels:
-        degraded_signal = add_phase_jitter(slow_signal, jitter)
+        degraded_signal = add_temporal_jitter(slow_signal, jitter)
         embedded_degraded = delay_embed(degraded_signal, tau, m)
         orig_test = trajectory[(m-1)*tau:, :]
         score = manifold_preservation_score(orig_test, embedded_degraded)
@@ -501,18 +501,18 @@ def main():
     # Create degradation figure
     fig3, axes = plt.subplots(2, 3, figsize=(14, 9))
 
-    # Top row: Phase jitter analysis
+    # Top row: Temporal jitter analysis
     # Panel A: Reconstruction quality vs jitter
     axes[0, 0].plot(jitter_levels, preservation_vs_jitter, 'b-o', markersize=5, linewidth=2)
-    axes[0, 0].set_xlabel('Phase jitter strength', fontsize=11)
+    axes[0, 0].set_xlabel('Temporal jitter strength', fontsize=11)
     axes[0, 0].set_ylabel('Neighborhood preservation', fontsize=11)
-    axes[0, 0].set_title('(a) Reconstruction degrades with phase jitter', fontsize=11)
+    axes[0, 0].set_title('(a) Reconstruction degrades with temporal jitter', fontsize=11)
     axes[0, 0].axhline(y=0.5, color='red', linestyle='--', alpha=0.5, label='50% threshold')
     axes[0, 0].set_ylim(0, 1)
     axes[0, 0].grid(True, alpha=0.3)
     axes[0, 0].legend(fontsize=9)
 
-    # Highlight the smooth degradation (key clinical point)
+    # Highlight the smooth degradation curve
     # Shade "functional" region
     axes[0, 0].axvspan(0, 0.8, alpha=0.15, color='green', label='Functional')
     axes[0, 0].axvspan(0.8, 1.5, alpha=0.15, color='yellow')
@@ -520,7 +520,7 @@ def main():
 
     # Panel B: Comparison with amplitude noise
     axes[0, 1].plot(jitter_levels, preservation_vs_jitter, 'b-o', markersize=4,
-                    linewidth=2, label='Phase jitter (timing)')
+                    linewidth=2, label='Temporal jitter (timing)')
     axes[0, 1].plot(noise_levels, preservation_vs_noise, 'g-s', markersize=4,
                     linewidth=2, label='Amplitude noise (power)')
     axes[0, 1].set_xlabel('Degradation strength', fontsize=11)
@@ -533,8 +533,8 @@ def main():
     # Panel C: Example degraded signals
     t_plot = np.arange(500)
     signal_segment = slow_signal[:500]
-    degraded_mild = add_phase_jitter(slow_signal, 0.5)[:500]
-    degraded_severe = add_phase_jitter(slow_signal, 1.5)[:500]
+    degraded_mild = add_temporal_jitter(slow_signal, 0.5)[:500]
+    degraded_severe = add_temporal_jitter(slow_signal, 1.5)[:500]
 
     axes[0, 2].plot(t_plot, signal_segment, 'b-', alpha=0.8, linewidth=1, label='Pristine')
     axes[0, 2].plot(t_plot, degraded_mild + 50, 'orange', alpha=0.8, linewidth=1, label='Mild jitter')
@@ -557,7 +557,7 @@ def main():
     ax_d.set_zlabel('x(t-2τ)')
 
     # Panel E: Mild degradation
-    degraded_signal_mild = add_phase_jitter(slow_signal, 0.7)
+    degraded_signal_mild = add_temporal_jitter(slow_signal, 0.7)
     embedded_mild = delay_embed(degraded_signal_mild, tau, m)
     mild_idx = np.argmin(np.abs(jitter_levels - 0.7))
     ax_e = fig3.add_subplot(2, 3, 5, projection='3d')
@@ -569,7 +569,7 @@ def main():
     ax_e.set_zlabel('x(t-2τ)')
 
     # Panel F: Severe degradation
-    degraded_signal_severe = add_phase_jitter(slow_signal, 1.5)
+    degraded_signal_severe = add_temporal_jitter(slow_signal, 1.5)
     embedded_severe = delay_embed(degraded_signal_severe, tau, m)
     severe_idx = np.argmin(np.abs(jitter_levels - 1.5))
     ax_f = fig3.add_subplot(2, 3, 6, projection='3d')
@@ -593,11 +593,11 @@ def main():
     # Key finding
     jitter_05_pres = preservation_vs_jitter[np.argmin(np.abs(jitter_levels - 0.5))]
     noise_05_pres = preservation_vs_noise[np.argmin(np.abs(noise_levels - 0.5))]
-    print(f"\n   Key finding: Phase jitter alone destroys reconstruction!")
+    print(f"\n   Key finding: Temporal jitter alone destroys reconstruction!")
     print(f"   At jitter=0.5: preservation = {jitter_05_pres:.0%}")
     print(f"   At noise=0.5:  preservation = {noise_05_pres:.0%}")
     print(f"\n   THEORETICAL IMPLICATION: Even without amplitude loss, temporal structure")
-    print(f"   degradation (phase jitter) causes reconstruction to fail. Coherence")
+    print(f"   degradation (temporal jitter) causes reconstruction to fail. Coherence")
     print(f"   in phase structure is necessary for manifold reconstruction.")
 
     # Summary statistics

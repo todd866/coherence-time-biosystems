@@ -27,4 +27,13 @@ __pycache__/
 
 # Companion IG paper (separate repo: github.com/todd866/alignment-geometry)
 ig/
+
+# Internal workflow docs
 revisions/archive/
+revisions/docs/
+revisions/STATUS.md
+revisions/CHANGELOG.md
+
+# Virtual environments
+.venv/
+revisions/simulations/.venv/

@@ -11,6 +11,7 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{enumitem}
 \doublespacing
 
 \newtheorem{proposition}{Proposition}
@@ -56,9 +57,61 @@ We formalize this as the minimum interval between irreversible ``commit'' events
 
 \textbf{Operational definition of commits in neural systems.} A commit is operationally detected when distributed oscillatory dynamics cross a threshold that enables downstream readout. Empirical signatures include: (i) phase-locking index exceeding threshold across specified modules for a minimum duration, (ii) onset of stable cross-frequency coupling (e.g., theta-gamma PAC), (iii) classifier-detectable state transition in downstream neural populations. We do not claim all neural computation reduces to discrete commits; rather, we claim that the \emph{fastest update of downstream state} is bounded by the time required for multi-module phase alignment. The framework addresses temporal resolution limits, not the full richness of neural dynamics.
 
+\begin{definition}[Commit event]\label{def:commit}
+Given $M$ modules with aggregate phases $\psi_1(t), \ldots, \psi_M(t)$ and within-module coherences $r_{\mathrm{intra},m}(t)$, a \textbf{commit} occurs at time $t^*$ if:
+\begin{enumerate}
+\item All modules are internally coherent: $r_{\mathrm{intra},m}(t^*) \geq r_{\mathrm{thr}}$ for all $m$.
+\item Phases are mutually aligned: $\max_m |\psi_m(t^*) - \bar{\psi}(t^*)| \leq \varepsilon/2$, where $\bar{\psi}$ is the circular mean.
+\item The alignment persists for dwell time $T_{\mathrm{dwell}}$.
+\end{enumerate}
+The commit is defined \emph{relative to a downstream readout mechanism}; different readouts may have different $(r_{\mathrm{thr}}, \varepsilon, T_{\mathrm{dwell}})$ parameters.
+\end{definition}
+
+\medskip
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{What commit events are (and aren't).}
+This framework does \textbf{not} claim cognition is discrete or that neural activity has
+sharp ``commits.'' It claims the \textbf{fastest reliable downstream readout} of multi-module
+coordination is lower-bounded by the timescale of phase alignment.
+
+\textbf{Empirical proxies for commit detection:}
+\begin{itemize}[noitemsep]
+\item \textbf{Phase-locking index (PLI)} threshold crossing: sustained $r_{\mathrm{inter}} > r_{\mathrm{thresh}}$ for dwell time $t_{\mathrm{dwell}}$
+\item \textbf{Phase-amplitude coupling (PAC)} onset: stable cross-frequency coupling emerges
+\item \textbf{Classifier-detectable state change}: e.g., decoding accuracy crosses threshold
+\end{itemize}
+
+These are \textbf{measurement definitions}, not ontological claims. Different tasks may
+require different readout criteria.}}
+\medskip
+
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+\textbf{Minimal empirical pipeline.}
+To estimate coherence time from neural data:
+\begin{enumerate}[noitemsep]
+\item Identify modules via connectivity/functional clustering $\to$ count $M$
+\item Extract module-level phases $\psi_m(t)$ via Hilbert transform or band-pass filtering
+\item Compute intra- and inter-module coherence: $r_{\mathrm{intra}}, r_{\mathrm{inter}}$
+\item Define alignment threshold $\varepsilon$ from task requirements (e.g., decoding accuracy)
+\item Estimate attempt rate $\lambda_{\mathrm{attempt}}$ from decorrelation time of $r_{\mathrm{inter}}(t)$
+\item Measure first-passage times to sustained alignment $\to$ fit Eq.~\ref{eq:coh-time}
+\end{enumerate}}}
+
 \textbf{Definition (Ontological dimensionality).} Throughout this work, ``dimensionality'' refers to a physical property of the system, not a mathematical measure. Ontological dimensionality is a quantitative measure of effective connectivity: how many independent directions of coordinated variation are accessible to a system given its interaction structure. High-dimensional states correspond to weakly constrained dynamics in which many components vary semi-independently; low-dimensional states correspond to strongly coupled dynamics restricted to a small number of collective modes. Dimensionality in this sense is determined not by component count, but by the rank of the system's interaction structure. Different measurement schemes (participation ratios, manifold dimension, information-geometric metrics) provide projections of this underlying physical property, but do not constitute it~\cite{todd2025ig}.
 
 This ontological dimensionality is state-dependent: the same physical system may occupy high- or low-dimensional regimes depending on coupling strength and task demands. Coherence time depends on ontological dimensionality---specifically, how many semi-independent constraints must be simultaneously satisfied for a commit to occur---not on any particular estimator.
+
+\textbf{Operationalizing dimensionality.} While ontological dimensionality is a physical property, it must be estimated from measurable quantities. For the coherence time framework, we operationalize effective dimensionality as:
+\begin{enumerate}
+\item \textbf{Coordination depth $M$}: Count of semi-independent modules (functional clusters) whose order parameters must jointly exceed threshold. Estimated via community detection on band-limited coherence networks or anatomical parcellation.
+\item \textbf{Effective independence $\alpha$}: Fraction of potential constraint dimensions that are actually independent. Estimated via:
+\begin{itemize}
+\item Participation ratio of module-phase covariance (Eq.~\ref{eq:deff-estimator}),
+\item or empirical scaling of $\tau$ with $M$ across task conditions.
+\end{itemize}
+\item \textbf{Effective constraint dimension}: $d_{\mathrm{eff}} = \alpha(M-1)$ represents the number of semi-independent coordination requirements for a commit.
+\end{enumerate}
+These are \emph{estimators} of the underlying physical property. Future work may employ other proxies (information-geometric metrics, topological data analysis, dynamical systems dimension estimates), but the coherence time itself depends on the physical constraint structure, not the measurement method.
 
 \subsection{Structure of this work}
 
@@ -76,7 +129,18 @@ The minimum time between commits is bounded below by four physical constraints:
 \boxed{\tau_{\mathrm{eff}} \;\gtrsim\; \max\left[\tau_{\mathrm{QSL}},\; \tau_{\mathrm{SNR}},\; \tau_{\mathrm{coh}},\; \tau_{\mathrm{power}}\right]}
 \end{equation}
 
-This is a \textbf{lower bound}: the effective commit interval must be at least as long as the slowest constraint. The max operation is appropriate when these constraints act on largely independent subsystems that can be satisfied in parallel (e.g., quantum state evolution, signal detection, and phase coordination proceed concurrently). If constraints were strictly sequential (e.g., signal detection \emph{then} coordination \emph{then} dissipation), a sum would be more appropriate. In biological neural systems, the constraints are largely parallel, and the coherence time dominates by orders of magnitude, so the distinction has minimal practical impact. The four terms are:
+This is a \textbf{lower bound}: the effective commit interval must be at least as long as the slowest constraint. The max operation is appropriate when these constraints act on largely independent subsystems that can be satisfied in parallel (e.g., quantum state evolution, signal detection, and phase coordination proceed concurrently). If constraints were strictly sequential (e.g., signal detection \emph{then} coordination \emph{then} dissipation), a sum would be more appropriate. In biological neural systems, the constraints are largely parallel, and the coherence time dominates by orders of magnitude, so the distinction has minimal practical impact.
+
+\textbf{Epistemic status of each term.} We distinguish:
+\begin{itemize}
+\item \textbf{Hard physical bounds} ($\tau_{\mathrm{QSL}}$, Landauer energy-per-bit): These follow from fundamental physics and cannot be violated regardless of engineering or biological design.
+\item \textbf{Model-based lower bounds} ($\tau_{\mathrm{SNR}}$): These assume specific noise models (AWGN, matched filtering); different noise structures or detection strategies could yield different bounds, though the order of magnitude is robust.
+\item \textbf{Coordination-time estimates} ($\tau_{\mathrm{coh}}$): These are asymptotic rare-event estimates whose prefactor depends on mixing assumptions and correlation structure. The scaling exponent $(M-1)$ is robust; the prefactor requires empirical calibration.
+\item \textbf{Power constraints} ($\tau_{\mathrm{power}}$): Model-dependent, assuming a specific relationship between dimensional collapse and energy cost.
+\end{itemize}
+The key claim is not that Eq.~\ref{eq:main-bound} is a theorem, but that $\tau_{\mathrm{coh}}$ dominates by orders of magnitude in biological systems, making the precise form of other constraints largely irrelevant for practical predictions.
+
+The four terms are:
 
 \paragraph{Quantum speed limits ($\tau_{\mathrm{QSL}}$).} The Mandelstam-Tamm and Margolus-Levitin bounds~\cite{mandelstam1945,margolus1998} establish
 \[
@@ -96,24 +160,23 @@ For biological temperatures ($\Delta E \sim \kB T$), $\tau_{\mathrm{QSL}} \sim 1
 
 \paragraph{Coherence time ($\tau_{\mathrm{coh}}$).}
 We model commits as threshold crossings requiring $M$ semi-independent modules to achieve simultaneous phase alignment within tolerance $\varepsilon$.
-Let $r$ be the mean resultant length (Kuramoto order parameter), and $\kappa(r)$ the von Mises concentration with $r=I_1(\kappa)/I_0(\kappa)$~\cite{mardia2000}.
+Let $r$ denote the \textbf{inter-module coherence} $r_{\mathrm{inter}} = |M^{-1}\sum_m e^{i\psi_m}|$ where $\psi_m$ is the aggregate phase of module $m$. (We reserve $r_{\mathrm{global}}$ for the all-oscillator order parameter, which serves as a diagnostic but does not appear in Eq.~\ref{eq:coh-time}.) The von Mises concentration $\kappa(r)$ satisfies $r=I_1(\kappa)/I_0(\kappa)$~\cite{mardia2000}.
 
-\textbf{Definition of alignment event.} We define alignment as \textbf{anchored to a reference module}: all modules must fall within $\varepsilon/2$ of a designated reference phase. Formally:
+\textbf{Why von Mises?} Given circular symmetry and a fixed mean resultant length $r$, the maximum-entropy distribution on the circle is von Mises~\cite{mardia2000}. This makes our modeling choice the canonical least-informative closure: $r \to \kappa \to p_1$ is uniquely determined without additional distributional assumptions. We validate this closure empirically in simulation (conditional-on-$r$ fitting yields $\kappa_{\mathrm{fitted}}/\kappa_{\mathrm{expected}} = 1.06 \pm 0.12$).
+
+\textbf{Definition of alignment event.} We define alignment relative to the \textbf{instantaneous mean phase} $\bar{\psi} = \arg(\sum_m e^{i\psi_m})$: all modules must fall within $\varepsilon/2$ of $\bar{\psi}$. Formally:
 \[
-A_\varepsilon = \{|\theta_i - \theta_1| < \varepsilon/2 \text{ for } i = 2, \ldots, M\}
+A_\varepsilon = \{|\psi_m - \bar{\psi}| < \varepsilon/2 \text{ for all } m\}
 \]
+This definition is natural for empirical detection (threshold on max phase deviation from mean) and matches our simulation event detector. Because the mean phase $\bar{\psi}$ is determined by the configuration itself, we have $M-1$ independent constraints (the mean absorbs one degree of freedom).
 
-The alignment probability depends on whether the reference is fixed or random:
-
-\textbf{Case A (anchored/pacemaker reference):} If $\theta_1$ is fixed or tightly controlled (e.g., by a pacemaker oscillator, gating signal, or first-crossing module), then
+The alignment probability is:
 \[
-P(A_\varepsilon) = \prod_{i=2}^M P(|\theta_i - \theta_1| < \varepsilon/2) = p_1(\varepsilon, \kappa)^{M-1}
+P(A_\varepsilon) \approx p_1(\varepsilon, \kappa)^{M-1}
 \]
-where $p_1(\varepsilon, \kappa) = \int_{-\varepsilon/2}^{\varepsilon/2} \frac{e^{\kappa\cos\theta}}{2\pi I_0(\kappa)} d\theta$ is the single-variable window probability.
+where $p_1(\varepsilon, \kappa) = \int_{-\varepsilon/2}^{\varepsilon/2} \frac{e^{\kappa\cos\theta}}{2\pi I_0(\kappa)} d\theta$ is the single-variable window probability under von Mises$(\kappa)$.
 
-\textbf{Case B (random reference):} If $\theta_1$ is itself drawn from the same von Mises distribution, then $P(A_\varepsilon) = \mathbb{E}_{\theta_1}[q(\theta_1)^{M-1}]$ where $q(\theta_1) = P(|\theta - \theta_1| < \varepsilon/2)$. In the small-window limit, rotational symmetry ensures the scaling remains $\propto \varepsilon^{M-1}$, though the constant differs.
-
-\textbf{Case C (mean-phase reference):} Alternatively, alignment can be defined relative to the instantaneous mean phase $\bar{\psi} = \arg(\sum_m e^{i\psi_m})$: all modules must fall within $\varepsilon/2$ of $\bar{\psi}$. This definition is natural for empirical detection (threshold on max phase deviation from mean) and yields the same $(M-1)$ scaling exponent, differing only by an $O(1)$ constant from the anchored case.
+\textbf{Remark (alternative reference definitions).} One can also define alignment relative to an anchored reference (e.g., a pacemaker module $\theta_1$) or a random reference. These alternatives yield the same $(M-1)$ scaling exponent, differing only by $O(1)$ constants. We use the mean-phase definition throughout because it matches empirical practice and our simulation protocol.
 
 In all cases:
 \begin{equation}\label{eq:coh-mises}
@@ -122,35 +185,94 @@ P(A_\varepsilon) \propto p_1(\varepsilon, \kappa)^{M-1}
 
 \textbf{Small-$\varepsilon$ approximation.} For small windows, the von Mises density near the mode gives $p_1(\varepsilon, \kappa) \approx \varepsilon \cdot e^\kappa / (2\pi I_0(\kappa))$, yielding:
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega} \left( \frac{2\pi I_0(\kappa)}{\varepsilon \, e^\kappa} \right)^{\alpha(M-1)}
+\tau_{\mathrm{coh}} \approx \frac{1}{\lambda_{\mathrm{attempt}}} \left( \frac{2\pi I_0(\kappa)}{\varepsilon \, e^\kappa} \right)^{\alpha(M-1)}
 \]
-This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit. \emph{Note:} We use the exact $p_1(\varepsilon, \kappa)$ integral for all numerical estimates (e.g., the binding window calculations use $\varepsilon = \pi/2$); the small-$\varepsilon$ expansion is presented only to clarify the scaling structure.
+This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit. Here $\lambda_{\mathrm{attempt}}$ (s$^{-1}$) is the effective alignment attempt rate, estimated from the decorrelation time of inter-module phase coherence $r_{\mathrm{inter}}(t)$ (see below). \emph{Note:} We use the exact $p_1(\varepsilon, \kappa)$ integral for all numerical estimates (e.g., the binding window calculations use $\varepsilon = \pi/2$); the small-$\varepsilon$ expansion is presented only to clarify the scaling structure.
 
 \textbf{The exponent is $(M-1)$, not $M$.} This arises from quotient geometry: the reference module $\theta_1$ serves as anchor (whether fixed or conditioned upon), leaving $M-1$ independent constraints. This is analogous to the classic result that the probability of $M$ uniform phases falling in \emph{some} semicircle is $M/2^{M-1}$, where the factor $M$ accounts for the free choice of arc location; our anchored definition removes this degree of freedom.
 
+\textbf{Generalization to arbitrary phase constraints.} The alignment event need not be ``all phases near a common reference.'' More generally, suppose a commit requires $k$ independent phase constraints to be satisfied, where each constraint has marginal probability $p_i$ (e.g., specific phase lags between area pairs, cluster relationships, or cross-frequency conditions). Then:
+\[
+P(\text{alignment}) = \prod_{i=1}^k p_i \approx \bar{p}^k
+\]
+where $\bar{p}$ is the geometric mean probability. The coherence time scales as $\tau_{\mathrm{coh}} \propto \bar{p}^{-k}$, i.e., exponentially in the number of constraints. Our ``all within $\varepsilon/2$ of mean'' definition is a special case with $k = M-1$ and $p_i = p_1(\varepsilon, \kappa)$. The framework applies whenever commits require multiple semi-independent conditions to be simultaneously satisfied.
+
 \textbf{First-passage time structure.} Assuming independence across modules on the commit timescale, the alignment event $A_\varepsilon$ is a rare target set on the $M$-torus $T^M$. Under fast mixing relative to the target set size, first-passage times are approximately exponential with mean $\tau \approx 1/(\text{attempt rate} \times P(A_\varepsilon))$---a form of Kac's recurrence theorem~\cite{kac1947}.
 
-\textbf{Mixing time interpretation.} Let $\tau_{\mathrm{mix}}$ denote the mixing time of the joint phase process---the timescale on which phase configurations become approximately independent of their initial state. The effective number of independent ``alignment attempts'' per unit time is $\sim 1/\tau_{\mathrm{mix}}$. We identify $\Delta\omega \approx 1/\tau_{\mathrm{mix}}$, yielding:
+\begin{proposition}[First-passage time under mixing]\label{prop:fpt}
+Let $X(t)$ be an ergodic Markov process on state space $\mathcal{X}$ with stationary distribution $\pi$ and mixing time $\tau_{\mathrm{mix}}$ (the time for $\|P_t(x, \cdot) - \pi\|_{\mathrm{TV}} \leq 1/4$ from worst-case initial state). For a target set $A \subset \mathcal{X}$ with $\pi(A) \ll 1$, the hitting time $T_A = \inf\{t : X(t) \in A\}$ satisfies:
+\[
+\mathbb{E}[T_A] \approx \frac{\tau_{\mathrm{mix}}}{\pi(A)} \quad \text{as } \pi(A) \to 0.
+\]
+Moreover, $T_A / \mathbb{E}[T_A]$ is approximately exponentially distributed when $\pi(A) \ll 1$.
+\end{proposition}
+\noindent This is a standard result in the theory of rare events for Markov chains~\cite{kac1947}. The key assumptions are ergodicity and that the process mixes on timescales much shorter than the expected hitting time. In our setting, ``mixing'' means that successive phase configurations separated by $\tau_{\mathrm{mix}}$ are approximately independent samples from the stationary distribution; hence the Bernoulli-trial heuristic: each mixing interval is an independent ``attempt'' to land in $A_\varepsilon$.
+
+\textbf{Attempt rate.} Let $\tau_{\mathrm{mix}}$ denote the mixing time of the joint phase process---the timescale on which phase configurations become approximately independent of their initial state. The effective number of independent ``alignment attempts'' per unit time is $\sim 1/\tau_{\mathrm{mix}}$. We define the \textbf{attempt rate}:
+\[
+\lambda_{\mathrm{attempt}} \equiv \frac{1}{\tau_{\mathrm{mix}}} \quad \text{(units: s}^{-1}\text{)}
+\]
+This is \emph{not} the carrier frequency of oscillations, but the rate at which the relative-phase configuration effectively ``resamples.''
+
+We estimate $\lambda_{\mathrm{attempt}}$ from the inverse decorrelation time of the inter-module order parameter $z_{\mathrm{inter}}(t) = \frac{1}{M}\sum_m e^{i\psi_m(t)}$, where $\psi_m(t)$ is the mean phase of module $m$. The decorrelation time $\tau_{\mathrm{mix}}$ is defined as the $1/e$ crossing of the autocorrelation function of $|z_{\mathrm{inter}}(t)|$, and $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$.
+
+\textbf{Simulation proxy.} In simulations, $\lambda_{\mathrm{attempt}}$ is measured directly from the autocorrelation of $|z_{\mathrm{inter}}(t)|$. An alternative proxy---the standard deviation of instantaneous phase velocities across oscillators (``effective frequency spread'' $\Delta\omega$ in rad/s)---is proportional to $\lambda_{\mathrm{attempt}}$ in weakly-coupled regimes, with $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ (since rad is dimensionless). For neural data analysis, we recommend estimating $\lambda_{\mathrm{attempt}}$ from the autocorrelation time of inter-module phase deviations, which directly measures the mixing timescale.
+
+This yields:
 \begin{equation}\label{eq:coh-time-exact}
-\tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-(M-1)}
+\tau_{\mathrm{coh}} = \frac{1}{\lambda_{\mathrm{attempt}}}\,p_1(\varepsilon, \kappa(r))^{-(M-1)}
 \end{equation}
 
 For coupled modules (weak inter-module coupling), the effective exponent is reduced:
 \begin{equation}\label{eq:coh-time}
-\boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}},\qquad \alpha\in(0,1],
+\boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\lambda_{\mathrm{attempt}}}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}},\qquad \alpha\in(0,1],
 \end{equation}
-where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints. One can define an effective constraint dimension $d_{\mathrm{eff}} = \alpha(M-1)$ and estimate it empirically from the participation ratio of the covariance matrix of phase deviations $\delta\theta_i = \theta_i - \bar{\theta}$.
+where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints.
+
+\textbf{Estimating effective constraint dimension.} Define the \textbf{effective constraint dimension}:
+\[
+d_{\mathrm{eff}} = \alpha(M-1)
+\]
+This can be estimated from the covariance structure of module phases. Let $C$ be the $M \times M$ covariance matrix of phase deviations $\delta\psi_m = \psi_m - \bar{\psi}$. The \textbf{participation ratio} provides an operational estimate:
+\begin{equation}\label{eq:deff-estimator}
+\hat{d}_{\mathrm{eff}} = \frac{(\mathrm{tr}\, C)^2}{\mathrm{tr}(C^2)} = \frac{\left(\sum_i \lambda_i\right)^2}{\sum_i \lambda_i^2}
+\end{equation}
+where $\lambda_i$ are eigenvalues of $C$. This equals $M$ when all eigenvalues are equal (fully independent) and approaches 1 when a single mode dominates (fully correlated). From $\hat{d}_{\mathrm{eff}}$, we obtain $\hat{\alpha} = \hat{d}_{\mathrm{eff}} / (M-1)$.
+
+\textbf{Why correlations affect the exponent.}
+For independent phase deviations $\delta\psi_m$ with uniform distribution over $[-\pi, \pi]$,
+the probability of all $M$ modules aligning within $\pm\varepsilon/2$ scales as $\sim \varepsilon^{M-1}$.
+However, when deviations are correlated with effective rank $d_{\mathrm{eff}}$,
+the measure of a small alignment neighborhood scales like $\varepsilon^{d_{\mathrm{eff}}}$
+(up to constants depending on the correlation structure).
+Hence the exponent is effectively $d_{\mathrm{eff}}$, motivating $\alpha(M-1) \approx d_{\mathrm{eff}}$.
+This is analogous to the effective dimensionality of a correlated Gaussian:
+if $\mathbf{X} \sim \mathcal{N}(0, \Sigma)$ with eigenvalues $\lambda_i$,
+the volume of an $\varepsilon$-ball scales like $\varepsilon^{d_{\mathrm{eff}}}$ where
+$d_{\mathrm{eff}} = (\sum_i \lambda_i)^2 / \sum_i \lambda_i^2$ (participation ratio).
 
 \textbf{Log-linear form.} Taking logarithms makes the exponential-in-$M$ scaling explicit:
 \[
-\log \tau_{\mathrm{coh}} = -\log \Delta\omega - \alpha(M-1)\log p_1(\varepsilon, \kappa(r)).
+\log \tau_{\mathrm{coh}} = -\log \lambda_{\mathrm{attempt}} - \alpha(M-1)\log p_1(\varepsilon, \kappa(r)).
 \]
 Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially with effective constraint dimension $\alpha(M-1)$.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{simulations/figures/fig_topology_comparison.pdf}
-\caption{\textbf{Validation of M-scaling across network topologies.} Kuramoto oscillator simulations ($N=100$) confirm exponential scaling of coherence time with coordination depth $M$. Three connectivity patterns tested: (A) Modular ($\hat{\alpha}=0.34$, $R^2=0.71$), (B) All-to-all ($\hat{\alpha}=0.47$, $R^2=0.93$), (C) Sparse ($\hat{\alpha}=0.17$, $R^2=0.77$). Error bars show interquartile range across 20 trials. Fitted lines use the log-linear model with interpolated $r(M)$. The exponent $\alpha < 1$ reflects inter-module coupling that reduces effective independence.}
+\caption{\textbf{Validation of coherence time scaling across network topologies.}
+(A) Modular, (B) All-to-all, (C) Sparse random networks ($N=100$ oscillators, $K=0.7$, $\varepsilon=1.0$ rad, 20 trials per $M$).
+Points show median coherence time $\tau_{\mathrm{coh}}$ with interquartile ranges (error bars).
+For heavily censored points (hit fraction $< 0.5$), we report Kaplan-Meier lower bounds with
+upward arrows indicating censoring.
+We fit Eq.~\ref{eq:coh-time} using two approaches: (i)~\textbf{theory-consistent}:
+$\log(\tau \cdot \lambda_{\mathrm{attempt}}) = \alpha(M-1)[-\log p_1(\varepsilon, \kappa(\bar{r}_{\mathrm{inter}}))] + c$
+using the trajectory-mean inter-module coherence $\bar{r}_{\mathrm{inter}}$ (averaged over all trials, including censored, to estimate the stationary distribution), and
+(ii)~\textbf{linearized surrogate}:
+$\log(\tau \cdot \lambda_{\mathrm{attempt}}) \approx \alpha \cdot \tilde{c} \cdot (1-\bar{r}_{\mathrm{inter}})(M-1) + c'$
+for comparison.
+Dashed lines show fitted predictions with $\hat{\alpha}$ and $R^2$ values indicated.
+Modular networks yield $\hat{\alpha} \approx 1$ (near-independent modules, $R^2 = 0.97$); sparse random networks yield $\hat{\alpha} \approx 0.1$ (strong correlations collapse effective constraints); all-to-all coupling yields $\hat{\alpha} \approx 1$ via linearized surrogate (the theory-consistent fit is ill-conditioned in this high-coherence regime where $\bar{r}_{\mathrm{inter}} \approx 1$ makes $-\log p_1 \approx 0$; the surrogate value slightly exceeding 1 reflects linearization error rather than ``more than $M{-}1$ independent constraints'').}
 \label{fig:topology}
 \end{figure}
 
@@ -159,15 +281,21 @@ Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially 
 \item \textbf{Stationarity}: The phase distribution is approximately stationary over the commit timescale.
 \item \textbf{Fast mixing}: The joint phase process mixes rapidly relative to the target set size, so first-passage times are approximately exponential (memoryless after conditioning on slowly varying parameters like $r$).
 \item \textbf{Weak inter-module coupling}: Modules are semi-independent on the commit timescale; strong coupling would synchronize phases and reduce effective $M$.
-\item \textbf{Attempt rate interpretation}: $\Delta\omega$ represents the inverse correlation time of phase deviations, not the carrier frequency.
+\item \textbf{Attempt rate interpretation}: $\lambda_{\mathrm{attempt}}$ represents the inverse correlation time of phase deviations, not the carrier frequency.
 \end{enumerate}
-\textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity.
+\textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity. Supplementary simulations confirm this prediction: waiting times conditioned on narrow $r_{\mathrm{inter}}$ bins are approximately exponential (Kolmogorov-Smirnov test), and the von Mises model closure $r \to \kappa \to p_1$ is validated by conditional-on-$r$ fitting ($\kappa_{\mathrm{fitted}}/\kappa_{\mathrm{expected}} = 1.06 \pm 0.12$).
 
-\textbf{Heavy-tailed waiting times.} Empirically observed inter-commit intervals may exhibit heavy tails even when the underlying process is well-described by Eq.~\ref{eq:coh-time}. This arises naturally when $r(t)$, $\Delta\omega(t)$, or network state drift slowly relative to the commit timescale. The marginal waiting time distribution then becomes a \emph{mixture of exponentials} (a Cox or doubly stochastic process), which can produce power-law-like tails. The key testable prediction is that waiting times \emph{conditional on a narrow bin of $r$} should remain approximately exponential, even when the unconditional distribution is heavy-tailed.
+\textbf{Dwell time and the scaling analysis.} Definition~\ref{def:commit} requires alignment to persist for a dwell time $T_{\mathrm{dwell}}$. This introduces a ``hold probability'' $q(T_{\mathrm{dwell}}; r)$---the probability that alignment, once achieved, survives for duration $T_{\mathrm{dwell}}$. The effective commit rate becomes $\lambda_{\mathrm{attempt}} \cdot P(A_\varepsilon) \cdot q$, so $q$ renormalizes the prefactor but does not alter the exponential-in-$M$ scaling, which is driven entirely by $P(A_\varepsilon)$. In simulations we enforce dwell explicitly; for the scaling analysis, $q$ is absorbed into $\lambda_{\mathrm{attempt}}$ as a constant-factor correction and estimated empirically from decorrelation of $|z_{\mathrm{inter}}(t)|$.
 
-\textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (functional clusters) whose order parameters must jointly exceed a threshold for a commit to register. \emph{Modules are not individual oscillators}: within-module coherence is absorbed into the module's aggregate phase estimate. $\Delta\omega$ is the \textbf{phase-exploration rate}: the characteristic frequency at which inter-module phases mix (not the carrier frequency). The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians); $\varepsilon = \pi/2$ corresponds to $\pm 45^\circ$ alignment tolerance, typical for gamma-band binding.
+\textbf{Simulation limitation.} In the modular Kuramoto validation (Fig.~\ref{fig:topology}), we vary $M$ at fixed total population $N$, which changes module size ($\sim N/M$). This can introduce finite-size effects and alter within- vs between-module coupling balance. For cleaner $M$-scaling, one would keep module size constant by scaling $N$ with $M$. Despite this limitation, the exponential scaling with $M$ is robust across all three topologies tested.
 
-\textbf{Foundational assumption: causal significance of electric fields.} This framework presupposes that oscillatory phase relations are \emph{causally significant}---that electric field dynamics influence neural computation beyond what can be captured by action potential timing alone. If neural computation reduced to binary spike events, the substrate would be one-dimensional: spikes either occur or do not. The oscillatory framework we develop here assumes instead that local field potentials and ephaptic coupling~\cite{anastassiou2011,pinotsis2023} carry information and influence computation through their timing structure.
+\textbf{Heavy-tailed waiting times.} Empirically observed inter-commit intervals may exhibit heavy tails even when the underlying process is well-described by Eq.~\ref{eq:coh-time}. This arises naturally when $r(t)$, $\lambda_{\mathrm{attempt}}(t)$, or network state drift slowly relative to the commit timescale. The marginal waiting time distribution then becomes a \emph{mixture of exponentials} (a Cox or doubly stochastic process), which can produce power-law-like tails. The key testable prediction is that waiting times \emph{conditional on a narrow bin of $r$} should remain approximately exponential, even when the unconditional distribution is heavy-tailed.
+
+\textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (functional clusters) whose order parameters must jointly exceed a threshold for a commit to register. \emph{Modules are not individual oscillators}: within-module coherence is absorbed into the module's aggregate phase estimate. $\lambda_{\mathrm{attempt}}$ is the \textbf{attempt rate}: the characteristic rate at which inter-module phases decorrelate and ``resample'' (not the carrier frequency). The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians); $\varepsilon = \pi/2$ corresponds to $\pm 45^\circ$ alignment tolerance, typical for gamma-band binding.
+
+\textbf{Foundational assumption: continuous coordination variables.} This framework focuses on continuous phase variables as the coordination substrate. The commit definition, alignment probabilities, and rare-event statistics are naturally expressed in phase coordinates because phases can \emph{explore} configuration space between commits---the core requirement for the first-passage geometry we model.
+
+Spike trains may participate in coordination (e.g., through spike-field coupling or spike-timing-dependent plasticity), but our framework does not require taking a position on whether spikes or fields are ``fundamental.'' What matters is that \emph{some} continuous coordination variable exists whose alignment determines commit timing. Local field potentials and ephaptic coupling~\cite{anastassiou2011,pinotsis2023} provide one candidate substrate; dendritic integration, subthreshold dynamics, or synaptic state variables could serve similar roles.
 
 \textbf{The skeptical position.} Several arguments suggest ephaptic effects may be computationally negligible:
 \begin{enumerate}
@@ -177,15 +305,15 @@ Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially 
 \item \emph{Synaptic dominance}: Synaptic transmission is the established mechanism of neural communication; ephaptic coupling is at best a second-order correction.
 \end{enumerate}
 
-\textbf{Why these arguments fail at criticality.} Each objection assumes a system operating in a robust, noise-tolerant regime. Near criticality~\cite{beggs2003,shew2013}, the situation inverts:
+\textbf{Conditions under which ephaptic effects may be significant.} Each skeptical objection above assumes a system operating in a robust, noise-tolerant regime. Near criticality~\cite{beggs2003,shew2013}, the situation may differ:
 \begin{enumerate}
-\item \emph{Magnitude at criticality}: At a critical point, sensitivity diverges. A 0.1 mV shift can advance or delay spike timing by microseconds; in a system poised at a phase transition, microsecond differences determine which neurons cross threshold, which determines downstream cascades. Small causes have large effects---this is what criticality \emph{means}.
-\item \emph{Structured vs.\ random noise}: Ephaptic ``noise'' is spatially correlated---neighboring neurons experience similar field perturbations. Redundancy and averaging suppress \emph{uncorrelated} noise; correlated perturbations propagate coherently through the network.
-\item \emph{Timing vs.\ connectivity}: Synaptic weights determine \emph{whether} a neuron eventually fires given sufficient input. Fields influence \emph{when} it fires. For oscillatory coordination, timing is the computation. A neuron that fires 2 ms earlier participates in a different phase relationship, potentially a different assembly, a different downstream cascade.
-\item \emph{No central clock}: In clocked architectures, timing is imposed externally; perturbations between clock edges are irrelevant. Biological neural systems have no global clock. Timing emerges from dynamics, and fields are part of those dynamics. The question is not whether fields influence spike timing---they demonstrably do---but what mechanism would \emph{prevent} those timing shifts from propagating. In the absence of a clock to enforce timing, there is no such mechanism.
+\item \emph{Magnitude at criticality}: At a critical point, sensitivity can be enhanced. A 0.1 mV shift may advance or delay spike timing by microseconds; if the system operates near a phase transition, such timing differences could determine which neurons cross threshold first.
+\item \emph{Structured vs.\ random noise}: Ephaptic ``noise'' is spatially correlated---neighboring neurons experience similar field perturbations. Redundancy and averaging suppress \emph{uncorrelated} noise; correlated perturbations may propagate coherently.
+\item \emph{Timing vs.\ connectivity}: Synaptic weights determine \emph{whether} a neuron eventually fires given sufficient input. Fields influence \emph{when} it fires. For oscillatory coordination, precise timing matters. A neuron that fires 2 ms earlier participates in a different phase relationship.
+\item \emph{No central clock}: Biological neural systems lack a global clock; timing emerges from dynamics. The question is not whether fields influence spike timing---they demonstrably do~\cite{anastassiou2011}---but whether those timing shifts propagate to affect function.
 \end{enumerate}
 
-The burden of proof may be inverted: in unclocked systems at criticality, causal significance of field dynamics is the default. Causal \emph{in}significance would require an active suppression mechanism that does not exist. If this argument holds, then oscillators---not spikes---become the fundamental primitive, and the coherence time bounds derived here govern processing rate.
+We suggest that in unclocked systems operating near criticality, ephaptic coupling \emph{could} be functionally significant. This remains an empirical question. If ephaptic coupling proves to be negligible, analogous coordination constraints would arise via synaptic timing, dendritic integration windows, or other coupling mechanisms---the coherence-time framework applies regardless of the specific coupling substrate. The core claim is that \emph{some} form of inter-module phase coordination limits processing rate; ephaptic coupling is one candidate mechanism, not the only one.
 
 \textbf{Regional variation in ephaptic coupling.} Notably, ephaptic coupling operates differently across brain regions. Cerebellar architecture, with its densely packed parallel fibers and Purkinje cells, supports strong local field effects~\cite{han2018}. Cortical architecture, with its columnar organization and heterogeneous cell types, produces different field geometries. This regional variation in ephaptic coupling strength may explain why cerebellar processing appears exempt from the coordination penalties we attribute to high-$M$ cortical assemblies---the cerebellum may use different coupling mechanisms that bypass the phase-alignment bottleneck.
 
@@ -201,7 +329,9 @@ At fixed power $P$, systems face a Pareto frontier in $(M,r)$ space:
 \end{itemize}
 \end{proposition}
 
-Increasing coordination depth $M$ expands the dimensionality of commit-registered outcomes but requires exponentially longer alignment time. Increasing coherence $r$ speeds commits but forces trajectories onto low-dimensional attractors, reducing the set of accessible commit outcomes.
+Increasing coordination depth $M$ expands the dimensionality of commit-registered outcomes but requires exponentially longer alignment time. Increasing $r_{\mathrm{inter}}$ reduces the dimensionality of the \textbf{relative-phase degrees of freedom}, constraining dynamics toward a lower-dimensional \textbf{phase-synchronized manifold}. This makes multi-module coordination faster (larger $p_1$) but reduces the number of effectively independent constraints (smaller effective $\alpha$).
+
+Importantly, this does not imply that \textbf{all} neural activity becomes low-dimensional; amplitude patterns, cross-frequency interactions, and within-module heterogeneity can remain rich. The dimensionality reduction refers specifically to the inter-module phase coordination subspace.
 
 \subsection{Quantum and thermodynamic limits of computation}
 
@@ -226,7 +356,7 @@ The Margolus-Levitin theorem~\cite{margolus1998} establishes that the minimum ti
 \]
 where $\langle E \rangle$ is the average energy above the ground state. This bound, together with the Mandelstam-Tamm relation~\cite{mandelstam1945} ($\tau_{\mathrm{MT}} = \hbar/(2\Delta E)$ where $\Delta E$ is energy uncertainty), constitutes the quantum speed limit on state evolution.
 
-These bounds originate from the energy-time uncertainty relation $\Delta E \cdot \Delta t \gtrsim \hbar/2$, which is fundamental to understanding information transmission in physical systems~\cite{igamberdiev2021,igamberdiev2025constraints,igamberdiev2026autopoietic}. As Bormashenko~\cite{bormashenko2024} notes, synthesis of the Landauer bound with the Margolus-Levitin limit yields a minimal computation time scaling as $\tau_{\min} \sim h/\kB T$---decreasing temperature reduces energy consumption per operation but simultaneously slows computation.
+These bounds originate from the energy-time uncertainty relation $\Delta E \cdot \Delta t \gtrsim \hbar/2$, which is fundamental to understanding information transmission in physical systems~\cite{khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic}. As Bormashenko~\cite{bormashenko2024} notes, synthesis of the Landauer bound with the Margolus-Levitin limit yields a minimal computation time scaling as $\tau_{\min} \sim h/\kB T$---decreasing temperature reduces energy consumption per operation but simultaneously slows computation.
 
 At biological temperatures with $\langle E \rangle \sim \kB T \approx 4 \times 10^{-21}$ J:
 \[
@@ -274,28 +404,40 @@ This analysis clarifies the relationship between our framework and fundamental p
 \end{itemize}
 Commits require high $r_{\mathrm{intra}}$ (modules are internally coherent) \emph{and} rare alignment of inter-module phases (low baseline $r_{\mathrm{inter}}$, with commits occurring when $r_{\mathrm{inter}}$ transiently exceeds threshold). The $r$ and $\kappa$ in Eq.~\ref{eq:coh-time} refer to the \emph{inter-module} distribution. Typical inter-module values: spontaneous cortex $\sim 0.2$--0.4; attention $\sim 0.5$--0.7~\cite{fries2015}.
 
-\textbf{Interpretation of $r$ in Eq.~\ref{eq:coh-time}.} The parameter $r$ can be interpreted in two ways: (1) as a slowly varying \emph{state variable} $r(t)$, in which case Eq.~\ref{eq:coh-time} gives an instantaneous hazard rate $\lambda(t) = \Delta\omega\, p_1^{\alpha(M-1)}$, and the waiting time distribution becomes a hazard integral over the trajectory of $r(t)$; or (2) as a \emph{conditional} parameter representing coherence during the pre-commit interval, in which case Eq.~\ref{eq:coh-time} gives the mean waiting time conditional on that coherence level. Interpretation (1) naturally explains heavy-tailed waiting time distributions when $r(t)$ drifts slowly.
+\textbf{Interpretation of $r$ in Eq.~\ref{eq:coh-time}.} The parameter $r$ can be interpreted in two ways: (1) as a slowly varying \emph{state variable} $r(t)$, in which case Eq.~\ref{eq:coh-time} gives an instantaneous hazard rate $h(t) = \lambda_{\mathrm{attempt}}\, p_1^{\alpha(M-1)}$, and the waiting time distribution becomes a hazard integral over the trajectory of $r(t)$; or (2) as a \emph{conditional} parameter representing coherence during the pre-commit interval, in which case Eq.~\ref{eq:coh-time} gives the mean waiting time conditional on that coherence level. Interpretation (1) naturally explains heavy-tailed waiting time distributions when $r(t)$ drifts slowly.
 
 \paragraph{Phase alignment window ($\varepsilon$).} From spike train or LFP cross-correlograms, measure half-width at half-maximum (HWHM, units: seconds). The \textbf{full} phase window is $\varepsilon = 2\,\omega_0\,\mathrm{HWHM}$ (radians).
 
-\paragraph{Phase-exploration rate ($\Delta\omega$).} Estimate from instantaneous frequency spread or phase diffusion. Typical values: $\Delta\omega \sim 2\pi \times (5\text{--}20)$ rad/s for cortical gamma/alpha bands.
+\paragraph{Attempt rate ($\lambda_{\mathrm{attempt}}$).} Estimate from the decorrelation time of inter-module coherence $|z_{\mathrm{inter}}(t)|$: $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$. Alternatively, estimate from instantaneous frequency spread $\Delta\omega$ (rad/s): since radians are dimensionless, $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ s$^{-1}$. Typical values for cortical alpha/beta bands: $\lambda_{\mathrm{attempt}} \sim 60$--$200$ s$^{-1}$ (corresponding to frequency spreads of $\sim 10$--$30$ Hz).
+
+\textbf{Analysis workflow summary.} To apply the coherence time framework to neural data:
+\begin{enumerate}
+\item \textbf{Define modules}: Use community detection on coherence matrices, or anatomical ROIs.
+\item \textbf{Compute module phases}: Extract $\psi_m(t)$ from bandpass-filtered signals via Hilbert transform; verify within-module coherence $r_{\mathrm{intra},m} \geq r_{\mathrm{thr}}$.
+\item \textbf{Compute inter-module coherence}: $r_{\mathrm{inter}}(t) = |M^{-1}\sum_m e^{i\psi_m(t)}|$; convert to $\kappa$ via $r = I_1(\kappa)/I_0(\kappa)$.
+\item \textbf{Estimate $\varepsilon$}: Measure cross-correlogram HWHM; $\varepsilon = 2\omega_0 \cdot \mathrm{HWHM}$.
+\item \textbf{Estimate $\lambda_{\mathrm{attempt}}$}: Compute autocorrelation of $|z_{\mathrm{inter}}(t)|$; set $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$ where $\tau_{\mathrm{mix}}$ is the $1/e$ crossing.
+\item \textbf{Fit $\alpha$}: Either from participation ratio of module-phase covariance (Eq.~\ref{eq:deff-estimator}), or from scaling of $\tau$ with $M$ across task conditions.
+\end{enumerate}
 
 \section{Results}
 
 \subsection{Visual perceptual binding windows}
 
-Human visual perception exhibits temporal integration windows of 30--50 ms (flicker fusion at 20--30 Hz). We apply Eq.~\ref{eq:main-bound} with neural parameters.
+\textbf{Censoring note.} For simulation trials that did not reach the alignment threshold within simulation time $T$, we treat these as right-censored observations and report Kaplan-Meier survival estimates of $\tau_{\mathrm{coh}}$. Points with hit fraction $< 0.5$ are shown with upward arrows indicating the median is censored beyond $T$.
 
-\textbf{Parameter provenance:} We take $M=8$ occipital modules (a plausible count of functional submodules in visual binding, including V1, V2, V4, and posterior parietal subdivisions; can be estimated via community detection on coherence networks). Coherence $r=0.7$--$0.8$ reflects attentional engagement~\cite{fries2015}. Full tolerance $\varepsilon=\pi/2$ rad ($\pm 45^\circ$) corresponds to the phase windows observed in gamma-band cross-correlograms during visual binding; note that $\pm 90^\circ$ tolerance would be too loose for functional synchrony. Phase-exploration rate $\Delta\omega=2\pi\times 20$ rad/s is estimated from the decorrelation time of relative phases in alpha/beta bands (not the carrier frequency). Effective independence $\alpha=0.7$ reflects modular cortical topology; it can be fit empirically from the scaling of inter-commit times with $M$.
+Human visual perception exhibits temporal integration windows of 30--50 ms for perceptual binding tasks. Note that critical flicker fusion (CFF) thresholds are higher ($\sim$60 Hz photopic) for simple luminance detection---a low-$M$ task requiring minimal inter-module coordination. The gap between CFF and binding-window timescales is itself predicted by the framework: low-$M$ commits are fast; high-$M$ perceptual binding is slow. We apply Eq.~\ref{eq:main-bound} with neural parameters for the high-$M$ binding case.
 
-First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$, giving $p_1(\pi/2, 2.0) \approx 0.68$ (numerical integration of Eq.~\ref{eq:coh-mises}). Using Eq.~\ref{eq:coh-time} with $\alpha=0.7$:
+\textbf{Parameter provenance:} We take $M=8$ occipital modules (a plausible count of functional submodules in visual binding, including V1, V2, V4, and posterior parietal subdivisions; can be estimated via community detection on coherence networks). Coherence $r=0.7$--$0.8$ reflects attentional engagement~\cite{fries2015}. Full tolerance $\varepsilon=\pi/2$ rad ($\pm 45^\circ$) corresponds to the phase windows observed in gamma-band cross-correlograms during visual binding; note that $\pm 90^\circ$ tolerance would be too loose for functional synchrony. Attempt rate $\lambda_{\mathrm{attempt}} \approx 126$ s$^{-1}$ is estimated from the decorrelation time of inter-module coherence in alpha/beta bands (corresponding to a frequency spread of $\sim 20$ Hz; not the carrier frequency). Effective independence $\alpha=0.7$ reflects modular cortical topology; it can be fit empirically from the scaling of inter-commit times with $M$.
+
+First compute $p_1$: at $r=0.7$, $\kappa \approx 2.0$, giving $p_1(\pi/2, 2.0) \approx 0.68$ (numerical integration of Eq.~\ref{eq:coh-mises}). Using Eq.~\ref{eq:coh-time} with $\lambda_{\mathrm{attempt}} \approx 126$ s$^{-1}$ and $\alpha=0.7$:
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.68)^{-0.7 \times 7}
-= \frac{1}{125.66}\,(0.68)^{-4.9} \approx 54~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{126}\,(0.68)^{-0.7 \times 7}
+= \frac{1}{126}\,(0.68)^{-4.9} \approx 54~\mathrm{ms}.
 \]
 With higher coherence $r=0.8$ ($\kappa \approx 2.9$, $p_1(\pi/2, 2.9) \approx 0.78$):
 \[
-\tau_{\mathrm{coh}} \approx \frac{1}{125.66}\,(0.78)^{-4.9} \approx 27~\mathrm{ms}.
+\tau_{\mathrm{coh}} \approx \frac{1}{126}\,(0.78)^{-4.9} \approx 27~\mathrm{ms}.
 \]
 
 Computing all terms in Eq.~\ref{eq:main-bound}:
@@ -306,7 +448,7 @@ Computing all terms in Eq.~\ref{eq:main-bound}:
 \tau_{\mathrm{coh}} &\approx 27\text{--}54~\mathrm{ms} \quad \text{($r = 0.7$--$0.8$, $M = 8$)}
 \end{align}
 
-The effective commit time is $\tau_{\mathrm{eff}} \gtrsim \max[\text{QSL, SNR, power, coh}] \approx 27$--$54~\mathrm{ms}$, matching human binding windows (30--50 ms). \textbf{Coherence time dominates}; quantum and Landauer bounds are not the limiting factors.
+The effective commit time is $\tau_{\mathrm{eff}} \gtrsim \max[\text{QSL, SNR, power, coh}] \approx 27$--$54~\mathrm{ms}$, consistent with human binding windows (30--50 ms) given empirically plausible parameter ranges. \textbf{Coherence time dominates}; quantum and Landauer bounds are not the limiting factors. This is an order-of-magnitude existence proof---the framework yields the correct timescale with independently constrained parameters---not a precise prediction of a single value.
 
 \paragraph{Sensitivity analysis.} Table~\ref{tab:sensitivity} shows how $\tau_{\mathrm{coh}}$ varies across plausible parameter ranges. The 20--80 ms binding window is robust to parameter uncertainty. All $p_1$ values computed via numerical integration of Eq.~\ref{eq:coh-mises}; $\kappa$ obtained from $r$ via numerical inversion of $r = I_1(\kappa)/I_0(\kappa)$.
 
@@ -314,19 +456,19 @@ The effective commit time is $\tau_{\mathrm{eff}} \gtrsim \max[\text{QSL, SNR, p
 
 \begin{table}[H]
 \centering
-\caption{Sensitivity of coherence time to parameter variations. Base case: $M=8$, $r=0.75$, $\varepsilon=\pi/2$, $\Delta\omega = 2\pi \times 20$ rad/s, $\alpha=0.7$.}
+\caption{Sensitivity of coherence time to parameter variations. Base case: $M=8$, $r=0.75$, $\varepsilon=\pi/2$, $\lambda_{\mathrm{attempt}} = 126$ s$^{-1}$, $\alpha=0.7$.}
 \label{tab:sensitivity}
 \begin{tabular}{lccccc}
 \toprule
-Parameter varied & $M$ & $r$ & $\varepsilon$ & $\Delta\omega$ (rad/s) & $\tau_{\mathrm{coh}}$ (ms) \\
+Parameter varied & $M$ & $r$ & $\varepsilon$ & $\lambda_{\mathrm{attempt}}$ (s$^{-1}$) & $\tau_{\mathrm{coh}}$ (ms) \\
 \midrule
-Base case & 8 & 0.75 & $\pi/2$ & $2\pi \times 20$ & 39 \\
-Lower $M$ & 6 & 0.75 & $\pi/2$ & $2\pi \times 20$ & 25 \\
-Higher $M$ & 10 & 0.75 & $\pi/2$ & $2\pi \times 20$ & 61 \\
-Lower $r$ & 8 & 0.65 & $\pi/2$ & $2\pi \times 20$ & 75 \\
-Higher $r$ & 8 & 0.85 & $\pi/2$ & $2\pi \times 20$ & 19 \\
-Narrower $\varepsilon$ & 8 & 0.75 & $\pi/3$ & $2\pi \times 20$ & 105 \\
-Faster $\Delta\omega$ & 8 & 0.75 & $\pi/2$ & $2\pi \times 30$ & 26 \\
+Base case & 8 & 0.75 & $\pi/2$ & 126 & 39 \\
+Lower $M$ & 6 & 0.75 & $\pi/2$ & 126 & 25 \\
+Higher $M$ & 10 & 0.75 & $\pi/2$ & 126 & 61 \\
+Lower $r$ & 8 & 0.65 & $\pi/2$ & 126 & 75 \\
+Higher $r$ & 8 & 0.85 & $\pi/2$ & 126 & 19 \\
+Narrower $\varepsilon$ & 8 & 0.75 & $\pi/3$ & 126 & 105 \\
+Faster $\lambda_{\mathrm{attempt}}$ & 8 & 0.75 & $\pi/2$ & 189 & 26 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -345,7 +487,7 @@ During acute stress or falls, subjects report subjective time slowing while obje
 
 \subsection{Alpha oscillations and temporal acuity}
 
-Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~\cite{samaha2015,cecere2015}. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $\Delta\omega$ or the sampling schedule for phase alignment.
+Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~\cite{samaha2015,cecere2015}. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $\lambda_{\mathrm{attempt}}$ or the sampling schedule for phase alignment.
 
 \textbf{Prediction:} If alpha frequency modulates commit timing, then entraining alpha via transcranial alternating current stimulation (tACS) should shift perceptual binding windows approximately linearly with frequency change. This prediction distinguishes the gating interpretation from alternatives where alpha reflects post-commit memory encoding.
 
@@ -369,6 +511,18 @@ Attention increases coherence ($r: 0.3 \to 0.6$) and narrows coordination to tas
 Overlearned motor sequences compress to low-dimensional primitives ($M \sim 3$--5) with tight coherence ($r \sim 0.8$). Commits are rapid (50--150 ms) but inflexible.
 
 \subsection{Temporal embedding as a pre-commit representation mechanism (hypothesis)}
+
+\textbf{Why include this section.}
+The coherence time bound has implications beyond the derivation of Eq.~\ref{eq:coh-time}:
+it constrains the useful window over which \textbf{temporally embedded representations}
+remain reconstructible. If pre-commit intervals exceed $\tau_{\mathrm{coh}}$,
+downstream readout mechanisms cannot reliably infer earlier states.
+Cerebellar delay lines are a plausible biological implementation of preserving
+distributed state across these pre-commit intervals. This section illustrates
+one potential design strategy for coping with finite coherence times, but
+\textbf{is not required for the derivation or validation of Eq.~\ref{eq:coh-time}}.
+It is included to demonstrate practical consequences of the bound for
+neural system design.
 
 Coherence time tells us \emph{how long} pre-commit dynamics must be maintained before alignment occurs. A separate question is \emph{how} high-dimensional structure can remain accessible during that interval. We propose---as a hypothesis for future investigation---that biological systems may implement \textbf{Takens delay embedding}~\cite{takens1981}.
 
@@ -429,13 +583,13 @@ If phenomenal experience reflects pre-commit coherent dynamics, conscious states
 
 \textbf{Free Energy Principle}~\cite{friston2010}: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~\ref{eq:main-bound}.
 
-\subsection{Frequency and dimensionality: a disagreement with current theory}
+\subsection{Frequency and dimensionality: two interpretations}
 
 A prominent view in systems neuroscience holds that low-frequency oscillations (delta, theta, alpha) support low-dimensional, ``simple'' dynamics, while high-frequency oscillations (gamma) support high-dimensional, ``complex'' computations~\cite{miller2018,lundqvist2016}. Miller and colleagues argue that slow oscillations provide a low-dimensional ``scaffold'' or ``broadcast'' signal, while fast gamma carries detailed content in a higher-dimensional space. Recent work extends this framework to cytoelectric coupling, proposing that electric fields organize neural activity via ephaptic effects down to the cytoskeletal level~\cite{pinotsis2023}.
 
-\textbf{We disagree.} The coherence time framework predicts the opposite relationship between frequency and dimensionality:
+\textbf{An alternative interpretation.} The coherence time framework suggests a different relationship between frequency and dimensionality, based on coordination constraints:
 
-\paragraph{The physics argument.} Consider an oscillatory system that must achieve phase alignment to register a commit. The number of alignment ``attempts'' per oscillation cycle is roughly $f / \Delta\omega$, where $f$ is the carrier frequency and $\Delta\omega$ is the phase-exploration rate. For alignment probability $p_1$:
+\paragraph{The physics argument.} Consider an oscillatory system that must achieve phase alignment to register a commit. The number of alignment ``attempts'' per oscillation cycle is roughly $\lambda_{\mathrm{attempt}} / f$, where $f$ is the carrier frequency and $\lambda_{\mathrm{attempt}}$ is the attempt rate. For alignment probability $p_1$:
 \begin{itemize}
 \item \textbf{High frequency}: Few attempts per cycle. To achieve reliable alignment within one period, the system requires high $p_1$, which requires high coherence $r$. But high $r$ confines dynamics to a low-dimensional synchronized manifold. \emph{Fast oscillations force low dimensionality.}
 \item \textbf{Low frequency}: Many attempts per cycle. The system can tolerate low $p_1$ and thus low $r$. Phases can explore more of configuration space while still achieving alignment before the next cycle. \emph{Slow oscillations permit high dimensionality.}
@@ -494,7 +648,7 @@ We have established that coherence time---the time required for distributed osci
 \]
 with coherence time
 \[
-\tau_{\mathrm{coh}} = \frac{1}{\Delta\omega}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}
+\tau_{\mathrm{coh}} = \frac{1}{\lambda_{\mathrm{attempt}}}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}
 \]
 unifies quantum, noise, and coordination limits to explain temporal resolution in biological processing systems.
 
@@ -510,6 +664,8 @@ Key findings:
 
 \item \textbf{Quantitative predictions}: Visual binding windows (30--50 ms), metabolic scaling of temporal acuity, alpha entrainment linearity, dual-task dissociations.
 \end{enumerate}
+
+The framework also has potential clinical implications. Pathologies that degrade inter-module coupling should reduce effective coordination capacity ($\alpha$ or $M$) before individual components fail overtly. Motor neuron disease offers one example: cortical hyperexcitability in ALS is mediated by dysfunction of distinct interneuronal circuits rather than uniform degeneration~\cite{pavey2024}, suggesting that coordination-level biomarkers derived from the coherence time framework may complement single-neuron measures.
 
 The central thesis: biological systems trade speed for flexibility by moving on the coherence-dimension frontier, operating in a regime where quantum and thermodynamic limits permit far faster processing than coordination constraints allow.
 
@@ -579,17 +735,17 @@ Mandelstam, L., Tamm, I. (1945). The uncertainty relation between energy and tim
 \bibitem{margolus1998}
 Margolus, N., Levitin, L.B. (1998). The maximum speed of dynamical evolution. \textit{Physica D}, 120(1--2), 188--195.
 
-\bibitem{igamberdiev2021}
-Igamberdiev, A.U. (2021). Quantum-like model for unconscious--conscious interaction and emotional coloring of perceptions and other conscious experiences. \textit{BioSystems}, 208, 104471.
+\bibitem{khrennikov2021}
+Khrennikov, A. (2021). Quantum-like model for unconscious--conscious interaction and emotional coloring of perceptions and other conscious experiences. \textit{BioSystems}, 208, 104471.
 
 \bibitem{igamberdiev2025constraints}
-Igamberdiev, A.U. (2025). Physical limits of natural computation as the biological constraints of morphogenesis, evolution, and consciousness: On the 100th anniversary of Efim Liberman (1925--2011). \textit{BioSystems}, 249, 105451.
+Igamberdiev, A.U., Shklovskiy-Kordi, N.E. (2025). Physical limits of natural computation as the biological constraints of morphogenesis, evolution, and consciousness: On the 100th anniversary of Efim Liberman (1925--2011). \textit{BioSystems}, 251, 105451.
 
 \bibitem{igamberdiev2026autopoietic}
-Igamberdiev, A.U. (2026). Internal quantum constraints of natural computation in autopoietic systems. \textit{BioSystems}, 251, 105707.
+Igamberdiev, A.U. (2026). Internal quantum constraints of natural computation in autopoietic systems. \textit{BioSystems}, 261, 105707.
 
 \bibitem{khrennikov2025bridge}
-Khrennikov, A. (2025). Constructing a bridge between functioning of oscillatory neuronal networks and quantum-like cognition along with quantum-inspired computation and AI. \textit{BioSystems}, 250, 105573.
+Khrennikov, A., Iriki, A., Basieva, I. (2025). Constructing a bridge between functioning of oscillatory neuronal networks and quantum-like cognition along with quantum-inspired computation and AI. \textit{BioSystems}, 257, 105573.
 
 \bibitem{poor1994}
 Poor, H.V. (1994). \textit{An Introduction to Signal Detection and Estimation} (2nd ed.). Springer-Verlag.
@@ -641,6 +797,9 @@ Shew, W.L., Plenz, D. (2013). The functional benefits of criticality in the cort
 
 \bibitem{han2018}
 Han, K.S., Chen, C.H., Khan, M.M., Guo, C., Bhumbra, G.S., Bhattacharjee, A., et al. (2018). Ephaptic coupling promotes synchronous firing of cerebellar Purkinje cells. \textit{Neuron}, 100(3), 564--578.
+
+\bibitem{pavey2024}
+Pavey, N., Hannaford, A., van den Bos, M., Kiernan, M.C., Menon, P., Vucic, S. (2024). Distinct neuronal circuits mediate cortical hyperexcitability in amyotrophic lateral sclerosis. \textit{Brain}, 147(7), 2344--2356.
 
 \end{thebibliography}
 

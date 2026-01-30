@@ -1,0 +1,10 @@
+archive/
+docs/
+STATUS.md
+CHANGELOG.md
+.DS_Store
+__pycache__/
+*.pyc
+simulations/.venv/
+simulations/__pycache__/
+simulations/.DS_Store
