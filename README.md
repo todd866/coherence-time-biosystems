@@ -23,7 +23,7 @@ where M is coordination depth, p_1 is single-variable alignment probability, alp
 ## Running Simulations
 
 ```bash
-cd revisions/simulations
+cd simulations
 python kuramoto_coherence_time.py       # Main Kuramoto validation (all topologies)
 python generate_combined_figure.py      # Generate Figure 1 (combined panel)
 python supplementary_analyses.py        # Supplementary validation figures
