@@ -34,6 +34,9 @@ revisions/docs/
 revisions/STATUS.md
 revisions/CHANGELOG.md
 
+# Original submission (archived)
+original_submission/
+
 # Virtual environments
 .venv/
 revisions/simulations/.venv/
