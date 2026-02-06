@@ -26,7 +26,6 @@ where M is coordination depth, p_1 is single-variable alignment probability, alp
 cd revisions/simulations
 python kuramoto_coherence_time.py       # Main Kuramoto validation (all topologies)
 python generate_combined_figure.py      # Generate Figure 1 (combined panel)
-python cerebellar_takens_sim.py         # Generate Figure 2 (cerebellar delay embedding)
 python supplementary_analyses.py        # Supplementary validation figures
 ```
 
