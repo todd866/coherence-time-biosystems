@@ -337,8 +337,8 @@ class KuramotoNetwork:
         Estimate attempt rate λ (s⁻¹) from phase mixing dynamics.
 
         This measures the effective "alignment attempt rate" - the inverse of the
-        time it takes for inter-module coherence to decorrelate. This is the quantity
-        Δω/(2π) in the theory, where Δω is the phase exploration rate in rad/s.
+        time it takes for inter-module coherence to decorrelate. This is λ_attempt ≈ Δω
+        in the paper, where Δω is the phase exploration rate in rad/s (rad dimensionless).
 
         method="autocorr": Computes decorrelation time of the inter-module complex
         order parameter z_inter(t) = mean(exp(iψ_m(t))). Uses 1/e crossing of
