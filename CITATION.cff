@@ -3,16 +3,16 @@ message: "If you use this work, please cite it as below."
 authors:
   - family-names: "Todd"
     given-names: "Ian"
-title: "Coherence Time in Neural Oscillator Assemblies"
-version: 1.0.0
-date-released: 2025-11-15
+title: "Coherence Time in Biological Oscillator Assemblies Bounds the Rate of State Registration"
+version: 1.1.0
+date-released: 2026-01-15
 url: "https://github.com/todd866/coherence-time-biosystems"
 preferred-citation:
   type: article
   authors:
     - family-names: "Todd"
       given-names: "Ian"
-  title: "Coherence Time in Neural Oscillator Assemblies"
+  title: "Coherence Time in Biological Oscillator Assemblies Bounds the Rate of State Registration"
   journal: "BioSystems"
-  year: 2025
+  year: 2026
   status: "under-review"

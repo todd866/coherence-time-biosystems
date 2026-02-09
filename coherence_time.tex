@@ -29,7 +29,7 @@ Sydney Medical School, University of Sydney\\
 Sydney, NSW, Australia\\
 \texttt{itod2305@uni.sydney.edu.au}}
 
-\date{\today}
+\date{February 2026}
 
 \begin{document}
 
@@ -187,7 +187,7 @@ P(A_\varepsilon) \propto p_1(\varepsilon, \kappa)^{M-1}
 \[
 \tau_{\mathrm{coh}} \approx \frac{1}{\lambda_{\mathrm{attempt}}} \left( \frac{2\pi I_0(\kappa)}{\varepsilon \, e^\kappa} \right)^{\alpha(M-1)}
 \]
-This makes the $\varepsilon^{-(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit. Here $\lambda_{\mathrm{attempt}}$ (s$^{-1}$) is the effective alignment attempt rate, estimated from the decorrelation time of inter-module phase coherence $r_{\mathrm{inter}}(t)$ (see below). \emph{Note:} We use the exact $p_1(\varepsilon, \kappa)$ integral for all numerical estimates (e.g., the binding window calculations use $\varepsilon = \pi/2$); the small-$\varepsilon$ expansion is presented only to clarify the scaling structure.
+This makes the $\varepsilon^{-\alpha(M-1)}$ scaling and the ``exponential in $M$'' dependence explicit. Here $\lambda_{\mathrm{attempt}}$ (s$^{-1}$) is the effective alignment attempt rate, estimated from the decorrelation time of inter-module phase coherence $r_{\mathrm{inter}}(t)$ (see below). \emph{Note:} We use the exact $p_1(\varepsilon, \kappa)$ integral for all numerical estimates (e.g., the binding window calculations use $\varepsilon = \pi/2$); the small-$\varepsilon$ expansion is presented only to clarify the scaling structure.
 
 \textbf{The exponent is $(M-1)$, not $M$.} This arises from quotient geometry: the reference module $\theta_1$ serves as anchor (whether fixed or conditioned upon), leaving $M-1$ independent constraints. This is analogous to the classic result that the probability of $M$ uniform phases falling in \emph{some} semicircle is $M/2^{M-1}$, where the factor $M$ accounts for the free choice of arc location; our anchored definition removes this degree of freedom.
 
@@ -206,7 +206,7 @@ Let $X(t)$ be an ergodic Markov process on state space $\mathcal{X}$ with statio
 \]
 Moreover, $T_A / \mathbb{E}[T_A]$ is approximately exponentially distributed when $\pi(A) \ll 1$.
 \end{proposition}
-\noindent This is a standard result in the theory of rare events for Markov chains~\cite{kac1947}. The key assumptions are ergodicity and that the process mixes on timescales much shorter than the expected hitting time. In our setting, ``mixing'' means that successive phase configurations separated by $\tau_{\mathrm{mix}}$ are approximately independent samples from the stationary distribution; hence the Bernoulli-trial heuristic: each mixing interval is an independent ``attempt'' to land in $A_\varepsilon$.
+\noindent This is a standard result in the theory of rare events for Markov chains~\cite{kac1947,levinperes2017}. The key assumptions are ergodicity and that the process mixes on timescales much shorter than the expected hitting time. In our setting, ``mixing'' means that successive phase configurations separated by $\tau_{\mathrm{mix}}$ are approximately independent samples from the stationary distribution; hence the Bernoulli-trial heuristic: each mixing interval is an independent ``attempt'' to land in $A_\varepsilon$.
 
 \textbf{Attempt rate.} Let $\tau_{\mathrm{mix}}$ denote the mixing time of the joint phase process---the timescale on which phase configurations become approximately independent of their initial state. The effective number of independent ``alignment attempts'' per unit time is $\sim 1/\tau_{\mathrm{mix}}$. We define the \textbf{attempt rate}:
 \[
@@ -216,7 +216,7 @@ This is \emph{not} the carrier frequency of oscillations, but the rate at which 
 
 We estimate $\lambda_{\mathrm{attempt}}$ from the inverse decorrelation time of the inter-module order parameter $z_{\mathrm{inter}}(t) = \frac{1}{M}\sum_m e^{i\psi_m(t)}$, where $\psi_m(t)$ is the mean phase of module $m$. The decorrelation time $\tau_{\mathrm{mix}}$ is defined as the $1/e$ crossing of the autocorrelation function of $|z_{\mathrm{inter}}(t)|$, and $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$.
 
-\textbf{Simulation proxy.} In simulations, $\lambda_{\mathrm{attempt}}$ is measured directly from the autocorrelation of $|z_{\mathrm{inter}}(t)|$. An alternative proxy---the standard deviation of instantaneous phase velocities across oscillators (``effective frequency spread'' $\Delta\omega$ in rad/s)---is proportional to $\lambda_{\mathrm{attempt}}$ in weakly-coupled regimes, with $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ (since rad is dimensionless). For neural data analysis, we recommend estimating $\lambda_{\mathrm{attempt}}$ from the autocorrelation time of inter-module phase deviations, which directly measures the mixing timescale.
+\textbf{Simulation proxy.} In simulations, $\lambda_{\mathrm{attempt}}$ is measured directly from the autocorrelation of $|z_{\mathrm{inter}}(t)|$. An alternative proxy---the standard deviation of instantaneous phase velocities across oscillators (``effective frequency spread'' $\Delta\omega$ in rad/s)---is proportional to $\lambda_{\mathrm{attempt}}$ in weakly-coupled regimes, with $\lambda_{\mathrm{attempt}} \approx \Delta\omega / (2\pi)$ (converting from angular frequency to cycles per second). For neural data analysis, we recommend estimating $\lambda_{\mathrm{attempt}}$ from the autocorrelation time of inter-module phase deviations, which directly measures the mixing timescale.
 
 This yields:
 \begin{equation}\label{eq:coh-time-exact}
@@ -237,7 +237,7 @@ This can be estimated from the covariance structure of module phases. Let $C$ be
 \begin{equation}\label{eq:deff-estimator}
 \hat{d}_{\mathrm{eff}} = \frac{(\mathrm{tr}\, C)^2}{\mathrm{tr}(C^2)} = \frac{\left(\sum_i \lambda_i\right)^2}{\sum_i \lambda_i^2}
 \end{equation}
-where $\lambda_i$ are eigenvalues of $C$. This equals $M$ when all eigenvalues are equal (fully independent) and approaches 1 when a single mode dominates (fully correlated). From $\hat{d}_{\mathrm{eff}}$, we obtain $\hat{\alpha} = \hat{d}_{\mathrm{eff}} / (M-1)$.
+where $\lambda_i$ are eigenvalues of $C$. Because $\delta\psi_m$ are mean-centred ($\sum_m \delta\psi_m = 0$), $C$ has rank at most $M-1$; the participation ratio therefore equals $M-1$ when all non-zero eigenvalues are equal (fully independent) and approaches 1 when a single mode dominates (fully correlated). From $\hat{d}_{\mathrm{eff}}$, we obtain $\hat{\alpha} = \hat{d}_{\mathrm{eff}} / (M-1)$.
 
 \textbf{Why correlations affect the exponent.}
 For independent phase deviations $\delta\psi_m$ with uniform distribution over $[-\pi, \pi]$,
@@ -264,7 +264,7 @@ Since $p_1 < 1$, we have $-\log p_1 > 0$, so coherence time grows exponentially 
 (A) Modular, (B) All-to-all, (C) Sparse random networks ($N=100$ oscillators, $K=0.7$, $\varepsilon=1.0$ rad, 20 trials per $M$).
 Points show median coherence time $\tau_{\mathrm{coh}}$ with interquartile ranges (error bars).
 For heavily censored points (hit fraction $< 0.5$), we report Kaplan-Meier lower bounds with
-upward arrows indicating censoring.
+upward arrows indicating censoring; fully censored $M$ values (no commits observed) are omitted.
 We fit Eq.~\ref{eq:coh-time} using two approaches: (i)~\textbf{theory-consistent}:
 $\log(\tau \cdot \lambda_{\mathrm{attempt}}) = \alpha(M-1)[-\log p_1(\varepsilon, \kappa(\bar{r}_{\mathrm{inter}}))] + c$
 using the trajectory-mean inter-module coherence $\bar{r}_{\mathrm{inter}}$ (averaged over all trials, including censored, to estimate the stationary distribution), and
@@ -273,9 +273,9 @@ $\log(\tau \cdot \lambda_{\mathrm{attempt}}) \approx \alpha \cdot \tilde{c} \cdo
 for comparison.
 Dashed lines show fitted predictions with $\hat{\alpha}$ and $R^2$ values indicated.
 The three topologies span the framework's regime map.
-\textbf{Modular networks} ($\hat{\alpha} \approx 1$, $R^2 = 0.97$): near-independent modules, the regime where the theory's assumptions are best satisfied and validation is strongest.
-\textbf{All-to-all coupling} ($\hat{\alpha} \approx 1$ via linearized surrogate): theory-consistent fit is ill-conditioned in this high-coherence regime where $\bar{r}_{\mathrm{inter}} \approx 1$ makes $-\log p_1 \approx 0$; the surrogate value slightly exceeding 1 reflects linearization error.
-\textbf{Sparse random networks} ($\hat{\alpha} \approx 0.1$, $R^2 = 0.28$): strong correlations collapse effective constraints; the theory correctly predicts small $\alpha$ but the linear-in-$M$ model fits poorly, indicating this regime may require nonlinear corrections for quantitative prediction.}
+\textbf{Modular networks} ($\hat{\alpha} \approx 1$, $R^2 = 0.97$, $n=5$ $M$-values): near-independent modules, the regime where the theory's assumptions are best satisfied and validation is strongest.
+\textbf{All-to-all coupling} ($\hat{\alpha} \approx 1$ via linearized surrogate, $n=5$): theory-consistent fit is ill-conditioned in this high-coherence regime where $\bar{r}_{\mathrm{inter}} \approx 1$ makes $-\log p_1 \approx 0$; the surrogate value slightly exceeding 1 reflects linearization error.
+\textbf{Sparse random networks} ($\hat{\alpha} \approx 0.1$, $R^2 = 0.28$, $n=4$): strong correlations collapse effective constraints; the theory correctly predicts small $\alpha$ but the linear-in-$M$ model fits poorly, indicating this regime may require nonlinear corrections for quantitative prediction.}
 \label{fig:topology}
 \end{figure}
 
@@ -290,7 +290,7 @@ The three topologies span the framework's regime map.
 
 \textbf{Dwell time and the scaling analysis.} Definition~\ref{def:commit} requires alignment to persist for a dwell time $T_{\mathrm{dwell}}$. This introduces a ``hold probability'' $q(T_{\mathrm{dwell}}; r)$---the probability that alignment, once achieved, survives for duration $T_{\mathrm{dwell}}$. The effective commit rate becomes $\lambda_{\mathrm{attempt}} \cdot P(A_\varepsilon) \cdot q$, so $q$ renormalizes the prefactor but does not alter the exponential-in-$M$ scaling, which is driven entirely by $P(A_\varepsilon)$. In simulations we enforce dwell explicitly; for the scaling analysis, $q$ is absorbed into $\lambda_{\mathrm{attempt}}$ as a constant-factor correction and estimated empirically from decorrelation of $|z_{\mathrm{inter}}(t)|$.
 
-\textbf{Simulation limitation.} In the modular Kuramoto validation (Fig.~\ref{fig:topology}), we vary $M$ at fixed total population $N$, which changes module size ($\sim N/M$). This can introduce finite-size effects and alter within- vs between-module coupling balance. For cleaner $M$-scaling, one would keep module size constant by scaling $N$ with $M$. Despite this limitation, the exponential scaling with $M$ is robust across all three topologies tested.
+\textbf{Simulation limitation.} In the modular Kuramoto validation (Fig.~\ref{fig:topology}), we vary $M$ at fixed total population $N$, which changes module size ($\sim N/M$). This can introduce finite-size effects and alter within- vs between-module coupling balance. For cleaner $M$-scaling, one would keep module size constant by scaling $N$ with $M$. Despite this limitation, the exponential scaling with $M$ is strong in modular networks ($R^2=0.97$) and qualitatively consistent in all-to-all and sparse topologies, though quantitative fit quality degrades where the theory's modularity assumptions are violated (see caption, Fig.~\ref{fig:topology}).
 
 \textbf{Heavy-tailed waiting times.} Empirically observed inter-commit intervals may exhibit heavy tails even when the underlying process is well-described by Eq.~\ref{eq:coh-time}. This arises naturally when $r(t)$, $\lambda_{\mathrm{attempt}}(t)$, or network state drift slowly relative to the commit timescale. The marginal waiting time distribution then becomes a \emph{mixture of exponentials} (a Cox or doubly stochastic process), which can produce power-law-like tails. The key testable prediction is that waiting times \emph{conditional on a narrow bin of $r$} should remain approximately exponential, even when the unconditional distribution is heavy-tailed.
 
@@ -391,7 +391,7 @@ Commits require high $r_{\mathrm{intra}}$ (modules are internally coherent) \emp
 
 \paragraph{Phase alignment window ($\varepsilon$).} From spike train or LFP cross-correlograms, measure half-width at half-maximum (HWHM, units: seconds). The \textbf{full} phase window is $\varepsilon = 2\,\omega_0\,\mathrm{HWHM}$ (radians).
 
-\paragraph{Attempt rate ($\lambda_{\mathrm{attempt}}$).} Estimate from the decorrelation time of inter-module coherence $|z_{\mathrm{inter}}(t)|$: $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$. Alternatively, estimate from instantaneous frequency spread $\Delta\omega$ (rad/s): since radians are dimensionless, $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ s$^{-1}$. Typical values for cortical alpha/beta bands: $\lambda_{\mathrm{attempt}} \sim 60$--$200$ s$^{-1}$ (corresponding to frequency spreads of $\sim 10$--$30$ Hz).
+\paragraph{Attempt rate ($\lambda_{\mathrm{attempt}}$).} Estimate from the decorrelation time of inter-module coherence $|z_{\mathrm{inter}}(t)|$: $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$. Alternatively, estimate from instantaneous frequency spread $\Delta\omega$ (rad/s): $\lambda_{\mathrm{attempt}} \approx \Delta\omega/(2\pi)$ s$^{-1}$. Typical values for cortical alpha/beta bands: $\lambda_{\mathrm{attempt}} \sim 60$--$200$ s$^{-1}$ (corresponding to frequency spreads of $\sim 10$--$30$ Hz).
 
 \textbf{Analysis workflow summary.} To apply the coherence time framework to neural data:
 \begin{enumerate}
@@ -535,7 +535,7 @@ A prominent view in systems neuroscience holds that high-frequency oscillations 
 
 Consider an oscillatory system that must achieve phase alignment to register a commit. The number of alignment ``attempts'' per cycle is roughly $\lambda_{\mathrm{attempt}} / f$. At high frequency, few attempts are available per cycle, so reliable alignment requires high $p_1$ and thus high coherence $r$---but high $r$ confines dynamics to a low-dimensional synchronized manifold. At low frequency, many attempts per cycle permit low $r$ and thus high-dimensional phase exploration. This is not a correlation but a constraint: \emph{fast oscillations force low dimensionality; slow oscillations permit high dimensionality.}
 
-This can be made precise. Representational capacity resides in the phase offsets between oscillators. The number of distinguishable configurations scales as $d_{\mathrm{eff}} \sim 1/(f \cdot \tau_{\mathrm{noise}})$, where $\tau_{\mathrm{noise}}$ is the substrate noise floor. Dimensionality is inversely proportional to frequency.
+A scaling argument makes this intuitive. Representational capacity resides in the phase offsets between oscillators. The number of distinguishable configurations scales as $d_{\mathrm{eff}} \sim 1/(f \cdot \tau_{\mathrm{noise}})$, where $\tau_{\mathrm{noise}}$ is the substrate noise floor---fewer phase slots are resolvable per cycle at higher frequency. This suggests dimensionality is inversely proportional to frequency, though a rigorous derivation would require specifying the noise model.
 
 The empirical observation that gamma correlates with ``detailed'' processing admits an alternative interpretation: high-frequency gamma may reflect \emph{local}, low-$M$ modules committing rapidly---many parallel low-dimensional commits, not high-dimensional integration. Meanwhile, low-frequency oscillations may coordinate high-$M$ assemblies that \emph{require} slow timescales to achieve alignment. Three predictions distinguish the views: (1) increasing gamma power at fixed $M$ should \emph{decrease} dimensionality (forcing tighter coupling), not increase it; (2) bits per alpha cycle should exceed bits per gamma cycle; (3) gamma bursts should reflect local low-$M$ commits, potentially out of phase with slower coordinating rhythms. These predictions are testable with existing recording and analysis methods.
 
@@ -545,7 +545,7 @@ A related control-theoretic point: Ashby's law of requisite variety~\cite{ashby1
 
 The coherence time framework identifies a design constraint for any distributed computing system that lacks a global clock. Clocked architectures (CPUs, GPUs) impose synchronization externally, sidestepping the coordination penalty but potentially constraining the kinds of autonomous, semi-independent module dynamics we model here. Unclocked architectures (biological neural networks, neuromorphic hardware) pay the exponential coordination cost but gain access to genuinely high-dimensional dynamics~\cite{todd2025intelligence}. Eq.~\ref{eq:coh-time} provides quantitative guidance for neuromorphic design: such systems must either accept modest $M$, engineer high baseline $r$, or develop hierarchical architectures that localize coordination requirements.
 
-The mammalian cerebellum exemplifies this hierarchical solution. Operating with low coordination depth ($M \sim 3$--5), tight coupling ($r \sim 0.8$), and stereotyped primitives, the cerebellum achieves commit times of 10--20 ms---fast enough to override slow cortical dynamics when rapid action is required. Cerebellar processing is largely unconscious, consistent with the hypothesis that phenomenal experience is associated with high-dimensional pre-commit dynamics: the architecture that solves the speed problem---collapsing to low $M$---simultaneously removes processing from the domain of conscious experience.
+The mammalian cerebellum exemplifies this hierarchical solution. Operating with low coordination depth ($M \sim 3$--5), tight coupling ($r \sim 0.8$), and stereotyped primitives, the cerebellum achieves commit times of 10--20 ms~\cite{wolpert1998,ito2008}---fast enough to override slow cortical dynamics when rapid action is required. Cerebellar processing is largely unconscious, consistent with the hypothesis that phenomenal experience is associated with high-dimensional pre-commit dynamics: the architecture that solves the speed problem---collapsing to low $M$---simultaneously removes processing from the domain of conscious experience.
 
 \subsection{Limitations and scope}
 
@@ -659,15 +659,6 @@ Cecere, R., Rees, G., Romei, V. (2015). Individual differences in alpha frequenc
 \bibitem{healy2013}
 Healy, K., McNally, L., Ruxton, G.D., Cooper, N., Jackson, A.L. (2013). Metabolic rate and body size are linked with perception of temporal information. \textit{Anim. Behav.}, 86(4), 685--696.
 
-\bibitem{takens1981}
-Takens, F. (1981). Detecting strange attractors in turbulence. In: Rand, D., Young, L.S. (eds) \textit{Dynamical Systems and Turbulence}, Lecture Notes in Mathematics, vol 898. Springer, pp. 366--381.
-
-\bibitem{braitenberg1958}
-Braitenberg, V., Atwood, R.P. (1958). Morphological observations on the cerebellar cortex. \textit{Journal of Comparative Neurology}, 109, 1--33.
-
-\bibitem{llinas1982}
-Llin\'{a}s, R. (1982). General discussion: Radial connectivity in the cerebellar cortex. In: \textit{The Cerebellum---New Vistas} (pp. 189--194). Springer.
-
 \bibitem{tononi2016}
 Tononi, G., Boly, M., Massimini, M., Koch, C. (2016). Integrated information theory: from consciousness to its physical substrate. \textit{Nat. Rev. Neurosci.}, 17(7), 450--461.
 
@@ -727,6 +718,12 @@ Amari, S. (2016). \textit{Information Geometry and Its Applications}. Springer, 
 
 \bibitem{ashby1956}
 Ashby, W.R. (1956). \textit{An Introduction to Cybernetics}. Chapman \& Hall, London.
+
+\bibitem{levinperes2017}
+Levin, D.A., Peres, Y. (2017). \textit{Markov Chains and Mixing Times} (2nd ed.). American Mathematical Society.
+
+\bibitem{ito2008}
+Ito, M. (2008). Control of mental activities by internal models in the cerebellum. \textit{Nat. Rev. Neurosci.}, 9(4), 304--313.
 
 \end{thebibliography}
 
