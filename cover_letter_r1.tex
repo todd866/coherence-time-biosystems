@@ -1,0 +1,61 @@
+\documentclass[12pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+
+\signature{Ian Todd\\Sydney Medical School\\University of Sydney}
+\address{Ian Todd\\Sydney Medical School\\University of Sydney\\Sydney, NSW, Australia\\itod2305@uni.sydney.edu.au}
+
+\begin{document}
+
+\begin{letter}{Professor A.U.\ Igamberdiev\\Editor, BioSystems}
+
+\opening{Dear Professor Igamberdiev,}
+
+Please find enclosed the revised manuscript BIOSYS-D-25-00981, ``Coherence time in biological oscillator assemblies bounds the rate of state registration,'' for consideration as a revised submission to \textit{BioSystems}.
+
+I thank both reviewers for their constructive feedback. All requests have been addressed in full.
+
+\medskip
+\textbf{Response to Reviewer \#1}
+
+\medskip
+\textit{Reviewer:} ``The speed of thinking is restricted by the Landauer and Margolus-Levitin bounds\ldots\ This should be discussed in the revised version.''
+
+\textit{Response:} Section 2.3 (``Quantum and thermodynamic limits of computation'') now explicitly addresses the Landauer bound, the Margolus-Levitin quantum speed limit, and the energy-time uncertainty relation, showing that coherence time exceeds quantum speed limits by eleven orders of magnitude in biological neural systems. Multi-module phase coordination---not quantum switching speed or Landauer dissipation---determines processing rate.
+
+\medskip
+\textbf{Response to Reviewer \#2}
+
+\medskip
+\textit{Reviewer:} ``Speed of thought should be changed to speed of neural processes associated with thinking.''
+
+\textit{Response:} ``Speed of thought'' has been replaced with ``neural processes associated with cognition'' throughout, including the abstract.
+
+\medskip
+\textit{Reviewer:} ``Quantum limits of information transmission based on energy-time uncertainty relation should be discussed.''
+
+\textit{Response:} Energy-time uncertainty is discussed in \S2.3, following the framework developed by Igamberdiev (2021, 2025, 2026).
+
+\medskip
+\textit{Reviewer:} Cite four specific BioSystems papers (DOIs provided).
+
+\textit{Response:} All four are now cited: Igamberdiev (2021, 104471), Igamberdiev (2025, 105451), Igamberdiev (2026, 105707), and Khrennikov et al.\ (2025, 105573).
+
+\medskip
+\textit{Reviewer:} ``Abstract should not contain references. Also, if formulas cannot be avoided in abstract, it would be better that you simplify them wherever possible.''
+
+\textit{Response:} The abstract (217 words) contains no citation numbers. Mathematical notation has been simplified; only simple inline symbols ($M$, $r$, $\varepsilon$) are retained for precision.
+
+\medskip
+\textbf{Additional improvements}
+
+\medskip
+Beyond the reviewer requests, the revision includes: unified notation ($\lambda_{\text{attempt}}$, s$^{-1}$); improved Kuramoto validation methodology (Kaplan-Meier survival analysis, theory-consistent fitting, $\hat{\alpha} = 0.99$, $R^2 = 0.97$); sensitivity analyses for module-size confound and dwell-time threshold; explicit discussion of participation ratio vs.\ scaling exponent; new sections on frequency-dimensionality (\S4.5, with spatial extent argument and four empirical predictions) and subjective temporal scaling (\S4.6, with pharmacological predictions across four drug classes); two new figures; and an expanded limitations section addressing parameter identifiability and regime boundaries. The manuscript has grown from 41 to 47 pages. All simulation code is available at \url{https://github.com/todd866/coherence-time}.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

@@ -7,25 +7,28 @@
 
 ## Overview
 
-When multiple semi-independent oscillator modules must synchronise within a tolerance window before a system can register a state transition, the waiting time grows exponentially with coordination depth. We derive the scaling law (Eq. 4):
+When multiple semi-independent oscillator modules must synchronise within a tolerance window before a system can register a state transition, the waiting time grows exponentially with coordination depth. We derive the scaling law:
 
-$$\tau_{\text{coh}} \approx \frac{1}{\Delta\omega} \cdot p_1(\varepsilon, \kappa)^{-\alpha(M-1)}$$
+$$\tau_{\text{coh}} = \frac{1}{\lambda_{\text{attempt}}} \cdot p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}$$
 
-where M is coordination depth, p_1 is single-variable alignment probability, alpha is effective independence (topology-dependent), and Delta-omega is the phase exploration rate. The exponent is (M-1), not M, because alignment is rotationally invariant.
+where *M* is coordination depth, *r* is inter-module coherence, *p*&#8321; is single-variable alignment probability under von Mises closure, *alpha* is effective independence (topology-dependent), and *lambda*_attempt is the phase exploration rate. The exponent is (*M*-1), not *M*, because alignment is rotationally invariant.
 
 ## Key Results
 
-- **Exponential scaling**: Coherence time grows exponentially with number of coordinating modules, explaining why neural binding is slow relative to spike transmission
-- **Topology dependence**: All-to-all, modular, and sparse coupling topologies produce distinct effective independence parameters alpha, validated by Kuramoto simulation
-- **Quantitative predictions**: Visual binding (30-70 ms), cross-modal integration (100-150 ms), and 1000x flicker fusion range across taxa all follow from the scaling law
-- **Thermodynamic dominance**: Coherence time exceeds quantum speed limits and Landauer bounds by 11 orders of magnitude in neural systems
+- **Exponential scaling**: Coherence time grows exponentially with number of coordinating modules, validated in Kuramoto simulations (R^2 = 0.97 for modular networks)
+- **Speed-flexibility trade-off**: Increasing *M* expands combinatorial flexibility but slows commits exponentially; increasing *r* speeds commits but restricts dynamics to low-dimensional attractors
+- **Binding windows**: Visual binding (30-50 ms) reproduced from independently constrained parameters
+- **Thermodynamic dominance**: Coherence time exceeds quantum speed limits by 11 orders of magnitude in neural systems
+- **Pharmacological predictions**: The ratio D_eff / Gamma_commit predicts subjective temporal scaling across four drug classes (psychedelics, deliriants, anaesthetics, stimulants) from a two-parameter structure
+- **Regime boundaries**: Modular architecture is a necessary condition; sparse random networks fail the scaling law (R^2 = 0.28), confirming the framework predicts its own regime of validity
 
 ## Running Simulations
 
 ```bash
 cd simulations
 python3 kuramoto_coherence_time.py       # Main Kuramoto validation (all topologies)
-python3 generate_combined_figure.py      # Generate Figure 1 (combined panel)
+python3 generate_combined_figure.py      # Generate Figure 1 (topology comparison)
+python3 generate_new_figures.py          # Generate Figures 2-3 (D_eff scaling, pharmacological space)
 python3 supplementary_analyses.py        # Supplementary validation figures
 ```
 

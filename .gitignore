@@ -31,8 +31,7 @@ ig/
 # Revision workflow (all internal — R1 promoted to top-level)
 revisions/
 
-# Original submission (archived)
-original_submission/
+# Original submission preserved in repo for provenance
 
 # Virtual environments
 .venv/
