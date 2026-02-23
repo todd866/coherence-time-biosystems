@@ -1,0 +1,5 @@
+Coherence time scales exponentially with coordination depth in oscillator networks
+Phase delta regime identified as sub-Landauer computation before commitment
+Extracellular field is the physical carrier of high-dimensional pre-commit dynamics
+Binding window calculation reproduces empirical 30-50 ms from first principles
+Speed-flexibility trade-off generates testable pharmacological predictions

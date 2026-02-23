@@ -16,7 +16,7 @@
 
 Please find enclosed the revised manuscript BIOSYS-D-25-00981, ``Coherence time in biological oscillator assemblies bounds the rate of state registration,'' for consideration as a revised submission to \textit{BioSystems}.
 
-I thank both reviewers for their constructive feedback. All requests have been addressed in full.
+I thank both reviewers for their constructive feedback. All points raised have been addressed, and the revision includes substantial additional developments.
 
 \medskip
 \textbf{Response to Reviewer \#1}
@@ -24,7 +24,7 @@ I thank both reviewers for their constructive feedback. All requests have been a
 \medskip
 \textit{Reviewer:} ``The speed of thinking is restricted by the Landauer and Margolus-Levitin bounds\ldots\ This should be discussed in the revised version.''
 
-\textit{Response:} Section 2.3 (``Quantum and thermodynamic limits of computation'') now explicitly addresses the Landauer bound, the Margolus-Levitin quantum speed limit, and the energy-time uncertainty relation, showing that coherence time exceeds quantum speed limits by eleven orders of magnitude in biological neural systems. Multi-module phase coordination---not quantum switching speed or Landauer dissipation---determines processing rate.
+\textit{Response:} Section 2.4 (``Quantum and thermodynamic limits of computation'') now explicitly addresses the Landauer bound, the Margolus-Levitin quantum speed limit, and the energy-time uncertainty relation. For neural-scale energies, QSL and Landauer bounds are far below observed cognitive timescales (by approximately eleven orders of magnitude) and are therefore not rate-limiting in this regime. The power limit ($\tau_{\mathrm{power}}$) is now quantified with a detailed back-of-envelope calculation (\S2.1) showing it is non-binding even at biophysical (not merely Landauer-floor) energy scales.
 
 \medskip
 \textbf{Response to Reviewer \#2}
@@ -37,7 +37,7 @@ I thank both reviewers for their constructive feedback. All requests have been a
 \medskip
 \textit{Reviewer:} ``Quantum limits of information transmission based on energy-time uncertainty relation should be discussed.''
 
-\textit{Response:} Energy-time uncertainty is discussed in \S2.3, following the framework developed by Igamberdiev (2021, 2025, 2026).
+\textit{Response:} Energy-time uncertainty is discussed in \S2.4, following the framework developed by Igamberdiev (2021, 2025, 2026).
 
 \medskip
 \textit{Reviewer:} Cite four specific BioSystems papers (DOIs provided).
@@ -47,13 +47,32 @@ I thank both reviewers for their constructive feedback. All requests have been a
 \medskip
 \textit{Reviewer:} ``Abstract should not contain references. Also, if formulas cannot be avoided in abstract, it would be better that you simplify them wherever possible.''
 
-\textit{Response:} The abstract (217 words) contains no citation numbers. Mathematical notation has been simplified; only simple inline symbols ($M$, $r$, $\varepsilon$) are retained for precision.
+\textit{Response:} The abstract contains no citation numbers. Mathematical notation has been simplified; only simple inline symbols ($M$, $r$, $\varepsilon$) are retained for precision.
 
 \medskip
 \textbf{Additional improvements}
 
 \medskip
-Beyond the reviewer requests, the revision includes: unified notation ($\lambda_{\text{attempt}}$, s$^{-1}$); improved Kuramoto validation methodology (Kaplan-Meier survival analysis, theory-consistent fitting, $\hat{\alpha} = 0.99$, $R^2 = 0.97$); sensitivity analyses for module-size confound and dwell-time threshold; explicit discussion of participation ratio vs.\ scaling exponent; new sections on frequency-dimensionality (\S4.5, with spatial extent argument and four empirical predictions) and subjective temporal scaling (\S4.6, with pharmacological predictions across four drug classes); two new figures; and an expanded limitations section addressing parameter identifiability and regime boundaries. The manuscript has grown from 41 to 47 pages. All simulation code is available at \url{https://github.com/todd866/coherence-time}.
+Beyond the reviewer requests, the revision includes several substantial developments:
+
+\begin{itemize}
+\item \textbf{Phase delta regime} (\S2.3): New section identifying the pre-commit interval---in which structured inter-module phase relationships bias downstream outcomes without discrete state registration---as a computationally productive mode operating below the Landauer threshold. Includes formal Definition~2 and the speed-flexibility trade-off (Proposition~2).
+
+\item \textbf{Substrate identification} (\S2.1): Argument from the framework's own definitions that the extracellular electric field is the physical carrier of the phase delta regime: it is the only substrate in neural tissue that is simultaneously continuous, spatially extended, and high-dimensional. The causal significance of ephaptic coupling follows from two premises: fields modulate spike timing (Anastassiou et al.\ 2011), and timing is causally significant (the paper's central result). The magnitude of the effect scales with effective dimensionality $D_{\mathrm{eff}}$.
+
+\item \textbf{Power limit quantified} (\S2.1): Back-of-envelope calculation showing $\tau_{\mathrm{power}} \sim 10^{-15}$--$10^{-8}$~s, non-binding even at biophysical energy scales. Added to the hierarchy listing in \S2.4.
+
+\item \textbf{Improved validation methodology}: Kaplan-Meier survival analysis for censored first-passage times, theory-consistent fitting ($\hat{\alpha} = 0.99$, $R^2 = 0.97$), and regime-boundary diagnostics across three network topologies.
+
+\item \textbf{New sections}: Frequency-dimensionality relationship (\S4.5), subjective temporal scaling (\S4.6) with pharmacological predictions across four drug classes from a two-parameter structure.
+
+\item \textbf{Expanded limitations}: Parameter identifiability, regime boundaries ($R^2 = 0.28$ for non-modular networks), module-size confound analysis, dwell-time sensitivity.
+\end{itemize}
+
+The manuscript has grown from 41 to 55 pages to accommodate these developments.
+
+\medskip
+\textbf{Data and code availability.} All simulation code and parameter estimation workflows are available at \url{https://github.com/todd866/coherence-time}.
 
 \closing{Sincerely,}
 

@@ -37,7 +37,7 @@ Sydney, NSW, Australia\\
 \maketitle
 
 \begin{abstract}
-The physical principles determining how fast distributed neural assemblies can synchronize---and thus how fast the neural processes underlying cognition can proceed---remain incompletely formalized. We derive a coherence time bound for coupled oscillator networks: the minimum interval between irreversible state registrations (``commits'') scales exponentially with coordination depth $M$. For $M$ semi-independent modules requiring phase alignment at coherence $r$, the commit rate is dominated by rare-event first-passage time on the configuration torus, producing a fundamental speed-flexibility trade-off---increasing $M$ expands combinatorial flexibility but slows commits exponentially; increasing $r$ accelerates synchronization but restricts dynamics to low-dimensional attractors. We situate this coordination limit within a hierarchy of physical bounds including quantum speed limits and Landauer-Margolus-Levitin thermodynamic constraints, showing that coordination dominates by eleven orders of magnitude in biological neural systems. We validate the scaling law in Kuramoto simulations ($R^2 = 0.97$ for modular networks) and show that the binding window calculation reproduces the empirical 30--50 ms range from independently constrained parameters. The framework generates testable predictions: alpha entrainment via tACS should shift binding windows linearly with frequency; the ratio $D_{\mathrm{eff}} / \Gamma_{\mathrm{commit}}$ predicts subjective temporal scaling, yielding qualitatively distinct predictions across four pharmacological classes from a two-parameter structure; and subjective time dilation under acute stress is explained as a dual-loop dissociation between high-$M$ perceptual and low-$M$ motor commit architectures.
+The physical principles determining how fast distributed neural assemblies can synchronize---and thus how fast the neural processes underlying cognition can proceed---remain incompletely formalized. We derive a coherence time bound for coupled oscillator networks: the minimum interval between irreversible state registrations (``commits'') scales exponentially with coordination depth $M$. For $M$ semi-independent modules requiring phase alignment at coherence $r$, the commit rate is dominated by rare-event first-passage time on the configuration torus, producing a fundamental speed-flexibility trade-off---increasing $M$ expands combinatorial flexibility but slows commits exponentially; increasing $r$ accelerates synchronization but restricts dynamics to low-dimensional attractors. We identify the pre-commit \emph{phase delta regime}---in which structured inter-module phase relationships bias downstream outcomes without discrete state registration---as a computationally productive mode operating below the Landauer threshold, distinct from phase synchrony as conventionally understood in the binding literature. We situate this coordination limit within a hierarchy of physical bounds including quantum speed limits and Landauer-Margolus-Levitin thermodynamic constraints, showing that coordination dominates by eleven orders of magnitude in biological neural systems. We validate the scaling law in Kuramoto simulations ($R^2 = 0.97$ for modular networks) and show that the binding window calculation reproduces the empirical 30--50 ms range from independently constrained parameters. The framework generates testable predictions: alpha entrainment via tACS should shift binding windows linearly with frequency; the ratio $D_{\mathrm{eff}} / \Gamma_{\mathrm{commit}}$ predicts subjective temporal scaling, yielding qualitatively distinct predictions across four pharmacological classes from a two-parameter structure; and subjective time dilation under acute stress is explained as a dual-loop dissociation between high-$M$ perceptual and low-$M$ motor commit architectures.
 \end{abstract}
 
 \textbf{Keywords:} biological oscillations, coherence time, coordination depth, temporal resolution, quantum speed limits, Landauer bound, coupled oscillators
@@ -55,6 +55,8 @@ Yet despite extensive empirical characterization, the physical principles govern
 Recent work argued that living intelligence is an emergent property of high-dimensional, self-sustaining dynamical systems that maintain coherence against decoherence~\cite{todd2025intelligence}, building on analyses of falsifiability limits in adaptive biological systems~\cite{todd2025biosystems} and timing inaccessibility in sub-Landauer computation~\cite{todd2025demon}. The present manuscript addresses the complementary question: given such a coherent high-dimensional system, what sets the fastest timescale on which it can register change and update its state?
 
 We formalize this as the minimum interval between irreversible ``commit'' events---transitions in which distributed dynamics become readable to downstream mechanisms, consistent with the emerging view that perception operates in discrete cycles~\cite{vanrullen2016}. This commit interval is bounded by a coordination term (coherence time as a first-passage problem on a product manifold) together with quantum, noise, and power limits.
+
+\textbf{Operational definition of state registration.} A \emph{registration} (or ``commit'') is an event that (i) requires multi-module coordination---simultaneous phase alignment across semi-independent neural assemblies, (ii) produces a stable macrostate with measurable dwell time, and (iii) is detectable as a discrete update in behaviour, downstream neural population state, or EEG/MEG decoding accuracy. The framework addresses the temporal resolution of such events; it does not claim that all neural computation reduces to discrete registrations.
 
 \textbf{Operational definition of commits in neural systems.} A commit is operationally detected when distributed oscillatory dynamics cross a threshold that enables downstream readout. Empirical signatures include: (i) phase-locking index exceeding threshold across specified modules for a minimum duration, (ii) onset of stable cross-frequency coupling (e.g., theta-gamma PAC), (iii) classifier-detectable state transition in downstream neural populations. We do not claim all neural computation reduces to discrete commits; rather, we claim that the \emph{fastest update of downstream state} is bounded by the time required for multi-module phase alignment. The framework addresses temporal resolution limits, not the full richness of neural dynamics.
 
@@ -102,7 +104,7 @@ These are \emph{estimators} of the underlying physical property. Future work may
 
 \subsection{Structure of this work}
 
-We first derive the coherence time formula from principles of phase synchronization in coupled oscillator networks (\S2.1), then characterize the speed-flexibility trade-off (\S2.2). Section 2.3 situates our framework within the hierarchy of physical limits on computation, addressing the Landauer bound, Margolus-Levitin quantum speed limit, and energy-time uncertainty relation. Section 2.4 provides parameter estimation protocols. Section 3 applies the framework to neural systems, demonstrating quantitative agreement with perceptual binding windows, tachypsychia dissociations, and metabolic scaling. Section 4 discusses generalization, the relationship between frequency and dimensionality, limitations, and testable predictions.
+We first derive the coherence time formula from principles of phase synchronization in coupled oscillator networks (\S2.1), then characterize the speed-flexibility trade-off (\S2.2). Section 2.3 identifies the pre-commit phase delta regime as a computationally productive mode and connects it to sub-Landauer operation. Section 2.4 situates our framework within the hierarchy of physical limits on computation, addressing the Landauer bound, Margolus-Levitin quantum speed limit, and energy-time uncertainty relation. Section 2.5 provides parameter estimation protocols. Section 3 applies the framework to neural systems, demonstrating quantitative agreement with perceptual binding windows, tachypsychia dissociations, and metabolic scaling. Section 4 discusses generalization, the relationship between frequency and dimensionality, limitations, and testable predictions.
 
 \section{Theory and Methods}
 
@@ -137,6 +139,7 @@ For biological temperatures ($\Delta E \sim \kB T$), $\tau_{\mathrm{QSL}} \sim 1
 \[
 \tau_{\mathrm{power}} = \frac{\lambda_{\mathcal{D}}\Delta\mathcal{D}}{P}
 \]
+For cortical visual binding: $\Delta\mathcal{D} \sim 50$ (participation ratio of visual cortex assemblies collapsing to a $\sim$5-bit readout), $\lambda_{\mathcal{D}} \geq \kB T \ln 2 \approx 3 \times 10^{-21}$~J (Landauer floor), and $P \sim 10^{-4}$~W (power budget of a $\sim$$10^4$-neuron cortical assembly at $\sim$10~nW/neuron). This yields $\tau_{\mathrm{power}} \sim 10^{-15}$~s at the Landauer minimum. Biological neurons are energetically inefficient: ion-channel computation dissipates $\sim$$10^7$ times the Landauer floor per degree of freedom~\cite{landauer1961}. Even at this biophysical scale, $\tau_{\mathrm{power}} \sim 10^{-8}$~s---still six orders of magnitude below $\tau_{\mathrm{coh}}$. The power limit is therefore non-binding in the neural regime.
 
 \paragraph{Coherence time ($\tau_{\mathrm{coh}}$).}
 We model commits as threshold crossings requiring $M$ semi-independent modules to achieve simultaneous phase alignment within tolerance $\varepsilon$, building on the theory of coupled oscillators~\cite{kuramoto1984,acebron2005}.
@@ -196,18 +199,20 @@ This is \emph{not} the carrier frequency of oscillations, but the rate at which 
 
 We estimate $\lambda_{\mathrm{attempt}}$ from the inverse decorrelation time of the inter-module order parameter $z_{\mathrm{inter}}(t) = \frac{1}{M}\sum_m e^{i\psi_m(t)}$, where $\psi_m(t)$ is the mean phase of module $m$. The decorrelation time $\tau_{\mathrm{mix}}$ is defined as the $1/e$ crossing of the autocorrelation function of $|z_{\mathrm{inter}}(t)|$, and $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$.
 
-\textbf{Simulation proxy.} In simulations, $\lambda_{\mathrm{attempt}}$ is measured directly from the autocorrelation of $|z_{\mathrm{inter}}(t)|$. An alternative proxy---the standard deviation of instantaneous phase velocities across oscillators (``effective frequency spread'' $\Delta\omega$ in rad/s)---is proportional to $\lambda_{\mathrm{attempt}}$ in weakly-coupled regimes, with $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ (since rad is dimensionless). For neural data analysis, we recommend estimating $\lambda_{\mathrm{attempt}}$ from the autocorrelation time of inter-module phase deviations, which directly measures the mixing timescale.
+\textbf{Units convention.} We report $\lambda_{\mathrm{attempt}}$ in s$^{-1}$. When using the spectral spread proxy, $\Delta\omega$ (rad/s) is the standard deviation of instantaneous phase velocities; the corresponding frequency spread is $\Delta f = \Delta\omega/(2\pi)$ in Hz. In weakly-coupled regimes, $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ (since the radian is dimensionless, $\Delta\omega$ in rad/s and $\lambda_{\mathrm{attempt}}$ in s$^{-1}$ are directly comparable); equivalently, $\lambda_{\mathrm{attempt}} \approx 2\pi\Delta f$.
+
+\textbf{Simulation proxy.} In simulations, $\lambda_{\mathrm{attempt}}$ is measured directly from the autocorrelation of $|z_{\mathrm{inter}}(t)|$, which gives $1/\tau_{\mathrm{mix}}$ in s$^{-1}$ without angular ambiguity. The spectral spread proxy is used only as a consistency check. For neural data analysis, we recommend estimating $\lambda_{\mathrm{attempt}}$ from the autocorrelation time of inter-module phase deviations, which directly measures the mixing timescale.
 
 This yields:
 \begin{equation}\label{eq:coh-time-exact}
 \tau_{\mathrm{coh}} = \frac{1}{\lambda_{\mathrm{attempt}}}\,p_1(\varepsilon, \kappa(r))^{-(M-1)}
 \end{equation}
 
-For coupled modules (weak inter-module coupling), the effective exponent is reduced:
+Relaxing the independence assumption in Eq.~\ref{eq:coh-time-exact} for coupled modules, the effective exponent is reduced:
 \begin{equation}\label{eq:coh-time}
 \boxed{\tau_{\mathrm{coh}} \approx \frac{1}{\lambda_{\mathrm{attempt}}}\,p_1(\varepsilon, \kappa(r))^{-\alpha(M-1)}},\qquad \alpha\in(0,1],
 \end{equation}
-where $\alpha$ captures \emph{effective independence}: $\alpha = 1$ for fully independent modules; $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints.
+where $\alpha$ captures \emph{effective independence} (a correlation-reduction exponent: $\alpha = 1$ for fully independent modules, $\alpha < 1$ when inter-module coupling induces correlations that reduce the effective number of constraints).
 
 \textbf{Estimating effective constraint dimension.} Define the \textbf{effective constraint dimension}:
 \[
@@ -276,11 +281,23 @@ The three topologies serve as validation (modular) and regime-boundary diagnosti
 
 \textbf{Heavy-tailed waiting times.} Empirically observed inter-commit intervals may exhibit heavy tails even when the underlying process is well-described by Eq.~\ref{eq:coh-time}. This arises naturally when $r(t)$, $\lambda_{\mathrm{attempt}}(t)$, or network state drift slowly relative to the commit timescale. The marginal waiting time distribution then becomes a \emph{mixture of exponentials} (a Cox or doubly stochastic process), which can produce power-law-like tails. The key testable prediction is that waiting times \emph{conditional on a narrow bin of $r$} should remain approximately exponential, even when the unconditional distribution is heavy-tailed.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{simulations/figures/fig_conditional_exponentiality.pdf}
+\caption{\textbf{Conditional exponentiality validation.}
+Unconditional inter-commit interval distribution (left) shows apparent heavy-tailed behaviour. Conditioning on narrow bins of inter-module coherence $r_{\mathrm{inter}}$ (right) recovers approximately exponential waiting times within each bin (Kolmogorov-Smirnov test), confirming that the heavy tail arises from slow drift of $r(t)$, not from a non-exponential first-passage mechanism. This converts the ``heavy tails'' limitation into a validated secondary prediction of the framework.}
+\label{fig:conditional-exponentiality}
+\end{figure}
+
 \textbf{Physical interpretation:} $M$ is the \textbf{coordination depth}---the number of semi-independent modules (functional clusters) whose order parameters must jointly exceed a threshold for a commit to register. \emph{Modules are not individual oscillators}: within-module coherence is absorbed into the module's aggregate phase estimate. $\lambda_{\mathrm{attempt}}$ is the \textbf{attempt rate}: the characteristic rate at which inter-module phases decorrelate and ``resample'' (not the carrier frequency). The tolerance $\varepsilon$ is the \textbf{full phase window width} (in radians); $\varepsilon = \pi/2$ corresponds to $\pm 45^\circ$ alignment tolerance, typical for gamma-band binding.
 
 \textbf{Foundational assumption: continuous coordination variables.} This framework focuses on continuous phase variables as the coordination substrate. The commit definition, alignment probabilities, and rare-event statistics are naturally expressed in phase coordinates because phases can \emph{explore} configuration space between commits---the core requirement for the first-passage geometry we model.
 
-Spike trains may participate in coordination (e.g., through spike-field coupling or spike-timing-dependent plasticity), but our framework does not require taking a position on whether spikes or fields are ``fundamental.'' What matters is that \emph{some} continuous coordination variable exists whose alignment determines commit timing. Candidate substrates include local field potentials, ephaptic coupling~\cite{anastassiou2011,pinotsis2023,han2018}, dendritic integration, subthreshold dynamics, and synaptic state variables. The coherence-time framework applies regardless of the specific coupling mechanism. Whether ephaptic coupling is functionally significant---a question that remains open, particularly near criticality~\cite{beggs2003,shew2013}---does not affect the core result: inter-module phase coordination limits processing rate whenever commits require multi-module alignment.
+If commits are discrete state registrations (spike cascades, readout events) and the phase delta regime is the continuous, high-dimensional exploration between commits, then the pre-commit dynamics must reside in a physical substrate distinct from spike trains themselves. This constrains the candidate substrates. Chemical synaptic transmission requires presynaptic spikes and involves quantal vesicle release---it is fundamentally discrete. Gap junctions provide continuous electrical coupling but are sparse in cortex. Diffusible neuromodulators operate on timescales too slow for oscillatory-phase coordination. The remaining candidate is the \textbf{extracellular electric field}: it is continuous in space and time, spatially extended across modules, and has as many degrees of freedom as there are spatial points in the tissue---precisely the high-dimensional, continuous substrate that the phase delta regime requires. The local field potential is our measurement of this field; ephaptic coupling~\cite{anastassiou2011,pinotsis2023,han2018} is the mechanism by which it modulates spike timing.
+
+This identification is not an auxiliary hypothesis but a consequence of the framework's own definitions: any model that posits continuous high-dimensional dynamics between discrete commits has implicitly committed to a field-level substrate, because no other physical variable in neural tissue is simultaneously continuous, spatially extended, and high-dimensional. Synaptic networks drive the oscillations and shape the attractor landscape, but the state space that the system explores between commits---the phase delta regime---is the field.
+
+The causal significance of the field follows from two premises, both elementary. First, extracellular electric fields modulate membrane potential, and membrane potential determines spike timing~\cite{anastassiou2011}; denying this would require neurons to be somehow shielded from the field they are embedded in, which is physically untenable. Second, the central result of this paper is that timing is causally significant: the phase relationships between modules determine when commits occur and what the system computes in the pre-commit interval. If fields affect timing and timing is causally significant, then fields are causally significant. The open empirical question is not \emph{whether} ephaptic coupling matters but \emph{how much} it contributes relative to synaptic coupling in a given regime~\cite{anastassiou2011,beggs2003,shew2013}. The framework provides its own answer: the functional significance of field-mediated timing shifts scales with the effective dimensionality $\Deff$ of the system. In a low-dimensional regime (high $r$, phases locked by strong synaptic coupling), timing deltas carry little information and field perturbations are swamped. In the high-dimensional phase delta regime (moderate $r$, many semi-independent modules), each inter-module phase relationship is a degree of freedom, and small field-mediated timing shifts propagate through $\Deff$ dimensions simultaneously. Near criticality, $\Deff$ is maximal~\cite{shew2013}, and even weak ephaptic effects act on the largest possible number of independent timing relationships---which is precisely why critical neural systems may be the regime where field effects become functionally decisive.
 
 \subsection{The speed-flexibility trade-off}
 
@@ -298,6 +315,43 @@ Increasing coordination depth $M$ expands the dimensionality of commit-registere
 
 Importantly, this does not imply that \textbf{all} neural activity becomes low-dimensional; amplitude patterns, cross-frequency interactions, and within-module heterogeneity can remain rich. The dimensionality reduction refers specifically to the inter-module phase coordination subspace.
 
+\subsection{The phase delta regime: computation before commitment}
+
+The coherence time formula (Eq.~\ref{eq:coh-time}) describes the waiting time for simultaneous multi-module alignment. A natural reading treats the pre-commit interval as passive exploration---random phase diffusion until alignment occurs by chance. We argue this reading misses the computationally productive regime.
+
+\begin{definition}[Phase delta regime]\label{def:phase-delta}
+The \textbf{phase delta regime} is the dynamical state in which inter-module phase differences $\Delta\psi_{mn}(t) = \psi_m(t) - \psi_n(t)$ are maintained in structured (non-uniform) configurations that persist over timescales longer than $1/\lambda_{\mathrm{attempt}}$ but do not satisfy the alignment criterion $|\Delta\psi_{mn}| < \varepsilon$ for all pairs. Formally, the system occupies the phase delta regime when:
+\begin{enumerate}
+\item Phase differences are \emph{structured}: the distribution of $\{\Delta\psi_{mn}\}$ is non-uniform, concentrated near preferred offsets that reflect coupling topology and recent history.
+\item Phase differences are \emph{not locked}: inter-module coherence $r_{\mathrm{inter}}$ remains bounded away from 1, preserving degrees of freedom in the relative-phase subspace.
+\item The configuration \emph{biases future commits}: the conditional probability of commit outcomes given current phase differences differs from the unconditional probability.
+\end{enumerate}
+\end{definition}
+
+In this regime, the system performs \emph{analog computation}: the evolving phase relationships between modules continuously update which commit outcomes are accessible, without registering a discrete state. The commit is not the computation---it is the \emph{readout} of computation that has already occurred in the phase delta regime.
+
+A system with $M$ modules spends the overwhelming majority of time in the phase delta regime. The fraction of time spent in committed states scales as $P(A_\varepsilon) \propto p_1^{\alpha(M-1)}$, which for biologically relevant parameters ($M \sim 8$, $p_1 \sim 0.7$, $\alpha \sim 0.7$) gives $P(A_\varepsilon) \sim 0.15$. The remaining $\sim 85\%$ of dynamics occurs in the phase delta regime. This is where the ``thinking'' happens; commits are punctuation marks, not sentences.
+
+\paragraph{Bias without collision.} The standard neural oscillation literature treats phase synchrony as a \emph{binding} mechanism: when phases lock, information from different modules is bound into a unified representation~\cite{singer1999,fries2005}. The phase delta framework suggests a different interpretation. The computationally relevant regime is not phase locking itself but the \emph{approach to} phase locking---the interval during which structured phase relationships bias downstream dynamics without collapsing to a committed state.
+
+This distinction matters because bias and binding have different computational signatures:
+\begin{itemize}
+\item \textbf{Binding} (phase locking, $r_{\mathrm{inter}} \to 1$): Collapses inter-module phase degrees of freedom. The system occupies a low-dimensional synchronized manifold. Downstream readout is possible, but combinatorial flexibility is lost.
+\item \textbf{Biasing} (structured phase deltas, intermediate $r_{\mathrm{inter}}$): Maintains inter-module phase degrees of freedom while constraining their distribution. The system explores a high-dimensional configuration space with \emph{anisotropic} probability---some commit outcomes become more accessible than others without being determined.
+\end{itemize}
+
+\noindent\textbf{Biophysical mechanism of pre-commit bias.} How do structured phase relationships influence downstream circuits before a commit occurs? The extracellular electric field provides the primary channel: oscillatory phase modulates neuronal excitability via ephaptic coupling~\cite{anastassiou2011,fries2005}, so structured inter-module phase offsets create spatially patterned gain fields in downstream targets even without synchronous firing. This field-mediated bias is then consolidated through two synaptic mechanisms that accumulate across the pre-commit interval: subthreshold dendritic integration of temporally structured input, and short-term synaptic facilitation and depression that reshape the efficacy landscape in a phase-structure-dependent manner. The field bias is graded, reversible, and operates below the Landauer threshold; the synaptic consolidation converts it into a form that persists through the commit.
+
+The speed-flexibility trade-off (Proposition~\ref{prop:tradeoff}) can now be restated in terms of the phase delta regime: increasing $r$ accelerates the transition \emph{from} the phase delta regime \emph{to} a commit, but shortens the duration of analog computation available before commitment. Systems that commit too quickly lose the computational benefit of exploring the phase delta regime; systems that never commit fail to register outcomes for downstream use.
+
+\paragraph{Sub-Landauer operation of the phase delta regime.} Phase delta maintenance operates below the Landauer floor because no discrete state is being erased. Landauer's principle~\cite{landauer1961} applies to logically irreversible operations---specifically, the erasure of a bit, which requires dissipating at least $\kB T \ln 2$. In the phase delta regime, the system biases future outcomes through analog phase relationships that never crystallize into a discrete state requiring erasure. The energy cost of maintaining a structured phase relationship is the coupling energy between modules, which scales with coupling strength $K$ and can be arbitrarily small relative to $\kB T \ln 2$ per degree of freedom.
+
+This is precisely the regime identified in the analysis of timing inaccessibility in continuous biological substrates~\cite{todd2025demon}: systems with continuous state variables can perform computational work---systematically biasing future trajectories---without crossing the Landauer threshold, because intermediate states are never erased but simply evolve. The coherence time $\tau_{\mathrm{coh}}$ quantifies how long the system can sustain this sub-Landauer biasing before the accumulated phase relationships either commit (alignment within $\varepsilon$) or decorrelate (bias dissipates). Short coherence time means the bias dissipates before it can influence downstream dynamics. Long coherence time means the phase relationship persists long enough to shape outcomes without ever hardening into a discrete state that would incur erasure costs.
+
+\paragraph{Discrete structure from continuous dynamics.} A natural objection is that intelligence evidently produces discrete structure---phoneme boundaries, categorical percepts, motor primitives, genetic codes---and that this discreteness implies fundamentally combinatorial, and therefore low-dimensional, computation. The phase delta framework resolves this tension. Discrete structure is not the substrate of computation but its \emph{output}: it emerges at commits, where $M-1$ continuous phase degrees of freedom collapse to a low-dimensional registered state. Code formation---the appearance of a finite alphabet of distinguishable outputs from a continuous dynamical system---is the emergent property of this dimensional collapse, not an architectural prerequisite for it (see Theorem~2 in~\cite{todd2025intelligence} for the formal thermodynamic argument).
+
+This reframes the relationship between combinatorial and continuous computation. Combinatorial explosion is a property of \emph{low-dimensional, collision-dense} systems: when states are discrete and few, the number of possible trajectories grows exponentially with sequence length. High-dimensional continuous dynamics avoid this explosion because trajectories in high-dimensional spaces generically do not collide---a consequence of concentration of measure~\cite{todd2025intelligence}. The phase delta regime exploits this collision-free geometry to bias outcomes without encountering combinatorial branching. Discrete structure---and with it, combinatorial power---appears only at the commit interface, where the system reduces dimensionality to produce readable output. The combinatorial richness of language ($\sim$40 phonemes generating infinite sentences) or genetics (4 bases encoding all of biology) is not a property of the underlying dynamics but of the code that emerges from dimensional collapse at the readout boundary.
+
 \subsection{Quantum and thermodynamic limits of computation}
 
 How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~\cite{landauer1961,bormashenko2024} requires dissipation of at least $\kB T \ln 2 \approx 3 \times 10^{-21}$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~\cite{margolus1998} and Mandelstam-Tamm relation~\cite{mandelstam1945} together establish the quantum speed limit $\tau_{\mathrm{QSL}} = \max[\pi\hbar/(2\langle E\rangle),\; \hbar/(2\Delta E)]$, originating from the energy-time uncertainty relation $\Delta E \cdot \Delta t \gtrsim \hbar/2$~\cite{khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic}. As Bormashenko~\cite{bormashenko2024} notes, synthesis of these bounds yields a minimal computation time $\tau_{\min} \sim h/\kB T$. At biological temperatures ($\langle E\rangle \sim \kB T$), $\tau_{\mathrm{QSL}} \sim 10^{-13}$ s.
@@ -305,11 +359,12 @@ How does the coordination-based framework relate to fundamental physical limits?
 The hierarchy for cortical visual processing is:
 \begin{align}
 \tau_{\mathrm{QSL}} &\sim 10^{-13} \text{ s} \quad \text{(quantum speed limit)} \\
+\tau_{\mathrm{power}} &\sim 10^{-15}\text{--}10^{-8} \text{ s} \quad \text{(power limit; see \S2.1)} \\
 \tau_{\mathrm{SNR}} &\sim 10^{-3} \text{ s} \quad \text{(signal detection)} \\
 \tau_{\mathrm{coh}} &\sim 10^{-2} \text{ s} \quad \text{(coordination time)}
 \end{align}
 
-Coherence time exceeds quantum limits by eleven orders of magnitude. The gap arises because neural computation is not limited by how fast individual elements switch states, but by how long distributed assemblies take to achieve coordinated phase alignment. Even modest coordination ($M \sim 5$--15) produces millisecond-scale coherence times from microsecond-scale phase dynamics. Quantum and thermodynamic bounds set absolute floors, but biological systems operate in a regime where multi-module coordination determines processing rate.
+For neural-scale energies, QSL and Landauer bounds are far below observed cognitive timescales; they are not rate-limiting in this regime. The gap (approximately eleven orders of magnitude) arises because neural computation is not limited by how fast individual elements switch states, but by how long distributed assemblies take to achieve coordinated phase alignment. Even modest coordination ($M \sim 5$--15) produces millisecond-scale coherence times from microsecond-scale phase dynamics. Quantum and thermodynamic bounds set absolute floors that any physical process must respect, but biological neural systems operate in a regime where multi-module coordination provides the binding constraint on processing rate.
 
 \subsection{Parameter estimation protocols}
 
@@ -332,7 +387,7 @@ Commits require high $r_{\mathrm{intra}}$ (modules are internally coherent) \emp
 
 \paragraph{Phase alignment window ($\varepsilon$).} From spike train or LFP cross-correlograms, measure half-width at half-maximum (HWHM, units: seconds). The \textbf{full} phase window is $\varepsilon = 2\,\omega_0\,\mathrm{HWHM}$ (radians).
 
-\paragraph{Attempt rate ($\lambda_{\mathrm{attempt}}$).} Estimate from the decorrelation time of inter-module coherence $|z_{\mathrm{inter}}(t)|$: $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$. Alternatively, estimate from instantaneous frequency spread $\Delta\omega$ (rad/s): $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ s$^{-1}$ (since rad is dimensionless). Typical values for cortical alpha/beta bands: $\lambda_{\mathrm{attempt}} \sim 60$--$200$ s$^{-1}$ (corresponding to frequency spreads of $\sim 10$--$30$ Hz).
+\paragraph{Attempt rate ($\lambda_{\mathrm{attempt}}$).} Estimate from the decorrelation time of inter-module coherence $|z_{\mathrm{inter}}(t)|$: $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$ (s$^{-1}$). Alternatively, estimate from instantaneous frequency spread: $\lambda_{\mathrm{attempt}} \approx \Delta\omega$ (rad/s $\equiv$ s$^{-1}$, since rad is dimensionless), equivalently $\lambda_{\mathrm{attempt}} \approx 2\pi\Delta f$ where $\Delta f$ is in Hz. Typical values for cortical alpha/beta bands: $\lambda_{\mathrm{attempt}} \sim 60$--$200$ s$^{-1}$, corresponding to frequency spreads $\Delta f \sim 10$--$30$ Hz (i.e., $\Delta\omega \sim 60$--$190$ rad/s).
 
 \textbf{Practical limitation.} The $1/e$ crossing of an autocorrelation function is notoriously noisy for short time series. In simulations we use long stationary trajectories ($T = 60$ s, $\sim 10^4$ samples); for real EEG recordings of comparable length, non-stationarity of $r(t)$ will degrade the estimate. A windowed approach---computing $\lambda_{\mathrm{attempt}}$ in sliding epochs and reporting the distribution---would be more robust for empirical application. The frequency-spread proxy ($\lambda_{\mathrm{attempt}} \approx \Delta\omega$) provides a less precise but more stable alternative for short recordings.
 
@@ -342,7 +397,8 @@ Commits require high $r_{\mathrm{intra}}$ (modules are internally coherent) \emp
 \item \textbf{Compute module phases}: Extract $\psi_m(t)$ from bandpass-filtered signals via Hilbert transform; verify within-module coherence $r_{\mathrm{intra},m} \geq r_{\mathrm{thr}}$.
 \item \textbf{Compute inter-module coherence}: $r_{\mathrm{inter}}(t) = |M^{-1}\sum_m e^{i\psi_m(t)}|$; convert to $\kappa$ via $r = I_1(\kappa)/I_0(\kappa)$.
 \item \textbf{Estimate $\varepsilon$}: Measure cross-correlogram HWHM; $\varepsilon = 2\omega_0 \cdot \mathrm{HWHM}$.
-\item \textbf{Estimate $\lambda_{\mathrm{attempt}}$}: Compute autocorrelation of $|z_{\mathrm{inter}}(t)|$; set $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$ where $\tau_{\mathrm{mix}}$ is the $1/e$ crossing.
+\item \textbf{Estimate $\lambda_{\mathrm{attempt}}$}: Compute autocorrelation of $|z_{\mathrm{inter}}(t)|$; set $\lambda_{\mathrm{attempt}} = 1/\tau_{\mathrm{mix}}$ where $\tau_{\mathrm{mix}}$ is the $1/e$ crossing. \textbf{Recommended practice:} use a windowed approach (sliding epochs) and report the distribution of $\lambda_{\mathrm{attempt}}$ estimates, to handle non-stationarity in real recordings.
+\item \textbf{Avoid outcome leakage}: When estimating $r_{\mathrm{inter}}$ for use in Eq.~\ref{eq:coh-time}, use the trajectory-mean coherence (averaged over the full recording, including non-commit intervals), not $r$ measured at or near commit time. The latter is selection-biased upward (high precisely because alignment occurred) and inflates $p_1$ estimates.
 \item \textbf{Fit $\alpha$}: Either from participation ratio of module-phase covariance (Eq.~\ref{eq:deff-estimator}), or from scaling of $\tau$ with $M$ across task conditions.
 \end{enumerate}
 
@@ -370,7 +426,7 @@ Computing all terms in Eq.~\ref{eq:main-bound}:
 \begin{align}
 \tau_{\mathrm{QSL}} &\sim 10^{-13} \,\mathrm{s} \quad \text{(negligible---quantum limit non-binding)} \\
 \tau_{\mathrm{SNR}} &\sim 5\text{--}10~\mathrm{ms} \quad \text{(task-dependent)} \\
-\tau_{\mathrm{power}} &\ll 1~\mathrm{ms} \quad \text{(per commit)} \\
+\tau_{\mathrm{power}} &\sim 10^{-15}\text{--}10^{-8}~\mathrm{s} \quad \text{(power limit; \S2.1)} \\
 \tau_{\mathrm{coh}} &\approx 27\text{--}54~\mathrm{ms} \quad \text{($r = 0.7$--$0.8$, $M = 8$)}
 \end{align}
 
@@ -409,9 +465,11 @@ The exponential dependence on $M$ and strong dependence on $r$ mean that modest 
 
 \subsection{Tachypsychia: a dual-loop hypothesis}
 
+\textbf{Epistemic status:} This section is exploratory; it translates the framework into a falsifiable hypothesis about subjective time distortion under acute stress.
+
 During acute stress or falls, subjects report subjective time slowing. Critically, Stetson et al.~\cite{stetson2007} showed that objective temporal resolution (tested via a falling LED chronometer) did \emph{not} improve during free-fall fear---only retrospective duration estimates increased. This dissociation has two main competing explanations: (1) a \textbf{memory-density account}, in which arousal increases encoding density, inflating retrospective duration without altering online perception, and (2) a \textbf{dual-architecture account}, in which perceptual and motor systems have different coordination depths and respond differently to arousal.
 
-We develop the dual-architecture account within the coherence time framework, while noting that the memory-density account is the principal alternative:
+We hypothesize a dual-architecture account within the coherence time framework, while noting that the memory-density account is the principal alternative:
 
 \emph{Perceptual loop} (cortical): High-$M$ ($\sim 10$--15 modules) coherent field dynamics. Arousal increases coherence $r$ and activates additional sensory modules, increasing $\Deff$ of pre-commit dynamics. The richer dynamics between commits produce subjectively dilated experience---consistent with either online dilation or denser encoding.
 
@@ -467,6 +525,9 @@ During simultaneous simple reaction time + temporal-order judgment under acute s
 \item Statistical independence between measures
 \end{itemize}
 
+\paragraph{Phase delta disruption.}
+If the pre-commit phase delta regime is computationally productive (not merely passive waiting), then disrupting structured phase relationships---e.g., by injecting broadband phase noise via transcranial magnetic stimulation---should impair cognitive performance (accuracy, binding quality) even when commit rate (temporal resolution) is preserved. Specifically, randomizing inter-module phase offsets without changing mean coherence $r$ should degrade task accuracy while leaving temporal-order judgment thresholds intact. This distinguishes the phase delta hypothesis from synchrony-as-binding accounts, which predict that only changes in commit rate should affect performance.
+
 \paragraph{Coherence measures and consciousness.}
 If phenomenal experience reflects pre-commit coherent dynamics, conscious states should correlate more strongly with phase-locking index and theta-gamma coupling than with spike count or mean firing rate.
 
@@ -495,7 +556,13 @@ generically.
 
 \textbf{Free Energy Principle}~\cite{friston2010}: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~\ref{eq:main-bound}.
 
+\textbf{Communication through coherence (CTC).} Fries's influential framework~\cite{fries2005,fries2015} proposes that effective communication between neural populations requires coherence at the appropriate frequency: sending and receiving populations must be phase-aligned for spike-based signals to arrive during windows of maximal excitability. Our framework preserves this insight but shifts the locus of computation. In CTC, synchrony \emph{is} the functional state---coherent populations communicate, incoherent ones do not. In the phase delta framework (\S2.3), synchrony \emph{terminates} a computational episode by enabling commitment. The computationally productive regime is the approach to synchrony, during which structured phase relationships between modules continuously bias which commit outcomes are accessible. CTC asks: ``which populations are talking?'' The phase delta framework asks: ``what has the system computed by the time it commits?''
+
+This distinction generates a testable dissociation. CTC predicts that disrupting synchrony should impair communication and thus performance. The phase delta framework makes the stronger prediction that disrupting \emph{structured phase offsets}---for example, by injecting phase noise that randomizes inter-module relationships without preventing eventual synchrony---should impair cognitive performance even if commit rate is preserved, because the pre-commit computation has been corrupted.
+
 \subsection{Frequency, spatial extent, and effective dimensionality}
+
+\textbf{Epistemic status:} This section is exploratory; it translates the framework into falsifiable qualitative predictions about the relationship between oscillation frequency and effective dimensionality.
 
 A prominent view in systems neuroscience holds that high-frequency oscillations (gamma)
 support high-dimensional computation, while low-frequency oscillations (theta, alpha)
@@ -613,6 +680,8 @@ For $N$ oscillators with von Mises distributed phases at coherence $r$, the cova
 
 \subsection{Subjective time as experiential dimensionality between commits}
 \label{sec:subjective-time}
+
+\textbf{Epistemic status:} This section is exploratory; it translates the framework into falsifiable qualitative predictions about subjective temporal experience across pharmacological conditions.
 
 The coherence time framework establishes that the commit rate
 $\Gamma_{\mathrm{commit}} \approx 1/\tau_{\mathrm{coh}}$ is bounded by coordination
@@ -774,7 +843,7 @@ The mammalian cerebellum exemplifies this hierarchical solution. Operating with 
 
 \section{Conclusion}
 
-We have established that coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase alignment for irreversible state registration---scales exponentially with coordination depth $M$. The unified bound $\tau_{\text{eff}} \geq \max[\tau_{\text{QSL}}, \tau_{\text{SNR}}, \tau_{\text{coh}}, \tau_{\text{power}}]$ shows that coordination, not quantum switching, is the dominant temporal constraint in biological neural systems: coherence times exceed quantum speed limits by eleven orders of magnitude.
+We have established that coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase alignment for irreversible state registration---scales exponentially with coordination depth $M$. The unified bound $\tau_{\text{eff}} \geq \max[\tau_{\text{QSL}}, \tau_{\text{SNR}}, \tau_{\text{coh}}, \tau_{\text{power}}]$ shows that in the biological neural regime, quantum speed limits and Landauer bounds are not rate-limiting; multi-module coordination provides the binding constraint on processing rate, exceeding quantum floors by approximately eleven orders of magnitude.
 
 The central finding is the speed-flexibility trade-off: increasing $M$ exponentially slows commits but expands combinatorial flexibility, while increasing coupling $r$ speeds commits but restricts dynamics to low-dimensional manifolds. Biological systems navigate this frontier. A further consequence is that the ratio of effective dimensionality to commit rate ($\Deff / \Gamma_{\mathrm{commit}}$) predicts the temporal structure of experience: pharmacological interventions that increase $\Deff$ while decreasing commit rate should produce subjective time dilation, and the framework generates falsifiable predictions across four pharmacological classes from a two-parameter structure. The framework makes quantitative predictions for binding windows, metabolic scaling of temporal acuity, entrainment linearity, and experiential temporal scaling that are testable with existing methods. Its primary limitation is the requirement for identifiable modular structure: the exponential scaling validated cleanly for modular topologies ($R^2 = 0.97$) but not for unstructured networks, restricting applicability to systems with hierarchical or modular coordination architecture.
 
