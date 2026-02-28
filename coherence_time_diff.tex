@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL original_submission/coherence_time_v1.tex   Tue Feb 10 22:14:15 2026
-%DIF ADD coherence_time.tex                          Sun Mar  1 10:16:08 2026
+%DIF ADD coherence_time.tex                          Sun Mar  1 10:31:11 2026
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
@@ -40,7 +40,7 @@ Sydney, NSW, Australia\\
 \texttt{itod2305@uni.sydney.edu.au}}
 
 \date{\DIFdelbegin %DIFDELCMD < \today%%%
-\DIFdelend \DIFaddbegin \DIFadd{March 2026}\DIFaddend }
+\DIFdelend \DIFaddbegin \DIFadd{1 March 2026}\DIFaddend }
 %DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
 %DIF UNDERLINE PREAMBLE %DIF PREAMBLE
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE
@@ -428,7 +428,7 @@ Dashed lines show fitted predictions with $\hat{\alpha}$ and $R^2$ values indica
 \item \textbf{Weak \DIFdelbegin \DIFdel{inter-module }\DIFdelend coupling}: Modules are semi-independent on the commit timescale; strong coupling would synchronize phases and reduce effective $M$.
 \item \textbf{Attempt rate interpretation}: $\lambda_{\mathrm{attempt}}$ represents the inverse correlation time of phase deviations, not the carrier frequency.
 \end{enumerate}
-\textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity. Supplementary simulations \DIFdelbegin \DIFdel{confirm this prediction}\DIFdelend \DIFaddbegin \DIFadd{support this diagnostic}\DIFaddend : waiting times conditioned on narrow $r_{\mathrm{inter}}$ bins are approximately exponential (Kolmogorov-Smirnov test), \DIFdelbegin \DIFdel{and the von Mises model closure $r \to \kappa \to p_1$ is validated by conditional-on-$r$ fitting ($\kappa_{\mathrm{fitted}}/\kappa_{\mathrm{expected}} = 1.06 \pm 0.12$)}\DIFdelend \DIFaddbegin \DIFadd{though the analysis conditions on observed hits rather than the full censored survival process}\DIFaddend .
+\textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity. Supplementary simulations \DIFdelbegin \DIFdel{confirm this prediction}\DIFdelend \DIFaddbegin \DIFadd{support this diagnostic (Fig.~\ref{fig:conditional-exponentiality})}\DIFaddend : waiting times conditioned on narrow $r_{\mathrm{inter}}$ bins are approximately exponential (Kolmogorov-Smirnov test), \DIFdelbegin \DIFdel{and the von Mises model closure $r \to \kappa \to p_1$ is validated by conditional-on-$r$ fitting ($\kappa_{\mathrm{fitted}}/\kappa_{\mathrm{expected}} = 1.06 \pm 0.12$)}\DIFdelend \DIFaddbegin \DIFadd{though the analysis conditions on observed hits rather than the full censored survival process}\DIFaddend .
 
 \textbf{Dwell time and the scaling analysis.} Definition~\ref{def:commit} requires alignment to persist for a dwell time $T_{\mathrm{dwell}}$. This introduces a ``hold probability'' $q(T_{\mathrm{dwell}}; r)$---the probability that alignment, once achieved, survives for duration $T_{\mathrm{dwell}}$. The effective commit rate becomes $\lambda_{\mathrm{attempt}} \cdot P(A_\varepsilon) \cdot q$, so $q$ renormalizes the prefactor but does not alter the exponential-in-$M$ scaling, which is driven entirely by $P(A_\varepsilon)$. In simulations we enforce dwell explicitly; for the scaling analysis, $q$ is absorbed into $\lambda_{\mathrm{attempt}}$ as a constant-factor correction and estimated empirically from decorrelation of $|z_{\mathrm{inter}}(t)|$.
 
@@ -1526,7 +1526,7 @@ We have \DIFdelbegin \DIFdel{established }\DIFdelend \DIFaddbegin \DIFadd{shown 
 
 %DIFDELCMD < \item %%%
 \textbf{\DIFdel{Quantitative predictions}}%DIFAUXCMD
-\DIFdel{: Visual binding windows (30--50 ms), metabolic scaling of temporal acuity, alpha }\DIFdelend \DIFaddbegin \DIFadd{The framework reproduces binding-window timescales from independently constrained parameters and yields concrete tests of }\DIFaddend entrainment linearity, \DIFdelbegin \DIFdel{dual-task dissociations.
+\DIFdel{: Visual binding windows (30--50 ms), metabolic scaling of temporal acuity, alpha }\DIFdelend \DIFaddbegin \DIFadd{The framework recovers binding-window timescales from independently constrained parameters and yields concrete tests of }\DIFaddend entrainment linearity, \DIFdelbegin \DIFdel{dual-task dissociations.
 }%DIFDELCMD < \end{enumerate}
 %DIFDELCMD < 
 

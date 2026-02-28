@@ -30,7 +30,7 @@ Sydney Medical School, University of Sydney\\
 Sydney, NSW, Australia\\
 \texttt{itod2305@uni.sydney.edu.au}}
 
-\date{March 2026}
+\date{1 March 2026}
 
 \begin{document}
 
@@ -275,7 +275,7 @@ The three topologies serve as validation (modular) and regime-boundary diagnosti
 \item \textbf{Weak coupling}: Modules are semi-independent on the commit timescale; strong coupling would synchronize phases and reduce effective $M$.
 \item \textbf{Attempt rate interpretation}: $\lambda_{\mathrm{attempt}}$ represents the inverse correlation time of phase deviations, not the carrier frequency.
 \end{enumerate}
-\textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity. Supplementary simulations support this diagnostic: waiting times conditioned on narrow $r_{\mathrm{inter}}$ bins are approximately exponential (Kolmogorov-Smirnov test), though the analysis conditions on observed hits rather than the full censored survival process.
+\textbf{Diagnostic}: If these assumptions hold, inter-commit intervals (after conditioning on $r$) should be approximately exponentially distributed. Deviations indicate strong coupling, metastability, or non-stationarity. Supplementary simulations support this diagnostic (Fig.~\ref{fig:conditional-exponentiality}): waiting times conditioned on narrow $r_{\mathrm{inter}}$ bins are approximately exponential (Kolmogorov-Smirnov test), though the analysis conditions on observed hits rather than the full censored survival process.
 
 \textbf{Dwell time and the scaling analysis.} Definition~\ref{def:commit} requires alignment to persist for a dwell time $T_{\mathrm{dwell}}$. This introduces a ``hold probability'' $q(T_{\mathrm{dwell}}; r)$---the probability that alignment, once achieved, survives for duration $T_{\mathrm{dwell}}$. The effective commit rate becomes $\lambda_{\mathrm{attempt}} \cdot P(A_\varepsilon) \cdot q$, so $q$ renormalizes the prefactor but does not alter the exponential-in-$M$ scaling, which is driven entirely by $P(A_\varepsilon)$. In simulations we enforce dwell explicitly; for the scaling analysis, $q$ is absorbed into $\lambda_{\mathrm{attempt}}$ as a constant-factor correction and estimated empirically from decorrelation of $|z_{\mathrm{inter}}(t)|$.
 
@@ -854,7 +854,7 @@ The mammalian cerebellum exemplifies this hierarchical solution. Operating with 
 
 We have shown that coherence time---the time required for distributed oscillatory assemblies to achieve sufficient phase alignment for irreversible state registration---scales exponentially with coordination depth $M$ in the modular regime for which the framework is intended. The unified bound $\tau_{\text{eff}} \geq \max[\tau_{\text{QSL}}, \tau_{\text{SNR}}, \tau_{\text{coh}}, \tau_{\text{power}}]$ shows that in the biological neural regime, quantum speed limits and Landauer bounds are not rate-limiting; multi-module coordination provides the binding constraint on processing rate, exceeding quantum floors by approximately eleven orders of magnitude.
 
-The central validated finding is the speed-flexibility trade-off: increasing $M$ exponentially slows commits but expands combinatorial flexibility, while increasing coupling $r$ speeds commits but restricts dynamics to low-dimensional manifolds. The framework reproduces binding-window timescales from independently constrained parameters and yields concrete tests of entrainment linearity, modularity dependence, and temporal-resolution scaling with coordination depth. More exploratory extensions---phase-delta dynamics, candidate biophysical substrates, and subjective-time predictions based on $\Deff / \Gamma_{\mathrm{commit}}$---remain hypotheses, but hypotheses that are now explicitly linked to measurable quantities. The primary limitation is the requirement for identifiable modular structure: the exponential scaling validated cleanly for modular topologies ($R^2 = 0.97$) but not for unstructured networks, restricting applicability to systems with hierarchical or modular coordination architecture.
+The central validated finding is the speed-flexibility trade-off: increasing $M$ exponentially slows commits but expands combinatorial flexibility, while increasing coupling $r$ speeds commits but restricts dynamics to low-dimensional manifolds. The framework recovers binding-window timescales from independently constrained parameters and yields concrete tests of entrainment linearity, modularity dependence, and temporal-resolution scaling with coordination depth. More exploratory extensions---phase-delta dynamics, candidate biophysical substrates, and subjective-time predictions based on $\Deff / \Gamma_{\mathrm{commit}}$---remain hypotheses, but hypotheses that are now explicitly linked to measurable quantities. The primary limitation is the requirement for identifiable modular structure: the exponential scaling validated cleanly for modular topologies ($R^2 = 0.97$) but not for unstructured networks, restricting applicability to systems with hierarchical or modular coordination architecture.
 
 \section*{Data accessibility}
 
