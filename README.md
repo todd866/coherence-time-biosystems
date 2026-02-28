@@ -15,14 +15,14 @@ where *M* is coordination depth, *r* is inter-module coherence, *p*&#8321; is si
 
 ## Key Results
 
-- **Exponential scaling**: Coherence time grows exponentially with number of coordinating modules, validated in Kuramoto simulations (R^2 = 0.97 for modular networks)
-- **Speed-flexibility trade-off**: Increasing *M* expands combinatorial flexibility but slows commits exponentially; increasing *r* speeds commits but restricts dynamics to low-dimensional attractors
-- **Phase delta regime**: Systems spend ~85% of time in a pre-commit regime where structured phase relationships bias downstream outcomes without discrete state registration — sub-Landauer computation before commitment
-- **Ephaptic substrate**: The extracellular electric field is the physical carrier of phase delta dynamics — the only substrate in neural tissue that is simultaneously continuous, spatially extended, and high-dimensional. Fields affect timing; timing is causally significant; therefore fields are causally significant, scaling with D_eff
-- **Binding windows**: Visual binding (30-50 ms) reproduced from independently constrained parameters
-- **Thermodynamic dominance**: Coherence time exceeds quantum speed limits by 11 orders of magnitude in neural systems; power limit quantified at 10^-15 to 10^-8 s (non-binding)
-- **Pharmacological predictions**: The ratio D_eff / Gamma_commit predicts subjective temporal scaling across four drug classes (psychedelics, deliriants, anaesthetics, stimulants) from a two-parameter structure
-- **Regime boundaries**: Modular architecture is a necessary condition; sparse random networks fail the scaling law (R^2 = 0.28), confirming the framework predicts its own regime of validity
+- **Exponential scaling**: Coherence time grows exponentially with the number of coordinating modules, with strongest validation in modular Kuramoto networks (`R^2 = 0.97`)
+- **Speed-flexibility trade-off**: Increasing *M* expands combinatorial flexibility but slows commits exponentially; increasing *r* speeds commits but restricts dynamics to lower-dimensional manifolds
+- **Phase delta regime (exploratory)**: For biologically plausible parameters, systems may spend most of their time in a pre-commit regime where structured phase relationships bias downstream outcomes before discrete registration
+- **Candidate biophysical substrate (exploratory)**: Extracellular field structure is a plausible place to look for pre-commit coordination dynamics, but the framework does not establish it as the unique substrate
+- **Binding windows**: Visual binding timescales (30-50 ms) are reproduced from independently constrained parameters
+- **Thermodynamic hierarchy**: In neural systems, coherence time exceeds quantum speed limits by roughly 11 orders of magnitude; quantum and power limits are therefore non-binding in this regime
+- **Pharmacological predictions (exploratory)**: The ratio D_eff / Gamma_commit organizes qualitative subjective-time predictions across psychedelics, deliriants, anaesthetics, and stimulants
+- **Regime boundaries**: Modular architecture is the intended regime; sparse random networks fit poorly (`R^2 = 0.28`), which helps delimit where the framework should and should not be applied
 
 ## Running Simulations
 

@@ -35,6 +35,7 @@ def main():
 
         sweep = data["sweep"]
         fit = data["fit"]
+        observation_horizon = float(data["base_params"].get("T", np.nan))
 
         M = np.array(sweep["M"])
 
@@ -77,17 +78,26 @@ def main():
                     fmt='o', capsize=4, markersize=8, color=color,
                     ecolor=color, elinewidth=2, capthick=2)
 
-        # Add censoring indicators (upward arrows) when hit_fraction < 0.5
-        censored = hit_fraction < 0.5
+        # Add censoring indicators when KM median exceeds the observation horizon.
+        # Fully censored M-values (no observed commits) remain omitted.
+        censored = (hit_fraction < 0.5) & (hit_fraction > 0.0)
+        arrow_tops = []
         if any(censored):
-            # For censored points, plot at tau_med (lower bound) with upward arrow
             for m_val, tau_val, hf in zip(M[censored], tau_med[censored], hit_fraction[censored]):
                 if np.isfinite(tau_val) and tau_val > 0:
-                    ax.annotate('', xy=(m_val, tau_val * 1.5),
-                               xytext=(m_val, tau_val),
-                               arrowprops=dict(arrowstyle='->', color=color, lw=2))
-                    ax.text(m_val, tau_val * 1.7, f'{hf:.1f}',
-                           ha='center', fontsize=8, color=color)
+                    lower_bound = tau_val
+                elif np.isfinite(observation_horizon) and observation_horizon > 0:
+                    lower_bound = observation_horizon
+                else:
+                    continue
+
+                arrow_top = lower_bound * 1.5
+                arrow_tops.append(arrow_top)
+                ax.annotate('', xy=(m_val, arrow_top),
+                           xytext=(m_val, lower_bound),
+                           arrowprops=dict(arrowstyle='->', color=color, lw=2))
+                ax.text(m_val, arrow_top * 1.05, f'{hf:.1f}',
+                       ha='center', va='bottom', fontsize=8, color=color)
 
         ax.set_yscale("log")
         ax.set_xlabel("Coordination depth M", fontsize=11)
@@ -98,12 +108,11 @@ def main():
             intercept = fit['intercept']
             fit_method = fit.get('method', 'surrogate')
 
-            # Get attempt rate (prefer lambda_attempt_mean, fallback to domega)
+            # Get attempt rate (prefer lambda_attempt_mean, fallback to domega: λ ≈ Δω)
             if "lambda_attempt_mean" in sweep:
                 attempt_rate = np.array(sweep["lambda_attempt_mean"])
             else:
-                domega = np.array(sweep.get("domega_mean", sweep.get("domega_effective", [1.0]*len(M))))
-                attempt_rate = domega / (2 * np.pi)
+                attempt_rate = np.array(sweep.get("domega_mean", sweep.get("domega_effective", [1.0]*len(M))))
 
             M_grid = np.linspace(M.min(), M.max(), 50)
             r_interp = np.interp(M_grid, M, rbar)
@@ -135,9 +144,16 @@ def main():
         ax.grid(True, alpha=0.3)
         # Dynamic y-limits based on data (with padding)
         valid_tau = tau_med[np.isfinite(tau_med) & (tau_med > 0)]
+        plotted_max = []
         if len(valid_tau) > 0:
             ymin = max(0.5, valid_tau.min() * 0.7)
-            ymax = valid_tau.max() * 1.5
+            plotted_max.append(valid_tau.max())
+        else:
+            ymin = 0.5
+        if arrow_tops:
+            plotted_max.append(max(arrow_tops))
+        if plotted_max:
+            ymax = max(plotted_max) * 1.15
             ax.set_ylim(ymin, ymax)
 
     fig.tight_layout()

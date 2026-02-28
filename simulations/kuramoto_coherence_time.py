@@ -384,9 +384,9 @@ class KuramotoNetwork:
         elif method == "freq_std":
             # Fallback: use frequency spread as proxy
             # Δω (rad/s) ≈ std of instantaneous frequencies
-            # λ ≈ Δω / (2π)
+            # λ_attempt ≈ Δω (rad is dimensionless, so rad/s ≡ s⁻¹)
             domega_rad_s = self.measure_effective_domega(theta)
-            lambda_attempt = domega_rad_s / (2 * np.pi)
+            lambda_attempt = domega_rad_s
 
         else:
             raise ValueError(f"Unknown method: {method}")
@@ -680,12 +680,11 @@ def fit_alpha_from_sweep(results: Dict[str, np.ndarray], epsilon: float) -> Dict
     else:
         rbar = results["r_mean"].astype(float)
 
-    # Prefer lambda_attempt_mean, fallback to domega/(2π)
+    # Prefer lambda_attempt_mean, fallback to domega (λ ≈ Δω, rad dimensionless)
     if "lambda_attempt_mean" in results and not np.all(np.isnan(results["lambda_attempt_mean"])):
         attempt_rate = results["lambda_attempt_mean"].astype(float)
     else:
-        domega = results["domega_mean"].astype(float)
-        attempt_rate = domega / (2 * np.pi)
+        attempt_rate = results["domega_mean"].astype(float)
 
     mask = np.isfinite(tau) & (tau > 0) & np.isfinite(attempt_rate) & (attempt_rate > 0)
     if mask.sum() < 3:
@@ -725,7 +724,7 @@ def fit_alpha_theory_consistent(results: Dict[str, np.ndarray], epsilon: float) 
     Uses:
     - tau_median_km (KM survival estimate) if available, else tau_median
     - r_inter (inter-module coherence) if available, else r_mean
-    - lambda_attempt (s⁻¹) if available, else domega_mean (rad/s) converted to λ
+    - lambda_attempt (s⁻¹) if available, else domega_mean (rad/s, treated as λ since radians are dimensionless)
 
     Note: When r_inter is very high (>0.95), -log(p1) approaches 0 and the
     regression becomes numerically unstable. In such cases, the surrogate
@@ -746,10 +745,9 @@ def fit_alpha_theory_consistent(results: Dict[str, np.ndarray], epsilon: float) 
         attempt_rate = results["lambda_attempt_mean"].astype(float)
         rate_label = "lambda"
     else:
-        # Fall back to domega / (2π) if lambda not available
-        domega = results["domega_mean"].astype(float)
-        attempt_rate = domega / (2 * np.pi)
-        rate_label = "domega/(2pi)"
+        # Fall back to domega (λ ≈ Δω, rad dimensionless so rad/s ≡ s⁻¹)
+        attempt_rate = results["domega_mean"].astype(float)
+        rate_label = "domega"
 
     # Use stationary r_inter (trajectory mean across ALL trials, including censored).
     # r_inter_at_hit is selection-biased (high precisely because alignment occurred),
@@ -819,19 +817,25 @@ def fit_alpha_theory_consistent(results: Dict[str, np.ndarray], epsilon: float) 
         "intercept": float(intercept),
         "method": "theory_consistent",
         "mean_neg_log_p1": float(np.mean(neg_log_p1_valid)),
-        "rate_type": rate_label,  # "lambda" or "domega/(2pi)"
+        "rate_type": rate_label,  # "lambda" or "domega"
         "r_type": r_label,  # "r_inter_at_hit", "r_inter", or "r_global"
         "tau_source": tau_source  # "KM" or "naive"
     }
 
 
 def plot_validation_figure(results: Dict[str, np.ndarray], epsilon: float,
-                           fit: Dict[str, float], outpath: Optional[Path] = None) -> None:
+                           fit: Dict[str, float], outpath: Optional[Path] = None,
+                           observation_horizon: Optional[float] = None) -> None:
     """Generate publication-quality validation figure."""
     M = results["M"]
-    tau_med = results["tau_median"]
-    tau_q25 = results["tau_q25"]
-    tau_q75 = results["tau_q75"]
+    if "tau_median_km" in results and not np.all(np.isnan(results["tau_median_km"])):
+        tau_med = results["tau_median_km"]
+        tau_q25 = results["tau_q25_km"]
+        tau_q75 = results["tau_q75_km"]
+    else:
+        tau_med = results["tau_median"]
+        tau_q25 = results["tau_q25"]
+        tau_q75 = results["tau_q75"]
     hit_frac = results["hit_fraction"]
     rbar = results["r_mean"]
     domega = results["domega_mean"]
@@ -852,6 +856,17 @@ def plot_validation_figure(results: Dict[str, np.ndarray], epsilon: float,
     ax.errorbar(M[mask], tau_med[mask], yerr=[yerr_low, yerr_high],
                 fmt='o', capsize=4, markersize=8, color='#2E86AB',
                 ecolor='#2E86AB', elinewidth=2, capthick=2, label='Simulation (median ± IQR)')
+
+    censored = (hit_frac < 0.5) & (hit_frac > 0.0)
+    if observation_horizon is not None and observation_horizon > 0:
+        for m_val, tau_val, hf in zip(M[censored], tau_med[censored], hit_frac[censored]):
+            lower_bound = tau_val if np.isfinite(tau_val) and tau_val > 0 else observation_horizon
+            arrow_top = lower_bound * 1.5
+            ax.annotate('', xy=(m_val, arrow_top), xytext=(m_val, lower_bound),
+                        arrowprops=dict(arrowstyle='->', color='#2E86AB', lw=2))
+            ax.text(m_val, arrow_top * 1.05, f'{hf:.1f}', ha='center', va='bottom',
+                    fontsize=8, color='#2E86AB')
+
     ax.set_yscale("log")
     ax.set_xlabel("Coordination depth M", fontsize=12)
     ax.set_ylabel("Coherence time τ_coh (s)", fontsize=12)
@@ -862,11 +877,11 @@ def plot_validation_figure(results: Dict[str, np.ndarray], epsilon: float,
         c = np.log(2 * np.pi / float(epsilon))
 
         # Compute attempt_rate the SAME WAY as fit functions
-        # (Prefer lambda_attempt_mean, fallback to domega/(2π))
+        # (Prefer lambda_attempt_mean, fallback to domega: λ ≈ Δω)
         if "lambda_attempt_mean" in results and not np.all(np.isnan(results["lambda_attempt_mean"])):
             attempt_rate = results["lambda_attempt_mean"]
         else:
-            attempt_rate = domega / (2 * np.pi)
+            attempt_rate = domega
 
         # Interpolate r(M) and attempt_rate for prediction curve
         M_fit = M[mask]
@@ -983,7 +998,8 @@ def main() -> None:
 
     # Generate figure with primary fit
     fig_path = outdir / f"fig_validation_{args.topology}_N{args.N}.png"
-    plot_validation_figure(results, epsilon=base.epsilon, fit=primary_fit, outpath=fig_path)
+    plot_validation_figure(results, epsilon=base.epsilon, fit=primary_fit,
+                           outpath=fig_path, observation_horizon=base.T)
 
     # Save JSON with both fits and primary selection
     if args.save_json:
