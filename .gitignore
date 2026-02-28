@@ -33,5 +33,8 @@ revisions/
 
 # Original submission preserved in repo for provenance
 
+# Citation audit artifacts (internal tooling)
+analysis/citation_embedding_*
+
 # Virtual environments
 .venv/
