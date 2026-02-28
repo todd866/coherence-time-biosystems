@@ -221,11 +221,11 @@ where $\alpha$ captures \emph{effective independence} (a correlation-reduction e
 \[
 d_{\mathrm{eff}} = \alpha(M-1)
 \]
-This can be estimated from the covariance structure of module phases. Let $C$ be the $M \times M$ covariance matrix of phase deviations $\delta\psi_m = \psi_m - \bar{\psi}$. The \textbf{participation ratio}~\cite{cunningham2014,stringer2019} provides an operational estimate:
+This can be estimated from the covariance structure of module phases. Let $C$ be the $M \times M$ covariance matrix of phase deviations $\delta\psi_m = \psi_m - \bar{\psi}$. The \textbf{participation ratio} provides an operational estimate:
 \begin{equation}\label{eq:deff-estimator}
 \hat{d}_{\mathrm{eff}} = \frac{(\mathrm{tr}\, C)^2}{\mathrm{tr}(C^2)} = \frac{\left(\sum_i \lambda_i\right)^2}{\sum_i \lambda_i^2}
 \end{equation}
-where $\lambda_i$ are eigenvalues of $C$. Because $\delta\psi_m$ are mean-centred ($\sum_m \delta\psi_m = 0$), $C$ has rank at most $M-1$; the participation ratio therefore equals $M-1$ when all non-zero eigenvalues are equal (fully independent) and approaches 1 when a single mode dominates (fully correlated). From $\hat{d}_{\mathrm{eff}}$, we obtain $\hat{\alpha} = \hat{d}_{\mathrm{eff}} / (M-1)$.
+where $\lambda_i$ are eigenvalues of $C$. Participation-ratio and related manifold-based summaries are standard empirical tools for quantifying effective neural dimensionality~\cite{cunningham2014,stringer2019}. Because $\delta\psi_m$ are mean-centred ($\sum_m \delta\psi_m = 0$), $C$ has rank at most $M-1$; the participation ratio therefore equals $M-1$ when all non-zero eigenvalues are equal (fully independent) and approaches 1 when a single mode dominates (fully correlated). From $\hat{d}_{\mathrm{eff}}$, we obtain $\hat{\alpha} = \hat{d}_{\mathrm{eff}} / (M-1)$.
 
 \textbf{Why correlations affect the exponent.}
 For independent phase deviations $\delta\psi_m$ with uniform distribution over $[-\pi, \pi]$,
@@ -508,7 +508,7 @@ Critical flicker fusion frequency varies enormously across taxa: flies $\sim 240
 \subsection{Biological examples of the speed-flexibility trade-off}
 
 \paragraph{Mind-wandering and creative insight (high $M$, low $r$).}
-Default-mode network activity~\cite{raichle2001} exhibits low inter-regional coherence ($r \sim 0.3$) and high coordination depth ($M \sim 12$--20). Commits are rare ($\sim 0.1$--1 Hz), producing subjective ``slow thinking'' but enabling novel associations.
+Default-mode network activity is a canonical example of internally directed baseline brain activity~\cite{raichle2001}. In our framework, mind-wandering corresponds to a regime of low inter-regional coherence ($r \sim 0.3$) and high coordination depth ($M \sim 12$--20). Commits are therefore rare ($\sim 0.1$--1 Hz), producing subjective ``slow thinking'' but enabling novel associations.
 
 \paragraph{Focused attention (moderate $M$, moderate $r$).}
 In our model, attention increases coherence ($r: 0.3 \to 0.6$) and narrows coordination to task-relevant modules ($M: 15 \to 8$) (model parameters motivated by the communication-through-coherence framework~\cite{fries2015}). This produces faster commits (10--30 Hz) in a restricted subspace.
@@ -566,7 +566,7 @@ generically.
 
 \textbf{Quantum-like cognition.} Recent work has explored connections between oscillatory neural networks and quantum-like cognitive phenomena~\cite{khrennikov2025bridge}. Our framework provides a classical high-dimensional explanation for why such quantum-like signatures emerge: high-dimensional dynamics with limited measurement bandwidth produce phenomenology parallel to quantum systems---measurement-like collapse at commits, superposition-like coexistence of states pre-commit, uncertainty-like timing inaccessibility.
 
-\textbf{Integrated Information Theory}~\cite{tononi2016}: We provide thermodynamic/temporal foundations. Integration costs energy and takes time (exponentially with coordination depth).
+\textbf{Integrated Information Theory}~\cite{tononi2016}: IIT places integration at the center of conscious-state descriptions. In our framework, any such integration is additionally subject to explicit thermodynamic and temporal constraints: it costs energy and takes time (exponentially with coordination depth).
 
 \textbf{Free Energy Principle}~\cite{friston2010}: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~\ref{eq:main-bound}.
 
@@ -634,8 +634,9 @@ confusing $B$ (measurement entropy) with $D$ (dynamical degrees of freedom).
 \subsubsection{Empirical predictions distinguishing the two views}
 
 The standard frequency-hierarchy view~\cite{miller2018} and the present framework make
-overlapping predictions in many cases (both agree that anaesthesia reduces dimensionality
-and disrupts oscillatory dynamics), but diverge in specific, testable ways:
+overlapping predictions in many cases. Both can accommodate state-dependent reductions in
+effective dynamics and disrupted oscillatory organization, but they diverge in specific,
+testable ways:
 
 \begin{enumerate}
 \item \textbf{Gamma power and dimensionality.} The frequency-hierarchy view predicts that
@@ -675,8 +676,8 @@ low-dimensional commits, not high-dimensional integration. Meanwhile, low-freque
 oscillations may coordinate high-$M$ assemblies that \emph{require} slow timescales to
 achieve alignment.
 
-A related control-theoretic point: Ashby's law of requisite variety~\cite{ashby1956}
-implies that a subnetwork constrained to a low-dimensional regime loses the degrees of
+A related control-theoretic point is suggested by Ashby's law of requisite variety~\cite{ashby1956}:
+a subnetwork constrained to a low-dimensional regime loses the degrees of
 freedom needed to regulate coupled regions. The speed-flexibility trade-off
 (Proposition~\ref{prop:tradeoff}) is, in this light, a temporal expression of Ashby's
 constraint: high-$M$ coordination provides requisite variety for flexible regulation
@@ -750,12 +751,12 @@ classes, from the same two-parameter structure ($\Deff$, $\Gamma_{\mathrm{commit
 
 \paragraph{Psychedelics} (5-HT$_{2\mathrm{A}}$ agonists: psilocybin, DMT, LSD).
 These increase $\Deff$ by relaxing precision weighting of top-down
-priors~\cite{carhart2019rebus}, activating modes normally suppressed by hierarchical
-filtering. They may simultaneously decrease $K/\sigma$ (increased cortical excitability,
+priors~\cite{carhart2019rebus}, loosening top-down constraints on dynamics normally
+suppressed by hierarchical filtering. They may simultaneously decrease $K/\sigma$ (increased cortical excitability,
 disrupted thalamocortical gating). The result is a double effect: higher $\Deff$
 \emph{and} lower $\Gamma_{\mathrm{commit}}$, predicting \textbf{time dilation with
-experiential richness}. DMT produces the largest increases in neural signal
-complexity of any tested psychedelic~\cite{timmermann2019} and is associated with
+experiential richness}. DMT produces large increases in neural signal
+complexity under psychedelic perturbation~\cite{timmermann2019,schartner2017} and is associated with
 extreme subjective time dilation. The qualitative ordering---DMT $>$ psilocybin $>$
 LSD in both $\Deff$ increase and reported temporal distortion---is consistent with
 the prediction, though retrospective magnitude estimates are difficult to validate. \emph{Methodological note:}
@@ -781,8 +782,8 @@ different---one expands structured dimensionality, the other injects unstructure
 and the phenomenology confirms the distinction.
 
 \paragraph{Anaesthetics} (propofol, sevoflurane).
-These decrease $\Deff$ by fragmenting large-scale field coherence~\cite{casali2013},
-collapsing the spatially extensive coupled dynamics. The prediction is
+These likely decrease $\Deff$ by driving the cortex into lower-complexity, less integrative
+states~\cite{casali2013}. The prediction is
 \textbf{time compression toward unconsciousness}: fewer experiential dimensions per
 commit interval, eventually too few for consciousness to be sustained.
 
@@ -986,10 +987,10 @@ Cunningham, J.P. and Yu, B.M. (2014). Dimensionality reduction for large-scale n
 Stringer, C., Pachitariu, M., Steinmetz, N., Reddy, C.B., Carandini, M., and Harris, K.D. (2019). Spontaneous behaviors drive multidimensional, brainwide activity. \textit{Science}, 364(6437), eaav7893.
 
 \bibitem{todd2025biosystems}
-Todd, I. (2025). The limits of falsifiability in continuously adapting biological systems. \textit{BioSystems}, 258, 105608.
+Todd, I. (2025). The limits of falsifiability: Dimensionality, measurement thresholds, and the sub-Landauer domain in biological systems. \textit{BioSystems}, 258, 105608.
 
 \bibitem{todd2025demon}
-Todd, I. (2025). Timing inaccessibility in biological Maxwell demons. \textit{BioSystems}, 258, 105632.
+Todd, I. (2025). Timing inaccessibility and the projection bound: Resolving Maxwell's demon for continuous biological substrates. \textit{BioSystems}, 258, 105632.
 
 \bibitem{raichle2001}
 Raichle, M.E., MacLeod, A.M., Snyder, A.Z., Powers, W.J., Gusnard, D.A., and Shulman, G.L. (2001). A default mode of brain function. \textit{Proceedings of the National Academy of Sciences}, 98(2), 676--682.
@@ -1044,9 +1045,6 @@ Schartner, M.M., Carhart-Harris, R.L., Barrett, A.B., Seth, A.K., and
 Muthukumaraswamy, S.D. (2017). Increased spontaneous MEG signal diversity for
 psychoactive doses of ketamine, LSD and psilocybin. \textit{Scientific Reports},
 7, 46421.
-
-\bibitem{dyson2004}
-Dyson, F. (2004). A meeting with Enrico Fermi. \textit{Nature}, 427(6972), 297.
 
 \end{thebibliography}
 

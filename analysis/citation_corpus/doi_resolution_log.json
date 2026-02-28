@@ -1,0 +1,242 @@
+{
+  "amari2016": {
+    "doi": "10.1007/978-4-431-55978-8",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "anastassiou2011": {
+    "doi": "10.1038/nn.2727",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "ashby1956": {
+    "doi": "10.5962/bhl.title.5851",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "beggs2003": {
+    "doi": "10.1523/jneurosci.23-35-11167.2003",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "bormashenko2024": {
+    "doi": "10.3390/e26050423",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "carhart2014": {
+    "doi": "10.3389/fnhum.2014.00020",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "carhart2019rebus": {
+    "doi": "10.1124/pr.118.017160",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "casali2013": {
+    "doi": "10.1126/scitranslmed.3006294",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "cecere2015": {
+    "doi": "10.1016/j.cub.2014.11.034",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "cunningham2014": {
+    "doi": "10.1038/nn.3776",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "dyson2004": {
+    "doi": "10.1038/427297a",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "engel2001": {
+    "doi": "10.1038/35094565",
+    "confidence": "high",
+    "score": 1.136
+  },
+  "fries2005": {
+    "doi": "10.1016/j.tics.2005.08.011",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "fries2015": {
+    "doi": "10.1016/j.neuron.2015.09.034",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "friston2010": {
+    "doi": "10.1038/nrn2787",
+    "confidence": "high",
+    "score": 1.112
+  },
+  "gabriel1996": {
+    "doi": "10.1007/978-94-011-4191-8_10",
+    "confidence": "medium",
+    "score": 0.818
+  },
+  "han2018": {
+    "doi": "10.1016/j.neuron.2018.09.018",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "healy2013": {
+    "doi": "10.1016/j.anbehav.2013.06.018",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "helfrich2014": {
+    "doi": "10.1016/j.cub.2013.12.041",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "igamberdiev2025constraints": {
+    "doi": "10.1016/j.biosystems.2025.105451",
+    "confidence": "high",
+    "score": 1.144
+  },
+  "igamberdiev2026autopoietic": {
+    "doi": "10.1016/j.biosystems.2026.105707",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "ito2008": {
+    "doi": "10.1038/nrn2332",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "kac1947": {
+    "doi": "10.1090/s0002-9904-1947-08927-8",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "khrennikov2021": {
+    "doi": "10.1016/j.biosystems.2021.104471",
+    "confidence": "high",
+    "score": 1.142
+  },
+  "khrennikov2025bridge": {
+    "doi": "10.1016/j.biosystems.2025.105573",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "kuramoto1984": {
+    "doi": "10.1007/978-3-642-69689-3",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "landauer1961": {
+    "doi": "10.1147/rd.53.0183",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "levinperes2017": {
+    "doi": "10.1090/mbk/107",
+    "confidence": "high",
+    "score": 1.007
+  },
+  "lisman2013": {
+    "doi": "10.1016/j.neuron.2013.03.007",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "lundqvist2016": {
+    "doi": "10.1016/j.neuron.2016.02.028",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "mandelstam1945": {
+    "doi": "10.1007/978-3-642-74626-0_8",
+    "confidence": "high",
+    "score": 1.0
+  },
+  "margolus1998": {
+    "doi": "10.1016/s0167-2789(98)00054-2",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "ott2008": {
+    "doi": "10.1063/1.2930766",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "samaha2015": {
+    "doi": "10.1016/j.cub.2015.10.007",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "schartner2017": {
+    "doi": "10.1038/srep46421",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "shew2013": {
+    "doi": "10.1177/1073858412445487",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "singer1999": {
+    "doi": "10.1016/s0896-6273(00)80821-1",
+    "confidence": "high",
+    "score": 1.012
+  },
+  "stetson2007": {
+    "doi": "10.1371/journal.pone.0001295",
+    "confidence": "high",
+    "score": 0.968
+  },
+  "stringer2019": {
+    "doi": "10.1126/science.aav7893",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "strogatz2000": {
+    "doi": "10.1016/s0167-2789(00)00094-4",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "subramanian2022": {
+    "doi": "10.1016/j.expneurol.2022.114109",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "timmermann2019": {
+    "doi": "10.1038/s41598-019-51974-4",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "todd2025intelligence": {
+    "doi": "10.1016/j.biosystems.2026.105704",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "tononi2016": {
+    "doi": "10.1038/nrn.2016.44",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "vanrullen2016": {
+    "doi": "10.1016/j.tics.2016.07.006",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "varela2001": {
+    "doi": "10.1038/35067550",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "wolpert1998": {
+    "doi": "10.1016/s1364-6613(98)01221-2",
+    "confidence": "high",
+    "score": 1.15
+  },
+  "womelsdorf2007": {
+    "doi": "10.1126/science.1139597",
+    "confidence": "high",
+    "score": 1.15
+  }
+}
