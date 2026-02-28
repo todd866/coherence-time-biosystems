@@ -38,7 +38,7 @@ python3 supplementary_analyses.py        # Supplementary validation figures
 
 **Coherence Time in Biological Oscillator Assemblies Bounds the Rate of State Registration**
 
-Todd, I. (2026). *BioSystems* (R1 revision, BIOSYS-D-25-00981).
+Todd, I. (2026). *BioSystems* (under review, BIOSYS-D-25-00981).
 
 Companion paper: [Alignment Probabilities on Product Statistical Manifolds](https://github.com/todd866/alignment-geometry)
 
@@ -50,7 +50,7 @@ Companion paper: [Alignment Probabilities on Product Statistical Manifolds](http
   title   = {Coherence Time in Biological Oscillator Assemblies Bounds the Rate of State Registration},
   journal = {BioSystems},
   year    = {2026},
-  note    = {Under review, R1 revision}
+  note    = {Under review}
 }
 ```
 
