@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL original_submission/coherence_time_v1.tex   Tue Feb 10 22:14:15 2026
-%DIF ADD coherence_time.tex                          Sun Mar  1 09:51:50 2026
+%DIF ADD coherence_time.tex                          Sun Mar  1 10:11:10 2026
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
@@ -40,7 +40,7 @@ Sydney, NSW, Australia\\
 \texttt{itod2305@uni.sydney.edu.au}}
 
 \date{\DIFdelbegin %DIFDELCMD < \today%%%
-\DIFdelend \DIFaddbegin \DIFadd{February 2026}\DIFaddend }
+\DIFdelend \DIFaddbegin \DIFadd{March 2026}\DIFaddend }
 %DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
 %DIF UNDERLINE PREAMBLE %DIF PREAMBLE
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE
@@ -850,7 +850,7 @@ measures should therefore be statistically dissociable.
 
 Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~\cite{samaha2015,cecere2015}. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $\lambda_{\mathrm{attempt}}$ or the sampling schedule for phase alignment. \DIFaddbegin \DIFadd{An alternative framing holds that alpha reflects internally generated ``perception sets''---pre-established processing templates retrieved from stored knowledge networks---rather than bottom-up temporal sampling per se~\mbox{%DIFAUXCMD
 \cite{wutz2024}}\hskip0pt%DIFAUXCMD
-. Crucially, Wutz notes that subjective temporal duration correlates with the amount of information retrievable per perceptual event, and that top-down control can extend receptive integration windows to accommodate richer inputs. In the present framework, this is precisely the coherence time bound at work: a perception set is a high-dimensional internal template (large $M$), and the temporal effects Wutz documents---time dilation under richer processing, compression under impoverished conditions---correspond to the exponential dependence of $\tau_{\mathrm{coh}}$ on coordination depth. The two views are thus complementary: perception sets determine }\emph{\DIFadd{which}} \DIFadd{phase configurations count as alignment events, while the coherence time bound determines }\emph{\DIFadd{how long}} \DIFadd{the assembly must wait for those configurations to recur.
+. Crucially, Wutz notes that subjective temporal duration correlates with the amount of information retrievable per perceptual event, and that top-down control can extend receptive integration windows to accommodate richer inputs. In the present framework, this is the coherence time bound at work: a perception set can be interpreted as a high-dimensional internal template (large $M$), and the temporal effects Wutz documents---time dilation under richer processing, compression under impoverished conditions---correspond to the exponential dependence of $\tau_{\mathrm{coh}}$ on coordination depth. The two views are thus complementary: perception sets determine }\emph{\DIFadd{which}} \DIFadd{phase configurations count as alignment events, while the coherence time bound determines }\emph{\DIFadd{how long}} \DIFadd{the assembly must wait for those configurations to recur.
 }\DIFaddend 
 
 \textbf{Prediction:} If alpha frequency modulates commit timing, then entraining alpha via transcranial alternating current stimulation (tACS)~\cite{helfrich2014} should shift perceptual binding windows approximately linearly with frequency change. \DIFdelbegin \DIFdel{This prediction distinguishes the gating interpretation from alternatives where alpha reflects post-commit memory encoding}\DIFdelend \DIFaddbegin \DIFadd{Wutz's perception-set framework predicts the same direction of effect---faster alpha, finer temporal resolution---but attributes the mechanism to template-driven gating rather than passive sampling. A discriminating test is whether tACS shifts binding windows even when the perceptual task is fully exogenous (randomised, non-ambiguous stimuli), where perception-set contributions are minimal~\mbox{%DIFAUXCMD
@@ -1546,7 +1546,12 @@ This is a theoretical framework paper. Kuramoto simulation code and parameter es
 
 The author \DIFaddbegin \DIFadd{has pending intellectual property related to this work. The author }\DIFaddend declares no competing \DIFdelbegin \DIFdel{interests}\DIFdelend \DIFaddbegin \DIFadd{financial interests or personal relationships that could have appeared to influence the work reported in this paper}\DIFaddend .
 
-\section*{Funding}
+\DIFaddbegin \section*{\DIFadd{Declaration of generative AI use}}
+
+\DIFadd{During preparation the author used Claude Code (Claude Opus 4.6, Anthropic) for literature review, mathematical formulation, coding, and editing. GPT-5.3 (OpenAI) provided critical feedback on mathematical rigor and empirical grounding. All content was reviewed and revised by the author, who takes full responsibility for the published article.
+}
+
+\DIFaddend \section*{Funding}
 
 No external funding supported this work.
 
