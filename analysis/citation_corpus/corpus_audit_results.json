@@ -4,27 +4,27 @@
     "model": "all-MiniLM-L6-v2"
   },
   "corpus_summary": {
-    "total_refs": 61,
-    "refs_with_doi": 57,
+    "total_refs": 57,
+    "refs_with_doi": 56,
     "refs_with_full_text": 54,
-    "refs_with_aux_text": 7,
+    "refs_with_aux_text": 3,
     "refs_title_only": 0,
     "shared_text_dir": "/Users/iantodd/Projects/highdimensional/literature/coherence_time_corpus/text"
   },
   "analysis": {
     "summary": {
-      "n_contexts": 57,
-      "n_docs": 61,
-      "top1_hit_rate": 0.5964912280701754,
-      "top3_hit_rate": 0.7543859649122807,
-      "mean_best_cited_similarity": 0.4921861552355582,
-      "median_best_cited_similarity": 0.49298566579818726,
-      "contexts_with_full_text_cited_ref": 54
+      "n_contexts": 61,
+      "n_docs": 57,
+      "top1_hit_rate": 0.5573770491803278,
+      "top3_hit_rate": 0.7704918032786885,
+      "mean_best_cited_similarity": 0.4873433779070123,
+      "median_best_cited_similarity": 0.4952251613140106,
+      "contexts_with_full_text_cited_ref": 59
     },
     "strongest_contexts": [
       {
         "id": "CTX35",
-        "line": 496,
+        "line": 494,
         "raw": "Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~\\cite{samaha2015,cecere2015}.",
         "text": "Alpha oscillations (8 12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster .",
         "cited_keys": [
@@ -35,6 +35,11 @@
           {
             "cite_key": "samaha2015",
             "similarity": 0.7906756401062012,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "wutz2024",
+            "similarity": 0.7701497673988342,
             "text_source": "full_text"
           },
           {
@@ -50,11 +55,6 @@
           {
             "cite_key": "vanrullen2016",
             "similarity": 0.53416508436203,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "engel2001",
-            "similarity": 0.49738919734954834,
             "text_source": "full_text"
           }
         ],
@@ -87,8 +87,8 @@
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX42",
-        "line": 567,
+        "id": "CTX44",
+        "line": 565,
         "raw": "\\textbf{Quantum-like cognition.} Recent work has explored connections between oscillatory neural networks and quantum-like cognitive phenomena~\\cite{khrennikov2025bridge}.",
         "text": "Quantum-like cognition. Recent work has explored connections between oscillatory neural networks and quantum-like cognitive phenomena .",
         "cited_keys": [
@@ -111,13 +111,13 @@
             "text_source": "full_text"
           },
           {
-            "cite_key": "lisman2013",
-            "similarity": 0.5109699964523315,
+            "cite_key": "wutz2024",
+            "similarity": 0.5319875478744507,
             "text_source": "full_text"
           },
           {
-            "cite_key": "fries2005",
-            "similarity": 0.48467734456062317,
+            "cite_key": "lisman2013",
+            "similarity": 0.5109699964523315,
             "text_source": "full_text"
           }
         ],
@@ -135,92 +135,6 @@
         ],
         "best_cited_similarity": 0.7517693042755127,
         "best_overall_similarity": 0.7517693042755127,
-        "top_match_is_cited": true,
-        "any_cited_in_top3": true,
-        "has_full_text_cited_ref": true
-      },
-      {
-        "id": "CTX57",
-        "line": 847,
-        "raw": "\\textbf{Relation to synchronisation theory.} The Kuramoto model and its extensions~\\cite{kuramoto1984, strogatz2000, acebron2005, ott2008} provide a mature theory of synchronisation onset and order-parameter dynamics.",
-        "text": "Relation to synchronisation theory. The Kuramoto model and its extensions provide a mature theory of synchronisation onset and order-parameter dynamics.",
-        "cited_keys": [
-          "kuramoto1984",
-          "strogatz2000",
-          "acebron2005",
-          "ott2008"
-        ],
-        "top_matches": [
-          {
-            "cite_key": "kuramoto1984",
-            "similarity": 0.7425532341003418,
-            "text_source": "description_text"
-          },
-          {
-            "cite_key": "strogatz2000",
-            "similarity": 0.6786403656005859,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "acebron2005",
-            "similarity": 0.6466165781021118,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "ott2008",
-            "similarity": 0.6040624380111694,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "fries2015",
-            "similarity": 0.42794114351272583,
-            "text_source": "full_text"
-          }
-        ],
-        "cited_matches": [
-          {
-            "cite_key": "kuramoto1984",
-            "doc_similarity": 0.7425532341003418,
-            "text_source": "description_text",
-            "best_chunk": {
-              "similarity": 0.7425532341003418,
-              "text": "Chemical Oscillations, Waves, and Turbulence Kuramoto, Y. (1984). Springer-Verlag, Berlin. DOI: 10.1007/978-3-642-69689-3. Summary: This book develops the theory of collective behavior in coupled nonlinear oscillators, including phase reduction, synchronization, wave propagation, and order-parameter dynamics. It is a c",
-              "text_source": "description_text"
-            }
-          },
-          {
-            "cite_key": "strogatz2000",
-            "doc_similarity": 0.6786403656005859,
-            "text_source": "full_text",
-            "best_chunk": {
-              "similarity": 0.7551760673522949,
-              "text": "crossed — then a small cluster of oscillators suddenly freezes into synchrony. This cooperative phenomenon apparently made a deep impression on Kuramoto. As he wrote in a paper with his student Nishikawa ([8], p. 570): “. . . Prigogine’s concept of time order [29], which refers to the spontaneous emergence of rhythms i",
-              "text_source": "full_text"
-            }
-          },
-          {
-            "cite_key": "acebron2005",
-            "doc_similarity": 0.6466165781021118,
-            "text_source": "full_text",
-            "best_chunk": {
-              "similarity": 0.6685064435005188,
-              "text": "at its own frequency, while the coupling tends to synchronize it to all the others. By making a suitable choice of a rotating frame, θi →θi −Ωt, in which Ωis the ﬁrst moment of g(ω), we can transform Eq. (1) to an equivalent system of phase oscillators whose natural frequencies have zero mean. When the coupling is suﬃc",
-              "text_source": "full_text"
-            }
-          },
-          {
-            "cite_key": "ott2008",
-            "doc_similarity": 0.6040624380111694,
-            "text_source": "full_text",
-            "best_chunk": {
-              "similarity": 0.6186496019363403,
-              "text": "preceding article], consideration of our derived or- dinary diﬀerential equations appears to yield dynamics in precise agreement with results obtained from considerations not imposing this restriction. Thus we believe that our results may be useful in many other contexts. I. INTRODUCTION Understanding the generic behav",
-              "text_source": "full_text"
-            }
-          }
-        ],
-        "best_cited_similarity": 0.7425532341003418,
-        "best_overall_similarity": 0.7425532341003418,
         "top_match_is_cited": true,
         "any_cited_in_top3": true,
         "has_full_text_cited_ref": true
@@ -257,8 +171,8 @@
             "text_source": "full_text"
           },
           {
-            "cite_key": "singer1999",
-            "similarity": 0.4072974920272827,
+            "cite_key": "wutz2024",
+            "similarity": 0.4321291446685791,
             "text_source": "full_text"
           }
         ],
@@ -301,8 +215,61 @@
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX45",
-        "line": 573,
+        "id": "CTX61",
+        "line": 849,
+        "raw": "These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~\\cite{hengen2025}.",
+        "text": "These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function .",
+        "cited_keys": [
+          "hengen2025"
+        ],
+        "top_matches": [
+          {
+            "cite_key": "hengen2025",
+            "similarity": 0.7240634560585022,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "shew2013",
+            "similarity": 0.6745302677154541,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "raichle2001",
+            "similarity": 0.5123478174209595,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "friston2010",
+            "similarity": 0.49322184920310974,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "carhart2014",
+            "similarity": 0.48830029368400574,
+            "text_source": "full_text"
+          }
+        ],
+        "cited_matches": [
+          {
+            "cite_key": "hengen2025",
+            "doc_similarity": 0.7240634560585022,
+            "text_source": "full_text",
+            "best_chunk": {
+              "similarity": 0.7722504734992981,
+              "text": "Is there a universal computational optimum around which the healthy brain tunes itself? The criticality hypothesis posits such a unified computational set-point. Criticality is a special dynamical brain state, defined by internally-generated multi-scale, marginally-stable dynamics which maximize many features of inform",
+              "text_source": "full_text"
+            }
+          }
+        ],
+        "best_cited_similarity": 0.7240634560585022,
+        "best_overall_similarity": 0.7240634560585022,
+        "top_match_is_cited": true,
+        "any_cited_in_top3": true,
+        "has_full_text_cited_ref": true
+      },
+      {
+        "id": "CTX47",
+        "line": 571,
         "raw": "\\textbf{Communication through coherence (CTC).} Fries's influential framework~\\cite{fries2005,fries2015} proposes that effective communication between neural populations requires coherence at the appropriate frequency: sending and receiving populations must be phase-aligned for spike-based signals to arrive during windows of maximal excitability.",
         "text": "Communication through coherence (CTC). Fries's influential framework proposes that effective communication between neural populations requires coherence at the appropriate frequency: sending and receiving populations must be phase-aligned for spike-based signals to arrive during windows of maximal excitability.",
         "cited_keys": [
@@ -326,13 +293,13 @@
             "text_source": "full_text"
           },
           {
-            "cite_key": "cecere2015",
-            "similarity": 0.5069378614425659,
+            "cite_key": "buzsaki2004",
+            "similarity": 0.5294916033744812,
             "text_source": "full_text"
           },
           {
-            "cite_key": "han2018",
-            "similarity": 0.5056015849113464,
+            "cite_key": "cecere2015",
+            "similarity": 0.5069378614425659,
             "text_source": "full_text"
           }
         ],
@@ -365,8 +332,8 @@
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX49",
-        "line": 709,
+        "id": "CTX51",
+        "line": 707,
         "raw": "\\begin{enumerate} \\item \\textbf{Neural dynamics have measurable effective dimensionality.} This is standard neuroscience: participation ratios, neural manifold analyses, and related methods quantify $\\Deff$ from population recordings~\\cite{stringer2019,cunningham2014}.",
         "text": "Neural dynamics have measurable effective dimensionality. This is standard neuroscience: participation ratios, neural manifold analyses, and related methods quantify MATH from population recordings .",
         "cited_keys": [
@@ -390,13 +357,13 @@
             "text_source": "full_text"
           },
           {
-            "cite_key": "todd2025biosystems",
-            "similarity": 0.4687492847442627,
+            "cite_key": "wutz2024",
+            "similarity": 0.4744724631309509,
             "text_source": "full_text"
           },
           {
-            "cite_key": "todd2025intelligence",
-            "similarity": 0.4521099328994751,
+            "cite_key": "todd2025biosystems",
+            "similarity": 0.4687492847442627,
             "text_source": "full_text"
           }
         ],
@@ -429,8 +396,8 @@
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX51",
-        "line": 714,
+        "id": "CTX53",
+        "line": 712,
         "raw": "Psychedelics increase neural signal complexity~\\cite{timmermann2019,carhart2014} and produce subjectively enriched experience.",
         "text": "Psychedelics increase neural signal complexity and produce subjectively enriched experience.",
         "cited_keys": [
@@ -459,8 +426,8 @@
             "text_source": "full_text"
           },
           {
-            "cite_key": "stringer2019",
-            "similarity": 0.40556633472442627,
+            "cite_key": "wutz2024",
+            "similarity": 0.40575364232063293,
             "text_source": "full_text"
           }
         ],
@@ -493,61 +460,143 @@
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX38",
-        "line": 510,
-        "raw": "\\paragraph{Mind-wandering and creative insight (high $M$, low $r$).} Default-mode network activity is a canonical example of internally directed baseline brain activity~\\cite{raichle2001}.",
-        "text": "Mind-wandering and creative insight (high MATH , low MATH ). Default-mode network activity is a canonical example of internally directed baseline brain activity .",
+        "id": "CTX59",
+        "line": 849,
+        "raw": "\\textbf{Relation to synchronisation theory.} The Kuramoto model and its extensions~\\cite{kuramoto1984, strogatz2000, acebron2005, ott2008} provide a mature theory of synchronisation onset and order-parameter dynamics.",
+        "text": "Relation to synchronisation theory. The Kuramoto model and its extensions provide a mature theory of synchronisation onset and order-parameter dynamics.",
         "cited_keys": [
-          "raichle2001"
+          "kuramoto1984",
+          "strogatz2000",
+          "acebron2005",
+          "ott2008"
         ],
         "top_matches": [
           {
-            "cite_key": "raichle2001",
-            "similarity": 0.6805981993675232,
-            "text_source": "abstract_text"
-          },
-          {
-            "cite_key": "miller2018",
-            "similarity": 0.5839177966117859,
+            "cite_key": "strogatz2000",
+            "similarity": 0.6786403656005859,
             "text_source": "full_text"
           },
           {
-            "cite_key": "engel2001",
-            "similarity": 0.5245399475097656,
+            "cite_key": "acebron2005",
+            "similarity": 0.6466165781021118,
             "text_source": "full_text"
           },
           {
-            "cite_key": "varela2001",
-            "similarity": 0.5168968439102173,
+            "cite_key": "ott2008",
+            "similarity": 0.6040624380111694,
             "text_source": "full_text"
           },
           {
-            "cite_key": "shew2013",
-            "similarity": 0.4785352945327759,
+            "cite_key": "kuroki2025",
+            "similarity": 0.5643664598464966,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "fries2015",
+            "similarity": 0.42794114351272583,
             "text_source": "full_text"
           }
         ],
         "cited_matches": [
           {
-            "cite_key": "raichle2001",
-            "doc_similarity": 0.6805981993675232,
-            "text_source": "abstract_text",
+            "cite_key": "strogatz2000",
+            "doc_similarity": 0.6786403656005859,
+            "text_source": "full_text",
             "best_chunk": {
-              "similarity": 0.6805981993675232,
-              "text": "A default mode of brain function Raichle, M.E., MacLeod, A.M., Snyder, A.Z., Powers, W.J., Gusnard, D.A., and Shulman, G.L. (2001). Proceedings of the National Academy of Sciences, 98(2), 676--682. DOI: 10.1073/pnas.98.2.676. Summary: This paper argues that the resting adult brain is not idle. Measurements of cerebral ",
-              "text_source": "abstract_text"
+              "similarity": 0.7551760673522949,
+              "text": "crossed — then a small cluster of oscillators suddenly freezes into synchrony. This cooperative phenomenon apparently made a deep impression on Kuramoto. As he wrote in a paper with his student Nishikawa ([8], p. 570): “. . . Prigogine’s concept of time order [29], which refers to the spontaneous emergence of rhythms i",
+              "text_source": "full_text"
+            }
+          },
+          {
+            "cite_key": "acebron2005",
+            "doc_similarity": 0.6466165781021118,
+            "text_source": "full_text",
+            "best_chunk": {
+              "similarity": 0.6685064435005188,
+              "text": "at its own frequency, while the coupling tends to synchronize it to all the others. By making a suitable choice of a rotating frame, θi →θi −Ωt, in which Ωis the ﬁrst moment of g(ω), we can transform Eq. (1) to an equivalent system of phase oscillators whose natural frequencies have zero mean. When the coupling is suﬃc",
+              "text_source": "full_text"
+            }
+          },
+          {
+            "cite_key": "ott2008",
+            "doc_similarity": 0.6040624380111694,
+            "text_source": "full_text",
+            "best_chunk": {
+              "similarity": 0.6186496019363403,
+              "text": "preceding article], consideration of our derived or- dinary diﬀerential equations appears to yield dynamics in precise agreement with results obtained from considerations not imposing this restriction. Thus we believe that our results may be useful in many other contexts. I. INTRODUCTION Understanding the generic behav",
+              "text_source": "full_text"
+            }
+          },
+          {
+            "cite_key": "kuramoto1984",
+            "doc_similarity": -0.03806016594171524,
+            "text_source": "description_text",
+            "best_chunk": null
+          }
+        ],
+        "best_cited_similarity": 0.6786403656005859,
+        "best_overall_similarity": 0.6786403656005859,
+        "top_match_is_cited": true,
+        "any_cited_in_top3": true,
+        "has_full_text_cited_ref": true
+      },
+      {
+        "id": "CTX60",
+        "line": 849,
+        "raw": "Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~\\cite{kuroki2025}.",
+        "text": "Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes .",
+        "cited_keys": [
+          "kuroki2025"
+        ],
+        "top_matches": [
+          {
+            "cite_key": "kuroki2025",
+            "similarity": 0.6785029172897339,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "acebron2005",
+            "similarity": 0.5185154676437378,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "buzsaki2004",
+            "similarity": 0.4859483540058136,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "fries2015",
+            "similarity": 0.46954184770584106,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "engel2001",
+            "similarity": 0.4568334221839905,
+            "text_source": "full_text"
+          }
+        ],
+        "cited_matches": [
+          {
+            "cite_key": "kuroki2025",
+            "doc_similarity": 0.6785029172897339,
+            "text_source": "full_text",
+            "best_chunk": {
+              "similarity": 0.6785029172897339,
+              "text": "LETTER Communicated by Takeru Miyato Excitation–Inhibition Balance Controls Synchronization in a Simple Model of Coupled Phase Oscillators Satoshi Kuroki Kenji Mizuseki mizuseki.kenji@omu.ac.jp Department of Physiology, Graduate School of Medicine, Osaka Metropolitan University, Osaka, 545-8585, Japan Collective neuron",
+              "text_source": "full_text"
             }
           }
         ],
-        "best_cited_similarity": 0.6805981993675232,
-        "best_overall_similarity": 0.6805981993675232,
+        "best_cited_similarity": 0.6785029172897339,
+        "best_overall_similarity": 0.6785029172897339,
         "top_match_is_cited": true,
         "any_cited_in_top3": true,
-        "has_full_text_cited_ref": false
+        "has_full_text_cited_ref": true
       },
       {
         "id": "CTX34",
-        "line": 480,
+        "line": 478,
         "raw": "Critically, Stetson et al.~\\cite{stetson2007} showed that objective temporal resolution (tested via a falling LED chronometer) did \\emph{not} improve during free-fall fear---only retrospective duration estimates increased.",
         "text": "Critically, Stetson et al. showed that objective temporal resolution (tested via a falling LED chronometer) did not improve during free-fall fear only retrospective duration estimates increased.",
         "cited_keys": [
@@ -565,6 +614,11 @@
             "text_source": "full_text"
           },
           {
+            "cite_key": "wutz2024",
+            "similarity": 0.3780038058757782,
+            "text_source": "full_text"
+          },
+          {
             "cite_key": "cecere2015",
             "similarity": 0.3490307033061981,
             "text_source": "full_text"
@@ -572,11 +626,6 @@
           {
             "cite_key": "timmermann2019",
             "similarity": 0.34768548607826233,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "casali2013",
-            "similarity": 0.3114769160747528,
             "text_source": "full_text"
           }
         ],
@@ -597,199 +646,76 @@
         "top_match_is_cited": true,
         "any_cited_in_top3": true,
         "has_full_text_cited_ref": true
-      },
-      {
-        "id": "CTX56",
-        "line": 833,
-        "raw": "Operating with low coordination depth ($M \\sim 3$--5), tight coupling ($r \\sim 0.8$), and stereotyped primitives, the cerebellum achieves commit times of 10--20 ms~\\cite{wolpert1998,ito2008}---fast enough to override slow cortical dynamics when rapid action is required.",
-        "text": "Operating with low coordination depth ( MATH 5), tight coupling ( MATH ), and stereotyped primitives, the cerebellum achieves commit times of 10 20 ms fast enough to override slow cortical dynamics when rapid action is required.",
-        "cited_keys": [
-          "wolpert1998",
-          "ito2008"
-        ],
-        "top_matches": [
-          {
-            "cite_key": "ito2008",
-            "similarity": 0.6739203929901123,
-            "text_source": "abstract_text"
-          },
-          {
-            "cite_key": "wolpert1998",
-            "similarity": 0.5839967727661133,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "han2018",
-            "similarity": 0.5359873175621033,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "miller2018",
-            "similarity": 0.514167845249176,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "wyatt2005",
-            "similarity": 0.485321581363678,
-            "text_source": "full_text"
-          }
-        ],
-        "cited_matches": [
-          {
-            "cite_key": "ito2008",
-            "doc_similarity": 0.6739203929901123,
-            "text_source": "abstract_text",
-            "best_chunk": {
-              "similarity": 0.6739203929901123,
-              "text": "Control of mental activities by internal models in the cerebellum Ito, M. (2008). Nature Reviews Neuroscience, 9(4), 304--313. DOI: 10.1038/nrn2332. Summary: This review argues that cerebellar internal models are not limited to overt motor control. It proposes that the cerebellum contributes to cognitive and mental ope",
-              "text_source": "abstract_text"
-            }
-          },
-          {
-            "cite_key": "wolpert1998",
-            "doc_similarity": 0.5839967727661133,
-            "text_source": "full_text",
-            "best_chunk": {
-              "similarity": 0.6463503241539001,
-              "text": "models are found within the cerebellar circuitry. Forward internal models predict the consequences of actions and can be used to overcome time delays associated with feedback control. Secondly, we review the evidence that the cerebellum generates predictions using such a forward model. Finally, we review a computationa",
-              "text_source": "full_text"
-            }
-          }
-        ],
-        "best_cited_similarity": 0.6739203929901123,
-        "best_overall_similarity": 0.6739203929901123,
-        "top_match_is_cited": true,
-        "any_cited_in_top3": true,
-        "has_full_text_cited_ref": true
       }
     ],
     "review_candidates": [
       {
-        "id": "CTX17",
-        "line": 220,
-        "raw": "The \\textbf{participation ratio}~\\cite{cunningham2014,stringer2019} provides an operational estimate: \\begin{equation}\\label{eq:deff-estimator} \\hat{d}_{\\mathrm{eff}} = \\frac{(\\mathrm{tr}\\, C)^2}{\\mathrm{tr}(C^2)} = \\frac{\\left(\\sum_i \\lambda_i\\right)^2}{\\sum_i \\lambda_i^2} \\end{equation} where $\\lambda_i$ are eigenvalues of $C$.",
-        "text": "The participation ratio provides an operational estimate: d eff = ( tr \\, C) 2 tr (C 2) = ( i i ) 2 i i 2 where MATH are eigenvalues of MATH .",
-        "cited_keys": [
-          "cunningham2014",
-          "stringer2019"
-        ],
-        "top_matches": [
-          {
-            "cite_key": "kac1947",
-            "similarity": 0.20952749252319336,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "margolus1998",
-            "similarity": 0.20622441172599792,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "amari2016",
-            "similarity": 0.20385704934597015,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "mardia2000",
-            "similarity": 0.1846504509449005,
-            "text_source": "description_text"
-          },
-          {
-            "cite_key": "levinperes2017",
-            "similarity": 0.1742306351661682,
-            "text_source": "full_text"
-          }
-        ],
-        "cited_matches": [
-          {
-            "cite_key": "cunningham2014",
-            "doc_similarity": 0.09643959254026413,
-            "text_source": "full_text",
-            "best_chunk": {
-              "similarity": 0.2298538088798523,
-              "text": "Representative uses in neuroscience (refs.) PCA Covariance No No 6,29,50 FA Covariance No Yes 10,43,100 LDS/GPFA Dynamics Yes Yes 12,71,72 NLDS Dynamics Yes Yes 77,78 LDA Classification No No 9,19,56 Demixed Regression No Yes/No 4,16 Isomap/LLE Manifold discovery No No 14,44,58 Nat Neurosci. Author manuscript; availabl",
-              "text_source": "full_text"
-            }
-          },
-          {
-            "cite_key": "stringer2019",
-            "doc_similarity": 0.06365693360567093,
-            "text_source": "full_text",
-            "best_chunk": {
-              "similarity": 0.31965604424476624,
-              "text": "the trial-averaged stimulus responses ⃗R: ⃗ei = argmax(∥⃗e⊤ i ⃗R∥2) such that ∥⃗ei∥2 = 1,⃗ei ∈Span( ⃗EB), and ⃗ei orthogonal to ⃗e1 . . .⃗ei−1 The solution to this maximization problem is given by the left singular vectors of ⃗E⊤ B ⃗R. To determine the amount of stimulus variance in shared dimension i (Fig. 4C), we pro",
-              "text_source": "full_text"
-            }
-          }
-        ],
-        "best_cited_similarity": 0.09643959254026413,
-        "best_overall_similarity": 0.20952749252319336,
-        "top_match_is_cited": false,
-        "any_cited_in_top3": false,
-        "has_full_text_cited_ref": true
-      },
-      {
-        "id": "CTX48",
-        "line": 679,
-        "raw": "A related control-theoretic point: Ashby's law of requisite variety~\\cite{ashby1956} implies that a subnetwork constrained to a low-dimensional regime loses the degrees of freedom needed to regulate coupled regions.",
-        "text": "A related control-theoretic point: Ashby's law of requisite variety implies that a subnetwork constrained to a low-dimensional regime loses the degrees of freedom needed to regulate coupled regions.",
+        "id": "CTX50",
+        "line": 677,
+        "raw": "A related control-theoretic point is suggested by Ashby's law of requisite variety~\\cite{ashby1956}: a subnetwork constrained to a low-dimensional regime loses the degrees of freedom needed to regulate coupled regions.",
+        "text": "A related control-theoretic point is suggested by Ashby's law of requisite variety : a subnetwork constrained to a low-dimensional regime loses the degrees of freedom needed to regulate coupled regions.",
         "cited_keys": [
           "ashby1956"
         ],
         "top_matches": [
           {
             "cite_key": "todd2025intelligence",
-            "similarity": 0.31431055068969727,
+            "similarity": 0.3142077922821045,
             "text_source": "full_text"
           },
           {
-            "cite_key": "todd2025biosystems",
-            "similarity": 0.25765472650527954,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "todd2025demon",
-            "similarity": 0.24781665205955505,
+            "cite_key": "amari2016",
+            "similarity": 0.252755731344223,
             "text_source": "full_text"
           },
           {
             "cite_key": "bormashenko2024",
-            "similarity": 0.24679133296012878,
+            "similarity": 0.2491639256477356,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "todd2025biosystems",
+            "similarity": 0.24342535436153412,
             "text_source": "full_text"
           },
           {
             "cite_key": "beggs2003",
-            "similarity": 0.23631873726844788,
+            "similarity": 0.2419407218694687,
             "text_source": "full_text"
           }
         ],
         "cited_matches": [
           {
             "cite_key": "ashby1956",
-            "doc_similarity": 0.1116056814789772,
+            "doc_similarity": 0.0922926515340805,
             "text_source": "full_text",
             "best_chunk": {
-              "similarity": 0.3076910674571991,
-              "text": "tries to show something of the wealth of pos- sible applications. It leads into Shannon’s theory; so after reading this Part the reader will be able to proceed without difficulty to the study of Shannon’s own work. Part III deals with mechanism and information as they are used in biological systems for regulation and c",
+              "similarity": 0.31126517057418823,
+              "text": "The gain achieved by geometry’s development hardly needs to be pointed out. Geometry now acts as a framework on which all terrestrial forms can find their natural place, with the relations between the various forms readily appreciable. With this increased understanding goes a correspondingly increased power of control.",
               "text_source": "full_text"
             }
           }
         ],
-        "best_cited_similarity": 0.1116056814789772,
-        "best_overall_similarity": 0.31431055068969727,
+        "best_cited_similarity": 0.0922926515340805,
+        "best_overall_similarity": 0.3142077922821045,
         "top_match_is_cited": false,
         "any_cited_in_top3": false,
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX52",
-        "line": 752,
+        "id": "CTX54",
+        "line": 750,
         "raw": "These increase $\\Deff$ by relaxing precision weighting of top-down priors~\\cite{carhart2019rebus}, loosening top-down constraints on dynamics normally suppressed by hierarchical filtering.",
         "text": "These increase MATH by relaxing precision weighting of top-down priors , loosening top-down constraints on dynamics normally suppressed by hierarchical filtering.",
         "cited_keys": [
           "carhart2019rebus"
         ],
         "top_matches": [
+          {
+            "cite_key": "wutz2024",
+            "similarity": 0.3526514172554016,
+            "text_source": "full_text"
+          },
           {
             "cite_key": "khrennikov2025bridge",
             "similarity": 0.33189934492111206,
@@ -809,11 +735,6 @@
             "cite_key": "todd2025intelligence",
             "similarity": 0.3205518126487732,
             "text_source": "full_text"
-          },
-          {
-            "cite_key": "cecere2015",
-            "similarity": 0.3113120496273041,
-            "text_source": "full_text"
           }
         ],
         "cited_matches": [
@@ -829,14 +750,14 @@
           }
         ],
         "best_cited_similarity": 0.13719671964645386,
-        "best_overall_similarity": 0.33189934492111206,
+        "best_overall_similarity": 0.3526514172554016,
         "top_match_is_cited": false,
         "any_cited_in_top3": false,
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX54",
-        "line": 784,
+        "id": "CTX56",
+        "line": 786,
         "raw": "These likely decrease $\\Deff$ by driving the cortex into lower-complexity, less integrative states~\\cite{casali2013}.",
         "text": "These likely decrease MATH by driving the cortex into lower-complexity, less integrative states .",
         "cited_keys": [
@@ -854,6 +775,11 @@
             "text_source": "full_text"
           },
           {
+            "cite_key": "hengen2025",
+            "similarity": 0.4112204313278198,
+            "text_source": "full_text"
+          },
+          {
             "cite_key": "friston2010",
             "similarity": 0.4085277020931244,
             "text_source": "full_text"
@@ -861,11 +787,6 @@
           {
             "cite_key": "carhart2014",
             "similarity": 0.4067845940589905,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "lisman2013",
-            "similarity": 0.395161896944046,
             "text_source": "full_text"
           }
         ],
@@ -888,8 +809,8 @@
         "has_full_text_cited_ref": true
       },
       {
-        "id": "CTX47",
-        "line": 636,
+        "id": "CTX49",
+        "line": 634,
         "raw": "The standard frequency-hierarchy view~\\cite{miller2018} and the present framework make overlapping predictions in many cases.",
         "text": "The standard frequency-hierarchy view and the present framework make overlapping predictions in many cases.",
         "cited_keys": [
@@ -936,59 +857,6 @@
         ],
         "best_cited_similarity": 0.200764998793602,
         "best_overall_similarity": 0.3815939724445343,
-        "top_match_is_cited": false,
-        "any_cited_in_top3": false,
-        "has_full_text_cited_ref": true
-      },
-      {
-        "id": "CTX08",
-        "line": 92,
-        "raw": "Different measurement schemes (participation ratios, manifold dimension, information-geometric metrics) estimate this property from data~\\cite{amari2016}.",
-        "text": "Different measurement schemes (participation ratios, manifold dimension, information-geometric metrics) estimate this property from data .",
-        "cited_keys": [
-          "amari2016"
-        ],
-        "top_matches": [
-          {
-            "cite_key": "cunningham2014",
-            "similarity": 0.323481023311615,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "mardia2000",
-            "similarity": 0.3125426471233368,
-            "text_source": "description_text"
-          },
-          {
-            "cite_key": "poor1994",
-            "similarity": 0.2607332468032837,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "amari2016",
-            "similarity": 0.23940129578113556,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "mandelstam1945",
-            "similarity": 0.2218126505613327,
-            "text_source": "full_text"
-          }
-        ],
-        "cited_matches": [
-          {
-            "cite_key": "amari2016",
-            "doc_similarity": 0.23940129578113556,
-            "text_source": "full_text",
-            "best_chunk": {
-              "similarity": 0.47511327266693115,
-              "text": "omissions that may have been made. Printed on acid-free paper This Springer imprint is published by SpringerNature The registered company is Springer Japan KK --- Page 6 --- Preface Information geometry is a method of exploring the world of information by means of modern geometry. Theories of information have so far be",
-              "text_source": "full_text"
-            }
-          }
-        ],
-        "best_cited_similarity": 0.23940129578113556,
-        "best_overall_similarity": 0.323481023311615,
         "top_match_is_cited": false,
         "any_cited_in_top3": false,
         "has_full_text_cited_ref": true
@@ -1058,11 +926,6 @@
         ],
         "top_matches": [
           {
-            "cite_key": "mardia2000",
-            "similarity": 0.3792353868484497,
-            "text_source": "description_text"
-          },
-          {
             "cite_key": "mandelstam1945",
             "similarity": 0.3236329257488251,
             "text_source": "full_text"
@@ -1073,32 +936,33 @@
             "text_source": "full_text"
           },
           {
-            "cite_key": "kuramoto1984",
-            "similarity": 0.30608588457107544,
-            "text_source": "description_text"
-          },
-          {
             "cite_key": "acebron2005",
             "similarity": 0.2939082384109497,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "kac1947",
+            "similarity": 0.28760001063346863,
+            "text_source": "full_text"
+          },
+          {
+            "cite_key": "khrennikov2021",
+            "similarity": 0.28418588638305664,
             "text_source": "full_text"
           }
         ],
         "cited_matches": [
           {
             "cite_key": "mardia2000",
-            "doc_similarity": 0.3792353868484497,
+            "doc_similarity": 0.022105829790234566,
             "text_source": "description_text",
-            "best_chunk": {
-              "similarity": 0.3792353868484497,
-              "text": "Directional Statistics Mardia, K.V., and Jupp, P.E. (2000). John Wiley & Sons. DOI: 10.1002/9780470316979. Summary: This monograph is a standard reference for statistics on circles and spheres. It develops circular distributions such as the von Mises family, the relationship between mean resultant length and concentrat",
-              "text_source": "description_text"
-            }
+            "best_chunk": null
           }
         ],
-        "best_cited_similarity": 0.3792353868484497,
-        "best_overall_similarity": 0.3792353868484497,
-        "top_match_is_cited": true,
-        "any_cited_in_top3": true,
+        "best_cited_similarity": 0.022105829790234566,
+        "best_overall_similarity": 0.3236329257488251,
+        "top_match_is_cited": false,
+        "any_cited_in_top3": false,
         "has_full_text_cited_ref": false
       },
       {
@@ -1110,11 +974,6 @@
           "mardia2000"
         ],
         "top_matches": [
-          {
-            "cite_key": "mardia2000",
-            "similarity": 0.42379453778266907,
-            "text_source": "description_text"
-          },
           {
             "cite_key": "amari2016",
             "similarity": 0.3606039881706238,
@@ -1134,93 +993,41 @@
             "cite_key": "kac1947",
             "similarity": 0.22367262840270996,
             "text_source": "full_text"
+          },
+          {
+            "cite_key": "strogatz2000",
+            "similarity": 0.20444844663143158,
+            "text_source": "full_text"
           }
         ],
         "cited_matches": [
           {
             "cite_key": "mardia2000",
-            "doc_similarity": 0.42379453778266907,
+            "doc_similarity": 0.08484954386949539,
             "text_source": "description_text",
-            "best_chunk": {
-              "similarity": 0.42379453778266907,
-              "text": "Directional Statistics Mardia, K.V., and Jupp, P.E. (2000). John Wiley & Sons. DOI: 10.1002/9780470316979. Summary: This monograph is a standard reference for statistics on circles and spheres. It develops circular distributions such as the von Mises family, the relationship between mean resultant length and concentrat",
-              "text_source": "description_text"
-            }
+            "best_chunk": null
           }
         ],
-        "best_cited_similarity": 0.42379453778266907,
-        "best_overall_similarity": 0.42379453778266907,
-        "top_match_is_cited": true,
-        "any_cited_in_top3": true,
-        "has_full_text_cited_ref": false
-      },
-      {
-        "id": "CTX38",
-        "line": 510,
-        "raw": "\\paragraph{Mind-wandering and creative insight (high $M$, low $r$).} Default-mode network activity is a canonical example of internally directed baseline brain activity~\\cite{raichle2001}.",
-        "text": "Mind-wandering and creative insight (high MATH , low MATH ). Default-mode network activity is a canonical example of internally directed baseline brain activity .",
-        "cited_keys": [
-          "raichle2001"
-        ],
-        "top_matches": [
-          {
-            "cite_key": "raichle2001",
-            "similarity": 0.6805981993675232,
-            "text_source": "abstract_text"
-          },
-          {
-            "cite_key": "miller2018",
-            "similarity": 0.5839177966117859,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "engel2001",
-            "similarity": 0.5245399475097656,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "varela2001",
-            "similarity": 0.5168968439102173,
-            "text_source": "full_text"
-          },
-          {
-            "cite_key": "shew2013",
-            "similarity": 0.4785352945327759,
-            "text_source": "full_text"
-          }
-        ],
-        "cited_matches": [
-          {
-            "cite_key": "raichle2001",
-            "doc_similarity": 0.6805981993675232,
-            "text_source": "abstract_text",
-            "best_chunk": {
-              "similarity": 0.6805981993675232,
-              "text": "A default mode of brain function Raichle, M.E., MacLeod, A.M., Snyder, A.Z., Powers, W.J., Gusnard, D.A., and Shulman, G.L. (2001). Proceedings of the National Academy of Sciences, 98(2), 676--682. DOI: 10.1073/pnas.98.2.676. Summary: This paper argues that the resting adult brain is not idle. Measurements of cerebral ",
-              "text_source": "abstract_text"
-            }
-          }
-        ],
-        "best_cited_similarity": 0.6805981993675232,
-        "best_overall_similarity": 0.6805981993675232,
-        "top_match_is_cited": true,
-        "any_cited_in_top3": true,
+        "best_cited_similarity": 0.08484954386949539,
+        "best_overall_similarity": 0.3606039881706238,
+        "top_match_is_cited": false,
+        "any_cited_in_top3": false,
         "has_full_text_cited_ref": false
       }
     ]
   },
   "orphans": [
     {
-      "cite_key": "dyson2004",
+      "cite_key": "kuramoto1984",
       "text_source": "description_text",
-      "max_similarity_to_any_context": 0.29473036527633667,
-      "title": "A meeting with Enrico Fermi"
+      "max_similarity_to_any_context": 0.11849106103181839,
+      "title": "Chemical Oscillations, Waves, and Turbulence"
     },
     {
-      "cite_key": "gabriel1996",
-      "text_source": "full_text",
-      "max_similarity_to_any_context": 0.29985350370407104,
-      "title": "The dielectric properties of biological tissues: III"
+      "cite_key": "mardia2000",
+      "text_source": "description_text",
+      "max_similarity_to_any_context": 0.11849106103181839,
+      "title": "Directional Statistics"
     },
     {
       "cite_key": "ashby1956",
@@ -1229,40 +1036,16 @@
       "title": "An Introduction to Cybernetics"
     },
     {
-      "cite_key": "pavey2024",
-      "text_source": "abstract_text",
-      "max_similarity_to_any_context": 0.41532230377197266,
-      "title": "Distinct neuronal circuits mediate cortical hyperexcitability in amyotrophic lateral sclerosis"
-    },
-    {
-      "cite_key": "braitenberg1958",
-      "text_source": "full_text",
-      "max_similarity_to_any_context": 0.4221782088279724,
-      "title": "Morphological observations on the cerebellar cortex"
-    },
-    {
       "cite_key": "igamberdiev2025constraints",
       "text_source": "full_text",
       "max_similarity_to_any_context": 0.4468521475791931,
       "title": "Physical limits of natural computation as the biological constraints of morphogenesis, evolution, and consciousness: On the 100th anniversary of Efim Liberman (1925--2011)"
     },
     {
-      "cite_key": "llinas1982",
-      "text_source": "description_text",
-      "max_similarity_to_any_context": 0.46933841705322266,
-      "title": "General discussion: Radial connectivity in the cerebellar cortex"
-    },
-    {
       "cite_key": "womelsdorf2007",
       "text_source": "full_text",
       "max_similarity_to_any_context": 0.5023703575134277,
       "title": "Modulation of neuronal interactions through neuronal synchronization"
-    },
-    {
-      "cite_key": "ott2008",
-      "text_source": "full_text",
-      "max_similarity_to_any_context": 0.6040624380111694,
-      "title": "Low dimensional behavior of large systems of globally coupled oscillators"
     }
   ],
   "probes": [
@@ -1292,11 +1075,6 @@
       "probe": "extracellular electric fields modulate membrane potential and spike timing through ephaptic coupling",
       "matches": [
         {
-          "cite_key": "subramanian2022",
-          "similarity": 0.6194674968719482,
-          "text_source": "full_text"
-        },
-        {
           "cite_key": "han2018",
           "similarity": 0.6122075915336609,
           "text_source": "full_text"
@@ -1304,6 +1082,11 @@
         {
           "cite_key": "pinotsis2023",
           "similarity": 0.5777355432510376,
+          "text_source": "full_text"
+        },
+        {
+          "cite_key": "anastassiou2011",
+          "similarity": 0.5755156874656677,
           "text_source": "full_text"
         }
       ]
@@ -1365,9 +1148,9 @@
           "text_source": "abstract_text"
         },
         {
-          "cite_key": "llinas1982",
-          "similarity": 0.5079546570777893,
-          "text_source": "description_text"
+          "cite_key": "han2018",
+          "similarity": 0.4958328306674957,
+          "text_source": "full_text"
         }
       ]
     },
@@ -1381,8 +1164,8 @@
           "text_source": "full_text"
         },
         {
-          "cite_key": "subramanian2022",
-          "similarity": 0.4696596562862396,
+          "cite_key": "wutz2024",
+          "similarity": 0.46552222967147827,
           "text_source": "full_text"
         },
         {

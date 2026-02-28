@@ -1,42 +1,49 @@
 # Papers To Source
 
+- Bibliography entries: `57`
 - PDFs in corpus: `54`
-- Remaining external refs without local PDFs: `7`
-- Missing DOI metadata among those refs: `0`
-- Citation contexts with at least one full-text-backed cited ref: `54/57`
+- References with full-text extraction: `54/57`
+- References with abstract/description fallback: `3/57` (canonical textbooks + ito2008)
+- References not yet in corpus: `0/57`
+
+## Fallback-only references (existing)
 
 - `ito2008`. Control of mental activities by internal models in the cerebellum (2008)
   DOI: `10.1038/nrn2332`
   Corpus support: `abstract_text`
-  Used in: `coherence_time.tex:833` Operating with low coordination depth ( MATH 5), tight coupling ( MATH ), and stereotyped primitives, the cerebellum achieves commit times o
-  Note: Auxiliary abstract text is in the corpus; no local PDF matched yet.
+  Used in: `coherence_time.tex:833` Operating with low coordination depth...
+  Note: Auxiliary abstract text is in the corpus; requires USyd Springer Nature subscription for full PDF.
 - `kuramoto1984`. Chemical Oscillations, Waves, and Turbulence (1984)
   DOI: `10.1007/978-3-642-69689-3`
   Corpus support: `description_text`
-  Used in: `coherence_time.tex:847` Relation to synchronisation theory. The Kuramoto model and its extensions provide a mature theory of synchronisation onset and order-paramet
-  Note: Exact file exists as .djvu in Downloads; auxiliary description text added to the corpus, but a PDF/text conversion would still improve coverage.
+  Used in: `coherence_time.tex:148` building on the theory of coupled oscillators...
+  Note: DJVU exists in Downloads but lacks OCR; description text adequate for a canonical textbook citation.
 - `mardia2000`. Directional Statistics (2000)
   DOI: `10.1002/9780470316979`
   Corpus support: `description_text`
-  Used in: `coherence_time.tex:147` Let MATH denote the inter-module coherence MATH where MATH is the aggregate phase of module MATH . (We reserve MATH for the all-oscillator o; `coherence_time.tex:151` Why von Mises? Given circular symmetry and a fixed mean resultant length MATH , the maximum-entropy distribution on the circle is von Mises 
-  Note: Exact file exists as .djvu in Downloads; auxiliary description text added to the corpus, but a PDF/text conversion would still improve coverage.
-- `raichle2001`. A default mode of brain function (2001)
-  DOI: `10.1073/pnas.98.2.676`
-  Corpus support: `abstract_text`
-  Used in: `coherence_time.tex:510` Mind-wandering and creative insight (high MATH , low MATH ). Default-mode network activity exhibits low inter-regional coherence ( MATH ) an
-  Note: Auxiliary abstract text is in the corpus; still missing the cited 2001 article as a local PDF.
-- `dyson2004`. A meeting with Enrico Fermi (2004)
-  DOI: `10.1038/427297a`
-  Corpus support: `description_text`
-  Used in: no mapped citation context in current audit output
-  Note: Auxiliary description text is in the corpus; no local PDF matched yet.
-- `llinas1982`. General discussion: Radial connectivity in the cerebellar cortex (1982)
-  DOI: `10.1007/978-3-642-68560-6_10`
-  Corpus support: `description_text`
-  Used in: no mapped citation context in current audit output
-  Note: Auxiliary description text is in the corpus; no exact PDF confidently identified yet.
-- `pavey2024`. Distinct neuronal circuits mediate cortical hyperexcitability in amyotrophic lateral sclerosis (2024)
-  DOI: `10.1093/brain/awae049`
-  Corpus support: `abstract_text`
-  Used in: no mapped citation context in current audit output
-  Note: Auxiliary abstract text is in the corpus; closest local PDF looked like a different ALS review.
+  Used in: `coherence_time.tex:149`, `coherence_time.tex:151` (von Mises distribution)
+  Note: DJVU exists in Downloads but lacks OCR; description text adequate for a canonical textbook citation.
+
+## New references (R1 additions)
+
+### Sourced
+
+- `hengen2025`. Is criticality a unified setpoint of brain function? (2025)
+  DOI: `10.1016/j.neuron.2025.05.020`
+  Corpus support: `full_text` (bioRxiv preprint version)
+  Used in: `coherence_time.tex:849` relation to synchronisation theory
+- `wutz2024`. Alpha oscillations create the illusion of time (2024)
+  DOI: `10.1162/jocn_a_02029`
+  Corpus support: `full_text`
+  Used in: `coherence_time.tex:494` alpha oscillations and temporal acuity
+
+### Sourced (manual download)
+
+- `buzsaki2004`. Neuronal oscillations in cortical networks (2004)
+  DOI: `10.1126/science.1099745`
+  Corpus support: `full_text`
+  Used in: `coherence_time.tex:581` frequency-hierarchy view
+- `kuroki2025`. Excitation-inhibition balance controls synchronization (2025)
+  DOI: `10.1162/neco_a_01763`
+  Corpus support: `full_text`
+  Used in: `coherence_time.tex:849` relation to synchronisation theory

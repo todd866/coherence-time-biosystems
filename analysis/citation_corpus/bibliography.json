@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "total_references": 61,
-    "with_doi": 48,
+    "total_references": 57,
+    "with_doi": 56,
     "with_arxiv": 0,
     "duplicates_removed": 107,
     "tex_files_scanned": 4,
     "bib_files_scanned": 0,
     "doi_resolution": {
-      "attempted": 61,
-      "resolved": 48,
-      "ambiguous": 1,
-      "not_found": 13
+      "attempted": 57,
+      "resolved": 56,
+      "ambiguous": 0,
+      "not_found": 1
     }
   },
   "references": [
@@ -147,28 +147,6 @@
       ]
     },
     {
-      "cite_key": "braitenberg1958",
-      "title": "Morphological observations on the cerebellar cortex",
-      "authors": "Braitenberg, V., Atwood, R.P",
-      "year": "1958",
-      "journal": "Journal of Comparative Neurology",
-      "volume": "109",
-      "number": "",
-      "pages": "1--33",
-      "doi": "",
-      "publisher": "",
-      "entry_type": "",
-      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
-      "source_format": "bibitem",
-      "raw_text": "\\DIFdel{Braitenberg, V., Atwood, R.P. (1958). Morphological observations on the cerebellar cortex. }\\textit{\\DIFdel{Journal of Comparative Neurology}}%DIFAUXCMD\n\\DIFdel{, 109, 1--33.\n}%DIFDELCMD < \n\n%DIFDELCMD <",
-      "url": "",
-      "arxiv_id": "",
-      "alternate_keys": [],
-      "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex"
-      ]
-    },
-    {
       "cite_key": "carhart2014",
       "title": "The entropic brain: a theory of conscious states informed by neuroimaging research with psychedelic drugs",
       "authors": "Carhart-Harris, R.L., Leech, R., Hellyer, P.J., Shanahan, M., Feilding, A., Tagliazucchi, E., Chialvo, D.R., and Nutt, D",
@@ -279,28 +257,6 @@
       ]
     },
     {
-      "cite_key": "dyson2004",
-      "title": "A meeting with Enrico Fermi",
-      "authors": "Dyson, F",
-      "year": "2004",
-      "journal": "Nature",
-      "volume": "427",
-      "number": "6972",
-      "pages": "297",
-      "doi": "10.1038/427297a",
-      "publisher": "",
-      "entry_type": "",
-      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
-      "source_format": "bibitem",
-      "raw_text": "Dyson, F. (2004). A meeting with Enrico Fermi. \\textit{Nature}, 427(6972), 297.",
-      "url": "",
-      "arxiv_id": "",
-      "alternate_keys": [],
-      "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex"
-      ]
-    },
-    {
       "cite_key": "engel2001",
       "title": "Dynamic predictions: oscillations and synchrony in top-down processing",
       "authors": "Engel, A.K., Fries, P., Singer, W",
@@ -386,28 +342,6 @@
       "alternate_keys": [],
       "source_files": [
         "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex"
-      ]
-    },
-    {
-      "cite_key": "gabriel1996",
-      "title": "The dielectric properties of biological tissues: III",
-      "authors": "Gabriel, S., Lau, R.W., Gabriel, C",
-      "year": "1996",
-      "journal": "Parametric models for the dielectric spectrum of tissues. Phys. Med. Biol.",
-      "volume": "41",
-      "number": "11",
-      "pages": "2271--2293",
-      "doi": "10.1007/978-94-011-4191-8_10",
-      "publisher": "",
-      "entry_type": "",
-      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex",
-      "source_format": "bibitem",
-      "raw_text": "\\DIFdel{Gabriel, S.}\\DIFdelend \\DIFaddbegin",
-      "url": "",
-      "arxiv_id": "",
-      "alternate_keys": [],
-      "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex"
       ]
     },
     {
@@ -697,28 +631,6 @@
       ]
     },
     {
-      "cite_key": "llinas1982",
-      "title": "General discussion: Radial connectivity in the cerebellar cortex",
-      "authors": "Llinas, R",
-      "year": "1982",
-      "journal": "In: The Cerebellum---New Vistas",
-      "volume": "",
-      "number": "",
-      "pages": "189--194",
-      "doi": "10.1007/978-3-642-68560-6_10",
-      "publisher": "",
-      "entry_type": "",
-      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
-      "source_format": "bibitem",
-      "raw_text": "Llinas, R. (1982). General discussion: Radial connectivity in the cerebellar cortex. In: \\textit{The Cerebellum---New Vistas} (pp. 189--194). Springer.",
-      "url": "",
-      "arxiv_id": "",
-      "alternate_keys": [],
-      "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex"
-      ]
-    },
-    {
       "cite_key": "lundqvist2016",
       "title": "Gamma and beta bursts underlie working memory",
       "authors": "Lundqvist, M., Rose, J., Herman, P., Brincat, S.L., Buschman, T.J., Miller, E.K",
@@ -848,28 +760,6 @@
       "alternate_keys": [],
       "source_files": [
         "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex"
-      ]
-    },
-    {
-      "cite_key": "pavey2024",
-      "title": "Distinct neuronal circuits mediate cortical hyperexcitability in amyotrophic lateral sclerosis",
-      "authors": "Pavey, N., Hannaford, A., van den Bos, M., Kiernan, M.C., Menon, P., Vucic, S",
-      "year": "2024",
-      "journal": "Brain",
-      "volume": "147",
-      "number": "7",
-      "pages": "2344--2356",
-      "doi": "10.1093/brain/awae049",
-      "publisher": "",
-      "entry_type": "",
-      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
-      "source_format": "bibitem",
-      "raw_text": "Pavey, N., Hannaford, A., van den Bos, M., Kiernan, M.C., Menon, P., Vucic, S. (2024). Distinct neuronal circuits mediate cortical hyperexcitability in amyotrophic lateral sclerosis. \\textit{Brain}, 147(7), 2344--2356.",
-      "url": "",
-      "arxiv_id": "",
-      "alternate_keys": [],
-      "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex"
       ]
     },
     {
@@ -1093,50 +983,6 @@
       ]
     },
     {
-      "cite_key": "subramanian2022",
-      "title": "Theta waves, neural spikes and seizures can propagate by ephaptic coupling in vivo",
-      "authors": "Subramanian, M., Chiang, C.-C., Couturier, N.H., Durand, D.M",
-      "year": "2022",
-      "journal": "Exp. Neurol.",
-      "volume": "354",
-      "number": "",
-      "pages": "114109",
-      "doi": "10.1016/j.expneurol.2022.114109",
-      "publisher": "",
-      "entry_type": "",
-      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex",
-      "source_format": "bibitem",
-      "raw_text": "\\DIFdel{Subramanian}\\DIFdelend \\DIFaddbegin",
-      "url": "",
-      "arxiv_id": "",
-      "alternate_keys": [],
-      "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex"
-      ]
-    },
-    {
-      "cite_key": "takens1981",
-      "title": "Detecting strange attractors in turbulence",
-      "authors": "\\DIFdelTakens, F",
-      "year": "1981",
-      "journal": "In: Rand, D., Young, L.S. (eds) \\DIFdelDynamical Systems and Turbulence%DIFAUXCMD \\DIFdel, Lecture Notes in Mathematics, vol 898. Springer, pp. 366--381. %DIFDELCMD < %DIFDELCMD <",
-      "volume": "",
-      "number": "",
-      "pages": "",
-      "doi": "",
-      "publisher": "",
-      "entry_type": "",
-      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex",
-      "source_format": "bibitem",
-      "raw_text": "\\DIFdel{Takens, F. (1981). Detecting strange attractors in turbulence. In: Rand, D., Young, L.S. (eds) }\\textit{\\DIFdel{Dynamical Systems and Turbulence}}%DIFAUXCMD\n\\DIFdel{, Lecture Notes in Mathematics, vol 898. Springer, pp. 366--381.\n}%DIFDELCMD < \n\n%DIFDELCMD <",
-      "url": "",
-      "arxiv_id": "",
-      "alternate_keys": [],
-      "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex"
-      ]
-    },
-    {
       "cite_key": "timmermann2019",
       "title": "Neural correlates of the DMT experience assessed with multivariate EEG",
       "authors": "Timmermann, C., Roseman, L., Schartner, M., Milliere, R., Williams, L.T.J., Erritzoe, D., Muthukumaraswamy, S., Ashton, M., Bendrioua, A., Kaelen, M., Brugger, M., Williams, S., Bolstridge, M., Feilding, A., Nutt, D.J., and Carhart-Harris, R.L",
@@ -1335,25 +1181,91 @@
       ]
     },
     {
-      "cite_key": "wyatt2005",
-      "title": "Speed limits in the cerebellum: constraints from myelinated and unmyelinated parallel fibers",
-      "authors": "Wyatt, K.D., et al",
-      "year": "2005",
-      "journal": "European Journal of Neuroscience",
-      "volume": "21",
-      "number": "8",
-      "pages": "2285--2290",
-      "doi": "",
+      "cite_key": "buzsaki2004",
+      "title": "Neuronal oscillations in cortical networks",
+      "authors": "Buzs\\'aki, G. and Draguhn, A.",
+      "year": "2004",
+      "journal": "Science",
+      "volume": "304",
+      "number": "5679",
+      "pages": "1926--1929",
+      "doi": "10.1126/science.1099745",
       "publisher": "",
       "entry_type": "",
       "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
       "source_format": "bibitem",
-      "raw_text": "Wyatt, K.D., et al. (2005). Speed limits in the cerebellum: constraints from myelinated and unmyelinated parallel fibers. \\textit{European Journal of Neuroscience}, 21(8), 2285--2290.",
+      "raw_text": "Buzs\\'aki, G. and Draguhn, A. (2004). Neuronal oscillations in cortical networks. \\textit{Science}, 304(5679), 1926--1929.",
       "url": "",
       "arxiv_id": "",
       "alternate_keys": [],
       "source_files": [
-        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time_diff.tex"
+        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex"
+      ]
+    },
+    {
+      "cite_key": "kuroki2025",
+      "title": "Excitation-inhibition balance controls synchronization in a simple model of coupled phase oscillators",
+      "authors": "Kuroki, S. and Mizuseki, K.",
+      "year": "2025",
+      "journal": "Neural Computation",
+      "volume": "37",
+      "number": "7",
+      "pages": "1353--1372",
+      "doi": "10.1162/neco_a_01763",
+      "publisher": "",
+      "entry_type": "",
+      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
+      "source_format": "bibitem",
+      "raw_text": "Kuroki, S. and Mizuseki, K. (2025). Excitation--inhibition balance controls synchronization in a simple model of coupled phase oscillators. \\textit{Neural Computation}, 37(7), 1353--1372.",
+      "url": "",
+      "arxiv_id": "",
+      "alternate_keys": [],
+      "source_files": [
+        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex"
+      ]
+    },
+    {
+      "cite_key": "hengen2025",
+      "title": "Is criticality a unified setpoint of brain function?",
+      "authors": "Hengen, K.B. and Shew, W.L.",
+      "year": "2025",
+      "journal": "Neuron",
+      "volume": "113",
+      "number": "16",
+      "pages": "2545--2570",
+      "doi": "10.1016/j.neuron.2025.05.020",
+      "publisher": "",
+      "entry_type": "",
+      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
+      "source_format": "bibitem",
+      "raw_text": "Hengen, K.B. and Shew, W.L. (2025). Is criticality a unified setpoint of brain function? \\textit{Neuron}, 113(16), 2545--2570.",
+      "url": "",
+      "arxiv_id": "",
+      "alternate_keys": [],
+      "source_files": [
+        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex"
+      ]
+    },
+    {
+      "cite_key": "wutz2024",
+      "title": "Alpha oscillations create the illusion of time",
+      "authors": "Wutz, A.",
+      "year": "2024",
+      "journal": "Journal of Cognitive Neuroscience",
+      "volume": "36",
+      "number": "4",
+      "pages": "712--720",
+      "doi": "10.1162/jocn_a_02029",
+      "publisher": "",
+      "entry_type": "",
+      "source_file": "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex",
+      "source_format": "bibitem",
+      "raw_text": "Wutz, A. (2024). Alpha oscillations create the illusion of time. \\textit{Journal of Cognitive Neuroscience}, 36(4), 712--720.",
+      "url": "",
+      "arxiv_id": "",
+      "alternate_keys": [],
+      "source_files": [
+        "/Users/iantodd/Projects/highdimensional/biosystems/4_coherence_time/coherence_time.tex"
       ]
     }
   ]

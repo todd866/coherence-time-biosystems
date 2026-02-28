@@ -358,9 +358,7 @@ The speed-flexibility trade-off (Proposition~\ref{prop:tradeoff}) can now be res
 
 This interpretation is consistent with the analysis of timing inaccessibility in continuous biological substrates~\cite{todd2025demon}: systems with continuous state variables can bias future trajectories without crossing a discrete erasure threshold, because intermediate states need not be destroyed. Within that framing, the coherence time $\tau_{\mathrm{coh}}$ quantifies how long such bias can be maintained before the accumulated phase relationships either commit (alignment within $\varepsilon$) or decorrelate (bias dissipates).
 
-\paragraph{Discrete structure from continuous dynamics.} A natural objection is that intelligence evidently produces discrete structure---phoneme boundaries, categorical percepts, motor primitives, genetic codes---and that this discreteness implies fundamentally combinatorial, and therefore low-dimensional, computation. The phase delta framework resolves this tension. Discrete structure is not the substrate of computation but its \emph{output}: it emerges at commits, where $M-1$ continuous phase degrees of freedom collapse to a low-dimensional registered state. Code formation---the appearance of a finite alphabet of distinguishable outputs from a continuous dynamical system---is the emergent property of this dimensional collapse, not an architectural prerequisite for it (see Theorem~2 in~\cite{todd2025intelligence} for the formal thermodynamic argument).
-
-This reframes the relationship between combinatorial and continuous computation. Combinatorial explosion is a property of \emph{low-dimensional, collision-dense} systems: when states are discrete and few, the number of possible trajectories grows exponentially with sequence length. High-dimensional continuous dynamics avoid this explosion because trajectories in high-dimensional spaces generically do not collide---a consequence of concentration of measure~\cite{todd2025intelligence}. The phase delta regime exploits this collision-free geometry to bias outcomes without encountering combinatorial branching. Discrete structure---and with it, combinatorial power---appears only at the commit interface, where the system reduces dimensionality to produce readable output. The combinatorial richness of language ($\sim$40 phonemes generating infinite sentences) or genetics (4 bases encoding all of biology) is not a property of the underlying dynamics but of the code that emerges from dimensional collapse at the readout boundary.
+\paragraph{Discrete structure from continuous dynamics.} A natural objection is that intelligence produces discrete structure---phoneme boundaries, categorical percepts, motor primitives, genetic codes---and that this discreteness implies fundamentally combinatorial computation. The phase delta framework resolves this tension: discrete structure is not the substrate of computation but its \emph{output}, emerging at commits where $M-1$ continuous phase degrees of freedom collapse to a low-dimensional registered state. Code formation---the appearance of a finite alphabet of distinguishable outputs---is an emergent property of dimensional collapse, not an architectural prerequisite (see Theorem~2 in~\cite{todd2025intelligence}). Combinatorial explosion is a property of \emph{low-dimensional, collision-dense} systems; high-dimensional continuous dynamics avoid it because trajectories generically do not collide~\cite{todd2025intelligence}. The phase delta regime exploits this collision-free geometry to bias outcomes without combinatorial branching; discrete structure and combinatorial power appear only at the commit interface.
 
 \subsection{Quantum and thermodynamic limits of computation}
 
@@ -493,9 +491,9 @@ measures should therefore be statistically dissociable.
 
 \subsection{Alpha oscillations and temporal acuity}
 
-Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~\cite{samaha2015,cecere2015}. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $\lambda_{\mathrm{attempt}}$ or the sampling schedule for phase alignment.
+Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~\cite{samaha2015,cecere2015}. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $\lambda_{\mathrm{attempt}}$ or the sampling schedule for phase alignment. An alternative framing holds that alpha reflects internally generated ``perception sets''---pre-established processing templates retrieved from stored knowledge networks---rather than bottom-up temporal sampling per se~\cite{wutz2024}. Crucially, Wutz notes that subjective temporal duration correlates with the amount of information retrievable per perceptual event, and that top-down control can extend receptive integration windows to accommodate richer inputs. In the present framework, this is precisely the coherence time bound at work: a perception set is a high-dimensional internal template (large $M$), and the temporal effects Wutz documents---time dilation under richer processing, compression under impoverished conditions---correspond to the exponential dependence of $\tau_{\mathrm{coh}}$ on coordination depth. The two views are thus complementary: perception sets determine \emph{which} phase configurations count as alignment events, while the coherence time bound determines \emph{how long} the assembly must wait for those configurations to recur.
 
-\textbf{Prediction:} If alpha frequency modulates commit timing, then entraining alpha via transcranial alternating current stimulation (tACS)~\cite{helfrich2014} should shift perceptual binding windows approximately linearly with frequency change. This prediction distinguishes the gating interpretation from alternatives where alpha reflects post-commit memory encoding.
+\textbf{Prediction:} If alpha frequency modulates commit timing, then entraining alpha via transcranial alternating current stimulation (tACS)~\cite{helfrich2014} should shift perceptual binding windows approximately linearly with frequency change. Wutz's perception-set framework predicts the same direction of effect---faster alpha, finer temporal resolution---but attributes the mechanism to template-driven gating rather than passive sampling. A discriminating test is whether tACS shifts binding windows even when the perceptual task is fully exogenous (randomised, non-ambiguous stimuli), where perception-set contributions are minimal~\cite{wutz2024}.
 
 \subsection{Metabolic scaling across species}
 
@@ -580,7 +578,7 @@ This distinction generates a testable dissociation. CTC predicts that disrupting
 
 A prominent view in systems neuroscience holds that high-frequency oscillations (gamma)
 support high-dimensional computation, while low-frequency oscillations (theta, alpha)
-provide low-dimensional scaffolding~\cite{miller2018,lundqvist2016,pinotsis2023}.
+provide low-dimensional scaffolding~\cite{buzsaki2004,miller2018,lundqvist2016,pinotsis2023}.
 The coherence time framework suggests a different relationship, grounded in two
 independent arguments: a coordination constraint and a spatial extent argument.
 
@@ -757,7 +755,11 @@ disrupted thalamocortical gating). The result is a double effect: higher $\Deff$
 \emph{and} lower $\Gamma_{\mathrm{commit}}$, predicting \textbf{time dilation with
 experiential richness}. DMT produces large increases in neural signal
 complexity under psychedelic perturbation~\cite{timmermann2019,schartner2017} and is associated with
-extreme subjective time dilation. The qualitative ordering---DMT $>$ psilocybin $>$
+marked subjective time dilation that, at higher doses, can dissolve into reported
+timelessness---consistent with a continuum in which increasing $\Deff$ first dilates
+temporal experience and eventually overwhelms the commit architecture entirely,
+producing a state in which discrete temporal registration ceases to structure
+experience. The qualitative ordering---DMT $>$ psilocybin $>$
 LSD in both $\Deff$ increase and reported temporal distortion---is consistent with
 the prediction, though retrospective magnitude estimates are difficult to validate. \emph{Methodological note:}
 retrospective time dilation reports are confounded by altered memory encoding under
@@ -844,7 +846,7 @@ The mammalian cerebellum exemplifies this hierarchical solution. Operating with 
 
 \textbf{Dwell time sensitivity.} The commit detection requires sustained alignment for $T_{\mathrm{dwell}} = 30$~ms. We tested robustness by halving (15~ms) and doubling (60~ms) this threshold: median $\tau_{\mathrm{coh}}$ estimates changed by less than 5\% across all $M$ values, confirming that the first-passage time to initial alignment dominates the estimate and the hold requirement is not doing substantive work. The scaling exponent is robust to $T_{\mathrm{dwell}}$ variation.
 
-\textbf{Relation to synchronisation theory.} The Kuramoto model and its extensions~\cite{kuramoto1984, strogatz2000, acebron2005, ott2008} provide a mature theory of synchronisation onset and order-parameter dynamics. This paper does not compete with that literature. We address a different question: given that oscillators \emph{can} synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter.
+\textbf{Relation to synchronisation theory.} The Kuramoto model and its extensions~\cite{kuramoto1984, strogatz2000, acebron2005, ott2008} provide a mature theory of synchronisation onset and order-parameter dynamics. Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~\cite{kuroki2025}. In our interpretation, the coherence time bound is most relevant in partially synchronized regimes where alignment is possible but rare. These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~\cite{hengen2025}. This paper does not compete with that literature. We address a different question: given that oscillators \emph{can} synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter.
 
 \textbf{Temporal embedding.} The Results section treats binding windows and perceptual cycles as manifestations of the coherence time bound. This framing is consistent with existing data but not uniquely so---alternative accounts based on inhibitory rebound, attentional sampling, or predictive coding could generate similar timescales. The distinguishing prediction is the \emph{scaling} of temporal resolution with coordination depth $M$, not the absolute timescale.
 
@@ -1045,6 +1047,23 @@ Schartner, M.M., Carhart-Harris, R.L., Barrett, A.B., Seth, A.K., and
 Muthukumaraswamy, S.D. (2017). Increased spontaneous MEG signal diversity for
 psychoactive doses of ketamine, LSD and psilocybin. \textit{Scientific Reports},
 7, 46421.
+
+\bibitem{buzsaki2004}
+Buzs\'{a}ki, G. and Draguhn, A. (2004). Neuronal oscillations in cortical networks.
+\textit{Science}, 304(5679), 1926--1929.
+
+\bibitem{kuroki2025}
+Kuroki, S. and Mizuseki, K. (2025). Excitation--inhibition balance controls
+synchronization in a simple model of coupled phase oscillators.
+\textit{Neural Computation}, 37(7), 1353--1372.
+
+\bibitem{hengen2025}
+Hengen, K.B. and Shew, W.L. (2025). Is criticality a unified setpoint of brain
+function? \textit{Neuron}, 113(16), 2545--2570.
+
+\bibitem{wutz2024}
+Wutz, A. (2024). Alpha oscillations create the illusion of time.
+\textit{Journal of Cognitive Neuroscience}, 36(4), 712--720.
 
 \end{thebibliography}
 
