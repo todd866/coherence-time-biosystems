@@ -28,17 +28,11 @@ __pycache__/
 # Companion IG paper (separate repo: github.com/todd866/alignment-geometry)
 ig/
 
-# Revision workflow (internal)
-revisions/
-
-# Cover letters and diffs (internal)
-cover_letter_r1.*
-coherence_time_diff.*
-
-# Citation analysis (internal tooling)
-analysis/citation_corpus/
-analysis/citation_corpus_audit.py
-analysis/citation_embedding_*
+# Internal materials (moved to archive/)
+archive/revisions/
+archive/cover_letter*
+archive/coherence_time_diff*
+archive/analysis/
 
 # Virtual environments
 .venv/
