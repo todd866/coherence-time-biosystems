@@ -1,0 +1,1727 @@
+{
+  "summary": {
+    "paper_title": "The Coherence Time of Intelligence",
+    "paper_doi": "10.1016/j.biosystems.2026.105755",
+    "cited_keys": 57,
+    "bib_entries": 57,
+    "cited_dois": 53,
+    "cited_without_doi": 4,
+    "uncited_bib_entries": [],
+    "missing_bib_entries": [],
+    "paperlibrary_status_counts": {
+      "have_text": 52,
+      "no_doi": 4,
+      "needs_pdf": 1
+    },
+    "text_overrides_used": []
+  },
+  "references": [
+    {
+      "cite_key": "miller2018",
+      "title": "Working memory 2.0",
+      "authors": "Miller, E.K., Lundqvist, M., Bastos, A.M.",
+      "year": "2018",
+      "journal": "Neuron",
+      "doi": "10.1016/j.neuron.2018.09.023",
+      "url": "",
+      "citation_count": 3,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        },
+        {
+          "line": 581,
+          "context": "provide low-dimensional scaffolding~buzsaki2004,miller2018,lundqvist2016,pinotsis2023."
+        },
+        {
+          "line": 634,
+          "context": "The standard frequency-hierarchy view~miller2018 and the present framework make"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-neuron-2018-09-023",
+        "title": "Working Memory 2.0",
+        "year": "2018",
+        "journal": "Neuron",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-neuron-2018-09-023.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-neuron-2018-09-023.txt",
+        "has_text": true
+      },
+      "raw": "Miller, E.K., Lundqvist, M., Bastos, A.M. (2018). Working memory 2.0. Neuron, 100(2), 463--475."
+    },
+    {
+      "cite_key": "lundqvist2016",
+      "title": "Gamma and beta bursts underlie working memory",
+      "authors": "Lundqvist, M., Rose, J., Herman, P., Brincat, S.L., Buschman, T.J., Miller, E.K.",
+      "year": "2016",
+      "journal": "Neuron",
+      "doi": "10.1016/j.neuron.2016.02.028",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        },
+        {
+          "line": 581,
+          "context": "provide low-dimensional scaffolding~buzsaki2004,miller2018,lundqvist2016,pinotsis2023."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-neuron-2016-02-028",
+        "title": "Gamma and Beta Bursts Underlie Working Memory",
+        "year": "2016",
+        "journal": "Neuron",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-neuron-2016-02-028.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-neuron-2016-02-028.txt",
+        "has_text": true
+      },
+      "raw": "Lundqvist, M., Rose, J., Herman, P., Brincat, S.L., Buschman, T.J., Miller, E.K. (2016). Gamma and beta bursts underlie working memory. Neuron, 90(1), 152--164."
+    },
+    {
+      "cite_key": "pinotsis2023",
+      "title": "Cytoelectric coupling: Electric fields sculpt neural activity and ``tune'' the brain's infrastructure",
+      "authors": "Pinotsis, D.A., Fridman, G., Miller, E.K.",
+      "year": "2023",
+      "journal": "Progress in Neurobiology",
+      "doi": "10.1016/j.pneurobio.2023.102465",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 306,
+          "context": "If commits are discrete state registrations (spike cascades, readout events) and the phase delta regime is interpreted as continuous, high-dimensional exploration between commits, then one should look for a comparably continuous coordination substrate. This constrains the candidate substrates. Chemical synaptic transmission requires presynaptic spikes and involves quantal vesicle release; neuromodulators are comparatively slow for oscillatory coordination; and gap junctions, while continuous, are sparse in cortex. A plausible candidate is therefore the extracellular electric field: it is continuous in space and time, spatially extended across modules, and measurable via local field potentials. Ephaptic coupling~anastassiou2011,pinotsis2023,han2018 provides one mechanism by which such field structure could modulate spike timing."
+        },
+        {
+          "line": 581,
+          "context": "provide low-dimensional scaffolding~buzsaki2004,miller2018,lundqvist2016,pinotsis2023."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-pneurobio-2023-102465",
+        "title": "Cytoelectric coupling: Electric fields sculpt neural activity and “tune” the brain’s infrastructure",
+        "year": "2023",
+        "journal": "Progress in Neurobiology",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-pneurobio-2023-102465.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-pneurobio-2023-102465.txt",
+        "has_text": true
+      },
+      "raw": "Pinotsis, D.A., Fridman, G., Miller, E.K. (2023). Cytoelectric coupling: Electric fields sculpt neural activity and ``tune'' the brain's infrastructure. Progress in Neurobiology, 226, 102465."
+    },
+    {
+      "cite_key": "fries2015",
+      "title": "Rhythms for cognition: communication through coherence",
+      "authors": "Fries, P.",
+      "year": "2015",
+      "journal": "Neuron",
+      "doi": "10.1016/j.neuron.2015.09.034",
+      "url": "",
+      "citation_count": 5,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        },
+        {
+          "line": 392,
+          "context": "Commits require high $r_intra$ (modules are internally coherent) and rare alignment of inter-module phases (low baseline $r_inter$, with commits occurring when $r_inter$ transiently exceeds threshold). The $r$ and $$ in Eq.~eq:coh-time refer to the inter-module distribution. Typical inter-module values: spontaneous cortex $ 0.2$--0.4; attention $ 0.5$--0.7~fries2015,womelsdorf2007."
+        },
+        {
+          "line": 421,
+          "context": "Parameter provenance: We take $M=8$ occipital modules (a plausible count of functional submodules in visual binding, including V1, V2, V4, and posterior parietal subdivisions; can be estimated via community detection on coherence networks). Coherence $r=0.7$--$0.8$ reflects attentional engagement~fries2015. Full tolerance $=/2$ rad ($ 45^$) corresponds to the phase windows observed in gamma-band cross-correlograms during visual binding; note that $ 90^$ tolerance would be too loose for functional synchrony. Attempt rate $_attempt 60$--$200$ s$^-1$ is estimated from the decorrelation time of inter-module coherence in alpha/beta bands (corresponding to frequency spreads of $ 10$--$30$ Hz; not the carrier frequency). The mapping from frequency spread to attempt rate depends on coupling regime: in strongly coupled systems, effective mixing time can exceed $1/$ because coupling slows phase exploration. We use a central estimate of $_attempt = 126$ s$^-1$ ($ 20$ Hz spread) for the calculations below, but the predicted binding window range is robust across this interval (Table~tab:sensitivity). Effective independence $=0.7$ reflects modular cortical topology; it can be fit empirically from the scaling of inter-commit times with $M$. (The Kuramoto validation yields $ 1$ for a symmetric modular network with weak inter-module coupling $K_inter = 0.15$. Cortical networks have stronger, asymmetric inter-areal connections, which introduce correlations among module phases and reduce effective independence; $ = 0.7$ is a conservative estimate for this regime.)"
+        },
+        {
+          "line": 512,
+          "context": "In our model, attention increases coherence ($r: 0.3 0.6$) and narrows coordination to task-relevant modules ($M: 15 8$) (model parameters motivated by the communication-through-coherence framework~fries2015). This produces faster commits (10--30 Hz) in a restricted subspace."
+        },
+        {
+          "line": 571,
+          "context": "Communication through coherence (CTC). Fries's influential framework~fries2005,fries2015 proposes that effective communication between neural populations requires coherence at the appropriate frequency: sending and receiving populations must be phase-aligned for spike-based signals to arrive during windows of maximal excitability. Our framework preserves this insight but shifts the locus of computation. In CTC, synchrony is the functional state---coherent populations communicate, incoherent ones do not. In the phase delta framework (2.3), synchrony terminates a computational episode by enabling commitment. The computationally productive regime is the approach to synchrony, during which structured phase relationships between modules continuously bias which commit outcomes are accessible. CTC asks: ``which populations are talking?'' The phase delta framework asks: ``what has the system computed by the time it commits?''"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-neuron-2015-09-034",
+        "title": "Rhythms for Cognition: Communication through Coherence",
+        "year": "2015",
+        "journal": "Neuron",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-neuron-2015-09-034.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-neuron-2015-09-034.txt",
+        "has_text": true
+      },
+      "raw": "Fries, P. (2015). Rhythms for cognition: communication through coherence. Neuron, 88(1), 220--235."
+    },
+    {
+      "cite_key": "singer1999",
+      "title": "Neuronal synchrony: a versatile code for the definition of relations? Neuron, 24(1), 49--65.",
+      "authors": "Singer, W.",
+      "year": "1999",
+      "journal": "",
+      "doi": "10.1016/s0896-6273(00)80821-1",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        },
+        {
+          "line": 345,
+          "context": "Bias without collision. The standard neural oscillation literature treats phase synchrony as a binding mechanism: when phases lock, information from different modules is bound into a unified representation~singer1999,fries2005. The phase delta framework suggests a different interpretation. The computationally relevant regime is not phase locking itself but the approach to phase locking---the interval during which structured phase relationships bias downstream dynamics without collapsing to a committed state."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-s0896-6273-00-80821-1",
+        "title": "Neuronal Synchrony: A Versatile Code for the Definition of Relations?",
+        "year": "1999",
+        "journal": "Neuron",
+        "source": "scihub",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-s0896-6273-00-80821-1.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-s0896-6273-00-80821-1.txt",
+        "has_text": true
+      },
+      "raw": "Singer, W. (1999). Neuronal synchrony: a versatile code for the definition of relations? Neuron, 24(1), 49--65."
+    },
+    {
+      "cite_key": "lisman2013",
+      "title": "The theta-gamma neural code",
+      "authors": "Lisman, J.E., Jensen, O.",
+      "year": "2013",
+      "journal": "Neuron",
+      "doi": "10.1016/j.neuron.2013.03.007",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-neuron-2013-03-007",
+        "title": "The Theta-Gamma Neural Code",
+        "year": "2013",
+        "journal": "Neuron",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-neuron-2013-03-007.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-neuron-2013-03-007.txt",
+        "has_text": true
+      },
+      "raw": "Lisman, J.E., Jensen, O. (2013). The theta-gamma neural code. Neuron, 77(6), 1002--1016."
+    },
+    {
+      "cite_key": "womelsdorf2007",
+      "title": "Modulation of neuronal interactions through neuronal synchronization",
+      "authors": "Womelsdorf, T., et al.",
+      "year": "2007",
+      "journal": "Science",
+      "doi": "10.1126/science.1139597",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        },
+        {
+          "line": 392,
+          "context": "Commits require high $r_intra$ (modules are internally coherent) and rare alignment of inter-module phases (low baseline $r_inter$, with commits occurring when $r_inter$ transiently exceeds threshold). The $r$ and $$ in Eq.~eq:coh-time refer to the inter-module distribution. Typical inter-module values: spontaneous cortex $ 0.2$--0.4; attention $ 0.5$--0.7~fries2015,womelsdorf2007."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1126-science-1139597",
+        "title": "Modulation of Neuronal Interactions Through Neuronal Synchronization",
+        "year": "2007",
+        "journal": "Science",
+        "source": "aa_fast_download",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1126-science-1139597.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1126-science-1139597.txt",
+        "has_text": true
+      },
+      "raw": "Womelsdorf, T., et al. (2007). Modulation of neuronal interactions through neuronal synchronization. Science, 316(5831), 1609--1612."
+    },
+    {
+      "cite_key": "engel2001",
+      "title": "Dynamic predictions: oscillations and synchrony in top-down processing",
+      "authors": "Engel, A.K., Fries, P., Singer, W.",
+      "year": "2001",
+      "journal": "Nat. Rev. Neurosci.",
+      "doi": "10.1038/35094565",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-35094565",
+        "title": "Dynamic predictions: Oscillations and synchrony in top–down processing",
+        "year": "2001",
+        "journal": "Nature Reviews Neuroscience",
+        "source": "scihub",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-35094565.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-35094565.txt",
+        "has_text": true
+      },
+      "raw": "Engel, A.K., Fries, P., Singer, W. (2001). Dynamic predictions: oscillations and synchrony in top-down processing. Nat. Rev. Neurosci., 2(10), 704--716."
+    },
+    {
+      "cite_key": "varela2001",
+      "title": "The brainweb: phase synchronization and large-scale integration",
+      "authors": "Varela, F., et al.",
+      "year": "2001",
+      "journal": "Nat. Rev. Neurosci.",
+      "doi": "10.1038/35067550",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-35067550",
+        "title": "The brainweb: Phase synchronization and large-scale integration",
+        "year": "2001",
+        "journal": "Nature Reviews Neuroscience",
+        "source": "scihub",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-35067550.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-35067550.txt",
+        "has_text": true
+      },
+      "raw": "Varela, F., et al. (2001). The brainweb: phase synchronization and large-scale integration. Nat. Rev. Neurosci., 2(4), 229--239."
+    },
+    {
+      "cite_key": "fries2005",
+      "title": "A mechanism for cognitive dynamics: neuronal communication through neuronal coherence",
+      "authors": "Fries, P.",
+      "year": "2005",
+      "journal": "Trends Cogn. Sci.",
+      "doi": "10.1016/j.tics.2005.08.011",
+      "url": "",
+      "citation_count": 4,
+      "contexts": [
+        {
+          "line": 49,
+          "context": "A fundamental insight from systems neuroscience is that cognition emerges from coherent oscillations across neural assemblies, not merely from individual spike rates. Working memory maintenance involves theta-gamma phase-amplitude coupling organized in discrete oscillatory bursts~miller2018,lisman2013,lundqvist2016. Attention selectively enhances inter-areal synchronization in gamma band~fries2015,womelsdorf2007. Perceptual binding depends on transient phase alignment across visual cortices~singer1999,engel2001. Long-range communication occurs preferentially during coherent states~varela2001. The ``communication through coherence'' framework~fries2005 has become central to understanding neural computation."
+        },
+        {
+          "line": 345,
+          "context": "Bias without collision. The standard neural oscillation literature treats phase synchrony as a binding mechanism: when phases lock, information from different modules is bound into a unified representation~singer1999,fries2005. The phase delta framework suggests a different interpretation. The computationally relevant regime is not phase locking itself but the approach to phase locking---the interval during which structured phase relationships bias downstream dynamics without collapsing to a committed state."
+        },
+        {
+          "line": 353,
+          "context": "mechanism of pre-commit bias. How might structured phase relationships influence downstream circuits before a commit occurs? One plausible route is through extracellular-field modulation of excitability: oscillatory phase can bias membrane potential via ephaptic effects~anastassiou2011,fries2005, so structured inter-module phase offsets may create spatially patterned gain fields in downstream targets even without synchronous firing. Such bias could then be consolidated through more conventional synaptic mechanisms, including subthreshold dendritic integration and short-term synaptic facilitation or depression. On this reading, the field-mediated component is graded and reversible, while synaptic consolidation provides the persistence needed for eventual commit."
+        },
+        {
+          "line": 571,
+          "context": "Communication through coherence (CTC). Fries's influential framework~fries2005,fries2015 proposes that effective communication between neural populations requires coherence at the appropriate frequency: sending and receiving populations must be phase-aligned for spike-based signals to arrive during windows of maximal excitability. Our framework preserves this insight but shifts the locus of computation. In CTC, synchrony is the functional state---coherent populations communicate, incoherent ones do not. In the phase delta framework (2.3), synchrony terminates a computational episode by enabling commitment. The computationally productive regime is the approach to synchrony, during which structured phase relationships between modules continuously bias which commit outcomes are accessible. CTC asks: ``which populations are talking?'' The phase delta framework asks: ``what has the system computed by the time it commits?''"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-tics-2005-08-011",
+        "title": "A mechanism for cognitive dynamics: neuronal communication through neuronal coherence",
+        "year": "2005",
+        "journal": "Trends in Cognitive Sciences",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-tics-2005-08-011.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-tics-2005-08-011.txt",
+        "has_text": true
+      },
+      "raw": "Fries, P. (2005). A mechanism for cognitive dynamics: neuronal communication through neuronal coherence. Trends Cogn. Sci., 9(10), 474--480."
+    },
+    {
+      "cite_key": "todd2025intelligence",
+      "title": "Intelligence as high-dimensional coherence: The observable dimensionality bound and computational tractability",
+      "authors": "Todd, I.",
+      "year": "2026",
+      "journal": "BioSystems",
+      "doi": "10.1016/j.biosystems.2026.105704",
+      "url": "",
+      "citation_count": 4,
+      "contexts": [
+        {
+          "line": 55,
+          "context": "Recent work argued that living intelligence is an emergent property of high-dimensional, self-sustaining dynamical systems that maintain coherence against decoherence~todd2025intelligence, building on analyses of falsifiability limits in adaptive biological systems~todd2025biosystems and timing inaccessibility in sub-Landauer computation~todd2025demon. The present manuscript addresses the complementary question: given such a coherent high-dimensional system, what sets the fastest timescale on which it can register change and update its state?"
+        },
+        {
+          "line": 361,
+          "context": "Discrete structure from continuous dynamics. A natural objection is that intelligence produces discrete structure---phoneme boundaries, categorical percepts, motor primitives, genetic codes---and that this discreteness implies fundamentally combinatorial computation. The phase delta framework resolves this tension: discrete structure is not the substrate of computation but its output, emerging at commits where $M-1$ continuous phase degrees of freedom collapse to a low-dimensional registered state. Code formation---the appearance of a finite alphabet of distinguishable outputs---is an emergent property of dimensional collapse, not an architectural prerequisite (see Theorem~2 in~todd2025intelligence). Combinatorial explosion is a property of low-dimensional, collision-dense systems; high-dimensional continuous dynamics avoid it because trajectories generically do not collide~todd2025intelligence. The phase delta regime exploits this collision-free geometry to bias outcomes without combinatorial branching; discrete structure and combinatorial power appear only at the commit interface."
+        },
+        {
+          "line": 361,
+          "context": "Discrete structure from continuous dynamics. A natural objection is that intelligence produces discrete structure---phoneme boundaries, categorical percepts, motor primitives, genetic codes---and that this discreteness implies fundamentally combinatorial computation. The phase delta framework resolves this tension: discrete structure is not the substrate of computation but its output, emerging at commits where $M-1$ continuous phase degrees of freedom collapse to a low-dimensional registered state. Code formation---the appearance of a finite alphabet of distinguishable outputs---is an emergent property of dimensional collapse, not an architectural prerequisite (see Theorem~2 in~todd2025intelligence). Combinatorial explosion is a property of low-dimensional, collision-dense systems; high-dimensional continuous dynamics avoid it because trajectories generically do not collide~todd2025intelligence. The phase delta regime exploits this collision-free geometry to bias outcomes without combinatorial branching; discrete structure and combinatorial power appear only at the commit interface."
+        },
+        {
+          "line": 833,
+          "context": "The coherence time framework identifies a design constraint for any distributed computing system that lacks a global clock. Clocked architectures (CPUs, GPUs) impose synchronization externally, sidestepping the coordination penalty but potentially constraining the kinds of autonomous, semi-independent module dynamics we model here. Unclocked architectures (biological neural networks, neuromorphic hardware) pay the exponential coordination cost but gain access to genuinely high-dimensional dynamics~todd2025intelligence. Eq.~eq:coh-time provides quantitative guidance for neuromorphic design: such systems must either accept modest $M$, engineer high baseline $r$, or develop hierarchical architectures that localize coordination requirements."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-biosystems-2026-105704",
+        "title": "Intelligence as high-dimensional coherence: The observable dimensionality bound and computational tractability",
+        "year": "2026",
+        "journal": "BioSystems",
+        "source": "aa_fast_download",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-biosystems-2026-105704.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-biosystems-2026-105704.txt",
+        "has_text": true
+      },
+      "raw": "Todd, I. (2026). Intelligence as high-dimensional coherence: The observable dimensionality bound and computational tractability. BioSystems, 260, 105704."
+    },
+    {
+      "cite_key": "landauer1961",
+      "title": "Irreversibility and heat generation in the computing process",
+      "authors": "Landauer, R.",
+      "year": "1961",
+      "journal": "IBM J. Res. Dev.",
+      "doi": "10.1147/rd.53.0183",
+      "url": "",
+      "citation_count": 3,
+      "contexts": [
+        {
+          "line": 145,
+          "context": "For cortical visual binding: $ 50$ (participation ratio of visual cortex assemblies collapsing to a $$5-bit readout), $_D T 2 3 10^-21$~J (Landauer floor), and $P 10^-4$~W (power budget of a $$$10^4$-neuron cortical assembly at $$10~nW/neuron). This yields $_power 10^-15$~s at the Landauer minimum. Biological neurons are energetically inefficient: ion-channel computation dissipates $$$10^7$ times the Landauer floor per degree of freedom~landauer1961. Even at this biophysical scale, $_power 10^-8$~s---still six orders of magnitude below $_coh$. The power limit is therefore non-binding in the neural regime."
+        },
+        {
+          "line": 357,
+          "context": "Sub-Landauer operation of the phase delta regime. If the phase-delta interval is genuinely analog and pre-committal, then its maintenance need not incur the per-bit Landauer cost associated with irreversible erasure. Landauer's principle~landauer1961 applies to logically irreversible operations---specifically, erasure or overwriting of a discrete state. By contrast, maintaining a structured phase relationship can be interpreted as continuous biasing of future outcomes prior to readout. The relevant energy cost is then the coupling energy required to sustain that bias, not necessarily a per-bit erasure cost."
+        },
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1147-rd-53-0183",
+        "title": "Irreversibility and Heat Generation in the Computing Process",
+        "year": "1961",
+        "journal": "IBM Journal of Research and Development",
+        "source": "scihub",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1147-rd-53-0183.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1147-rd-53-0183.txt",
+        "has_text": true
+      },
+      "raw": "Landauer, R. (1961). Irreversibility and heat generation in the computing process. IBM J. Res. Dev., 5(3), 183--191."
+    },
+    {
+      "cite_key": "bormashenko2024",
+      "title": "Landauer bound in the context of minimal physical principles: Meaning, experimental verification, controversies and perspectives",
+      "authors": "Bormashenko, E.",
+      "year": "2024",
+      "journal": "Entropy",
+      "doi": "10.3390/e26050423",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        },
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-3390-e26050423",
+        "title": "Landauer Bound in the Context of Minimal Physical Principles: Meaning, Experimental Verification, Controversies and Perspectives",
+        "year": "2024",
+        "journal": "Entropy",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-3390-e26050423.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-3390-e26050423.txt",
+        "has_text": true
+      },
+      "raw": "Bormashenko, E. (2024). Landauer bound in the context of minimal physical principles: Meaning, experimental verification, controversies and perspectives. Entropy, 26(5), 423."
+    },
+    {
+      "cite_key": "mandelstam1945",
+      "title": "The uncertainty relation between energy and time in non-relativistic quantum mechanics",
+      "authors": "Mandelstam, L., Tamm, I.",
+      "year": "1945",
+      "journal": "J. Phys. (USSR)",
+      "doi": "",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 130,
+          "context": "Quantum speed limit ($_QSL$). The Mandelstam-Tamm and Margolus-Levitin bounds~mandelstam1945,margolus1998 establish"
+        },
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        }
+      ],
+      "paperlibrary_status": "no_doi",
+      "paperlibrary": {},
+      "raw": "Mandelstam, L., Tamm, I. (1945). The uncertainty relation between energy and time in non-relativistic quantum mechanics. J. Phys. (USSR), 9, 249--254."
+    },
+    {
+      "cite_key": "margolus1998",
+      "title": "The maximum speed of dynamical evolution",
+      "authors": "Margolus, N., Levitin, L.B.",
+      "year": "1998",
+      "journal": "Physica D",
+      "doi": "10.1016/s0167-2789(98)00054-2",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 130,
+          "context": "Quantum speed limit ($_QSL$). The Mandelstam-Tamm and Margolus-Levitin bounds~mandelstam1945,margolus1998 establish"
+        },
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-s0167-2789-98-00054-2",
+        "title": "The maximum speed of dynamical evolution",
+        "year": "1998",
+        "journal": "Physica D: Nonlinear Phenomena",
+        "source": "libgen",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-s0167-2789-98-00054-2.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-s0167-2789-98-00054-2.txt",
+        "has_text": true
+      },
+      "raw": "Margolus, N., Levitin, L.B. (1998). The maximum speed of dynamical evolution. Physica D, 120(1--2), 188--195."
+    },
+    {
+      "cite_key": "khrennikov2021",
+      "title": "Quantum-like model for unconscious--conscious interaction and emotional coloring of perceptions and other conscious experiences",
+      "authors": "Khrennikov, A.",
+      "year": "2021",
+      "journal": "BioSystems",
+      "doi": "10.1016/j.biosystems.2021.104471",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-biosystems-2021-104471",
+        "title": "Quantum-like model for unconscious–conscious interaction and emotional coloring of perceptions and other conscious experiences",
+        "year": "2021",
+        "journal": "Biosystems",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-biosystems-2021-104471.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-biosystems-2021-104471.txt",
+        "has_text": true
+      },
+      "raw": "Khrennikov, A. (2021). Quantum-like model for unconscious--conscious interaction and emotional coloring of perceptions and other conscious experiences. BioSystems, 208, 104471."
+    },
+    {
+      "cite_key": "igamberdiev2025constraints",
+      "title": "Physical limits of natural computation as the biological constraints of morphogenesis, evolution, and consciousness: On the 100th anniversary of Efim Liberman (1925--2011)",
+      "authors": "Igamberdiev, A.U., Shklovskiy-Kordi, N.E.",
+      "year": "2025",
+      "journal": "BioSystems",
+      "doi": "10.1016/j.biosystems.2025.105451",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-biosystems-2025-105451",
+        "title": "Physical limits of natural computation as the biological constraints of morphogenesis, evolution, and consciousness: On the 100th anniversary of Efim Liberman (1925–2011)",
+        "year": "2025",
+        "journal": "BioSystems",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-biosystems-2025-105451.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-biosystems-2025-105451.txt",
+        "has_text": true
+      },
+      "raw": "Igamberdiev, A.U., Shklovskiy-Kordi, N.E. (2025). Physical limits of natural computation as the biological constraints of morphogenesis, evolution, and consciousness: On the 100th anniversary of Efim Liberman (1925--2011). BioSystems, 251, 105451."
+    },
+    {
+      "cite_key": "igamberdiev2026autopoietic",
+      "title": "Internal quantum constraints of natural computation in autopoietic systems",
+      "authors": "Igamberdiev, A.U.",
+      "year": "2026",
+      "journal": "BioSystems",
+      "doi": "10.1016/j.biosystems.2026.105707",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 365,
+          "context": "How does the coordination-based framework relate to fundamental physical limits? Three bounds are relevant. Landauer's principle~landauer1961,bormashenko2024 requires dissipation of at least $ T 2 3 10^-21$ J per irreversible bit at biological temperature---an energy constraint, not a time constraint. The Margolus-Levitin theorem~margolus1998 and Mandelstam-Tamm relation~mandelstam1945 together establish the quantum speed limit $_QSL = $, originating from the energy-time uncertainty relation $ E t /2$~khrennikov2021,igamberdiev2025constraints,igamberdiev2026autopoietic. As Bormashenko~bormashenko2024 notes, synthesis of these bounds yields a minimal computation time $_ h/ T$. At biological temperatures ($ E T$), $_QSL 10^-13$ s."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-biosystems-2026-105707",
+        "title": "Internal quantum constraints of natural computation in autopoietic systems",
+        "year": "2026",
+        "journal": "BioSystems",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-biosystems-2026-105707.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-biosystems-2026-105707.txt",
+        "has_text": true
+      },
+      "raw": "Igamberdiev, A.U. (2026). Internal quantum constraints of natural computation in autopoietic systems. BioSystems, 261, 105707."
+    },
+    {
+      "cite_key": "khrennikov2025bridge",
+      "title": "Constructing a bridge between functioning of oscillatory neuronal networks and quantum-like cognition along with quantum-inspired computation and AI",
+      "authors": "Khrennikov, A., Iriki, A., Basieva, I.",
+      "year": "2025",
+      "journal": "BioSystems",
+      "doi": "10.1016/j.biosystems.2025.105573",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 565,
+          "context": "Quantum-like cognition. Recent work has explored connections between oscillatory neural networks and quantum-like cognitive phenomena~khrennikov2025bridge. Our framework provides a classical high-dimensional explanation for why such quantum-like signatures emerge: high-dimensional dynamics with limited measurement bandwidth produce phenomenology parallel to quantum systems---measurement-like collapse at commits, superposition-like coexistence of states pre-commit, uncertainty-like timing inaccessibility."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-biosystems-2025-105573",
+        "title": "Constructing a bridge between functioning of oscillatory neuronal networks and quantum-like cognition along with quantum-inspired computation and AI",
+        "year": "2025",
+        "journal": "BioSystems",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-biosystems-2025-105573.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-biosystems-2025-105573.txt",
+        "has_text": true
+      },
+      "raw": "Khrennikov, A., Iriki, A., Basieva, I. (2025). Constructing a bridge between functioning of oscillatory neuronal networks and quantum-like cognition along with quantum-inspired computation and AI. BioSystems, 257, 105573."
+    },
+    {
+      "cite_key": "poor1994",
+      "title": "An Introduction to Signal Detection and Estimation",
+      "authors": "Poor, H.V.",
+      "year": "1994",
+      "journal": "",
+      "doi": "",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 136,
+          "context": "Signal-to-noise limit ($_SNR$). In additive white Gaussian noise with two-sided power spectral density $N_0$ over bandwidth $B$, matched-filter detection achieves $SNR(T) = 2P_s T/N_0$, where $P_s$ is signal power and $T$ is integration time~poor1994. Reaching detection threshold $_ 5$--10 then requires"
+        }
+      ],
+      "paperlibrary_status": "no_doi",
+      "paperlibrary": {},
+      "raw": "Poor, H.V. (1994). An Introduction to Signal Detection and Estimation (2nd ed.). Springer-Verlag."
+    },
+    {
+      "cite_key": "kac1947",
+      "title": "On the notion of recurrence in discrete stochastic processes",
+      "authors": "Kac, M.",
+      "year": "1947",
+      "journal": "Bull. Amer. Math. Soc.",
+      "doi": "10.1090/s0002-9904-1947-08927-8",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 186,
+          "context": "First-passage time structure. Assuming independence across modules on the commit timescale, the alignment event $A_$ is a rare target set on the $M$-torus $T^M$. Under fast mixing relative to the target set size, first-passage times are approximately exponential with mean $ 1/(attempt rate P(A_))$---a form of Kac's recurrence theorem~kac1947."
+        },
+        {
+          "line": 195,
+          "context": "This is a standard result in the theory of rare events for Markov chains~kac1947,levinperes2017. The key assumptions are ergodicity and that the process mixes on timescales much shorter than the expected hitting time. In our setting, ``mixing'' means that successive phase configurations separated by $_mix$ are approximately independent samples from the stationary distribution; hence the Bernoulli-trial heuristic: each mixing interval is an independent ``attempt'' to land in $A_$."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1090-s0002-9904-1947-08927-8",
+        "title": "On the notion of recurrence in discrete stochastic processes",
+        "year": "1947",
+        "journal": "Bulletin of the American Mathematical Society",
+        "source": "scihub",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1090-s0002-9904-1947-08927-8.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1090-s0002-9904-1947-08927-8.txt",
+        "has_text": true
+      },
+      "raw": "Kac, M. (1947). On the notion of recurrence in discrete stochastic processes. Bull. Amer. Math. Soc., 53(10), 1002--1010."
+    },
+    {
+      "cite_key": "mardia2000",
+      "title": "Directional Statistics",
+      "authors": "Mardia, K.V., Jupp, P.E.",
+      "year": "2000",
+      "journal": "",
+      "doi": "",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 149,
+          "context": "Let $r$ denote the inter-module coherence $r_inter = |M^-1_m e^i_m|$ where $_m$ is the aggregate phase of module $m$. (We reserve $r_global$ for the all-oscillator order parameter, which serves as a diagnostic but does not appear in Eq.~eq:coh-time.) The von Mises concentration $(r)$ satisfies $r=I_1()/I_0()$~mardia2000."
+        },
+        {
+          "line": 151,
+          "context": "Why von Mises? Given circular symmetry and a fixed mean resultant length $r$, the maximum-entropy distribution on the circle is von Mises~mardia2000. This makes our modeling choice the canonical least-informative closure: $r p_1$ is uniquely determined without additional distributional assumptions. We validate this closure empirically in simulation (conditional-on-$r$ fitting yields $_fitted/_expected = 1.06 0.12$)."
+        }
+      ],
+      "paperlibrary_status": "no_doi",
+      "paperlibrary": {},
+      "raw": "Mardia, K.V., Jupp, P.E. (2000). Directional Statistics. John Wiley & Sons."
+    },
+    {
+      "cite_key": "stetson2007",
+      "title": "Does time really slow down during a frightening event? PLoS ONE, 2(12), e1295.",
+      "authors": "Stetson, C., Fiesta, M.P., Eagleman, D.M.",
+      "year": "2007",
+      "journal": "",
+      "doi": "10.1371/journal.pone.0001295",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 478,
+          "context": "During acute stress or falls, subjects report subjective time slowing. Critically, Stetson et al.~stetson2007 showed that objective temporal resolution (tested via a falling LED chronometer) did not improve during free-fall fear---only retrospective duration estimates increased. This dissociation has two main competing explanations: (1) a memory-density account, in which arousal increases encoding density, inflating retrospective duration without altering online perception, and (2) a dual-architecture account, in which perceptual and motor systems have different coordination depths and respond differently to arousal."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1371-journal-pone-0001295",
+        "title": "Does Time Really Slow Down during a Frightening Event?",
+        "year": "2007",
+        "journal": "PLoS ONE",
+        "source": "unpaywall",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1371-journal-pone-0001295.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1371-journal-pone-0001295.txt",
+        "has_text": true
+      },
+      "raw": "Stetson, C., Fiesta, M.P., Eagleman, D.M. (2007). Does time really slow down during a frightening event? PLoS ONE, 2(12), e1295."
+    },
+    {
+      "cite_key": "samaha2015",
+      "title": "The speed of alpha-band oscillations predicts the temporal resolution of visual perception",
+      "authors": "Samaha, J., Postle, B.R.",
+      "year": "2015",
+      "journal": "Current Biology",
+      "doi": "10.1016/j.cub.2015.10.007",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 468,
+          "context": "The exponential dependence on $M$ and strong dependence on $r$ mean that modest changes in attention state (affecting $r$) or task complexity (affecting $M$) can shift binding windows by factors of 2--4, consistent with empirical observations of attention-dependent temporal resolution~samaha2015."
+        },
+        {
+          "line": 494,
+          "context": "Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~samaha2015,cecere2015. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $_attempt$ or the sampling schedule for phase alignment. An alternative framing holds that alpha reflects internally generated ``perception sets''---pre-established processing templates retrieved from stored knowledge networks---rather than bottom-up temporal sampling per se~wutz2024. Crucially, Wutz notes that subjective temporal duration correlates with the amount of information retrievable per perceptual event, and that top-down control can extend receptive integration windows to accommodate richer inputs. In the present framework, this is the coherence time bound at work: a perception set can be interpreted as a high-dimensional internal template (large $M$), and the temporal effects Wutz documents---time dilation under richer processing, compression under impoverished conditions---correspond to the exponential dependence of $_coh$ on coordination depth. The two views are thus complementary: perception sets determine which phase configurations count as alignment events, while the coherence time bound determines how long the assembly must wait for those configurations to recur."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-cub-2015-10-007",
+        "title": "The Speed of Alpha-Band Oscillations Predicts the Temporal Resolution of Visual Perception",
+        "year": "2015",
+        "journal": "Current Biology",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-cub-2015-10-007.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-cub-2015-10-007.txt",
+        "has_text": true
+      },
+      "raw": "Samaha, J., Postle, B.R. (2015). The speed of alpha-band oscillations predicts the temporal resolution of visual perception. Current Biology, 25(22), 2985--2990."
+    },
+    {
+      "cite_key": "cecere2015",
+      "title": "Individual differences in alpha frequency drive crossmodal illusory perception",
+      "authors": "Cecere, R., Rees, G., Romei, V.",
+      "year": "2015",
+      "journal": "Current Biology",
+      "doi": "10.1016/j.cub.2014.11.034",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 494,
+          "context": "Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~samaha2015,cecere2015. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $_attempt$ or the sampling schedule for phase alignment. An alternative framing holds that alpha reflects internally generated ``perception sets''---pre-established processing templates retrieved from stored knowledge networks---rather than bottom-up temporal sampling per se~wutz2024. Crucially, Wutz notes that subjective temporal duration correlates with the amount of information retrievable per perceptual event, and that top-down control can extend receptive integration windows to accommodate richer inputs. In the present framework, this is the coherence time bound at work: a perception set can be interpreted as a high-dimensional internal template (large $M$), and the temporal effects Wutz documents---time dilation under richer processing, compression under impoverished conditions---correspond to the exponential dependence of $_coh$ on coordination depth. The two views are thus complementary: perception sets determine which phase configurations count as alignment events, while the coherence time bound determines how long the assembly must wait for those configurations to recur."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-cub-2014-11-034",
+        "title": "Individual Differences in Alpha Frequency Drive Crossmodal Illusory Perception",
+        "year": "2015",
+        "journal": "Current Biology",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-cub-2014-11-034.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-cub-2014-11-034.txt",
+        "has_text": true
+      },
+      "raw": "Cecere, R., Rees, G., Romei, V. (2015). Individual differences in alpha frequency drive crossmodal illusory perception. Current Biology, 25(2), 231--235."
+    },
+    {
+      "cite_key": "healy2013",
+      "title": "Metabolic rate and body size are linked with perception of temporal information",
+      "authors": "Healy, K., McNally, L., Ruxton, G.D., Cooper, N., Jackson, A.L.",
+      "year": "2013",
+      "journal": "Anim. Behav.",
+      "doi": "10.1016/j.anbehav.2013.06.018",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 502,
+          "context": "Critical flicker fusion frequency varies enormously across taxa: flies $ 240$ Hz, humans $ 60$ Hz, leatherback turtles $ 15$ Hz. Healy et al.~healy2013 found that mass-specific metabolic rate explains substantial variance in CFF across 34 vertebrate species spanning three orders of magnitude in body mass, consistent with the predicted power-limited regime for small, high-metabolism animals."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-anbehav-2013-06-018",
+        "title": "Metabolic rate and body size are linked with perception of temporal information",
+        "year": "2013",
+        "journal": "Animal Behaviour",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-anbehav-2013-06-018.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-anbehav-2013-06-018.txt",
+        "has_text": true
+      },
+      "raw": "Healy, K., McNally, L., Ruxton, G.D., Cooper, N., Jackson, A.L. (2013). Metabolic rate and body size are linked with perception of temporal information. Anim. Behav., 86(4), 685--696."
+    },
+    {
+      "cite_key": "tononi2016",
+      "title": "Integrated information theory: from consciousness to its physical substrate",
+      "authors": "Tononi, G., Boly, M., Massimini, M., Koch, C.",
+      "year": "2016",
+      "journal": "Nat. Rev. Neurosci.",
+      "doi": "10.1038/nrn.2016.44",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 567,
+          "context": "Integrated Information Theory~tononi2016: IIT places integration at the center of conscious-state descriptions. In our framework, any such integration is additionally subject to explicit thermodynamic and temporal constraints: it costs energy and takes time (exponentially with coordination depth)."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-nrn-2016-44",
+        "title": "Integrated information theory: from consciousness to its physical substrate",
+        "year": "2016",
+        "journal": "Nature Reviews Neuroscience",
+        "source": "aa_fast_download",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-nrn-2016-44.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-nrn-2016-44.txt",
+        "has_text": true
+      },
+      "raw": "Tononi, G., Boly, M., Massimini, M., Koch, C. (2016). Integrated information theory: from consciousness to its physical substrate. Nat. Rev. Neurosci., 17(7), 450--461."
+    },
+    {
+      "cite_key": "friston2010",
+      "title": "The free-energy principle: a unified brain theory? Nat. Rev. Neurosci., 11(2), 127--138.",
+      "authors": "Friston, K.",
+      "year": "2010",
+      "journal": "",
+      "doi": "10.1038/nrn2787",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 569,
+          "context": "Free Energy Principle~friston2010: We add temporal structure. Prediction updates occur at commit events with rate limited by Eq.~eq:main-bound."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-nrn2787",
+        "title": "The free-energy principle: a unified brain theory?",
+        "year": "2010",
+        "journal": "Nature Reviews Neuroscience",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-nrn2787.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-nrn2787.txt",
+        "has_text": true
+      },
+      "raw": "Friston, K. (2010). The free-energy principle: a unified brain theory? Nat. Rev. Neurosci., 11(2), 127--138."
+    },
+    {
+      "cite_key": "anastassiou2011",
+      "title": "Ephaptic coupling of cortical neurons",
+      "authors": "Anastassiou, C.A., Perin, R., Markram, H., Koch, C.",
+      "year": "2011",
+      "journal": "Nat. Neurosci.",
+      "doi": "10.1038/nn.2727",
+      "url": "",
+      "citation_count": 4,
+      "contexts": [
+        {
+          "line": 306,
+          "context": "If commits are discrete state registrations (spike cascades, readout events) and the phase delta regime is interpreted as continuous, high-dimensional exploration between commits, then one should look for a comparably continuous coordination substrate. This constrains the candidate substrates. Chemical synaptic transmission requires presynaptic spikes and involves quantal vesicle release; neuromodulators are comparatively slow for oscillatory coordination; and gap junctions, while continuous, are sparse in cortex. A plausible candidate is therefore the extracellular electric field: it is continuous in space and time, spatially extended across modules, and measurable via local field potentials. Ephaptic coupling~anastassiou2011,pinotsis2023,han2018 provides one mechanism by which such field structure could modulate spike timing."
+        },
+        {
+          "line": 310,
+          "context": "Field effects are causally plausible because extracellular electric fields modulate membrane potential, and membrane potential influences spike timing~anastassiou2011. The open empirical question is therefore not whether field effects exist, but how much they matter relative to synaptic coupling in a given regime~anastassiou2011,beggs2003,shew2013. The framework suggests a specific dependency: the functional impact of small timing perturbations should grow with effective dimensionality $$, because higher-dimensional phase structure creates more semi-independent timing relationships through which weak perturbations can propagate."
+        },
+        {
+          "line": 310,
+          "context": "Field effects are causally plausible because extracellular electric fields modulate membrane potential, and membrane potential influences spike timing~anastassiou2011. The open empirical question is therefore not whether field effects exist, but how much they matter relative to synaptic coupling in a given regime~anastassiou2011,beggs2003,shew2013. The framework suggests a specific dependency: the functional impact of small timing perturbations should grow with effective dimensionality $$, because higher-dimensional phase structure creates more semi-independent timing relationships through which weak perturbations can propagate."
+        },
+        {
+          "line": 353,
+          "context": "mechanism of pre-commit bias. How might structured phase relationships influence downstream circuits before a commit occurs? One plausible route is through extracellular-field modulation of excitability: oscillatory phase can bias membrane potential via ephaptic effects~anastassiou2011,fries2005, so structured inter-module phase offsets may create spatially patterned gain fields in downstream targets even without synchronous firing. Such bias could then be consolidated through more conventional synaptic mechanisms, including subthreshold dendritic integration and short-term synaptic facilitation or depression. On this reading, the field-mediated component is graded and reversible, while synaptic consolidation provides the persistence needed for eventual commit."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-nn-2727",
+        "title": "Ephaptic coupling of cortical neurons",
+        "year": "2011",
+        "journal": "Nature Neuroscience",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-nn-2727.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-nn-2727.txt",
+        "has_text": true
+      },
+      "raw": "Anastassiou, C.A., Perin, R., Markram, H., Koch, C. (2011). Ephaptic coupling of cortical neurons. Nat. Neurosci., 14(2), 217--223."
+    },
+    {
+      "cite_key": "beggs2003",
+      "title": "Neuronal avalanches in neocortical circuits",
+      "authors": "Beggs, J.M., Plenz, D.",
+      "year": "2003",
+      "journal": "J. Neurosci.",
+      "doi": "10.1523/jneurosci.23-35-11167.2003",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 310,
+          "context": "Field effects are causally plausible because extracellular electric fields modulate membrane potential, and membrane potential influences spike timing~anastassiou2011. The open empirical question is therefore not whether field effects exist, but how much they matter relative to synaptic coupling in a given regime~anastassiou2011,beggs2003,shew2013. The framework suggests a specific dependency: the functional impact of small timing perturbations should grow with effective dimensionality $$, because higher-dimensional phase structure creates more semi-independent timing relationships through which weak perturbations can propagate."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1523-jneurosci-23-35-11167-2003",
+        "title": "Neuronal Avalanches in Neocortical Circuits",
+        "year": "2003",
+        "journal": "The Journal of Neuroscience",
+        "source": "unpaywall",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1523-jneurosci-23-35-11167-2003.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1523-jneurosci-23-35-11167-2003.txt",
+        "has_text": true
+      },
+      "raw": "Beggs, J.M., Plenz, D. (2003). Neuronal avalanches in neocortical circuits. J. Neurosci., 23(35), 11167--11177."
+    },
+    {
+      "cite_key": "shew2013",
+      "title": "The functional benefits of criticality in the cortex",
+      "authors": "Shew, W.L., Plenz, D.",
+      "year": "2013",
+      "journal": "Neuroscientist",
+      "doi": "10.1177/1073858412445487",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 310,
+          "context": "Field effects are causally plausible because extracellular electric fields modulate membrane potential, and membrane potential influences spike timing~anastassiou2011. The open empirical question is therefore not whether field effects exist, but how much they matter relative to synaptic coupling in a given regime~anastassiou2011,beggs2003,shew2013. The framework suggests a specific dependency: the functional impact of small timing perturbations should grow with effective dimensionality $$, because higher-dimensional phase structure creates more semi-independent timing relationships through which weak perturbations can propagate."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1177-1073858412445487",
+        "title": "The Functional Benefits of Criticality in the Cortex",
+        "year": "2012",
+        "journal": "The Neuroscientist",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1177-1073858412445487.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1177-1073858412445487.txt",
+        "has_text": true
+      },
+      "raw": "Shew, W.L., Plenz, D. (2013). The functional benefits of criticality in the cortex. Neuroscientist, 19(1), 88--100."
+    },
+    {
+      "cite_key": "han2018",
+      "title": "Ephaptic coupling promotes synchronous firing of cerebellar Purkinje cells",
+      "authors": "Han, K.S., Guo, C., Chen, C.H., Witter, L., Osorno, T., Regehr, W.G.",
+      "year": "2018",
+      "journal": "Neuron",
+      "doi": "10.1016/j.neuron.2018.09.018",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 306,
+          "context": "If commits are discrete state registrations (spike cascades, readout events) and the phase delta regime is interpreted as continuous, high-dimensional exploration between commits, then one should look for a comparably continuous coordination substrate. This constrains the candidate substrates. Chemical synaptic transmission requires presynaptic spikes and involves quantal vesicle release; neuromodulators are comparatively slow for oscillatory coordination; and gap junctions, while continuous, are sparse in cortex. A plausible candidate is therefore the extracellular electric field: it is continuous in space and time, spatially extended across modules, and measurable via local field potentials. Ephaptic coupling~anastassiou2011,pinotsis2023,han2018 provides one mechanism by which such field structure could modulate spike timing."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-neuron-2018-09-018",
+        "title": "Ephaptic Coupling Promotes Synchronous Firing of Cerebellar Purkinje Cells",
+        "year": "2018",
+        "journal": "Neuron",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-neuron-2018-09-018.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-neuron-2018-09-018.txt",
+        "has_text": true
+      },
+      "raw": "Han, K.S., Guo, C., Chen, C.H., Witter, L., Osorno, T., Regehr, W.G. (2018). Ephaptic coupling promotes synchronous firing of cerebellar Purkinje cells. Neuron, 100(3), 564--578."
+    },
+    {
+      "cite_key": "kuramoto1984",
+      "title": "Chemical Oscillations, Waves, and Turbulence",
+      "authors": "Kuramoto, Y.",
+      "year": "1984",
+      "journal": "",
+      "doi": "10.1007/978-3-642-69689-3",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 148,
+          "context": "We model commits as threshold crossings requiring $M$ semi-independent modules to achieve simultaneous phase alignment within tolerance $$, building on the theory of coupled oscillators~kuramoto1984,acebron2005."
+        },
+        {
+          "line": 849,
+          "context": "Relation to synchronisation theory. The Kuramoto model and its extensions~kuramoto1984, strogatz2000, acebron2005, ott2008 provide a mature theory of synchronisation onset and order-parameter dynamics. Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~kuroki2025. In our interpretation, the coherence time bound is most relevant in partially synchronized regimes where alignment is possible but rare. These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~hengen2025. This paper does not compete with that literature. We address a different question: given that oscillators can synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1007-978-3-642-69689-3",
+        "title": "Chemical Oscillations, Waves, and Turbulence",
+        "year": "1984",
+        "journal": "Springer Series in Synergetics",
+        "source": "aa_fast_download",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1007-978-3-642-69689-3.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1007-978-3-642-69689-3.txt",
+        "has_text": true
+      },
+      "raw": "Kuramoto, Y. (1984). Chemical Oscillations, Waves, and Turbulence. Springer-Verlag, Berlin."
+    },
+    {
+      "cite_key": "strogatz2000",
+      "title": "From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators",
+      "authors": "Strogatz, S.H.",
+      "year": "2000",
+      "journal": "Physica D",
+      "doi": "10.1016/s0167-2789(00)00094-4",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 324,
+          "context": "Increasing coordination depth $M$ expands the dimensionality of commit-registered outcomes but requires exponentially longer alignment time. Increasing $r_inter$ reduces the dimensionality of the relative-phase degrees of freedom, constraining dynamics toward a lower-dimensional phase-synchronized manifold~strogatz2000,ott2008. This makes multi-module coordination faster (larger $p_1$) but reduces the number of effectively independent constraints (smaller effective $$)."
+        },
+        {
+          "line": 849,
+          "context": "Relation to synchronisation theory. The Kuramoto model and its extensions~kuramoto1984, strogatz2000, acebron2005, ott2008 provide a mature theory of synchronisation onset and order-parameter dynamics. Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~kuroki2025. In our interpretation, the coherence time bound is most relevant in partially synchronized regimes where alignment is possible but rare. These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~hengen2025. This paper does not compete with that literature. We address a different question: given that oscillators can synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-s0167-2789-00-00094-4",
+        "title": "From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators",
+        "year": "2000",
+        "journal": "Physica D: Nonlinear Phenomena",
+        "source": "libgen",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-s0167-2789-00-00094-4.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-s0167-2789-00-00094-4.txt",
+        "has_text": true
+      },
+      "raw": "Strogatz, S.H. (2000). From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators. Physica D, 143(1-4), 1--20."
+    },
+    {
+      "cite_key": "acebron2005",
+      "title": "The Kuramoto model: A simple paradigm for synchronization phenomena",
+      "authors": "Acebr\\'on, J.A., Bonilla, L.L., P\\'erez Vicente, C.J., Ritort, F., and Spigler, R.",
+      "year": "2005",
+      "journal": "Reviews of Modern Physics",
+      "doi": "10.1103/revmodphys.77.137",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 148,
+          "context": "We model commits as threshold crossings requiring $M$ semi-independent modules to achieve simultaneous phase alignment within tolerance $$, building on the theory of coupled oscillators~kuramoto1984,acebron2005."
+        },
+        {
+          "line": 849,
+          "context": "Relation to synchronisation theory. The Kuramoto model and its extensions~kuramoto1984, strogatz2000, acebron2005, ott2008 provide a mature theory of synchronisation onset and order-parameter dynamics. Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~kuroki2025. In our interpretation, the coherence time bound is most relevant in partially synchronized regimes where alignment is possible but rare. These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~hengen2025. This paper does not compete with that literature. We address a different question: given that oscillators can synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1103-revmodphys-77-137",
+        "title": "The Kuramoto model: A simple paradigm for synchronization phenomena",
+        "year": "2005",
+        "journal": "Reviews of Modern Physics",
+        "source": "libgen",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1103-revmodphys-77-137.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1103-revmodphys-77-137.txt",
+        "has_text": true
+      },
+      "raw": "Acebr\\'on, J.A., Bonilla, L.L., P\\'erez Vicente, C.J., Ritort, F., and Spigler, R. (2005). The Kuramoto model: A simple paradigm for synchronization phenomena. Reviews of Modern Physics, 77(1), 137--185."
+    },
+    {
+      "cite_key": "ott2008",
+      "title": "Low dimensional behavior of large systems of globally coupled oscillators",
+      "authors": "Ott, E. and Antonsen, T.M.",
+      "year": "2008",
+      "journal": "Chaos",
+      "doi": "10.1063/1.2930766",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 324,
+          "context": "Increasing coordination depth $M$ expands the dimensionality of commit-registered outcomes but requires exponentially longer alignment time. Increasing $r_inter$ reduces the dimensionality of the relative-phase degrees of freedom, constraining dynamics toward a lower-dimensional phase-synchronized manifold~strogatz2000,ott2008. This makes multi-module coordination faster (larger $p_1$) but reduces the number of effectively independent constraints (smaller effective $$)."
+        },
+        {
+          "line": 849,
+          "context": "Relation to synchronisation theory. The Kuramoto model and its extensions~kuramoto1984, strogatz2000, acebron2005, ott2008 provide a mature theory of synchronisation onset and order-parameter dynamics. Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~kuroki2025. In our interpretation, the coherence time bound is most relevant in partially synchronized regimes where alignment is possible but rare. These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~hengen2025. This paper does not compete with that literature. We address a different question: given that oscillators can synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1063-1-2930766",
+        "title": "Low dimensional behavior of large systems of globally coupled oscillators",
+        "year": "2008",
+        "journal": "Chaos: An Interdisciplinary Journal of Nonlinear Science",
+        "source": "unpaywall",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1063-1-2930766.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1063-1-2930766.txt",
+        "has_text": true
+      },
+      "raw": "Ott, E. and Antonsen, T.M. (2008). Low dimensional behavior of large systems of globally coupled oscillators. Chaos, 18(3), 037113."
+    },
+    {
+      "cite_key": "cunningham2014",
+      "title": "Dimensionality reduction for large-scale neural recordings",
+      "authors": "Cunningham, J.P. and Yu, B.M.",
+      "year": "2014",
+      "journal": "Nature Neuroscience",
+      "doi": "10.1038/nn.3776",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 228,
+          "context": "where $_i$ are eigenvalues of $C$. Participation-ratio and related manifold-based summaries are standard empirical tools for quantifying effective neural dimensionality~cunningham2014,stringer2019. Because $_m$ are mean-centred ($_m _m = 0$), $C$ has rank at most $M-1$; the participation ratio therefore equals $M-1$ when all non-zero eigenvalues are equal (fully independent) and approaches 1 when a single mode dominates (fully correlated). From $d_eff$, we obtain $ = d_eff / (M-1)$."
+        },
+        {
+          "line": 710,
+          "context": "related methods quantify $$ from population recordings~stringer2019,cunningham2014."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-nn-3776",
+        "title": "Dimensionality reduction for large-scale neural recordings",
+        "year": "2014",
+        "journal": "Nature Neuroscience",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-nn-3776.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-nn-3776.txt",
+        "has_text": true
+      },
+      "raw": "Cunningham, J.P. and Yu, B.M. (2014). Dimensionality reduction for large-scale neural recordings. Nature Neuroscience, 17(11), 1500--1509."
+    },
+    {
+      "cite_key": "stringer2019",
+      "title": "Spontaneous behaviors drive multidimensional, brainwide activity",
+      "authors": "Stringer, C., Pachitariu, M., Steinmetz, N., Reddy, C.B., Carandini, M., and Harris, K.D.",
+      "year": "2019",
+      "journal": "Science",
+      "doi": "10.1126/science.aav7893",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 228,
+          "context": "where $_i$ are eigenvalues of $C$. Participation-ratio and related manifold-based summaries are standard empirical tools for quantifying effective neural dimensionality~cunningham2014,stringer2019. Because $_m$ are mean-centred ($_m _m = 0$), $C$ has rank at most $M-1$; the participation ratio therefore equals $M-1$ when all non-zero eigenvalues are equal (fully independent) and approaches 1 when a single mode dominates (fully correlated). From $d_eff$, we obtain $ = d_eff / (M-1)$."
+        },
+        {
+          "line": 710,
+          "context": "related methods quantify $$ from population recordings~stringer2019,cunningham2014."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1126-science-aav7893",
+        "title": "Spontaneous behaviors drive multidimensional, brainwide activity",
+        "year": "2019",
+        "journal": "Science",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1126-science-aav7893.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1126-science-aav7893.txt",
+        "has_text": true
+      },
+      "raw": "Stringer, C., Pachitariu, M., Steinmetz, N., Reddy, C.B., Carandini, M., and Harris, K.D. (2019). Spontaneous behaviors drive multidimensional, brainwide activity. Science, 364(6437), eaav7893."
+    },
+    {
+      "cite_key": "todd2025biosystems",
+      "title": "The limits of falsifiability: Dimensionality, measurement thresholds, and the sub-Landauer domain in biological systems",
+      "authors": "Todd, I.",
+      "year": "2025",
+      "journal": "BioSystems",
+      "doi": "10.1016/j.biosystems.2025.105608",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 55,
+          "context": "Recent work argued that living intelligence is an emergent property of high-dimensional, self-sustaining dynamical systems that maintain coherence against decoherence~todd2025intelligence, building on analyses of falsifiability limits in adaptive biological systems~todd2025biosystems and timing inaccessibility in sub-Landauer computation~todd2025demon. The present manuscript addresses the complementary question: given such a coherent high-dimensional system, what sets the fastest timescale on which it can register change and update its state?"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-biosystems-2025-105608",
+        "title": "The limits of falsifiability: Dimensionality, measurement thresholds, and the sub-Landauer domain in biological systems",
+        "year": "2025",
+        "journal": "BioSystems",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-biosystems-2025-105608.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-biosystems-2025-105608.txt",
+        "has_text": true
+      },
+      "raw": "Todd, I. (2025). The limits of falsifiability: Dimensionality, measurement thresholds, and the sub-Landauer domain in biological systems. BioSystems, 258, 105608."
+    },
+    {
+      "cite_key": "todd2025demon",
+      "title": "Timing inaccessibility and the projection bound: Resolving Maxwell's demon for continuous biological substrates",
+      "authors": "Todd, I.",
+      "year": "2025",
+      "journal": "BioSystems",
+      "doi": "10.1016/j.biosystems.2025.105632",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 55,
+          "context": "Recent work argued that living intelligence is an emergent property of high-dimensional, self-sustaining dynamical systems that maintain coherence against decoherence~todd2025intelligence, building on analyses of falsifiability limits in adaptive biological systems~todd2025biosystems and timing inaccessibility in sub-Landauer computation~todd2025demon. The present manuscript addresses the complementary question: given such a coherent high-dimensional system, what sets the fastest timescale on which it can register change and update its state?"
+        },
+        {
+          "line": 359,
+          "context": "This interpretation is consistent with the analysis of timing inaccessibility in continuous biological substrates~todd2025demon: systems with continuous state variables can bias future trajectories without crossing a discrete erasure threshold, because intermediate states need not be destroyed. Within that framing, the coherence time $_coh$ quantifies how long such bias can be maintained before the accumulated phase relationships either commit (alignment within $$) or decorrelate (bias dissipates)."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-biosystems-2025-105632",
+        "title": "Timing inaccessibility and the projection bound: Resolving Maxwell’s demon for continuous biological substrates",
+        "year": "2025",
+        "journal": "BioSystems",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-biosystems-2025-105632.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-biosystems-2025-105632.txt",
+        "has_text": true
+      },
+      "raw": "Todd, I. (2025). Timing inaccessibility and the projection bound: Resolving Maxwell's demon for continuous biological substrates. BioSystems, 258, 105632."
+    },
+    {
+      "cite_key": "raichle2001",
+      "title": "A default mode of brain function",
+      "authors": "Raichle, M.E., MacLeod, A.M., Snyder, A.Z., Powers, W.J., Gusnard, D.A., and Shulman, G.L.",
+      "year": "2001",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "doi": "10.1073/pnas.98.2.676",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 509,
+          "context": "Default-mode network activity is a canonical example of internally directed baseline brain activity~raichle2001. In our framework, mind-wandering corresponds to a regime of low inter-regional coherence ($r 0.3$) and high coordination depth ($M 12$--20). Commits are therefore rare ($ 0.1$--1 Hz), producing subjective ``slow thinking'' but enabling novel associations."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1073-pnas-98-2-676",
+        "title": "A default mode of brain function",
+        "year": "2001",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "source": "scihub",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1073-pnas-98-2-676.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1073-pnas-98-2-676.txt",
+        "has_text": true
+      },
+      "raw": "Raichle, M.E., MacLeod, A.M., Snyder, A.Z., Powers, W.J., Gusnard, D.A., and Shulman, G.L. (2001). A default mode of brain function. Proceedings of the National Academy of Sciences, 98(2), 676--682."
+    },
+    {
+      "cite_key": "wolpert1998",
+      "title": "Internal models in the cerebellum",
+      "authors": "Wolpert, D.M., Miall, R.C., and Kawato, M.",
+      "year": "1998",
+      "journal": "Trends in Cognitive Sciences",
+      "doi": "10.1016/s1364-6613(98)01221-2",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 515,
+          "context": "Overlearned motor sequences compress to low-dimensional primitives ($M 3$--5) with tight coherence ($r 0.8$)~wolpert1998. Commits are rapid (50--150 ms) but inflexible."
+        },
+        {
+          "line": 835,
+          "context": "The mammalian cerebellum exemplifies this hierarchical solution. Operating with low coordination depth ($M 3$--5), tight coupling ($r 0.8$), and stereotyped primitives, the cerebellum achieves commit times of 10--20 ms~wolpert1998,ito2008---fast enough to override slow cortical dynamics when rapid action is required. Cerebellar processing is largely unconscious, consistent with the hypothesis that phenomenal experience is associated with high-dimensional pre-commit dynamics: the architecture that solves the speed problem---collapsing to low $M$---simultaneously removes processing from the domain of conscious experience."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-s1364-6613-98-01221-2",
+        "title": "Internal models in the cerebellum",
+        "year": "1998",
+        "journal": "Trends in Cognitive Sciences",
+        "source": "scihub",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-s1364-6613-98-01221-2.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-s1364-6613-98-01221-2.txt",
+        "has_text": true
+      },
+      "raw": "Wolpert, D.M., Miall, R.C., and Kawato, M. (1998). Internal models in the cerebellum. Trends in Cognitive Sciences, 2(9), 338--347."
+    },
+    {
+      "cite_key": "vanrullen2016",
+      "title": "Perceptual cycles",
+      "authors": "VanRullen, R.",
+      "year": "2016",
+      "journal": "Trends in Cognitive Sciences",
+      "doi": "10.1016/j.tics.2016.07.006",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 59,
+          "context": "consistent with the emerging view that perception operates in discrete cycles~vanrullen2016."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-tics-2016-07-006",
+        "title": "Perceptual Cycles",
+        "year": "2016",
+        "journal": "Trends in Cognitive Sciences",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-tics-2016-07-006.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-tics-2016-07-006.txt",
+        "has_text": true
+      },
+      "raw": "VanRullen, R. (2016). Perceptual cycles. Trends in Cognitive Sciences, 20(10), 723--735."
+    },
+    {
+      "cite_key": "helfrich2014",
+      "title": "Entrainment of brain oscillations by transcranial alternating current stimulation",
+      "authors": "Helfrich, R.F., Schneider, T.R., Rach, S., Trautmann-Lengsfeld, S.A., Engel, A.K., and Herrmann, C.S.",
+      "year": "2014",
+      "journal": "Current Biology",
+      "doi": "10.1016/j.cub.2013.12.041",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 496,
+          "context": "Prediction: If alpha frequency modulates commit timing, then entraining alpha via transcranial alternating current stimulation (tACS)~helfrich2014 should shift perceptual binding windows approximately linearly with frequency change. Wutz's perception-set framework predicts the same direction of effect---faster alpha, finer temporal resolution---but attributes the mechanism to template-driven gating rather than passive sampling. A discriminating test is whether tACS shifts binding windows even when the perceptual task is fully exogenous (randomised, non-ambiguous stimuli), where perception-set contributions are minimal~wutz2024."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-cub-2013-12-041",
+        "title": "Entrainment of Brain Oscillations by Transcranial Alternating Current Stimulation",
+        "year": "2014",
+        "journal": "Current Biology",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-cub-2013-12-041.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-cub-2013-12-041.txt",
+        "has_text": true
+      },
+      "raw": "Helfrich, R.F., Schneider, T.R., Rach, S., Trautmann-Lengsfeld, S.A., Engel, A.K., and Herrmann, C.S. (2014). Entrainment of brain oscillations by transcranial alternating current stimulation. Current Biology, 24(3), 333--339."
+    },
+    {
+      "cite_key": "amari2016",
+      "title": "Information Geometry and Its Applications",
+      "authors": "Amari, S.",
+      "year": "2016",
+      "journal": "",
+      "doi": "10.1007/978-4-431-55978-8",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 92,
+          "context": "Definition (Physical dimensionality). Throughout this work, ``dimensionality'' refers to the effective degrees of freedom of accessible dynamics---not geometric embedding dimension. Physical dimensionality is a quantitative measure of effective connectivity: how many independent directions of coordinated variation are accessible to a system given its interaction structure. High-dimensional states correspond to weakly constrained dynamics in which many components vary semi-independently; low-dimensional states correspond to strongly coupled dynamics restricted to a small number of collective modes. Dimensionality in this sense is determined not by component count, but by the rank of the system's interaction structure. Different measurement schemes (participation ratios, manifold dimension, information-geometric metrics) estimate this property from data~amari2016."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1007-978-4-431-55978-8",
+        "title": "Information Geometry and Its Applications",
+        "year": "2016",
+        "journal": "Applied Mathematical Sciences",
+        "source": "libgen",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1007-978-4-431-55978-8.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1007-978-4-431-55978-8.txt",
+        "has_text": true
+      },
+      "raw": "Amari, S. (2016). Information Geometry and Its Applications. Springer, Tokyo."
+    },
+    {
+      "cite_key": "ashby1956",
+      "title": "An Introduction to Cybernetics",
+      "authors": "Ashby, W.R.",
+      "year": "1956",
+      "journal": "",
+      "doi": "10.5962/bhl.title.5851",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 677,
+          "context": "A related control-theoretic point is suggested by Ashby's law of requisite variety~ashby1956:"
+        }
+      ],
+      "paperlibrary_status": "needs_pdf",
+      "paperlibrary": {},
+      "raw": "Ashby, W.R. (1956). An Introduction to Cybernetics. Chapman & Hall, London."
+    },
+    {
+      "cite_key": "levinperes2017",
+      "title": "Markov Chains and Mixing Times",
+      "authors": "Levin, D.A., Peres, Y.",
+      "year": "2017",
+      "journal": "",
+      "doi": "",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 195,
+          "context": "This is a standard result in the theory of rare events for Markov chains~kac1947,levinperes2017. The key assumptions are ergodicity and that the process mixes on timescales much shorter than the expected hitting time. In our setting, ``mixing'' means that successive phase configurations separated by $_mix$ are approximately independent samples from the stationary distribution; hence the Bernoulli-trial heuristic: each mixing interval is an independent ``attempt'' to land in $A_$."
+        }
+      ],
+      "paperlibrary_status": "no_doi",
+      "paperlibrary": {},
+      "raw": "Levin, D.A., Peres, Y. (2017). Markov Chains and Mixing Times (2nd ed.). American Mathematical Society."
+    },
+    {
+      "cite_key": "ito2008",
+      "title": "Control of mental activities by internal models in the cerebellum",
+      "authors": "Ito, M.",
+      "year": "2008",
+      "journal": "Nat. Rev. Neurosci.",
+      "doi": "10.1038/nrn2332",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 835,
+          "context": "The mammalian cerebellum exemplifies this hierarchical solution. Operating with low coordination depth ($M 3$--5), tight coupling ($r 0.8$), and stereotyped primitives, the cerebellum achieves commit times of 10--20 ms~wolpert1998,ito2008---fast enough to override slow cortical dynamics when rapid action is required. Cerebellar processing is largely unconscious, consistent with the hypothesis that phenomenal experience is associated with high-dimensional pre-commit dynamics: the architecture that solves the speed problem---collapsing to low $M$---simultaneously removes processing from the domain of conscious experience."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-nrn2332",
+        "title": "Control of mental activities by internal models in the cerebellum",
+        "year": "2008",
+        "journal": "Nature Reviews Neuroscience",
+        "source": "aa_fast_download",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-nrn2332.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-nrn2332.txt",
+        "has_text": true
+      },
+      "raw": "Ito, M. (2008). Control of mental activities by internal models in the cerebellum. Nat. Rev. Neurosci., 9(4), 304--313."
+    },
+    {
+      "cite_key": "casali2013",
+      "title": "A theoretically based index of consciousness independent of sensory processing and behavior",
+      "authors": "Casali, A.G., Gosseries, O., Rosanova, M., Boly, M., Sarasso, S., Casali, K.R., Casarotto, S., Bruno, M.-A., Laureys, S., Tononi, G., and Massimini, M.",
+      "year": "2013",
+      "journal": "Science Translational Medicine",
+      "doi": "10.1126/scitranslmed.3006294",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 714,
+          "context": "index~casali2013, which measures the effective dimensionality of cortical responses"
+        },
+        {
+          "line": 788,
+          "context": "states~casali2013. The prediction is"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1126-scitranslmed-3006294",
+        "title": "A Theoretically Based Index of Consciousness Independent of Sensory Processing and Behavior",
+        "year": "2013",
+        "journal": "Science Translational Medicine",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1126-scitranslmed-3006294.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1126-scitranslmed-3006294.txt",
+        "has_text": true
+      },
+      "raw": "Casali, A.G., Gosseries, O., Rosanova, M., Boly, M., Sarasso, S., Casali, K.R., Casarotto, S., Bruno, M.-A., Laureys, S., Tononi, G., and Massimini, M. (2013). A theoretically based index of consciousness independent of sensory processing and behavior. Science Translational Medicine, 5(198), 198ra105."
+    },
+    {
+      "cite_key": "timmermann2019",
+      "title": "Neural correlates of the DMT experience assessed with multivariate EEG",
+      "authors": "Timmermann, C., Roseman, L., Schartner, M., Milliere, R., Williams, L.T.J., Erritzoe, D., Muthukumaraswamy, S., Ashton, M., Bendrioua, A., Kaelen, M., Brugger, M., Williams, S., Bolstridge, M., Feilding, A., Nutt, D.J., and Carhart-Harris, R.L.",
+      "year": "2019",
+      "journal": "Scientific Reports",
+      "doi": "10.1038/s41598-019-51974-4",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 716,
+          "context": "unresponsive patients. Psychedelics increase neural signal complexity~timmermann2019,carhart2014"
+        },
+        {
+          "line": 757,
+          "context": "complexity under psychedelic perturbation~timmermann2019,schartner2017 and is associated with"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-s41598-019-51974-4",
+        "title": "Neural correlates of the DMT experience assessed with multivariate EEG",
+        "year": "2019",
+        "journal": "Scientific Reports",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-s41598-019-51974-4.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-s41598-019-51974-4.txt",
+        "has_text": true
+      },
+      "raw": "Timmermann, C., Roseman, L., Schartner, M., Milliere, R., Williams, L.T.J., Erritzoe, D., Muthukumaraswamy, S., Ashton, M., Bendrioua, A., Kaelen, M., Brugger, M., Williams, S., Bolstridge, M., Feilding, A., Nutt, D.J., and Carhart-Harris, R.L. (2019). Neural correlates of the DMT experience assessed with multivariate EEG. Scientific Reports, 9, 16324."
+    },
+    {
+      "cite_key": "carhart2014",
+      "title": "The entropic brain: a theory of conscious states informed by neuroimaging research with psychedelic drugs",
+      "authors": "Carhart-Harris, R.L., Leech, R., Hellyer, P.J., Shanahan, M., Feilding, A., Tagliazucchi, E., Chialvo, D.R., and Nutt, D.",
+      "year": "2014",
+      "journal": "Frontiers in Human Neuroscience",
+      "doi": "10.3389/fnhum.2014.00020",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 560,
+          "context": "hypothesis~carhart2014, which predicts time distortion correlates with entropy"
+        },
+        {
+          "line": 716,
+          "context": "unresponsive patients. Psychedelics increase neural signal complexity~timmermann2019,carhart2014"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-3389-fnhum-2014-00020",
+        "title": "The entropic brain: a theory of conscious states informed by neuroimaging research with psychedelic drugs",
+        "year": "2014",
+        "journal": "Frontiers in Human Neuroscience",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-3389-fnhum-2014-00020.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-3389-fnhum-2014-00020.txt",
+        "has_text": true
+      },
+      "raw": "Carhart-Harris, R.L., Leech, R., Hellyer, P.J., Shanahan, M., Feilding, A., Tagliazucchi, E., Chialvo, D.R., and Nutt, D. (2014). The entropic brain: a theory of conscious states informed by neuroimaging research with psychedelic drugs. Frontiers in Human Neuroscience, 8, 20."
+    },
+    {
+      "cite_key": "carhart2019rebus",
+      "title": "REBUS and the anarchic brain: toward a unified model of the brain action of psychedelics",
+      "authors": "Carhart-Harris, R.L. and Friston, K.J.",
+      "year": "2019",
+      "journal": "Pharmacological Reviews",
+      "doi": "10.1124/pr.118.017160",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 752,
+          "context": "priors~carhart2019rebus, loosening top-down constraints on dynamics normally"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1124-pr-118-017160",
+        "title": "REBUS and the Anarchic Brain: Toward a Unified Model of the Brain Action of Psychedelics",
+        "year": "2019",
+        "journal": "Pharmacological Reviews",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1124-pr-118-017160.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1124-pr-118-017160.txt",
+        "has_text": true
+      },
+      "raw": "Carhart-Harris, R.L. and Friston, K.J. (2019). REBUS and the anarchic brain: toward a unified model of the brain action of psychedelics. Pharmacological Reviews, 71(3), 316--344."
+    },
+    {
+      "cite_key": "schartner2017",
+      "title": "Increased spontaneous MEG signal diversity for psychoactive doses of ketamine, LSD and psilocybin",
+      "authors": "Schartner, M.M., Carhart-Harris, R.L., Barrett, A.B., Seth, A.K., and Muthukumaraswamy, S.D.",
+      "year": "2017",
+      "journal": "Scientific Reports",
+      "doi": "10.1038/srep46421",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 757,
+          "context": "complexity under psychedelic perturbation~timmermann2019,schartner2017 and is associated with"
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1038-srep46421",
+        "title": "Increased spontaneous MEG signal diversity for psychoactive doses of ketamine, LSD and psilocybin",
+        "year": "2017",
+        "journal": "Scientific Reports",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1038-srep46421.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1038-srep46421.txt",
+        "has_text": true
+      },
+      "raw": "Schartner, M.M., Carhart-Harris, R.L., Barrett, A.B., Seth, A.K., and Muthukumaraswamy, S.D. (2017). Increased spontaneous MEG signal diversity for psychoactive doses of ketamine, LSD and psilocybin. Scientific Reports, 7, 46421."
+    },
+    {
+      "cite_key": "buzsaki2004",
+      "title": "Neuronal oscillations in cortical networks",
+      "authors": "Buzs\\'aki, G. and Draguhn, A.",
+      "year": "2004",
+      "journal": "Science",
+      "doi": "10.1126/science.1099745",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 581,
+          "context": "provide low-dimensional scaffolding~buzsaki2004,miller2018,lundqvist2016,pinotsis2023."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1126-science-1099745",
+        "title": "Neuronal Oscillations in Cortical Networks",
+        "year": "2004",
+        "journal": "Science",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1126-science-1099745.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1126-science-1099745.txt",
+        "has_text": true
+      },
+      "raw": "Buzs\\'aki, G. and Draguhn, A. (2004). Neuronal oscillations in cortical networks. Science, 304(5679), 1926--1929."
+    },
+    {
+      "cite_key": "kuroki2025",
+      "title": "Excitation--inhibition balance controls synchronization in a simple model of coupled phase oscillators",
+      "authors": "Kuroki, S. and Mizuseki, K.",
+      "year": "2025",
+      "journal": "Neural Computation",
+      "doi": "10.1162/neco_a_01763",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 849,
+          "context": "Relation to synchronisation theory. The Kuramoto model and its extensions~kuramoto1984, strogatz2000, acebron2005, ott2008 provide a mature theory of synchronisation onset and order-parameter dynamics. Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~kuroki2025. In our interpretation, the coherence time bound is most relevant in partially synchronized regimes where alignment is possible but rare. These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~hengen2025. This paper does not compete with that literature. We address a different question: given that oscillators can synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1162-neco-a-01763",
+        "title": "Excitation–Inhibition Balance Controls Synchronization in a Simple Model of Coupled Phase Oscillators",
+        "year": "2025",
+        "journal": "Neural Computation",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1162-neco-a-01763.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1162-neco-a-01763.txt",
+        "has_text": true
+      },
+      "raw": "Kuroki, S. and Mizuseki, K. (2025). Excitation--inhibition balance controls synchronization in a simple model of coupled phase oscillators. Neural Computation, 37(7), 1353--1372."
+    },
+    {
+      "cite_key": "hengen2025",
+      "title": "Is criticality a unified setpoint of brain function? Neuron, 113(16), 2545--2570.",
+      "authors": "Hengen, K.B. and Shew, W.L.",
+      "year": "2025",
+      "journal": "",
+      "doi": "10.1016/j.neuron.2025.05.020",
+      "url": "",
+      "citation_count": 1,
+      "contexts": [
+        {
+          "line": 849,
+          "context": "Relation to synchronisation theory. The Kuramoto model and its extensions~kuramoto1984, strogatz2000, acebron2005, ott2008 provide a mature theory of synchronisation onset and order-parameter dynamics. Recent work has extended this framework to excitatory-inhibitory architectures, showing that excitation-inhibition balance can move coupled phase-oscillator systems between synchronized, bistable, and desynchronized regimes~kuroki2025. In our interpretation, the coherence time bound is most relevant in partially synchronized regimes where alignment is possible but rare. These regimes also sit naturally alongside recent discussions of criticality as a computational operating point in brain function~hengen2025. This paper does not compete with that literature. We address a different question: given that oscillators can synchronise, how long must a system wait for a coordination event of depth $M$ to occur? The coherence time bound is a waiting-time result on the product manifold, not a bifurcation analysis of the order parameter."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1016-j-neuron-2025-05-020",
+        "title": "Is criticality a unified setpoint of brain function?",
+        "year": "2025",
+        "journal": "Neuron",
+        "source": "unpaywall",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1016-j-neuron-2025-05-020.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1016-j-neuron-2025-05-020.txt",
+        "has_text": true
+      },
+      "raw": "Hengen, K.B. and Shew, W.L. (2025). Is criticality a unified setpoint of brain function? Neuron, 113(16), 2545--2570."
+    },
+    {
+      "cite_key": "wutz2024",
+      "title": "Alpha oscillations create the illusion of time",
+      "authors": "Wutz, A.",
+      "year": "2024",
+      "journal": "Journal of Cognitive Neuroscience",
+      "doi": "10.1162/jocn_a_02029",
+      "url": "",
+      "citation_count": 2,
+      "contexts": [
+        {
+          "line": 494,
+          "context": "Alpha oscillations (8--12 Hz) in visual cortex correlate with temporal acuity: individuals with faster alpha perceive time faster~samaha2015,cecere2015. One interpretation is that alpha acts as a gating rhythm that modulates commit opportunity windows, effectively setting the attempt rate $_attempt$ or the sampling schedule for phase alignment. An alternative framing holds that alpha reflects internally generated ``perception sets''---pre-established processing templates retrieved from stored knowledge networks---rather than bottom-up temporal sampling per se~wutz2024. Crucially, Wutz notes that subjective temporal duration correlates with the amount of information retrievable per perceptual event, and that top-down control can extend receptive integration windows to accommodate richer inputs. In the present framework, this is the coherence time bound at work: a perception set can be interpreted as a high-dimensional internal template (large $M$), and the temporal effects Wutz documents---time dilation under richer processing, compression under impoverished conditions---correspond to the exponential dependence of $_coh$ on coordination depth. The two views are thus complementary: perception sets determine which phase configurations count as alignment events, while the coherence time bound determines how long the assembly must wait for those configurations to recur."
+        },
+        {
+          "line": 496,
+          "context": "Prediction: If alpha frequency modulates commit timing, then entraining alpha via transcranial alternating current stimulation (tACS)~helfrich2014 should shift perceptual binding windows approximately linearly with frequency change. Wutz's perception-set framework predicts the same direction of effect---faster alpha, finer temporal resolution---but attributes the mechanism to template-driven gating rather than passive sampling. A discriminating test is whether tACS shifts binding windows even when the perceptual task is fully exogenous (randomised, non-ambiguous stimuli), where perception-set contributions are minimal~wutz2024."
+        }
+      ],
+      "paperlibrary_status": "have_text",
+      "paperlibrary": {
+        "slug": "10-1162-jocn-a-02029",
+        "title": "Alpha Oscillations Create the Illusion of Time",
+        "year": "2024",
+        "journal": "Journal of Cognitive Neuroscience",
+        "source": "harvest:laptop-audit",
+        "pdf_path": "/Users/iantodd/Projects/PaperLibrary/pdfs/10-1162-jocn-a-02029.pdf",
+        "text_path": "/Users/iantodd/Projects/PaperLibrary/text/10-1162-jocn-a-02029.txt",
+        "has_text": true
+      },
+      "raw": "Wutz, A. (2024). Alpha oscillations create the illusion of time. Journal of Cognitive Neuroscience, 36(4), 712--720."
+    }
+  ]
+}
