@@ -1,0 +1,813 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\hypersetup{pdftitle={Coherence time in biological oscillator assemblies bounds the rate of state registration},
+pdfauthor={Ian Todd},pdfsubject={2026 author edition}}
+\newtheorem{proposition}{Proposition}
+\newcommand{\wrap}{\operatorname{wrap}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\title{Coherence time in biological oscillator assemblies\\
+bounds the rate of state registration}
+\author{Ian Todd\\
+Sydney Medical School, University of Sydney\\
+Sydney, NSW, Australia\\
+\texttt{itod2305@uni.sydney.edu.au}}
+\date{2026 author edition}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The coherence time of a biological oscillator assembly sets the pace at
+which coordinated activity becomes a registered state. This creates a
+speed--flexibility trade-off: independently variable phase relations expand
+the assembly's repertoire while increasing the coordination needed for a
+joint readout. We derive a bound on registration rate from the probability
+of satisfying the readout's requirements together, and express coherence
+time as a first-passage problem in relative-phase space. The resulting
+framework connects neural timing to target accessibility, opportunities
+for alignment and the survival of alignment through readout. Existing
+Kuramoto simulations show a strong fitted relationship in modular networks
+and a weak one in sparse networks, exposing the role of architecture.
+An illustrative neural calculation gives a 39 ms characteristic wait;
+narrowing the phase window raises it to 163 ms. Structured phase dynamics
+between registrations provide a further computational resource: they can
+shape which outcome becomes available at the next readout. The framework
+links the speed of biological processing to the organisation of its
+internal dynamics and yields direct tests through registration survival
+curves, phase perturbations and measures of temporal experience.
+
+\end{abstract}
+
+\noindent\textbf{Keywords:} biological oscillations; coherence time; coordination
+depth; high-dimensional dynamics; state registration; temporal perception
+
+\medskip
+\noindent{\small This author edition accompanies the published article in
+\textit{BioSystems} 263, 105755 (2026).
+The published article remains the
+\href{https://doi.org/10.1016/j.biosystems.2026.105755}
+{version of record} and the article to cite.}
+
+\section{Biological processing has a coordination timescale}
+
+Coherence time bounds how fast a biological oscillator assembly can
+register a new state. When a readout requires joint coordination, the
+assembly must reach a usable configuration and sustain it through the
+readout. Increasing the freedom of its phase relationships expands the
+available repertoire but makes a specified joint configuration harder to
+reach. This speed--flexibility trade-off connects the organisation of
+biological dynamics to the pace of neural processing.
+
+A visual scene recruits populations that respond to different features and
+occupy different cortical areas. Their activity must influence downstream
+circuits at useful times. Oscillatory phase affects when a population is
+excitable and when an arriving signal is effective. This is the biological
+motivation for communication through coherence
+\cite{fries2005,fries2015,womelsdorf2007}. Working memory also involves
+temporally organised bursts and interactions across frequency bands
+\cite{miller2018,lundqvist2016,lisman2013}. A circuit's processing speed
+therefore depends on the timing of relations among populations as well as on
+the speed of its individual components.
+
+We call a state registration a \emph{commit}: a transition that makes a
+distributed configuration available as an output with sufficient persistence
+to affect subsequent activity. Examples include a stable population readout,
+a coordinated volley that crosses a downstream threshold, or entry into a
+state maintained by recurrent activity.
+
+The high-dimensional view of biological intelligence
+\cite{todd2025intelligence} places the accessible repertoire at the centre
+of computation. Here it also explains a timing cost: a readout requiring
+several relationships within restricted ranges selects a small target in
+that repertoire. The geometry of this target and the dynamics of reaching
+it determine the waiting time.
+
+The activity between registrations remains computationally important.
+Structured phase relationships can retain recent inputs, shape
+excitability and bias the next outcome. We develop the registration bound,
+examine its oscillator evidence, and use it to connect continuous internal
+dynamics with biological timing and temporal experience.
+
+\section{From distributed phases to registered states}
+\subsection{The configuration and the target}
+
+Let $M$ be the number of participating modules, each an assembly with a
+meaningful aggregate phase. For module $m$, containing $n_m$ oscillators
+with phases $\theta_j(t)$ at time $t$, define
+\begin{equation}
+ z_m(t)=\frac{1}{n_m}\sum_{j\in m}e^{i\theta_j(t)}
+       =r_m(t)e^{i\psi_m(t)}.
+ \label{eq:module}
+\end{equation}
+Here $i$ is the imaginary unit, $r_m$ is within-module coherence between
+zero and one, and $\psi_m$ is the aggregate phase. A phase estimate becomes
+unreliable when $r_m$ is too small. Module selection and the minimum
+acceptable coherence must therefore precede analysis of inter-module
+alignment.
+
+For internally coherent modules, the inter-module order parameter is
+\begin{equation}
+ z_{\rm inter}(t)=\frac{1}{M}\sum_{m=1}^{M}e^{i\psi_m(t)}
+                =r_{\rm inter}(t)e^{i\bar\psi(t)}.
+ \label{eq:inter}
+\end{equation}
+Its magnitude $r_{\rm inter}$ measures instantaneous phase concentration;
+$\bar\psi$ is the circular mean phase. It differs from the order parameter
+computed by pooling all individual oscillators.
+
+Choose a within-module threshold $r_{\rm thr}$, a full phase tolerance
+$\varepsilon$ in radians, and a dwell duration $D$ in seconds. The
+alignment target $A_\varepsilon$ consists of configurations for which every
+$r_m\geq r_{\rm thr}$ and
+\begin{equation}
+ \max_m |\wrap(\psi_m-\bar\psi)|\leq\varepsilon/2.
+ \label{eq:target}
+\end{equation}
+The function $\wrap$ maps a phase difference into $(-\pi,\pi]$.
+Configurations with undefined circular mean are outside the target.
+A qualifying episode starts at a time $t$ for which the target condition
+holds throughout $[t,t+D]$; registration is completed at $t+D$.
+Repeated samples during the same episode count once. A new event requires
+departure and rearming, or a separately specified reset.
+
+For biological registration, the target and dwell must be linked to the
+receiving circuit's response. Preferred nonzero phase lags and
+cross-frequency relationships define alternative targets. The
+maximum-deviation criterion checks every module; high inter-module
+coherence alone can conceal an outlier.
+
+The phase configuration lives on a product of circles. Removing the
+common phase leaves $M-1$ relative-phase coordinates. This quotient
+geometry supplies $M-1$ coordinates; the dynamics determine their
+statistical dependence. For a smooth,
+positive density near complete alignment, a sufficiently small target
+has probability proportional to $\varepsilon^{M-1}$ at fixed $M$.
+Confinement to a lower-dimensional support can change that exponent.
+Preferred offsets, target geometry and inaccessible regions can change
+the result further.
+
+\subsection{A rate bound from necessary coordination}
+\label{sec:rate}
+
+To connect geometry to time, an \emph{attempt} must represent a distinct
+opportunity for registration. Its definition includes which state starts
+the opportunity and when another opportunity becomes available. It may
+be a reset cycle, an independently gated sample, or a separated episode
+of exploration. The attempt rate counts physical opportunities
+independently of the recording frequency.
+
+Suppose an attempt requires $k$ coordination conditions. Let $p_j$ be an
+upper bound on the probability of condition $j$ being satisfied,
+conditional on the earlier conditions and on the relevant attempt
+history. The chain rule gives a bound on joint alignment,
+$p_A\leq\prod_{j=1}^{k}p_j$, where $p_A$ denotes alignment probability
+at an attempt. Let $q$ bound the conditional probability that the
+alignment lasts for $D$ and meets any remaining registration requirement.
+If attempts occur at asymptotic mean rate $\lambda_a$ per second, then
+\begin{equation}
+ \boxed{\quad
+ \Gamma_{\rm reg}\leq\lambda_a q\prod_{j=1}^{k}p_j
+ \leq\lambda_a q\,\bar p^{\,k},\qquad p_j\leq\bar p<1 .
+ \quad}
+ \label{eq:bound}
+\end{equation}
+Here $\Gamma_{\rm reg}$ is the long-run mean registration rate, and
+$\bar p$ is a common upper bound on conditional success. The bound
+assumes at most one counted registration per attempt and finite mean
+attempt rate. Summing the conditional expected successes over attempts
+establishes it even for dependent attempts. The probability bounds apply
+uniformly over the histories being counted.
+
+Equation~\ref{eq:bound} expresses the core coordination constraint.
+Adding requirements whose conditional chances remain below one makes
+successful registration exponentially scarce. Coupling can make a later
+condition almost certain once earlier ones are met; directed control can
+steer the state towards the target; hierarchy can replace one large
+joint requirement with several smaller ones. These mechanisms reduce the
+coordination cost. The number of acceptable outputs also
+matters: registration into any of many targets can be faster than entry
+into one specified target. Comparisons across $M$ hold the
+readout task and its allowed outcomes comparable.
+
+For an explicit waiting-time model, assume that eligible attempts have
+alignment probability $p_A$ and persistence probability
+$q=\Prob(\text{persistence for }D\mid\text{alignment at an attempt})$.
+Eligibility here includes the within-module coherence requirement; its
+availability is part of the attempt process.
+
+\begin{proposition}[Independent attempt model]
+Suppose complete attempts occupy equal intervals of duration $\Delta$,
+including any required dwell and reset, and have independent success
+probability $s=p_Aq>0$. Starting immediately before a new attempt, the time
+$T$ to the first completed success satisfies
+\begin{equation}
+ \Prob(T>n\Delta)=(1-s)^n,\qquad
+ \E T=\frac{\Delta}{s},\qquad n=0,1,2,\ldots.
+ \label{eq:geometric}
+\end{equation}
+\end{proposition}
+\noindent
+The number of attempts is geometric: the first $n$ must all fail for the
+wait to exceed $n\Delta$. Summing this survival probability proves the
+mean. With $\lambda_a=1/\Delta$, the mean is
+$(\lambda_a p_Aq)^{-1}$. The same mean follows for independent,
+identically distributed complete renewal cycles with finite mean
+duration $\Delta$, even when duration and success within a cycle are
+associated; the survival law then need not be geometric.
+
+For rare successes with weak dependence between opportunity clusters,
+a constant-hazard approximation gives, with conditional success rate
+$h$ per second,
+\begin{equation}
+ S(t)=\Prob(T>t)\simeq e^{-ht},\qquad
+ \tau_{\rm coh}=h^{-1},\qquad
+ t_u=-\frac{\log(1-u)}{h}.
+ \label{eq:survival}
+\end{equation}
+Here $\tau_{\rm coh}$ is the characteristic mean waiting time and $t_u$
+is the time by which a fraction $u$ of events has occurred. The median
+is $\tau_{\rm coh}\log 2$ and the 95th percentile is approximately
+$3\tau_{\rm coh}$. Short waits retain nonzero probability: the mean
+is not a hard minimum. The positive dwell supplies a minimum time from eligible
+alignment onset to completed readout. Where the model describes the
+start of a successful episode, that dwell must be added to its timestamp.
+
+\subsection{Dependence, entry and persistence}
+
+Coherence time is a target-specific waiting time. Stationary occupancy
+combines entry frequency and residence duration: rare, long visits and
+frequent, short visits can produce the same occupancy. Full-process
+mixing also measures something different. A slowly relaxing variable
+unrelated to the target can lengthen mixing while leaving entry unchanged.
+Recurrence identities for stationary discrete processes \cite{kac1947}
+apply to their specified recurrence experiment; continuous-time first
+entrance requires its own initial state and entry dynamics.
+
+Measure $\lambda_a$ for the target and opportunity definition in use.
+An inverse autocorrelation time of $r_{\rm inter}$ provides a proxy after
+calibration against actual opportunities, including their clustering.
+Its scalar summary discards phase directions. Angular frequency spread
+and carrier frequency supply further timescales; neither is generally
+equal to the target's attempt rate.
+
+One empirical alternative is to count separated entries into the target
+and measure the fraction that survive the dwell. If $\nu_A$ is the
+long-run entry rate and $q_{\rm ent}$ the entry-conditioned survival
+fraction, then $\nu_Aq_{\rm ent}$ is the rate of qualifying episodes,
+subject to the rearming rule. The first-passage distribution additionally
+depends on preparation: arrival from an experimental reset, recurrence
+after a commit and forward waiting from a randomly chosen time have
+different initial conditions and need not be exponential.
+
+Persistence can contribute as much to scaling as entry. For example,
+if each of $M$ aligned modules independently exits at rate $\beta$,
+then
+\begin{equation}
+ q(M,D)=e^{-M\beta D}.
+ \label{eq:dwell}
+\end{equation}
+The exit rate $\beta$ has units of inverse seconds. In this example
+$-\log q=M\beta D$, so dwell adds a term growing linearly with $M$
+to the logarithm of the mean wait. Use a constant persistence factor
+over a range where measured survival remains approximately constant.
+
+For a deterministic covariate schedule, or an exogenous one conditional
+on its path, the survival expression is
+$S(t\mid\mathcal H)=\exp[-\int_0^t h(v\mid\mathcal H)\,dv]$, where
+$\mathcal H$ denotes that history and $v$ is elapsed time. Pooling
+heterogeneous histories can broaden the waiting distribution. Binning
+events by coherence measured at success selects unusually aligned
+states; estimate pre-event hazards from the full risk set. Endogenous
+phase histories require a joint model of state and event dynamics. Correlated
+attempts, metastability and slow modulation should be compared using
+the full survival data, including trials with no observed registration.
+
+\section{Alignment probability and high-dimensional flexibility}
+\subsection{A tractable phase-distribution model}
+
+For a single relative-phase coordinate $\phi$, a useful closure is the
+von Mises density
+\begin{equation}
+ f_\kappa(\phi)=\frac{e^{\kappa\cos\phi}}{2\pi I_0(\kappa)},\qquad
+ p_1(\varepsilon,\kappa)=
+ \int_{-\varepsilon/2}^{\varepsilon/2}f_\kappa(\phi)\,d\phi.
+ \label{eq:mises}
+\end{equation}
+The concentration $\kappa\geq0$ controls the spread around zero;
+$I_0$ and $I_1$ are modified Bessel functions of the first kind.
+For this distribution, its population mean resultant length $r$
+satisfies $r=I_1(\kappa)/I_0(\kappa)$ \cite{mardia2000}. The von
+Mises density maximises entropy given the first circular moment.
+For the closure, use the resultant length of the specified relative-phase
+distribution. Instantaneous $r_{\rm inter}$ and its trajectory average are
+different statistics. Substituting trajectory-average coherence for $r$
+requires a distributional check using all relevant trajectories.
+
+For $M-1$ independent anchored relative phases, each with density
+$f_\kappa$, the rectangular alignment target has exact probability
+$p_A=p_1^{M-1}$. The mean-centred target in
+Eq.~\ref{eq:target} has a different shape and dependent deviations.
+Its finite-window probability needs a geometry factor that can vary
+with $M$, even where the local exponent is $M-1$.
+
+For a declared range of tolerances and network conditions, consider
+the empirical approximation
+\begin{equation}
+ p_A\simeq C_M p_1^{d},\qquad
+ d=\alpha(M-1),\qquad
+ \tau_{\rm coh}\simeq
+ \frac{p_1^{-\alpha(M-1)}}{\lambda_a C_M q}.
+ \label{eq:closure}
+\end{equation}
+The factor $C_M$ accounts for target geometry and residual distributional
+effects; $d$ is a fitted probability exponent and $\alpha$ its value
+per relative-phase coordinate. Require the resulting probability to lie
+between zero and one. The range $0<\alpha\leq1$ describes dependencies
+that facilitate joint success relative to the product reference; general
+dependencies allow other exponents. Estimate $C_M$ across module counts.
+The empirical closure and the history-uniform bounds in
+Eq.~\ref{eq:bound} have separate evidential requirements.
+
+At fixed $\kappa$ and small $\varepsilon$,
+$p_1\simeq\varepsilon e^\kappa/(2\pi I_0(\kappa))$. Thus a constant
+$d$ gives an inverse-power dependence on tolerance. Across $M$, the
+logarithmic form is
+\begin{equation}
+ \log\tau_{\rm coh}\simeq
+ -\log(\lambda_a C_Mq)
+ +\alpha(M-1)[-\log p_1].
+ \label{eq:log}
+\end{equation}
+An exponential dependence on module count is predicted when
+$\alpha$ and $p_1$ stay approximately fixed and the remaining factors
+do not compensate exponentially.
+
+\subsection{Dimension depends on the question and the scale}
+
+The directly relevant local dimension of the target probability is
+the tolerance slope
+\begin{equation}
+ d_A(\varepsilon)=\frac{d\log p_A(\varepsilon)}
+                       {d\log\varepsilon}.
+ \label{eq:targetdim}
+\end{equation}
+This quantity measures how rapidly acceptable configurations become
+scarcer as the required precision increases, holding the preparation
+and attempt rule fixed. At finite tolerance it can vary with
+$\varepsilon$. It agrees with $d$ in Eq.~\ref{eq:closure} only where
+the closure, its constant factors and its small-window approximation
+are adequate. The geometry of the support controls the asymptotic
+exponent when a regular local density exists.
+
+Covariance gives another useful view. For a specified real coordinate
+representation of the relative phases, let $C$ be its covariance and
+$\lambda_\ell$ its nonnegative eigenvalues. The participation ratio is
+\begin{equation}
+ D_{\rm PR}=\frac{(\operatorname{tr} C)^2}
+                  {\operatorname{tr}(C^2)}
+            =\frac{(\sum_\ell\lambda_\ell)^2}
+                   {\sum_\ell\lambda_\ell^2}.
+ \label{eq:pr}
+\end{equation}
+It measures how widely variance is distributed among modes and lies
+between one and the covariance rank when variance is nonzero.
+This summarises the distribution of neural activity across modes
+\cite{cunningham2014,stringer2019}.
+
+For a nonsingular Gaussian in $k$ dimensions, a sufficiently small ball
+centred at a point of positive density has probability proportional to
+its radius to the power $k$, however unequal the covariance
+eigenvalues. Anisotropy changes its coefficient and the scales over
+which directions become resolvable. Participation ratio consequently
+neither supplies nor generally bounds the target exponent.
+It can be tested as an empirical predictor of $d_A$ over a stated
+tolerance range. Noise can increase participation ratio as well as
+structured activity.
+
+For circular data, report the representation and scale: $M-1$ anchored
+phase differences, a local unwrapped chart, or a sine--cosine embedding. Wrapped deviations
+from the circular mean do not generally sum to zero as real numbers.
+Determine covariance rank from the chosen coordinates.
+
+\subsection{The speed--flexibility trade-off}
+
+The model gives a physical reason for local fast processing and slower
+distributed integration to coexist. If each additional independent
+phase relation can occupy several distinguishable ranges, adding
+relations expands the available configuration repertoire. Requiring
+one particular combination makes joint success less likely. The same
+freedom that permits more possible combinations can therefore delay
+a particular registration.
+
+Within the von Mises closure, increasing concentration raises
+$p_1$ and speeds alignment at fixed attempt rate, dwell and target.
+Tight phase locking also suppresses variation in relative phases.
+At finite noise, concentration can reduce the accessible repertoire
+at the readout's resolution without changing the mathematical rank
+of the support. Amplitude variation, within-module dynamics and
+cross-frequency relations can remain rich. High coherence is thus
+compatible with substantial dynamical complexity outside the
+particular phase coordinates constrained by the readout.
+
+Architecture controls this trade-off. Coupling changes the attempt
+process, persistence and target accessibility as well as concentration.
+Hierarchical organisation preserves local degrees of freedom while
+reducing the number that must coordinate simultaneously. It therefore
+provides a route to flexible processing with fast readout.
+
+\section{Oscillator evidence for the coordination cost}
+\subsection{Networks, detection and fitted scaling}
+
+The existing numerical study uses noisy Kuramoto oscillators
+\cite{kuramoto1984,acebron2005}. With $\omega_i$ the natural angular
+frequency of oscillator $i$, $K_{ij}$ its coupling weights and
+$\sigma$ the noise amplitude, the dynamics have the form
+\begin{equation}
+ d\theta_i=\left[\omega_i+
+       \sum_j K_{ij}\sin(\theta_j-\theta_i)\right]dt
+       +\sigma\,dW_i .
+ \label{eq:kuramoto}
+\end{equation}
+The $W_i$ are independent standard Wiener processes. Coupling
+normalisation is included in $K_{ij}$. The saved comparison uses
+$N=100$ oscillators, module counts $M=3,\ldots,10$, 20 trials per
+count, a 60 s observation horizon and a 5 ms integration step.
+The natural-frequency standard deviation is 0.3 rad s$^{-1}$ and
+the numerical noise amplitude is 0.1 rad s$^{-1/2}$.
+All three constructions use overall coupling 0.7 s$^{-1}$ after
+row normalisation. Before normalisation, modular within-module
+edges have weight 1.0 and between-module edges weight 0.08.
+The sparse connection probability is 0.03.
+
+The detector requires every within-module coherence to exceed 0.6
+and every module phase to lie within 0.5 radians of the circular
+mean, giving full tolerance $\varepsilon=1.0$ rad. It requires six
+consecutive qualifying samples, implementing a nominal 30 ms dwell
+at the 5 ms step. The saved event time is the start of that run.
+These are therefore waiting times to successful alignment onsets
+from random initial phases. Completed readout includes the dwell;
+stationary intervals require repeated events. The detector verifies
+persistence at the sampled integration points.
+
+Initial phases and natural frequencies are drawn afresh across trials;
+sparse adjacency matrices are also redrawn. Event detection starts immediately;
+trajectory-average coherence excludes the first quarter of each
+trajectory. Non-hits are right-censored at 60 s. The fits use finite
+Kaplan--Meier medians, so not every module count contributes.
+Table~\ref{tab:topology} reports the saved fit summaries.
+
+\begin{table}[tb]
+\centering
+\caption{Existing topology comparison. $n$ is the number of module-count
+points with usable medians in the regression; each count has 20 trials.
+$R^2$ describes the fitted logarithmic response, not held-out
+survival prediction. The all-to-all exponent comes from a different,
+linearised predictor and is not directly comparable to the other two.}
+\label{tab:topology}
+\begin{tabular}{llrrr}
+\toprule
+Topology & Predictor & $\hat\alpha$ & $R^2$ & $n$\\
+\midrule
+Modular & Exact $p_1$ closure & 0.989 & 0.975 & 5\\
+All-to-all & Linearised surrogate & 1.137 & 0.779 & 8\\
+Sparse random & Exact $p_1$ closure & 0.121 & 0.279 & 4\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For the exact-$p_1$ regressions, the predictor is
+$(M-1)[-\log p_1(\varepsilon,\kappa(\bar r_{\rm inter}))]$,
+where $\bar r_{\rm inter}$ is trajectory-average coherence pooled
+over all trials. The response is the logarithm of the product of the median
+waiting time and the autocorrelation-based attempt proxy.
+An intercept is fitted. For all-to-all coupling, the mean window
+probability is about 0.998, leaving little variation in the exact
+predictor; the reported surrogate instead uses
+$(1-\bar r_{\rm inter})(M-1)\log(2\pi/\varepsilon)$.
+
+The modular network shows a strong fitted coordination cost
+($R^2=0.975$). The sparse network's weak fit ($R^2=0.279$) exposes the
+importance of architecture. All-to-all coupling explores a
+near-synchronised regime in which alignment is readily accessible.
+Together, these results place partially coordinated modular dynamics at
+the centre of the present empirical case.
+
+The saved fits use an attempt proxy averaged over hit trials and finite
+medians from the less censored conditions. These selections can affect
+the slope. The free intercept combines the mean--median conversion,
+target geometry and persistence. Independent estimates of those factors
+would turn the fitted relationship into a survival prediction.
+
+At fixed total $N$, increasing $M$ also reduces module size, bringing
+finite-size fluctuations and effective coupling into the comparison.
+The accepted study reports within-module mean coherence between 0.66 and
+0.74 without a declining trend, and less than 5\% change in median waits
+on halving or doubling the nominal dwell. These results demonstrate
+robustness over the tested range; varying module count at fixed module
+size would isolate the effect of coordination depth.
+
+The existing exponentiality diagnostic groups observed hits by
+trajectory-average coherence. Its small groups describe the observed
+subset. The next test uses the full censored survival curves and predicts
+outcomes from a stated initialisation.
+
+\subsection{An illustrative neural timescale}
+
+Neural timing studies place perceptual integration on a scale of tens of
+milliseconds \cite{samaha2015,cecere2015,vanrullen2016}. The phase model
+reaches this scale with a compact illustrative parameter set. Behavioural
+thresholds additionally include stimulus processing, decision requirements
+and readout persistence.
+
+Consider the reduced closure with $C_Mq=1$, $M=8$,
+$\alpha=0.7$, $r=0.75$, full tolerance $\varepsilon=\pi/2$ and
+attempt proxy $\lambda_a=126$ s$^{-1}$. These values define a scenario
+rather than an independently measured human assembly. Inverting the
+Bessel-function ratio and integrating Eq.~\ref{eq:mises} gives
+
+\begin{equation}
+ \kappa=2.369301,\qquad p_1=0.723078,\qquad
+ \tau_{\rm coh}=\frac{p_1^{-4.9}}{126}
+              =0.038871\ {\rm s}.
+ \label{eq:example}
+\end{equation}
+The product approximation produces a characteristic wait of 39 ms.
+Its alignment probability is about 0.204, outside a deep rare-event
+regime, so an exponential survival law needs testing. This neural
+scenario is separate from the seconds-scale numerical network sweep.
+
+\begin{table}[tb]
+\centering
+\caption{Sensitivity of the illustrative closure. All rows use
+$\alpha=0.7$ and $C_Mq=1$. Probabilities use numerical inversion and
+quadrature, without a small-window approximation. The entries are
+characteristic waiting times; any additional readout delay is separate.}
+\label{tab:sensitivity}
+\begin{tabular}{lrrrrr}
+\toprule
+Scenario & $M$ & $r$ & $\varepsilon$ &
+$\lambda_a$ (s$^{-1}$) & $\tau_{\rm coh}$ (ms)\\
+\midrule
+Base & 8 & 0.75 & $\pi/2$ & 126 & 39\\
+Fewer modules & 6 & 0.75 & $\pi/2$ & 126 & 25\\
+More modules & 10 & 0.75 & $\pi/2$ & 126 & 61\\
+Lower concentration & 8 & 0.65 & $\pi/2$ & 126 & 75\\
+Higher concentration & 8 & 0.85 & $\pi/2$ & 126 & 19\\
+Narrower window & 8 & 0.75 & $\pi/3$ & 126 & 163\\
+Faster attempts & 8 & 0.75 & $\pi/2$ & 189 & 26\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Narrowing the window to $\pi/3$ gives $p_1=0.539752$ and
+$\tau_{\rm coh}=162.883$ ms. Joint variation is broader still:
+at fixed $\alpha=0.7$ and $\varepsilon=\pi/2$, the combinations
+$(M,r,\lambda_a)=(6,0.85,189)$ and $(10,0.65,63)$ give 9.768
+and 282.686 ms, respectively. These scenario endpoints show how
+architecture and coordination shift the timescale; confidence limits
+require a joint uncertainty analysis. Measuring the attempt process,
+target geometry and dwell survival converts this calculation into a
+prediction for a particular assembly.
+
+\section{Predicting registration from architecture}
+
+The central experimental prediction links architecture, precision and
+timing. Estimate the coordination model on one dataset and predict the
+survival curve on another. A single behavioural waiting time leaves
+$\lambda_a$, $C_M$, $q$ and $\alpha$ underdetermined.
+
+Specify the biological output and detector: module membership, frequency
+bands, within-module threshold, phase tolerance, dwell and rearming.
+Calibrate these against the receiving circuit's response in separate data.
+A cross-correlogram half-width can inform a tolerance: temporal half-width
+$w$ at angular frequency $\omega_0$ corresponds to full phase width
+$2\omega_0 w$. The receiving circuit determines which width matters.
+Control volume conduction and shared inputs when measuring coordination.
+
+Estimate alignment probabilities across tolerances using eligible
+opportunities from all trials. Measure target-entry rate, persistence and
+temporal clustering separately, and test the attempt proxy across
+conditions. Measure participation ratio and target exponent independently;
+train any mapping between them before predicting the behavioural window.
+
+Predict the held-out survival curve, including non-hits. Retain censored
+trials in the likelihood and compare constant-hazard, renewal and
+state-dependent-hazard models under the experimental initial state.
+Propagate joint uncertainty in module selection, distribution parameters,
+attempt rate and persistence, preserving their covariance.
+
+Varying $M$ at approximately fixed module size and within-module
+organisation isolates the coordination cost. Varying tolerance at fixed
+opportunity process isolates the precision cost. Both manipulations predict
+slower registration as the joint requirement becomes harder to satisfy.
+Successful survival prediction across architectures would establish the
+explanatory reach of the framework; systematic failure after independent
+parameter measurement would count against it.
+
+\section{Physical limits and the cost of a readable outcome}
+
+Coordination places a macroscopic timing constraint on assemblies whose
+individual components operate much faster. An event's latency must also
+exceed every necessary physical stage: sequential stages add, while
+concurrent stages overlap.
+
+For an isolated quantum system evolving to an orthogonal state
+under a time-independent Hamiltonian, the Mandelstam--Tamm and
+Margolus--Levitin bounds take the form
+\begin{equation}
+ \tau_\perp\geq
+ \max\left(\frac{\pi\hbar}{2\Delta E},
+           \frac{\pi\hbar}{2(\langle E\rangle-E_0)}\right).
+ \label{eq:qsl}
+\end{equation}
+Here $\hbar$ is the reduced Planck constant, $\Delta E$ the energy
+standard deviation, $\langle E\rangle$ the mean energy and $E_0$
+the ground-state energy \cite{mandelstam1945,margolus1998}.
+Choosing both energy scales near $k_{\rm B}T_b$, with Boltzmann
+constant $k_{\rm B}$ and temperature $T_b=310$ K, gives roughly
+$4\times10^{-14}$ s. This illustrative microscopic floor lies far below
+millisecond coordination. A neural assembly's open-system speed limit
+instead depends on its energy distribution and interaction with its
+environment.
+
+Noise sets a further integration timescale. Detecting a weak signal takes
+time even when populations already align; the signal model, noise
+spectrum and decision criterion determine that delay.
+
+If each completed operation dissipates mean energy $E_{\rm reg}$ and
+available sustained power is $P$, then
+$\Gamma_{\rm reg}E_{\rm reg}\leq P$. For a memory reset to a standard
+state, erasing $b$ unbiased independent bits in the usual isothermal
+setting dissipates at least $b k_{\rm B}T_b\ln2$
+\cite{landauer1961}. The memory states, their probabilities and the reset
+operation specify this cost. Participation-ratio changes and phase
+threshold crossings do not identify erased bits.
+
+A low-dimensional readout can leave the underlying high-dimensional
+state active or transfer information elsewhere. Measure the physical
+readout and reset costs alongside coordination and noise to identify the
+assembly's rate-limiting step.
+
+\section{Computation between registrations}
+\subsection{Structured phase offsets}
+
+The interval before registration is a computational resource. Coupled
+assemblies can maintain preferred relative phases that encode recent
+inputs, shape excitability and alter which target is reached next. We
+propose \emph{phase-delta dynamics} as the mechanism: structured
+relative-phase evolution outside the registration target that influences
+future outputs.
+
+For modules $m$ and $n$, their phase offset is
+$\Delta\psi_{mn}(t)=\wrap(\psi_m(t)-\psi_n(t))$.
+A computational phase pattern carries information about future outcomes
+beyond shared inputs, current amplitude and other measured state
+variables, and causally influences those outcomes. Persistently locked
+nonzero offsets can produce low global coherence with little exploration;
+the evolving offset structure supplies the relevant evidence.
+
+Different configurations can share the same global coherence
+yet favour different outcomes. This allows a concrete test:
+perturb the offset structure while matching the measured
+alignment opportunity rate, dwell survival and relevant
+amplitude statistics as closely as possible. A change in
+outcome accuracy or identity beyond that explained by altered
+registration timing would support a computational role for
+the pre-registration configuration. Holding mean coherence
+fixed alone is insufficient, because the target probability
+can still change.
+
+This view extends communication through coherence \cite{fries2005,fries2015}.
+The relation to a receiver governs when a population communicates; the
+path through phase space also shapes what becomes available at readout.
+Continuous computation and communication along that path prepare the
+registered outcome.
+
+\subsection{Physical substrates and spatial extent}
+
+Phase describes physical activity sustained by synaptic interaction,
+subthreshold membrane dynamics and dendritic integration. Extracellular
+fields offer a further route to continuous coordination: ephaptic effects
+influence cortical neurons and cerebellar spike timing
+\cite{anastassiou2011,han2018}. Field-mediated organisation has also been
+proposed at broader scales \cite{pinotsis2023}. Comparing field,
+synaptic and common-input contributions connects the phase description
+to its biological machinery.
+
+A spatially extended narrowband signal can project many interacting modes
+onto a simple waveform. A large population moving in lockstep, by
+contrast, has few independent relative-phase directions. Measuring spatial
+coverage, covariance structure and target probability together distinguishes
+these organisations.
+
+Under a constant-hazard model, the probability of at least one
+registration within a cycle of frequency $f$ is $1-e^{-h/f}$.
+To achieve reliability $u$ per cycle requires $h\geq-f\log(1-u)$.
+At fixed attempt rate and with a readout required every cycle, faster
+rhythms demand a more accessible target or more persistent alignment.
+This timing constraint ties frequency to the coordination task; frequency
+alone supplies no universal ordering of alpha and gamma dimensionality.
+
+\subsection{Temporal experience and dynamics between registrations}
+
+The framework separates the pace of registered outcomes from the richness
+of the dynamics between them. This distinction offers a physical route
+to understanding why temporal resolution, experienced duration and
+retrospective duration judgements differ.
+
+Alpha frequency has been associated with two-flash discrimination and
+crossmodal temporal integration \cite{samaha2015,cecere2015}.
+For a rhythm that gates opportunities with $\lambda_a$ proportional to
+frequency and fixed $p_Aq$, the prediction is $\tau_{\rm coh}\propto1/f$.
+A 20\% frequency increase then reduces the characteristic wait by about
+16.7\%. Entrainment studies \cite{helfrich2014} provide an experimental
+route: measure concentration, persistence and decision criteria alongside
+frequency to distinguish their contributions.
+
+We propose that experienced time depends partly on structured dynamics
+between registrations. Richer exploration makes more relationships
+available within each interval, even at an unchanged registration rate.
+This predicts that structured dynamical richness contributes to prospective
+duration judgements after accounting for registration timing, attention
+and memory formation.
+
+Stress exposes the distinction between duration and resolution. In a
+free-fall experiment, participants retrospectively judged a frightening
+event as longer without improved temporal resolution \cite{stetson2007}.
+Denser memory encoding explains this dissociation. A coordination account
+predicts an additional contribution only when stress changes the relevant
+architecture or waiting distribution; measuring those changes separates
+the mechanisms across perceptual and motor pathways.
+
+Pharmacological perturbations provide another test. Increased signal
+diversity under psychedelic drugs \cite{schartner2017,timmermann2019}
+and the entropic-brain and REBUS accounts \cite{carhart2014,carhart2019rebus}
+connect altered neural organisation with altered experience. The present
+proposal predicts that time dilation tracks reproducible, structured
+variation beyond any change in registration rate. Compare prospective
+duration judgements with retrospective reports while measuring both
+variables. This distinguishes computational richness from unstructured
+noise, which also raises signal diversity and participation ratio.
+
+\section{Biological implications}
+
+Coherence time links the speed of biological processing to the freedom of
+its internal dynamics. For functional events requiring simultaneous
+conditions in an identifiable state space, the same coordination argument
+extends beyond neural oscillators. Spatial, mechanical and biochemical
+constraints define their own targets and entry processes. This provides a
+common way to investigate timing in distributed biological assemblies.
+
+Architecture offers a way to manage the cost. Local handshakes, directed
+coordination and hierarchical readouts reduce the number of requirements
+that must be satisfied together. These principles apply to engineered
+systems as well: an asynchronous design pays for rare joint requirements,
+while a global clock supplies a shared timing structure. The organisation
+of the readout determines how much coordination each output demands.
+
+\paragraph{Scope and open questions.}
+The main empirical task is to predict registration survival across
+architectures from independently measured entry and persistence dynamics.
+The phase-delta and temporal-experience proposals add causal questions:
+which offset structures change the registered outcome, and which aspects
+of the intervening dynamics change experienced duration? The perturbation
+and timing experiments above make these questions testable.
+
+The speed--flexibility trade-off gives coherence time its biological
+significance. Independent phase relationships expand the repertoire;
+joint readout places a timing cost on accessing that repertoire.
+Coupling, targeting and hierarchy control the balance. Biological
+assemblies can therefore sustain rich internal dynamics while their
+coordination architecture sets the pace at which those dynamics become
+usable new states.
+
+\section*{Data and code}
+The accompanying accepted source and existing simulation
+code are retained alongside this edition. The calculations
+in Table~\ref{tab:sensitivity} use Eq.~\ref{eq:mises} and
+Eq.~\ref{eq:closure}. The topology summaries use the saved
+validation outputs; no new network simulations are reported.
+The project repository is
+\url{https://github.com/todd866/coherence-time-biosystems}.
+
+\section*{Declarations}
+No external funding supported this work. The author has
+pending intellectual property related to this work.
+The author thanks Abir Igamberdiev and the anonymous
+\textit{BioSystems} reviewers for their feedback on the
+published article.
+
+This edition was rewritten with AI assistance (Claude, Codex)
+for drafting, mathematical checking and critical review;
+the author takes responsibility for the content.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+\end{document}

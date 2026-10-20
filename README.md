@@ -1,5 +1,7 @@
 # Coherence Time in Biological Oscillator Assemblies Bounds the Rate of State Registration
 
+**2026 edition:** a rewrite of this paper as I would write it today, with AI-assisted checking. See [`2026-edition/`](2026-edition/) ([PDF](2026-edition/coherence_time_2026.pdf)). The published article remains the version of record.
+
 **Distributed biological computation is bottlenecked by the waiting time for oscillator modules to simultaneously align.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
